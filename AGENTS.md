@@ -7,7 +7,9 @@
 - Fertig = kurzer Report: Dateien, ausgeführte Befehle + Ergebnis, Risiken. Keine erfundenen Testergebnisse.
 
 ## Stack (tatsächlich — davon nicht abweichen)
-- Java 25, Spring Boot 3.5, Apache Jena 4.10, Maven. Windows/PowerShell. Kein Git-Repo.
+- Java 25, Spring Boot 3.5, Apache Jena 4.10, Maven. Windows/PowerShell.
+- Git-Repo: `https://github.com/mkoenigRUB/Construct-X-Converters` (Remote `origin`, Branch `main`).
+  Windows-Pfad ist tief → `core.longpaths=true` gesetzt. Push via `gh`-Token (Windows Credential Manager).
 - Frontends: Vanilla-JS, statisches HTML/CSS, nginx — kein Build-Schritt.
 - Betrieb: Docker Compose (`converter-compose.yml`, `rdf-converter-compose.yml`).
 - `docs/ARCHITECTURE.md` (Next.js/TS/Postgres) ist veraltet — diese Datei gilt.
