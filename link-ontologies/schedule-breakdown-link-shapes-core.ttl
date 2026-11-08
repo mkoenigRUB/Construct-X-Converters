@@ -1,0 +1,33 @@
+@prefix conx-bs: <https://www.construct-x.org/ontology/breakdown-structure#> .
+@prefix conx-cs: <https://www.construct-x.org/ontology/construction-schedule#> .
+@prefix conx-sbl: <https://www.construct-x.org/ontology/schedule-breakdown-link#> .
+@prefix conx-sbl-sh: <https://www.construct-x.org/shapes/schedule-breakdown-link#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<https://www.construct-x.org/shapes/schedule-breakdown-link/core>
+    a owl:Ontology ;
+    owl:versionIRI <https://www.construct-x.org/shapes/schedule-breakdown-link/core/0.6.0> ;
+    owl:versionInfo "0.6.0" ;
+    owl:imports
+        <https://www.construct-x.org/ontology/construction-schedule/0.5.0> ,
+        <https://www.construct-x.org/ontology/breakdown-structure/0.7.0> ,
+        <https://www.construct-x.org/ontology/schedule-breakdown-link/0.6.0> ;
+    dcterms:title "Construct-X Schedule–Breakdown Link Core SHACL Profile"@en .
+
+conx-sbl-sh:ConstructionScheduleBreakdownLinkShape
+    a sh:NodeShape ;
+    sh:targetClass conx-cs:ConstructionSchedule ;
+    sh:property [ sh:path conx-sbl:usesWorkBreakdownStructure ; sh:class conx-bs:WorkBreakdownStructure ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-sbl:usesLocationBreakdownStructure ; sh:class conx-bs:LocationBreakdownStructure ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-sbl:usesSystemBreakdownStructure ; sh:class conx-bs:SystemBreakdownStructure ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-sbl:usesCostBreakdownStructure ; sh:class conx-bs:CostBreakdownStructure ; sh:maxCount 1 ] .
+
+conx-sbl-sh:ActivityBreakdownLinkShape
+    a sh:NodeShape ;
+    sh:targetClass conx-cs:Activity ;
+    sh:property [ sh:path conx-sbl:isClassifiedByWBSNode ; sh:class conx-bs:WBSNode ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-sbl:isPerformedIn ; sh:class conx-bs:LBSNode ] ;
+    sh:property [ sh:path conx-sbl:isClassifiedBySBSNode ; sh:class conx-bs:SBSNode ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-sbl:isClassifiedByCBSNode ; sh:class conx-bs:CBSNode ; sh:maxCount 1 ] .

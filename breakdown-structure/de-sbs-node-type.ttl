@@ -1,0 +1,82 @@
+@prefix conx-de-sbs: <https://www.construct-x.org/vocab/breakdown-structure/de-sbs-node-type#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/vocab/breakdown-structure/de-sbs-node-type>
+    a owl:Ontology ;
+    owl:versionIRI <https://www.construct-x.org/vocab/breakdown-structure/de-sbs-node-type/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+    dcterms:title "Construct-X DE SBS Node Type Vocabulary"@en ;
+    dcterms:title "Construct-X-DE-Vokabular für SBS-Knotentypen"@de ;
+    dcterms:description "Germany-specific controlled vocabulary for semantic node types of System Breakdown Structures (SBS), based on the supplied classification excerpt GR52 / M264-M269."@en ;
+    dcterms:description "Deutschland-spezifisches kontrolliertes Vokabular für fachliche Knotentypen von System Breakdown Structures (SBS), basierend auf dem bereitgestellten Klassifikationsauszug GR52 / M264-M269."@de ;
+    dcterms:publisher <https://www.construct-x.org/id/organization/construct-x> ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:created "2026-10-02"^^xsd:date ;
+    dcterms:modified "2026-10-21"^^xsd:date ;
+    dcterms:source "Provided classification excerpt: GR52 System Breakdown; M264-M269." ;
+    vann:preferredNamespacePrefix "conx-de-sbs" ;
+    vann:preferredNamespaceUri "https://www.construct-x.org/vocab/breakdown-structure/de-sbs-node-type#" .
+
+conx-de-sbs:SBSNodeTypeScheme
+    a skos:ConceptScheme ;
+    skos:prefLabel "SBS Node Type Vocabulary"@en ;
+    skos:prefLabel "SBS-Knotentyp-Vokabular"@de ;
+    dcterms:source "Provided classification excerpt: GR52 System Breakdown; M264-M269." .
+
+conx-de-sbs:AssemblyType
+    a skos:Concept ;
+    skos:notation "M266" ;
+    skos:prefLabel "Assembly Type"@en ;
+    skos:prefLabel "Baugruppentyp"@de ;
+    skos:inScheme conx-de-sbs:SBSNodeTypeScheme ;
+    skos:topConceptOf conx-de-sbs:SBSNodeTypeScheme ;
+    dcterms:source "M266 - Baugruppentyp" .
+
+conx-de-sbs:BuildingComponentType
+    a skos:Concept ;
+    skos:notation "M267" ;
+    skos:prefLabel "Building Component Type"@en ;
+    skos:prefLabel "Bauteiltyp"@de ;
+    skos:inScheme conx-de-sbs:SBSNodeTypeScheme ;
+    skos:topConceptOf conx-de-sbs:SBSNodeTypeScheme ;
+    dcterms:source "M267 - Bauteiltyp" .
+
+conx-de-sbs:ComponentType
+    a skos:Concept ;
+    skos:notation "M269" ;
+    skos:prefLabel "Component Type"@en ;
+    skos:prefLabel "Komponententyp"@de ;
+    skos:inScheme conx-de-sbs:SBSNodeTypeScheme ;
+    skos:topConceptOf conx-de-sbs:SBSNodeTypeScheme ;
+    dcterms:source "M269 - Komponententyp" .
+
+conx-de-sbs:ElementType
+    a skos:Concept ;
+    skos:notation "M268" ;
+    skos:prefLabel "Element Type"@en ;
+    skos:prefLabel "Elementtyp"@de ;
+    skos:inScheme conx-de-sbs:SBSNodeTypeScheme ;
+    skos:topConceptOf conx-de-sbs:SBSNodeTypeScheme ;
+    dcterms:source "M268 - Elementtyp" .
+
+conx-de-sbs:StructureType
+    a skos:Concept ;
+    skos:notation "M265" ;
+    skos:prefLabel "Structure Type"@en ;
+    skos:prefLabel "Bauwerkstyp"@de ;
+    skos:inScheme conx-de-sbs:SBSNodeTypeScheme ;
+    skos:topConceptOf conx-de-sbs:SBSNodeTypeScheme ;
+    dcterms:source "M265 - Bauwerkstyp" .
+
+conx-de-sbs:SystemType
+    a skos:Concept ;
+    skos:notation "M264" ;
+    skos:prefLabel "System Type"@en ;
+    skos:prefLabel "Systemtyp"@de ;
+    skos:inScheme conx-de-sbs:SBSNodeTypeScheme ;
+    skos:topConceptOf conx-de-sbs:SBSNodeTypeScheme ;
+    dcterms:source "M264 - Systemtyp" .

@@ -1,0 +1,63 @@
+@prefix conx-site: <https://www.construct-x.org/ontology/construction-site#> .
+@prefix conx-site-sh: <https://www.construct-x.org/shapes/construction-site#> .
+@prefix conx-area: <https://www.construct-x.org/vocab/construction-site/area-type#> .
+@prefix conx-eq: <https://www.construct-x.org/vocab/construction-site/equipment-type#> .
+@prefix conx-fac: <https://www.construct-x.org/vocab/construction-site/facility-type#> .
+@prefix conx-util: <https://www.construct-x.org/vocab/construction-site/utility-type#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<https://www.construct-x.org/shapes/construction-site/vocabularies>
+    a owl:Ontology ;
+    owl:versionIRI <https://www.construct-x.org/shapes/construction-site/vocabularies/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports
+        <https://www.construct-x.org/ontology/construction-site/0.2.0> ,
+        <https://www.construct-x.org/vocab/construction-site/area-type/0.1.0> ,
+        <https://www.construct-x.org/vocab/construction-site/equipment-type/0.1.0> ,
+        <https://www.construct-x.org/vocab/construction-site/facility-type/0.1.0> ,
+        <https://www.construct-x.org/vocab/construction-site/utility-type/0.1.0> .
+
+conx-site-sh:AreaTypeVocabularyShape
+    a sh:NodeShape ;
+    sh:targetClass conx-site:SiteArea ;
+    sh:property [
+        sh:path conx-site:hasAreaType ;
+        sh:in (
+          conx-area:WaitingZone conx-area:PreStagingArea conx-area:SiteAccess
+          conx-area:ConstructionRoad conx-area:TrafficRoute conx-area:EscapeRoute
+          conx-area:LoadingZone conx-area:EquipmentSetupArea conx-area:ParkingArea
+          conx-area:ConstructionPath conx-area:StorageArea conx-area:IntermediateStorageArea
+          conx-area:WorkArea conx-area:RestrictedZone conx-area:GreenArea
+        )
+    ] .
+
+conx-site-sh:EquipmentTypeVocabularyShape
+    a sh:NodeShape ;
+    sh:targetClass conx-site:SiteEquipment ;
+    sh:property [
+        sh:path conx-site:hasEquipmentType ;
+        sh:in (
+          conx-eq:LiftingEquipment conx-eq:Crane conx-eq:ConstructionLift
+          conx-eq:IndustrialTruck conx-eq:Forklift conx-eq:StorageAid
+        )
+    ] .
+
+conx-site-sh:FacilityTypeVocabularyShape
+    a sh:NodeShape ;
+    sh:targetClass conx-site:TemporarySiteFacility ;
+    sh:property [
+        sh:path conx-site:hasFacilityType ;
+        sh:in (
+          conx-fac:ContainerSystem conx-fac:OfficeContainer
+          conx-fac:SanitaryContainer conx-fac:MaterialContainer
+        )
+    ] .
+
+conx-site-sh:UtilityTypeVocabularyShape
+    a sh:NodeShape ;
+    sh:targetClass conx-site:UtilitySupply ;
+    sh:property [
+        sh:path conx-site:hasUtilityType ;
+        sh:in (conx-util:SiteElectricity conx-util:SiteWater)
+    ] .

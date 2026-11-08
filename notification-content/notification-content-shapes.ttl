@@ -1,0 +1,123 @@
+@prefix conx-nc: <https://www.construct-x.org/ontology/notification-content#> .
+@prefix conx-nt: <https://www.construct-x.org/vocab/notification-content/notification-type#> .
+@prefix conx-sr: <https://www.construct-x.org/vocab/notification-content/subject-role#> .
+@prefix conx-ts: <https://www.construct-x.org/vocab/notification-content/task-status#> .
+@prefix conx-tt: <https://www.construct-x.org/vocab/notification-content/task-type#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+conx-nc:NotificationContentShape a sh:NodeShape ;
+    sh:property [ sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path conx-nc:contextResource ],
+        [ sh:in ( conx-nt:DataAvailable conx-nt:DataUpdated conx-nt:DataDeleted conx-nt:TaskRequested conx-nt:TaskStatusChanged conx-nt:ResultAvailable ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path conx-nc:notificationType ],
+        [ sh:in ( conx-ts:Accepted conx-ts:InProgress conx-ts:Completed conx-ts:Rejected conx-ts:Cancelled ) ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path conx-nc:taskStatus ],
+        [ sh:class conx-nc:SubjectAssignment ;
+            sh:path conx-nc:hasSubjectAssignment ],
+        [ sh:in ( conx-tt:DetailedScheduling conx-tt:ProgressReporting conx-tt:PriceCalculation ) ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path conx-nc:taskType ] ;
+    sh:sparql [ a sh:SPARQLConstraint ;
+            sh:message "DetailedScheduling TaskRequested must reference exactly one contextResource."@en ;
+            sh:select """PREFIX conx-nc: <https://www.construct-x.org/ontology/notification-content#>
+PREFIX conx-nt: <https://www.construct-x.org/vocab/notification-content/notification-type#>
+PREFIX conx-tt: <https://www.construct-x.org/vocab/notification-content/task-type#>
+SELECT $this WHERE { $this conx-nc:notificationType conx-nt:TaskRequested ; conx-nc:taskType conx-tt:DetailedScheduling . { SELECT $this (COUNT(?ctx) AS ?cnt) WHERE { OPTIONAL { $this conx-nc:contextResource ?ctx } } GROUP BY $this HAVING (?cnt != 1) } }""" ],
+        [ a sh:SPARQLConstraint ;
+            sh:message "DataAvailable, DataUpdated and DataDeleted must reference at least one Target resource."@en ;
+            sh:select """
+            PREFIX conx-nc: <https://www.construct-x.org/ontology/notification-content#>
+            PREFIX conx-nt: <https://www.construct-x.org/vocab/notification-content/notification-type#>
+            PREFIX conx-sr: <https://www.construct-x.org/vocab/notification-content/subject-role#>
+            SELECT $this WHERE {
+                $this conx-nc:notificationType ?type .
+                FILTER (?type IN (conx-nt:DataAvailable, conx-nt:DataUpdated, conx-nt:DataDeleted))
+                FILTER NOT EXISTS {
+                    $this conx-nc:hasSubjectAssignment ?sa .
+                    ?sa conx-nc:subjectRole conx-sr:Target .
+                }
+            }
+        """ ],
+        [ a sh:SPARQLConstraint ;
+            sh:message "TaskRequested must define exactly one taskType and at least one Target resource."@en ;
+            sh:select """
+            PREFIX conx-nc: <https://www.construct-x.org/ontology/notification-content#>
+            PREFIX conx-nt: <https://www.construct-x.org/vocab/notification-content/notification-type#>
+            PREFIX conx-sr: <https://www.construct-x.org/vocab/notification-content/subject-role#>
+            SELECT $this WHERE {
+                $this conx-nc:notificationType conx-nt:TaskRequested .
+                {
+                    SELECT $this (COUNT(?tt) AS ?cnt)
+                    WHERE { OPTIONAL { $this conx-nc:taskType ?tt } }
+                    GROUP BY $this
+                    HAVING (?cnt != 1)
+                }
+                UNION
+                {
+                    FILTER NOT EXISTS {
+                        $this conx-nc:hasSubjectAssignment ?sa .
+                        ?sa conx-nc:subjectRole conx-sr:Target .
+                    }
+                }
+            }
+        """ ],
+        [ a sh:SPARQLConstraint ;
+            sh:message "TaskStatusChanged must define exactly one taskStatus."@en ;
+            sh:select """
+            PREFIX conx-nc: <https://www.construct-x.org/ontology/notification-content#>
+            PREFIX conx-nt: <https://www.construct-x.org/vocab/notification-content/notification-type#>
+            SELECT $this WHERE {
+                $this conx-nc:notificationType conx-nt:TaskStatusChanged .
+                {
+                    SELECT $this (COUNT(?status) AS ?cnt)
+                    WHERE { OPTIONAL { $this conx-nc:taskStatus ?status } }
+                    GROUP BY $this
+                    HAVING (?cnt != 1)
+                }
+            }
+        """ ],
+        [ a sh:SPARQLConstraint ;
+            sh:message "ResultAvailable must reference at least one result resource."@en ;
+            sh:select """
+            PREFIX conx-nc: <https://www.construct-x.org/ontology/notification-content#>
+            PREFIX conx-nt: <https://www.construct-x.org/vocab/notification-content/notification-type#>
+            SELECT $this WHERE {
+                $this conx-nc:notificationType conx-nt:ResultAvailable .
+                FILTER NOT EXISTS { $this conx-nc:hasResult ?result . }
+            }
+        """ ] ;
+    sh:targetClass conx-nc:NotificationContent .
+
+conx-nc:SubjectAssignmentShape a sh:NodeShape ;
+    sh:property [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path conx-nc:assignedResource ],
+        [ sh:in ( conx-sr:Target conx-sr:ContextOnly ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path conx-nc:subjectRole ] ;
+    sh:targetClass conx-nc:SubjectAssignment .
+
+<https://www.construct-x.org/shapes/notification-content/core> a owl:Ontology ;
+    dcterms:title "Construct-X Notification Content Core SHACL Profile"@en ;
+    owl:imports <https://www.construct-x.org/ontology/notification-content/0.1.1>,
+        <https://www.construct-x.org/vocab/notification-content/notification-type/0.1.0>,
+        <https://www.construct-x.org/vocab/notification-content/subject-role/0.1.0>,
+        <https://www.construct-x.org/vocab/notification-content/task-status/0.1.0>,
+        <https://www.construct-x.org/vocab/notification-content/task-type/0.1.0> ;
+    owl:versionIRI <https://www.construct-x.org/shapes/notification-content/core/0.1.1> ;
+    owl:versionInfo "0.1.1" .
+

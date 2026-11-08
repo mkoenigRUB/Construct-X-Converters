@@ -1,0 +1,32 @@
+services:
+  gaeb-converter-service:
+    build:
+      context: .
+      dockerfile: Converter/Dockerfile
+    environment:
+      SERVER_PORT: 8081
+    ports:
+      - "8081:8081"
+    restart: unless-stopped
+
+  msproject-converter-service:
+    build:
+      context: .
+      dockerfile: msproject-converter-service/Dockerfile
+    environment:
+      SERVER_PORT: 8085
+      CONX_ONTOLOGY_ROOT: /app/ontologies
+    ports:
+      - "8085:8085"
+    restart: unless-stopped
+
+  converter-frontend:
+    image: nginx:1.27-alpine
+    volumes:
+      # KEIN :ro am Parent-Mount — Docker kann sonst den design-Mountpoint
+      # nicht anlegen (read-only overlay). Lokaler Dev-Stack.
+      - ./converter-frontend:/usr/share/nginx/html
+      - ./design:/usr/share/nginx/html/design:ro
+    ports:
+      - "8084:80"
+    restart: unless-stopped

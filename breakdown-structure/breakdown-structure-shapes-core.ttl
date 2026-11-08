@@ -1,0 +1,260 @@
+@prefix conx-bs: <https://www.construct-x.org/ontology/breakdown-structure#> .
+@prefix conx-bs-sh: <https://www.construct-x.org/shapes/breakdown-structure#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/shapes/breakdown-structure/core>
+    a owl:Ontology ;
+    owl:versionIRI <https://www.construct-x.org/shapes/breakdown-structure/core/0.7.0> ;
+    owl:versionInfo "0.7.0" ;
+    owl:imports <https://www.construct-x.org/ontology/breakdown-structure/0.7.0> ;
+    dcterms:title "Construct-X Breakdown Structure Core SHACL Profile"@en ;
+    dcterms:title "Construct-X-Kern-SHACL-Profil für Gliederungsstrukturen"@de ;
+    dcterms:publisher <https://www.construct-x.org/id/organization/construct-x> ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> .
+
+conx-bs-sh:BreakdownStructureShape
+    a sh:NodeShape ;
+    sh:targetClass conx-bs:BreakdownStructure ;
+    sh:property [
+        sh:path conx-bs:identifier ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "A Breakdown Structure must have exactly one identifier."@en ;
+        sh:message "Eine Gliederungsstruktur muss genau eine Kennung besitzen."@de
+    ] ;
+    sh:property [
+        sh:path conx-bs:name ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1
+    ] ;
+    sh:property [
+        sh:path conx-bs:hasNode ;
+        sh:class conx-bs:BreakdownNode ;
+        sh:minCount 1
+    ] ;
+    sh:property [
+        sh:path conx-bs:hasRootNode ;
+        sh:class conx-bs:BreakdownNode ;
+        sh:minCount 1
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "Every root node must also be a node of the same Breakdown Structure."@en ;
+        sh:select """
+            PREFIX conx-bs: <https://www.construct-x.org/ontology/breakdown-structure#>
+            SELECT $this ?root
+            WHERE {
+                $this conx-bs:hasRootNode ?root .
+                FILTER NOT EXISTS { $this conx-bs:hasNode ?root . }
+            }
+        """
+    ] .
+
+conx-bs-sh:WorkBreakdownStructureShape
+    a sh:NodeShape ;
+    sh:targetClass conx-bs:WorkBreakdownStructure ;
+    sh:property [
+        sh:path conx-bs:hasNode ;
+        sh:class conx-bs:WBSNode
+    ] ;
+    sh:property [
+        sh:path conx-bs:hasRootNode ;
+        sh:class conx-bs:WBSNode
+    ] .
+
+conx-bs-sh:LocationBreakdownStructureShape
+    a sh:NodeShape ;
+    sh:targetClass conx-bs:LocationBreakdownStructure ;
+    sh:property [
+        sh:path conx-bs:hasNode ;
+        sh:class conx-bs:LBSNode
+    ] ;
+    sh:property [
+        sh:path conx-bs:hasRootNode ;
+        sh:class conx-bs:LBSNode
+    ] .
+
+conx-bs-sh:SystemBreakdownStructureShape
+    a sh:NodeShape ;
+    sh:targetClass conx-bs:SystemBreakdownStructure ;
+    sh:property [
+        sh:path conx-bs:hasNode ;
+        sh:class conx-bs:SBSNode
+    ] ;
+    sh:property [
+        sh:path conx-bs:hasRootNode ;
+        sh:class conx-bs:SBSNode
+    ] .
+
+conx-bs-sh:CostBreakdownStructureShape
+    a sh:NodeShape ;
+    sh:targetClass conx-bs:CostBreakdownStructure ;
+    sh:property [
+        sh:path conx-bs:hasNode ;
+        sh:class conx-bs:CBSNode
+    ] ;
+    sh:property [
+        sh:path conx-bs:hasRootNode ;
+        sh:class conx-bs:CBSNode
+    ] .
+
+conx-bs-sh:BreakdownNodeShape
+    a sh:NodeShape ;
+    sh:targetClass conx-bs:BreakdownNode ;
+    sh:property [
+        sh:path conx-bs:identifier ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "A Breakdown Node must have exactly one identifier."@en ;
+        sh:message "Ein Gliederungsknoten muss genau eine Kennung besitzen."@de
+    ] ;
+    sh:property [
+        sh:path conx-bs:name ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1
+    ] ;
+    sh:property [
+        sh:path conx-bs:code ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1
+    ] ;
+    sh:property [
+        sh:path conx-bs:level ;
+        sh:datatype xsd:nonNegativeInteger ;
+        sh:maxCount 1
+    ] ;
+    sh:property [
+        sh:path conx-bs:nodeType ;
+        sh:nodeKind sh:IRI ;
+        sh:maxCount 1 ;
+        sh:message "nodeType, if provided, must be an IRI. Allowed vocabularies are defined by optional validation profiles."@en ;
+        sh:message "nodeType muss, sofern angegeben, eine IRI sein. Zulässige Vokabulare werden über optionale Validierungsprofile festgelegt."@de
+    ] ;
+    sh:property [
+        sh:path conx-bs:isSubNodeOf ;
+        sh:class conx-bs:BreakdownNode ;
+        sh:maxCount 1
+    ] ;
+    sh:property [
+        sh:path [ sh:inversePath conx-bs:hasNode ] ;
+        sh:class conx-bs:BreakdownStructure ;
+        sh:minCount 1 ;
+        sh:maxCount 1
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "A Breakdown Node hierarchy must not contain a cycle."@en ;
+        sh:select """
+            PREFIX conx-bs: <https://www.construct-x.org/ontology/breakdown-structure#>
+            SELECT $this WHERE { $this conx-bs:isSubNodeOf+ $this . }
+        """
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "A root node must not have a parent node."@en ;
+        sh:select """
+            PREFIX conx-bs: <https://www.construct-x.org/ontology/breakdown-structure#>
+            SELECT $this
+            WHERE {
+                ?structure conx-bs:hasRootNode $this .
+                $this conx-bs:isSubNodeOf ?parent .
+            }
+        """
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "A non-root node must have exactly one direct parent node."@en ;
+        sh:select """
+            PREFIX conx-bs: <https://www.construct-x.org/ontology/breakdown-structure#>
+            SELECT $this
+            WHERE {
+                ?structure conx-bs:hasNode $this .
+                FILTER NOT EXISTS { ?structure conx-bs:hasRootNode $this . }
+                FILTER NOT EXISTS { $this conx-bs:isSubNodeOf ?parent . }
+            }
+        """
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "A node and its parent must belong to the same Breakdown Structure."@en ;
+        sh:select """
+            PREFIX conx-bs: <https://www.construct-x.org/ontology/breakdown-structure#>
+            SELECT $this ?parent
+            WHERE {
+                $this conx-bs:isSubNodeOf ?parent .
+                ?s1 conx-bs:hasNode $this .
+                FILTER NOT EXISTS { ?s1 conx-bs:hasNode ?parent . }
+            }
+        """
+    ] .
+
+conx-bs-sh:WBSNodeShape
+    a sh:NodeShape ;
+    sh:targetClass conx-bs:WBSNode ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "A WBS Node may only have a WBS Node as direct parent."@en ;
+        sh:select """
+            PREFIX conx-bs: <https://www.construct-x.org/ontology/breakdown-structure#>
+            SELECT $this ?parent
+            WHERE {
+                $this conx-bs:isSubNodeOf ?parent .
+                FILTER NOT EXISTS { ?parent a conx-bs:WBSNode . }
+            }
+        """
+    ] .
+
+conx-bs-sh:LBSNodeShape
+    a sh:NodeShape ;
+    sh:targetClass conx-bs:LBSNode ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "An LBS Node may only have an LBS Node as direct parent."@en ;
+        sh:select """
+            PREFIX conx-bs: <https://www.construct-x.org/ontology/breakdown-structure#>
+            SELECT $this ?parent
+            WHERE {
+                $this conx-bs:isSubNodeOf ?parent .
+                FILTER NOT EXISTS { ?parent a conx-bs:LBSNode . }
+            }
+        """
+    ] .
+
+conx-bs-sh:SBSNodeShape
+    a sh:NodeShape ;
+    sh:targetClass conx-bs:SBSNode ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "A System Breakdown Node may only have a System Breakdown Node as direct parent."@en ;
+        sh:message "Ein Systemgliederungsknoten darf nur einen Systemgliederungsknoten als direkten Elternknoten besitzen."@de ;
+        sh:select """
+            PREFIX conx-bs: <https://www.construct-x.org/ontology/breakdown-structure#>
+            SELECT $this ?parent
+            WHERE {
+                $this conx-bs:isSubNodeOf ?parent .
+                FILTER NOT EXISTS { ?parent a conx-bs:SBSNode . }
+            }
+        """
+    ] .
+
+conx-bs-sh:CBSNodeShape
+    a sh:NodeShape ;
+    sh:targetClass conx-bs:CBSNode ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "A Cost Breakdown Node may only have a Cost Breakdown Node as direct parent."@en ;
+        sh:message "Ein Kostengliederungsknoten darf nur einen Kostengliederungsknoten als direkten Elternknoten besitzen."@de ;
+        sh:select """
+            PREFIX conx-bs: <https://www.construct-x.org/ontology/breakdown-structure#>
+            SELECT $this ?parent
+            WHERE {
+                $this conx-bs:isSubNodeOf ?parent .
+                FILTER NOT EXISTS { ?parent a conx-bs:CBSNode . }
+            }
+        """
+    ] .

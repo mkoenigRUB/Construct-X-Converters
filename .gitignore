@@ -1,0 +1,19 @@
+# Maven
+**/target/
+
+# Veraltete lokale JARs (vom Maven-Build nicht referenziert)
+Converter/web/lib/
+
+# IDE / OS
+.idea/
+*.iml
+.vscode/
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+
+# Temporäre Build-Output
+**/surefire-reports/
+**/*.dumpstream

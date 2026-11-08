@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+   xmlns:vann="http://purl.org/vocab/vann/"
+>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/notification-content/task-status#InProgress">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:altLabel xml:lang="de">in Bearbeitung</skos:altLabel>
+    <skos:definition xml:lang="en">The requested task is being processed.</skos:definition>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/notification-content/task-status#TaskStatusScheme"/>
+    <skos:prefLabel xml:lang="en">In progress</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/notification-content/task-status#TaskStatusScheme">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <skos:prefLabel xml:lang="de">Construct-X Vokabular für Auftragsstatus</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Construct-X Task Status Vocabulary</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/notification-content/task-status#Accepted">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:altLabel xml:lang="de">angenommen</skos:altLabel>
+    <skos:definition xml:lang="en">The requested task has been accepted.</skos:definition>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/notification-content/task-status#TaskStatusScheme"/>
+    <skos:prefLabel xml:lang="en">Accepted</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/notification-content/task-status#Rejected">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:altLabel xml:lang="de">abgelehnt</skos:altLabel>
+    <skos:definition xml:lang="en">The requested task has been rejected.</skos:definition>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/notification-content/task-status#TaskStatusScheme"/>
+    <skos:prefLabel xml:lang="en">Rejected</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/notification-content/task-status#Completed">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:altLabel xml:lang="de">abgeschlossen</skos:altLabel>
+    <skos:definition xml:lang="en">The requested task has been completed.</skos:definition>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/notification-content/task-status#TaskStatusScheme"/>
+    <skos:prefLabel xml:lang="en">Completed</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/notification-content/task-status#Cancelled">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:altLabel xml:lang="de">abgebrochen</skos:altLabel>
+    <skos:definition xml:lang="en">The requested task has been cancelled.</skos:definition>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/notification-content/task-status#TaskStatusScheme"/>
+    <skos:prefLabel xml:lang="en">Cancelled</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/notification-content/task-status">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <dcterms:title xml:lang="de">Construct-X Vokabular für Auftragsstatus</dcterms:title>
+    <dcterms:title xml:lang="en">Construct-X Task Status Vocabulary</dcterms:title>
+    <owl:versionIRI rdf:resource="https://www.construct-x.org/vocab/notification-content/task-status/0.1.0"/>
+    <vann:preferredNamespacePrefix>conx-ts</vann:preferredNamespacePrefix>
+    <vann:preferredNamespaceUri>https://www.construct-x.org/vocab/notification-content/task-status#</vann:preferredNamespaceUri>
+    <owl:versionInfo>0.1.0</owl:versionInfo>
+  </rdf:Description>
+</rdf:RDF>

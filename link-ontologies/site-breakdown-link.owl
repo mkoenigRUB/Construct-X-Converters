@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+   xmlns:vann="http://purl.org/vocab/vann/"
+>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/site-breakdown-link#isRepresentedByLBSNode">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="https://www.construct-x.org/ontology/site-breakdown-link#representsSiteArea"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-site#SiteArea"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/breakdown-structure#LBSNode"/>
+    <rdfs:label xml:lang="en">is represented by LBS node</rdfs:label>
+    <skos:altLabel xml:lang="de">wird durch LBS-Knoten repräsentiert</skos:altLabel>
+    <rdfs:comment xml:lang="en">Links an operational Site Area to the LBS Node that represents the same spatial/logistics area in a Location Breakdown Structure.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/site-breakdown-link"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/site-breakdown-link">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <owl:versionIRI rdf:resource="https://www.construct-x.org/ontology/site-breakdown-link/0.1.0"/>
+    <owl:versionInfo>0.1.0</owl:versionInfo>
+    <owl:imports rdf:resource="https://www.construct-x.org/ontology/construction-site/0.2.0"/>
+    <owl:imports rdf:resource="https://www.construct-x.org/ontology/breakdown-structure/0.7.0"/>
+    <dcterms:title xml:lang="en">Construct-X Site–Breakdown Link Ontology</dcterms:title>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-22</dcterms:created>
+    <vann:preferredNamespacePrefix>conx-sbdl</vann:preferredNamespacePrefix>
+    <vann:preferredNamespaceUri>https://www.construct-x.org/ontology/site-breakdown-link#</vann:preferredNamespaceUri>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/site-breakdown-link#representsSiteArea">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/breakdown-structure#LBSNode"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/construction-site#SiteArea"/>
+    <rdfs:label xml:lang="en">represents site area</rdfs:label>
+    <skos:altLabel xml:lang="de">repräsentiert Baustellenfläche</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/site-breakdown-link"/>
+  </rdf:Description>
+</rdf:RDF>

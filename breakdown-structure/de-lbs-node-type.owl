@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+   xmlns:vann="http://purl.org/vocab/vann/"
+>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type#Assembly">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:notation>M274</skos:notation>
+    <skos:prefLabel xml:lang="en">Assembly</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Baugruppe</skos:prefLabel>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type#LBSNodeTypeScheme"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type#LBSNodeTypeScheme"/>
+    <dcterms:source>M274 - Baugruppe</dcterms:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type#StructurePart">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:notation>M279</skos:notation>
+    <skos:prefLabel xml:lang="en">Structure Part</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Teilbauwerk</skos:prefLabel>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type#LBSNodeTypeScheme"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type#LBSNodeTypeScheme"/>
+    <dcterms:source>M279 - Teilbauwerk</dcterms:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type#TransverseAxis">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:notation>M276</skos:notation>
+    <skos:prefLabel xml:lang="en">Transverse Axis</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Querachse</skos:prefLabel>
+    <skos:altLabel xml:lang="en">Cross Axis</skos:altLabel>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type#LBSNodeTypeScheme"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type#LBSNodeTypeScheme"/>
+    <dcterms:source>M276 - Querachse</dcterms:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type#Structure">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:notation>M273</skos:notation>
+    <skos:prefLabel xml:lang="en">Structure</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Bauwerk</skos:prefLabel>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type#LBSNodeTypeScheme"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type#LBSNodeTypeScheme"/>
+    <dcterms:source>M273 - Bauwerk</dcterms:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type#Subarea">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:notation>M282</skos:notation>
+    <skos:prefLabel xml:lang="en">Subarea</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Teilbereich</skos:prefLabel>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type#LBSNodeTypeScheme"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type#LBSNodeTypeScheme"/>
+    <dcterms:source>M282 - Teilbereich</dcterms:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type#LBSNodeTypeScheme">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <skos:prefLabel xml:lang="en">LBS Node Type Vocabulary</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">LBS-Knotentyp-Vokabular</skos:prefLabel>
+    <dcterms:source>Provided classification excerpt: GR51 Location Breakdown; M270-M283.</dcterms:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <owl:versionIRI rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type/0.1.0"/>
+    <owl:versionInfo>0.1.0</owl:versionInfo>
+    <dcterms:title xml:lang="en">Construct-X DE LBS Node Type Vocabulary</dcterms:title>
+    <dcterms:title xml:lang="de">Construct-X-DE-Vokabular für LBS-Knotentypen</dcterms:title>
+    <dcterms:description xml:lang="en">Germany-specific controlled vocabulary for semantic node types of Location Breakdown Structures (LBS), based on the supplied classification excerpt GR51 / M270-M283.</dcterms:description>
+    <dcterms:description xml:lang="de">Deutschland-spezifisches kontrolliertes Vokabular für fachliche Knotentypen von Location Breakdown Structures (LBS), basierend auf dem bereitgestellten Klassifikationsauszug GR51 / M270-M283.</dcterms:description>
+    <dcterms:publisher rdf:resource="https://www.construct-x.org/id/organization/construct-x"/>
+    <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-02</dcterms:created>
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-21</dcterms:modified>
+    <dcterms:source>Provided classification excerpt: GR51 Location Breakdown; M270-M283.</dcterms:source>
+    <vann:preferredNamespacePrefix>conx-de-lbs</vann:preferredNamespacePrefix>
+    <vann:preferredNamespaceUri>https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type#</vann:preferredNamespaceUri>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type#Storey">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:notation>M280</skos:notation>
+    <skos:prefLabel xml:lang="en">Storey</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Geschoss</skos:prefLabel>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type#LBSNodeTypeScheme"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type#LBSNodeTypeScheme"/>
+    <dcterms:source>M280 - Geschoss</dcterms:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type#BuildingComponent">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:notation>M275</skos:notation>
+    <skos:prefLabel xml:lang="en">Building Component</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Bauteil</skos:prefLabel>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type#LBSNodeTypeScheme"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type#LBSNodeTypeScheme"/>
+    <dcterms:source>M275 - Bauteil</dcterms:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type#Area">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:notation>M281</skos:notation>
+    <skos:prefLabel xml:lang="en">Area</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Bereich</skos:prefLabel>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type#LBSNodeTypeScheme"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type#LBSNodeTypeScheme"/>
+    <dcterms:source>M281 - Bereich</dcterms:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type#ConstructionSection">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:notation>M270</skos:notation>
+    <skos:prefLabel xml:lang="en">Construction Section</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Bauabschnitt</skos:prefLabel>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type#LBSNodeTypeScheme"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type#LBSNodeTypeScheme"/>
+    <dcterms:source>M270 - Bauabschnitt</dcterms:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type#DirectionalCarriageway">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:notation>M277</skos:notation>
+    <skos:prefLabel xml:lang="en">Directional Carriageway</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Richtungsfahrbahn</skos:prefLabel>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type#LBSNodeTypeScheme"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type#LBSNodeTypeScheme"/>
+    <dcterms:source>M277 - Richtungsfahrbahn</dcterms:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type#Lane">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:notation>M278</skos:notation>
+    <skos:prefLabel xml:lang="en">Lane</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Fahrstreifen</skos:prefLabel>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type#LBSNodeTypeScheme"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type#LBSNodeTypeScheme"/>
+    <dcterms:source>M278 - Fahrstreifen</dcterms:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type#Axis">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:notation>M271</skos:notation>
+    <skos:prefLabel xml:lang="en">Axis</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Achse</skos:prefLabel>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type#LBSNodeTypeScheme"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type#LBSNodeTypeScheme"/>
+    <dcterms:source>M271 - Achse</dcterms:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type#Room">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:notation>M283</skos:notation>
+    <skos:prefLabel xml:lang="en">Room</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Raum</skos:prefLabel>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type#LBSNodeTypeScheme"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type#LBSNodeTypeScheme"/>
+    <dcterms:source>M283 - Raum</dcterms:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type#System">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:notation>M272</skos:notation>
+    <skos:prefLabel xml:lang="en">System</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">System</skos:prefLabel>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type#LBSNodeTypeScheme"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type#LBSNodeTypeScheme"/>
+    <dcterms:source>M272 - System</dcterms:source>
+  </rdf:Description>
+</rdf:RDF>

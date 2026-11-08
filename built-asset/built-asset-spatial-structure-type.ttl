@@ -1,0 +1,25 @@
+@prefix conx-bst: <https://www.construct-x.org/vocab/built-asset/spatial-structure-type#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/vocab/built-asset/spatial-structure-type>
+    a owl:Ontology, skos:ConceptScheme ;
+    owl:versionIRI <https://www.construct-x.org/vocab/built-asset/spatial-structure-type/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+    dcterms:title "Construct-X Spatial Structure Type Vocabulary"@en ;
+    dcterms:title "Construct-X-Vokabular für räumliche Strukturtypen"@de ;
+    dcterms:created "2026-10-22"^^xsd:date ;
+    vann:preferredNamespacePrefix "conx-bst" ;
+    vann:preferredNamespaceUri "https://www.construct-x.org/vocab/built-asset/spatial-structure-type#" ;
+    skos:prefLabel "Spatial Structure Type"@en ;
+    skos:prefLabel "Räumlicher Strukturtyp"@de .
+
+conx-bst:Storey a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/built-asset/spatial-structure-type> ; skos:prefLabel "Storey"@en ; skos:prefLabel "Geschoss"@de .
+conx-bst:Space a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/built-asset/spatial-structure-type> ; skos:prefLabel "Space"@en ; skos:prefLabel "Raum"@de .
+conx-bst:Section a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/built-asset/spatial-structure-type> ; skos:prefLabel "Section"@en ; skos:prefLabel "Abschnitt"@de .
+conx-bst:Segment a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/built-asset/spatial-structure-type> ; skos:prefLabel "Segment"@en ; skos:prefLabel "Segment"@de .
+conx-bst:Zone a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/built-asset/spatial-structure-type> ; skos:prefLabel "Zone"@en ; skos:prefLabel "Zone"@de .
+conx-bst:Part a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/built-asset/spatial-structure-type> ; skos:prefLabel "Part"@en ; skos:prefLabel "Bauwerksteil"@de .

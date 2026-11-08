@@ -1,0 +1,23 @@
+@prefix conx-site: <https://www.construct-x.org/ontology/construction-site#> .
+@prefix conx-bs: <https://www.construct-x.org/ontology/breakdown-structure#> .
+@prefix conx-sbdl: <https://www.construct-x.org/ontology/site-breakdown-link#> .
+@prefix conx-sbl-sh: <https://www.construct-x.org/shapes/site-breakdown-link#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<https://www.construct-x.org/shapes/site-breakdown-link/core>
+    a owl:Ontology ;
+    owl:versionIRI <https://www.construct-x.org/shapes/site-breakdown-link/core/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports
+        <https://www.construct-x.org/ontology/construction-site/0.2.0> ,
+        <https://www.construct-x.org/ontology/breakdown-structure/0.7.0> ,
+        <https://www.construct-x.org/ontology/site-breakdown-link/0.1.0> .
+
+conx-sbl-sh:SiteAreaLBSLinkShape
+    a sh:NodeShape ;
+    sh:targetClass conx-site:SiteArea ;
+    sh:property [
+        sh:path conx-sbdl:isRepresentedByLBSNode ;
+        sh:class conx-bs:LBSNode
+    ] .

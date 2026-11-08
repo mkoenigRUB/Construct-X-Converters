@@ -1,0 +1,39 @@
+@prefix conx-cs: <https://www.construct-x.org/ontology/construction-schedule#> .
+@prefix conx-del: <https://www.construct-x.org/ontology/construction-delivery#> .
+@prefix conx-sdl: <https://www.construct-x.org/ontology/schedule-delivery-link#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/ontology/schedule-delivery-link>
+    a owl:Ontology ;
+    owl:versionIRI <https://www.construct-x.org/ontology/schedule-delivery-link/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports
+        <https://www.construct-x.org/ontology/construction-schedule/0.5.0> ,
+        <https://www.construct-x.org/ontology/construction-delivery/0.1.0> ;
+    dcterms:title "Construct-X Schedule–Delivery Link Ontology"@en ;
+    dcterms:created "2026-10-22"^^xsd:date ;
+    vann:preferredNamespacePrefix "conx-sdl" ;
+    vann:preferredNamespaceUri "https://www.construct-x.org/ontology/schedule-delivery-link#" .
+
+conx-sdl:supportsActivity
+    a owl:ObjectProperty ;
+    owl:inverseOf conx-sdl:requiresLogisticsRequirement ;
+    rdfs:domain conx-del:LogisticsRequirement ;
+    rdfs:range conx-cs:Activity ;
+    rdfs:label "supports activity"@en ;
+    skos:altLabel "unterstützt Vorgang"@de ;
+    rdfs:comment "Associates a Logistics Requirement with the Schedule Activity whose execution it supports."@en ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/schedule-delivery-link> .
+
+conx-sdl:requiresLogisticsRequirement
+    a owl:ObjectProperty ;
+    rdfs:domain conx-cs:Activity ;
+    rdfs:range conx-del:LogisticsRequirement ;
+    rdfs:label "requires logistics requirement"@en ;
+    skos:altLabel "benötigt Logistikanforderung"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/schedule-delivery-link> .

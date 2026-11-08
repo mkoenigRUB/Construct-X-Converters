@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+   xmlns:vann="http://purl.org/vocab/vann/"
+>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/built-asset-breakdown-link">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <owl:versionIRI rdf:resource="https://www.construct-x.org/ontology/built-asset-breakdown-link/0.1.0"/>
+    <owl:versionInfo>0.1.0</owl:versionInfo>
+    <owl:imports rdf:resource="https://www.construct-x.org/ontology/built-asset/0.1.0"/>
+    <owl:imports rdf:resource="https://www.construct-x.org/ontology/breakdown-structure/0.7.0"/>
+    <dcterms:title xml:lang="en">Construct-X Built Asset–Breakdown Link Ontology</dcterms:title>
+    <dcterms:title xml:lang="de">Construct-X-Verknüpfungsontologie für Bauwerk und Gliederungsstrukturen</dcterms:title>
+    <dcterms:description xml:lang="en">Links intrinsic Built Asset structures to project-specific Location, System and Cost Breakdown Structures.</dcterms:description>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-22</dcterms:created>
+    <vann:preferredNamespacePrefix>conx-babl</vann:preferredNamespacePrefix>
+    <vann:preferredNamespaceUri>https://www.construct-x.org/ontology/built-asset-breakdown-link#</vann:preferredNamespaceUri>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/built-asset-breakdown-link#isRepresentedBySBSNode">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="https://www.construct-x.org/ontology/built-asset-breakdown-link#representsTechnicalSystem"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/built-asset#TechnicalSystem"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/breakdown-structure#SBSNode"/>
+    <rdfs:label xml:lang="en">is represented by SBS node</rdfs:label>
+    <skos:altLabel xml:lang="de">wird durch SBS-Knoten repräsentiert</skos:altLabel>
+    <rdfs:comment xml:lang="en">Links an intrinsic Technical System to the project-specific SBS node representing that system.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/built-asset-breakdown-link"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nb7e091fd99fe45e188aaea277a4c9910b4">
+    <rdf:first rdf:resource="https://www.construct-x.org/ontology/built-asset#Component"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/built-asset-breakdown-link#isClassifiedByCBSNode">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:nodeID="nb7e091fd99fe45e188aaea277a4c9910b1"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/breakdown-structure#CBSNode"/>
+    <rdfs:label xml:lang="en">is classified by CBS node</rdfs:label>
+    <skos:altLabel xml:lang="de">ist durch CBS-Knoten klassifiziert</skos:altLabel>
+    <rdfs:comment xml:lang="en">Associates a Built Asset, Technical System or Component with a project-specific Cost Breakdown Structure node.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/built-asset-breakdown-link"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/built-asset-breakdown-link#representsTechnicalSystem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/breakdown-structure#SBSNode"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/built-asset#TechnicalSystem"/>
+    <rdfs:label xml:lang="en">represents technical system</rdfs:label>
+    <skos:altLabel xml:lang="de">repräsentiert technisches System</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/built-asset-breakdown-link"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nb7e091fd99fe45e188aaea277a4c9910b1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="nb7e091fd99fe45e188aaea277a4c9910b2"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/built-asset-breakdown-link#isRepresentedByLBSNode">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="https://www.construct-x.org/ontology/built-asset-breakdown-link#representsSpatialStructureElement"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/built-asset#SpatialStructureElement"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/breakdown-structure#LBSNode"/>
+    <rdfs:label xml:lang="en">is represented by LBS node</rdfs:label>
+    <skos:altLabel xml:lang="de">wird durch LBS-Knoten repräsentiert</skos:altLabel>
+    <rdfs:comment xml:lang="en">Links an intrinsic spatial structure element of a Built Asset to the project-specific LBS node representing that location.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/built-asset-breakdown-link"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nb7e091fd99fe45e188aaea277a4c9910b2">
+    <rdf:first rdf:resource="https://www.construct-x.org/ontology/built-asset#BuiltAsset"/>
+    <rdf:rest rdf:nodeID="nb7e091fd99fe45e188aaea277a4c9910b3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/built-asset-breakdown-link#representsSpatialStructureElement">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/breakdown-structure#LBSNode"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/built-asset#SpatialStructureElement"/>
+    <rdfs:label xml:lang="en">represents spatial structure element</rdfs:label>
+    <skos:altLabel xml:lang="de">repräsentiert räumliches Strukturelement</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/built-asset-breakdown-link"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nb7e091fd99fe45e188aaea277a4c9910b3">
+    <rdf:first rdf:resource="https://www.construct-x.org/ontology/built-asset#TechnicalSystem"/>
+    <rdf:rest rdf:nodeID="nb7e091fd99fe45e188aaea277a4c9910b4"/>
+  </rdf:Description>
+</rdf:RDF>

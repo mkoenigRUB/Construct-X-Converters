@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+   xmlns:vann="http://purl.org/vocab/vann/"
+>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-site/area-type#SiteAccess">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/construction-site/area-type"/>
+    <skos:prefLabel xml:lang="en">Site Access</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Zufahrt</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-site/area-type#LoadingZone">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/construction-site/area-type"/>
+    <skos:prefLabel xml:lang="en">Loading Zone</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Ladezone</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-site/area-type#EscapeRoute">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/construction-site/area-type"/>
+    <skos:prefLabel xml:lang="en">Escape Route</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Fluchtweg</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-site/area-type">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <owl:versionIRI rdf:resource="https://www.construct-x.org/vocab/construction-site/area-type/0.1.0"/>
+    <owl:versionInfo>0.1.0</owl:versionInfo>
+    <dcterms:title xml:lang="en">Construct-X Construction Site Area Type Vocabulary</dcterms:title>
+    <dcterms:title xml:lang="de">Construct-X-Vokabular für Baustellenflächentypen</dcterms:title>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-22</dcterms:created>
+    <vann:preferredNamespacePrefix>conx-area</vann:preferredNamespacePrefix>
+    <vann:preferredNamespaceUri>https://www.construct-x.org/vocab/construction-site/area-type#</vann:preferredNamespaceUri>
+    <skos:prefLabel xml:lang="en">Construction Site Area Type</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Baustellenflächentyp</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-site/area-type#ConstructionRoad">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/construction-site/area-type"/>
+    <skos:prefLabel xml:lang="en">Construction Road</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Baustraße</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-site/area-type#PreStagingArea">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/construction-site/area-type"/>
+    <skos:prefLabel xml:lang="en">Pre-Staging Area</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Vorstaubereich</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-site/area-type#RestrictedZone">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/construction-site/area-type"/>
+    <skos:prefLabel xml:lang="en">Restricted Zone</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Sperrzone</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-site/area-type#WaitingZone">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/construction-site/area-type"/>
+    <skos:prefLabel xml:lang="en">Waiting Zone</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Wartezone</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-site/area-type#WorkArea">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/construction-site/area-type"/>
+    <skos:prefLabel xml:lang="en">Work Area</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Arbeitsbereich</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-site/area-type#EquipmentSetupArea">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/construction-site/area-type"/>
+    <skos:prefLabel xml:lang="en">Equipment Setup Area</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Aufstellfläche</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-site/area-type#ParkingArea">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/construction-site/area-type"/>
+    <skos:prefLabel xml:lang="en">Parking Area</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Stellfläche</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-site/area-type#GreenArea">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/construction-site/area-type"/>
+    <skos:prefLabel xml:lang="en">Green Area</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Grünfläche</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-site/area-type#TrafficRoute">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/construction-site/area-type"/>
+    <skos:prefLabel xml:lang="en">Traffic Route</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Verkehrsweg</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-site/area-type#StorageArea">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/construction-site/area-type"/>
+    <skos:prefLabel xml:lang="en">Storage Area</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Lager</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-site/area-type#IntermediateStorageArea">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/construction-site/area-type"/>
+    <skos:prefLabel xml:lang="en">Intermediate Storage Area</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Zwischenlager</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-site/area-type#ConstructionPath">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/construction-site/area-type"/>
+    <skos:prefLabel xml:lang="en">Construction Path</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Bauweg</skos:prefLabel>
+  </rdf:Description>
+</rdf:RDF>

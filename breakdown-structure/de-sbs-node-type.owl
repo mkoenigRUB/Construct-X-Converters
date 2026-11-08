@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+   xmlns:vann="http://purl.org/vocab/vann/"
+>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/breakdown-structure/de-sbs-node-type#SystemType">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:notation>M264</skos:notation>
+    <skos:prefLabel xml:lang="en">System Type</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Systemtyp</skos:prefLabel>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-sbs-node-type#SBSNodeTypeScheme"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-sbs-node-type#SBSNodeTypeScheme"/>
+    <dcterms:source>M264 - Systemtyp</dcterms:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/breakdown-structure/de-sbs-node-type#BuildingComponentType">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:notation>M267</skos:notation>
+    <skos:prefLabel xml:lang="en">Building Component Type</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Bauteiltyp</skos:prefLabel>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-sbs-node-type#SBSNodeTypeScheme"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-sbs-node-type#SBSNodeTypeScheme"/>
+    <dcterms:source>M267 - Bauteiltyp</dcterms:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/breakdown-structure/de-sbs-node-type">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <owl:versionIRI rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-sbs-node-type/0.1.0"/>
+    <owl:versionInfo>0.1.0</owl:versionInfo>
+    <dcterms:title xml:lang="en">Construct-X DE SBS Node Type Vocabulary</dcterms:title>
+    <dcterms:title xml:lang="de">Construct-X-DE-Vokabular für SBS-Knotentypen</dcterms:title>
+    <dcterms:description xml:lang="en">Germany-specific controlled vocabulary for semantic node types of System Breakdown Structures (SBS), based on the supplied classification excerpt GR52 / M264-M269.</dcterms:description>
+    <dcterms:description xml:lang="de">Deutschland-spezifisches kontrolliertes Vokabular für fachliche Knotentypen von System Breakdown Structures (SBS), basierend auf dem bereitgestellten Klassifikationsauszug GR52 / M264-M269.</dcterms:description>
+    <dcterms:publisher rdf:resource="https://www.construct-x.org/id/organization/construct-x"/>
+    <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-02</dcterms:created>
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-21</dcterms:modified>
+    <dcterms:source>Provided classification excerpt: GR52 System Breakdown; M264-M269.</dcterms:source>
+    <vann:preferredNamespacePrefix>conx-de-sbs</vann:preferredNamespacePrefix>
+    <vann:preferredNamespaceUri>https://www.construct-x.org/vocab/breakdown-structure/de-sbs-node-type#</vann:preferredNamespaceUri>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/breakdown-structure/de-sbs-node-type#AssemblyType">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:notation>M266</skos:notation>
+    <skos:prefLabel xml:lang="en">Assembly Type</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Baugruppentyp</skos:prefLabel>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-sbs-node-type#SBSNodeTypeScheme"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-sbs-node-type#SBSNodeTypeScheme"/>
+    <dcterms:source>M266 - Baugruppentyp</dcterms:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/breakdown-structure/de-sbs-node-type#StructureType">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:notation>M265</skos:notation>
+    <skos:prefLabel xml:lang="en">Structure Type</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Bauwerkstyp</skos:prefLabel>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-sbs-node-type#SBSNodeTypeScheme"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-sbs-node-type#SBSNodeTypeScheme"/>
+    <dcterms:source>M265 - Bauwerkstyp</dcterms:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/breakdown-structure/de-sbs-node-type#ElementType">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:notation>M268</skos:notation>
+    <skos:prefLabel xml:lang="en">Element Type</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Elementtyp</skos:prefLabel>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-sbs-node-type#SBSNodeTypeScheme"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-sbs-node-type#SBSNodeTypeScheme"/>
+    <dcterms:source>M268 - Elementtyp</dcterms:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/breakdown-structure/de-sbs-node-type#ComponentType">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:notation>M269</skos:notation>
+    <skos:prefLabel xml:lang="en">Component Type</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Komponententyp</skos:prefLabel>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-sbs-node-type#SBSNodeTypeScheme"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-sbs-node-type#SBSNodeTypeScheme"/>
+    <dcterms:source>M269 - Komponententyp</dcterms:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/breakdown-structure/de-sbs-node-type#SBSNodeTypeScheme">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <skos:prefLabel xml:lang="en">SBS Node Type Vocabulary</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">SBS-Knotentyp-Vokabular</skos:prefLabel>
+    <dcterms:source>Provided classification excerpt: GR52 System Breakdown; M264-M269.</dcterms:source>
+  </rdf:Description>
+</rdf:RDF>

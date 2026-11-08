@@ -1,0 +1,391 @@
+@prefix conx-gaeb: <https://www.construct-x.org/ontology/gaeb-boq#> .
+@prefix conx-gaeb-sh: <https://www.construct-x.org/shapes/gaeb-boq#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/shapes/gaeb-boq/core>
+    a owl:Ontology ;
+    owl:versionIRI <https://www.construct-x.org/shapes/gaeb-boq/core/0.5.0> ;
+    owl:versionInfo "0.5.0" ;
+    owl:imports <https://www.construct-x.org/ontology/gaeb-boq/0.5.0> ;
+    dcterms:title "Construct-X GAEB BoQ Core SHACL Profile"@en ;
+    dcterms:title "Construct-X GAEB-BoQ Core-SHACL-Profil"@de ;
+    dcterms:publisher <https://www.construct-x.org/id/organization/construct-x> ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    vann:preferredNamespacePrefix "conx-gaeb-sh" ;
+    vann:preferredNamespaceUri "https://www.construct-x.org/shapes/gaeb-boq#" .
+
+conx-gaeb-sh:IdentifiedEntityShape
+    a sh:NodeShape ;
+    sh:targetClass conx-gaeb:IdentifiedEntity ;
+    sh:property [
+        sh:path conx-gaeb:identifier ;
+        sh:datatype xsd:string ;
+        sh:minLength 1 ;
+        sh:minCount 1 ;
+        sh:maxCount 1
+    ] ;
+    sh:property [
+        sh:path conx-gaeb:name ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1
+    ] .
+
+conx-gaeb-sh:BillOfQuantitiesShape
+    a sh:NodeShape ;
+    sh:targetClass conx-gaeb:BillOfQuantities ;
+    sh:xone (
+        [
+            sh:property [
+                sh:path conx-gaeb:hasRootSection ;
+                sh:class conx-gaeb:BoQSection ;
+                sh:minCount 1
+            ] ;
+            sh:property [ sh:path conx-gaeb:hasDirectItem ; sh:maxCount 0 ]
+        ]
+        [
+            sh:property [
+                sh:path conx-gaeb:hasDirectItem ;
+                sh:class conx-gaeb:BoQItem ;
+                sh:minCount 1
+            ] ;
+            sh:property [ sh:path conx-gaeb:hasRootSection ; sh:maxCount 0 ]
+        ]
+    ) .
+
+conx-gaeb-sh:BoQSectionShape
+    a sh:NodeShape ;
+    sh:targetClass conx-gaeb:BoQSection ;
+    sh:property [
+        sh:path conx-gaeb:ordinalNumber ;
+        sh:datatype xsd:string ;
+        sh:minLength 1 ;
+        sh:minCount 1 ;
+        sh:maxCount 1
+    ] ;
+    sh:property [
+        sh:path conx-gaeb:levelNumber ;
+        sh:datatype xsd:positiveInteger ;
+        sh:minInclusive 1 ;
+        sh:maxInclusive 5 ;
+        sh:minCount 1 ;
+        sh:maxCount 1
+    ] ;
+    sh:property [
+        sh:path conx-gaeb:hierarchyLevelName ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1
+    ] ;
+    sh:xone (
+        [
+            sh:property [
+                sh:path conx-gaeb:isRootSectionOf ;
+                sh:class conx-gaeb:BillOfQuantities ;
+                sh:minCount 1 ;
+                sh:maxCount 1
+            ] ;
+            sh:property [ sh:path conx-gaeb:isSubSectionOf ; sh:maxCount 0 ]
+        ]
+        [
+            sh:property [
+                sh:path conx-gaeb:isSubSectionOf ;
+                sh:class conx-gaeb:BoQSection ;
+                sh:minCount 1 ;
+                sh:maxCount 1
+            ] ;
+            sh:property [ sh:path conx-gaeb:isRootSectionOf ; sh:maxCount 0 ]
+        ]
+    ) ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "The BoQ section hierarchy must not contain a cycle."@en ;
+        sh:message "Die LV-Bereichshierarchie darf keinen Zyklus enthalten."@de ;
+        sh:select """
+            PREFIX conx-gaeb: <https://www.construct-x.org/ontology/gaeb-boq#>
+            SELECT $this WHERE { $this conx-gaeb:isSubSectionOf+ $this . }
+        """
+    ] .
+
+conx-gaeb-sh:BoQItemShape
+    a sh:NodeShape ;
+    sh:targetClass conx-gaeb:BoQItem ;
+    sh:property [
+        sh:path conx-gaeb:ordinalNumber ;
+        sh:datatype xsd:string ;
+        sh:minLength 1 ;
+        sh:minCount 1 ;
+        sh:maxCount 1
+    ] ;
+    sh:property [
+        sh:path conx-gaeb:positionCounter ;
+        sh:datatype xsd:nonNegativeInteger ;
+        sh:maxCount 1
+    ] ;
+    sh:property [
+        sh:path conx-gaeb:ordinalIndex ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1
+    ] ;
+    sh:property [
+        sh:path conx-gaeb:shortText ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1
+    ] ;
+    sh:property [
+        sh:path conx-gaeb:longText ;
+        sh:nodeKind sh:Literal ;
+        sh:maxCount 1
+    ] ;
+    sh:property [
+        sh:path conx-gaeb:quantity ;
+        sh:datatype xsd:decimal ;
+        sh:minInclusive 0 ;
+        sh:minCount 1 ;
+        sh:maxCount 1
+    ] ;
+    sh:property [
+        sh:path conx-gaeb:unitCode ;
+        sh:datatype xsd:string ;
+        sh:minLength 1 ;
+        sh:minCount 1 ;
+        sh:maxCount 1
+    ] ;
+    sh:property [
+        sh:path conx-gaeb:splitsAreExhaustive ;
+        sh:datatype xsd:boolean ;
+        sh:maxCount 1
+    ] ;
+    sh:xone (
+        [
+            sh:property [
+                sh:path conx-gaeb:isDirectItemOf ;
+                sh:class conx-gaeb:BillOfQuantities ;
+                sh:minCount 1 ;
+                sh:maxCount 1
+            ] ;
+            sh:property [ sh:path conx-gaeb:belongsToSection ; sh:maxCount 0 ]
+        ]
+        [
+            sh:property [
+                sh:path conx-gaeb:belongsToSection ;
+                sh:class conx-gaeb:BoQSection ;
+                sh:minCount 1 ;
+                sh:maxCount 1
+            ] ;
+            sh:property [ sh:path conx-gaeb:isDirectItemOf ; sh:maxCount 0 ]
+        ]
+    ) ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "A BoQ item may only belong to a leaf BoQ section without subsections."@en ;
+        sh:message "Eine Leistungsposition darf nur einem Blatt-LV-Bereich ohne Unterbereiche zugeordnet sein."@de ;
+        sh:select """
+            PREFIX conx-gaeb: <https://www.construct-x.org/ontology/gaeb-boq#>
+            SELECT $this WHERE {
+                $this conx-gaeb:belongsToSection ?section .
+                ?section conx-gaeb:hasSubSection ?child .
+            }
+        """
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "If quantity splits are declared exhaustive, their sum must equal the BoQ item quantity."@en ;
+        sh:message "Bei als vollständig gekennzeichneten Mengensplits muss deren Summe der Positionsmenge entsprechen."@de ;
+        sh:select """
+            PREFIX conx-gaeb: <https://www.construct-x.org/ontology/gaeb-boq#>
+            SELECT $this
+            WHERE {
+                $this conx-gaeb:splitsAreExhaustive true ;
+                      conx-gaeb:quantity ?itemQuantity ;
+                      conx-gaeb:hasQuantitySplit ?split .
+                ?split conx-gaeb:quantity ?splitQuantity .
+            }
+            GROUP BY $this ?itemQuantity
+            HAVING (SUM(?splitQuantity) != ?itemQuantity)
+        """
+    ] .
+
+conx-gaeb-sh:QuantitySplitShape
+    a sh:NodeShape ;
+    sh:targetClass conx-gaeb:QuantitySplit ;
+    sh:property [
+        sh:path conx-gaeb:isQuantitySplitOf ;
+        sh:class conx-gaeb:BoQItem ;
+        sh:minCount 1 ;
+        sh:maxCount 1
+    ] ;
+    sh:property [
+        sh:path conx-gaeb:quantity ;
+        sh:datatype xsd:decimal ;
+        sh:minInclusive 0 ;
+        sh:minCount 1 ;
+        sh:maxCount 1
+    ] ;
+    sh:property [
+        sh:path conx-gaeb:unitCode ;
+        sh:datatype xsd:string ;
+        sh:minLength 1 ;
+        sh:maxCount 1
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "The Quantity Split must not exceed the quantity of its BoQ item."@en ;
+        sh:message "Der Mengensplit darf die Menge seiner Leistungsposition nicht überschreiten."@de ;
+        sh:select """
+            PREFIX conx-gaeb: <https://www.construct-x.org/ontology/gaeb-boq#>
+            SELECT $this WHERE {
+                $this conx-gaeb:isQuantitySplitOf ?item ;
+                      conx-gaeb:quantity ?splitQuantity .
+                ?item conx-gaeb:quantity ?itemQuantity .
+                FILTER (?splitQuantity > ?itemQuantity)
+            }
+        """
+    ] .
+
+conx-gaeb-sh:CatalogAssignmentShape
+    a sh:NodeShape ;
+    sh:targetClass conx-gaeb:CatalogAssignment ;
+    sh:property [
+        sh:path conx-gaeb:isAssignmentOf ;
+        sh:class conx-gaeb:CatalogAssignableEntity ;
+        sh:minCount 1 ;
+        sh:maxCount 1
+    ] ;
+    sh:property [
+        sh:path conx-gaeb:catalogIdentifier ;
+        sh:datatype xsd:string ;
+        sh:minLength 1 ;
+        sh:minCount 1 ;
+        sh:maxCount 1
+    ] ;
+    sh:property [
+        sh:path conx-gaeb:referencesExternalObject ;
+        sh:class conx-gaeb:ExternalObjectReference ;
+        sh:minCount 1 ;
+        sh:maxCount 1
+    ] .
+
+conx-gaeb-sh:ExternalObjectReferenceShape
+    a sh:NodeShape ;
+    sh:targetClass conx-gaeb:ExternalObjectReference ;
+    sh:property [
+        sh:path conx-gaeb:externalIdentifier ;
+        sh:datatype xsd:string ;
+        sh:minLength 1 ;
+        sh:minCount 1 ;
+        sh:maxCount 1
+    ] ;
+    sh:property [ sh:path conx-gaeb:sourceSystem ; sh:datatype xsd:string ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-gaeb:objectType ; sh:datatype xsd:string ; sh:maxCount 1 ] .
+
+
+conx-gaeb-sh:BillOfQuantitiesPriceShape
+    a sh:NodeShape ;
+    sh:targetClass conx-gaeb:BillOfQuantities ;
+    sh:property [
+        sh:path conx-gaeb:currencyCode ;
+        sh:datatype xsd:string ;
+        sh:pattern "^[A-Z]{3}$" ;
+        sh:maxCount 1 ;
+        sh:message "currencyCode must be an uppercase three-letter currency code."@en ;
+        sh:message "currencyCode muss ein dreistelliger Währungscode in Großbuchstaben sein."@de
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "A Bill of Quantities containing priced items must define currencyCode."@en ;
+        sh:message "Ein Leistungsverzeichnis mit bepreisten Positionen muss currencyCode angeben."@de ;
+        sh:select """
+            PREFIX conx-gaeb: <https://www.construct-x.org/ontology/gaeb-boq#>
+            SELECT $this
+            WHERE {
+                FILTER NOT EXISTS { $this conx-gaeb:currencyCode ?currency . }
+                {
+                    $this conx-gaeb:hasDirectItem ?item .
+                }
+                UNION
+                {
+                    $this conx-gaeb:hasRootSection/conx-gaeb:hasSubSection* ?section .
+                    ?section conx-gaeb:hasItem ?item .
+                }
+                ?item conx-gaeb:unitPrice ?unitPrice .
+            }
+        """
+    ] .
+
+conx-gaeb-sh:BoQItemPriceShape
+    a sh:NodeShape ;
+    sh:targetClass conx-gaeb:BoQItem ;
+    sh:property [
+        sh:path conx-gaeb:unitPrice ;
+        sh:datatype xsd:decimal ;
+        sh:minInclusive 0 ;
+        sh:maxCount 1
+    ] ;
+    sh:property [
+        sh:path conx-gaeb:totalAmount ;
+        sh:datatype xsd:decimal ;
+        sh:minInclusive 0 ;
+        sh:maxCount 1
+    ] ;
+    sh:property [
+        sh:path conx-gaeb:hasUnitPriceComponent ;
+        sh:class conx-gaeb:UnitPriceComponent ;
+        sh:maxCount 6
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "If unit price components are present, the BoQ item must have a unitPrice."@en ;
+        sh:message "Wenn Einheitspreisanteile vorhanden sind, muss die Leistungsposition einen unitPrice besitzen."@de ;
+        sh:select """
+            PREFIX conx-gaeb: <https://www.construct-x.org/ontology/gaeb-boq#>
+            SELECT $this
+            WHERE {
+                $this conx-gaeb:hasUnitPriceComponent ?component .
+                FILTER NOT EXISTS { $this conx-gaeb:unitPrice ?unitPrice . }
+            }
+        """
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "The sum of all unit price components must equal the unitPrice."@en ;
+        sh:message "Die Summe aller Einheitspreisanteile muss dem Einheitspreis entsprechen."@de ;
+        sh:select """
+            PREFIX conx-gaeb: <https://www.construct-x.org/ontology/gaeb-boq#>
+            SELECT $this
+            WHERE {
+                $this conx-gaeb:unitPrice ?unitPrice ;
+                      conx-gaeb:hasUnitPriceComponent ?component .
+                ?component conx-gaeb:amount ?amount .
+            }
+            GROUP BY $this ?unitPrice
+            HAVING (SUM(?amount) != ?unitPrice)
+        """
+    ] .
+
+conx-gaeb-sh:UnitPriceComponentShape
+    a sh:NodeShape ;
+    sh:targetClass conx-gaeb:UnitPriceComponent ;
+    sh:property [
+        sh:path conx-gaeb:amount ;
+        sh:datatype xsd:decimal ;
+        sh:minInclusive 0 ;
+        sh:minCount 1 ;
+        sh:maxCount 1
+    ] ;
+    sh:property [
+        sh:path conx-gaeb:isUnitPriceComponentOf ;
+        sh:class conx-gaeb:BoQItem ;
+        sh:minCount 1 ;
+        sh:maxCount 1
+    ] ;
+    sh:property [
+        sh:path conx-gaeb:hasPriceComponentType ;
+        sh:class skos:Concept ;
+        sh:nodeKind sh:IRI ;
+        sh:minCount 1 ;
+        sh:maxCount 1
+    ] .

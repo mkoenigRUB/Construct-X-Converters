@@ -1,0 +1,38 @@
+@prefix conx-cs: <https://www.construct-x.org/ontology/construction-schedule#> .
+@prefix conx-gaeb: <https://www.construct-x.org/ontology/gaeb-boq#> .
+@prefix conx-sbq: <https://www.construct-x.org/ontology/schedule-boq-link#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/ontology/schedule-boq-link>
+    a owl:Ontology ;
+    owl:versionIRI <https://www.construct-x.org/ontology/schedule-boq-link/0.2.1> ;
+    owl:versionInfo "0.2.1" ;
+    owl:imports
+        <https://www.construct-x.org/ontology/construction-schedule/0.5.0> ,
+        <https://www.construct-x.org/ontology/gaeb-boq/0.5.0> ;
+    dcterms:title "Construct-X Schedule–BoQ Link Ontology"@en ;
+    dcterms:title "Construct-X-Link-Ontologie zwischen Bauablauf und Leistungsverzeichnis"@de ;
+    dcterms:description "Defines cross-domain relations between a Construction Schedule and Bills of Quantities, and between Quantity Splits and assigned Activities."@en ;
+    dcterms:modified "2026-10-21"^^xsd:date ;
+    vann:preferredNamespacePrefix "conx-sbq" ;
+    vann:preferredNamespaceUri "https://www.construct-x.org/ontology/schedule-boq-link#" .
+
+conx-sbq:usesBillOfQuantities
+    a owl:ObjectProperty ;
+    rdfs:domain conx-cs:ConstructionSchedule ;
+    rdfs:range conx-gaeb:BillOfQuantities ;
+    rdfs:label "uses bill of quantities"@en ;
+    rdfs:label "verwendet Leistungsverzeichnis"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/schedule-boq-link> .
+
+conx-sbq:isAssignedToActivity
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain conx-gaeb:QuantitySplit ;
+    rdfs:range conx-cs:Activity ;
+    rdfs:label "is assigned to activity"@en ;
+    rdfs:label "ist Vorgang zugeordnet"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/schedule-boq-link> .

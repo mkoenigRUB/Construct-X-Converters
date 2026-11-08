@@ -1,0 +1,115 @@
+/* ============================================================================
+   Converter-Frontend — lokales Layout-CSS (nur Frontend-spezifisch)
+   Alle Farben/Fonts/Radien/Komponenten: design/conx.css (GUIDELINE.md §2).
+   ============================================================================ */
+
+/* Seitenspalte */
+.main {
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-12);
+}
+
+.page-title {
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-1);
+}
+
+.subtitle {
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-6);
+}
+
+/* Tabs direkt über den Panels */
+.tabs { margin-bottom: var(--space-6); }
+
+/* "Beispieldatei laden"-Zeile */
+.example-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-top: var(--space-3);
+    font-size: var(--text-sm);
+}
+
+/* Datei-Vorschau-Panel */
+.preview { margin-top: var(--space-4); }
+
+/* Bauposten-Auswahl (Checkbox-Baum) */
+.selection { margin-top: var(--space-4); }
+
+.selection-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-2);
+}
+
+.selection-title {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    font-weight: 600;
+}
+
+.selection-actions {
+    display: inline-flex;
+    gap: var(--space-2);
+}
+
+.selection-status {
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-2);
+}
+
+.selection-tree {
+    max-height: 360px;
+    overflow: auto;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: var(--space-2) 0;
+}
+
+.sel-node { display: block; }
+
+.sel-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: 2px var(--space-3);
+    cursor: pointer;
+    font-size: var(--text-sm);
+}
+
+.sel-row:hover { background: rgba(0, 53, 96, 0.06); }
+
+.sel-children { display: block; }
+
+.sel-oz {
+    font-variant-numeric: tabular-nums;
+    color: var(--muted);
+    min-width: 72px;
+}
+
+.sel-name { flex: 1; }
+
+.sel-count {
+    color: var(--muted);
+    font-size: var(--text-xs);
+    white-space: nowrap;
+}
+
+.sel-kind {
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+}
+
+@media (max-width: 640px) {
+    .main { padding-top: var(--space-6); padding-bottom: var(--space-8); }
+    .page-title { font-size: var(--text-lg); }
+    .example-row { flex-wrap: wrap; }
+}

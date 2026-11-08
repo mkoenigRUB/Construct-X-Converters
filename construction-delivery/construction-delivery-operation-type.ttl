@@ -1,0 +1,26 @@
+@prefix conx-dot: <https://www.construct-x.org/vocab/construction-delivery/operation-type#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/vocab/construction-delivery/operation-type>
+    a owl:Ontology, skos:ConceptScheme ;
+    owl:versionIRI <https://www.construct-x.org/vocab/construction-delivery/operation-type/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+    dcterms:title "Construct-X Logistics Operation Type Vocabulary"@en ;
+    dcterms:created "2026-10-22"^^xsd:date ;
+    vann:preferredNamespacePrefix "conx-dot" ;
+    vann:preferredNamespaceUri "https://www.construct-x.org/vocab/construction-delivery/operation-type#" ;
+    skos:prefLabel "Logistics Operation Type"@en ;
+    skos:prefLabel "Logistikvorgangstyp"@de .
+
+conx-dot:Arrival a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/construction-delivery/operation-type> ; skos:prefLabel "Arrival"@en ; skos:prefLabel "Ankunft"@de .
+conx-dot:Waiting a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/construction-delivery/operation-type> ; skos:prefLabel "Waiting"@en ; skos:prefLabel "Warten"@de .
+conx-dot:CheckIn a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/construction-delivery/operation-type> ; skos:prefLabel "Check-In"@en ; skos:prefLabel "Einfahrt / Anmeldung"@de .
+conx-dot:Loading a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/construction-delivery/operation-type> ; skos:prefLabel "Loading"@en ; skos:prefLabel "Beladen"@de .
+conx-dot:Unloading a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/construction-delivery/operation-type> ; skos:prefLabel "Unloading"@en ; skos:prefLabel "Entladen"@de .
+conx-dot:InternalTransport a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/construction-delivery/operation-type> ; skos:prefLabel "Internal Transport"@en ; skos:prefLabel "Baustelleninterner Transport"@de .
+conx-dot:Lifting a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/construction-delivery/operation-type> ; skos:prefLabel "Lifting"@en ; skos:prefLabel "Heben"@de .
+conx-dot:Handover a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/construction-delivery/operation-type> ; skos:prefLabel "Handover"@en ; skos:prefLabel "Übergabe"@de .

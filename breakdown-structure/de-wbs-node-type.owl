@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+   xmlns:vann="http://purl.org/vocab/vann/"
+>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/breakdown-structure/de-wbs-node-type#WBSNodeTypeScheme">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <skos:prefLabel xml:lang="en">WBS Node Type Vocabulary</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">WBS-Knotentyp-Vokabular</skos:prefLabel>
+    <dcterms:source>Provided classification excerpt: GR54 Work Breakdown; M284-M290.</dcterms:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/breakdown-structure/de-wbs-node-type#Phase">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:notation>M284</skos:notation>
+    <skos:prefLabel xml:lang="en">Phase</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Phase</skos:prefLabel>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-wbs-node-type#WBSNodeTypeScheme"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-wbs-node-type#WBSNodeTypeScheme"/>
+    <dcterms:source>M284 - Phase</dcterms:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/breakdown-structure/de-wbs-node-type#Process">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:notation>M289</skos:notation>
+    <skos:prefLabel xml:lang="en">Process</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Prozess</skos:prefLabel>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-wbs-node-type#WBSNodeTypeScheme"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-wbs-node-type#WBSNodeTypeScheme"/>
+    <dcterms:source>M289 - Prozess</dcterms:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/breakdown-structure/de-wbs-node-type">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <owl:versionIRI rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-wbs-node-type/0.1.0"/>
+    <owl:versionInfo>0.1.0</owl:versionInfo>
+    <dcterms:title xml:lang="en">Construct-X DE WBS Node Type Vocabulary</dcterms:title>
+    <dcterms:title xml:lang="de">Construct-X-DE-Vokabular für WBS-Knotentypen</dcterms:title>
+    <dcterms:description xml:lang="en">Germany-specific controlled vocabulary for semantic node types of Work Breakdown Structures (WBS), based on the supplied classification excerpt GR54 / M284-M290.</dcterms:description>
+    <dcterms:description xml:lang="de">Deutschland-spezifisches kontrolliertes Vokabular für fachliche Knotentypen von Work Breakdown Structures (WBS), basierend auf dem bereitgestellten Klassifikationsauszug GR54 / M284-M290.</dcterms:description>
+    <dcterms:publisher rdf:resource="https://www.construct-x.org/id/organization/construct-x"/>
+    <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-02</dcterms:created>
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-21</dcterms:modified>
+    <dcterms:source>Provided classification excerpt: GR54 Work Breakdown; M284-M290.</dcterms:source>
+    <vann:preferredNamespacePrefix>conx-de-wbs</vann:preferredNamespacePrefix>
+    <vann:preferredNamespaceUri>https://www.construct-x.org/vocab/breakdown-structure/de-wbs-node-type#</vann:preferredNamespaceUri>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/breakdown-structure/de-wbs-node-type#ProcessStep">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:notation>M290</skos:notation>
+    <skos:prefLabel xml:lang="en">Process Step</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Prozessschritt</skos:prefLabel>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-wbs-node-type#WBSNodeTypeScheme"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-wbs-node-type#WBSNodeTypeScheme"/>
+    <dcterms:source>M290 - Prozessschritt</dcterms:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/breakdown-structure/de-wbs-node-type#MaterialGroup">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:notation>M288</skos:notation>
+    <skos:prefLabel xml:lang="en">Material Group</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Materialgruppe</skos:prefLabel>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-wbs-node-type#WBSNodeTypeScheme"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-wbs-node-type#WBSNodeTypeScheme"/>
+    <dcterms:source>M288 - Materialgruppe</dcterms:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/breakdown-structure/de-wbs-node-type#Subphase">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:notation>M285</skos:notation>
+    <skos:prefLabel xml:lang="en">Subphase</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Teilphase</skos:prefLabel>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-wbs-node-type#WBSNodeTypeScheme"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-wbs-node-type#WBSNodeTypeScheme"/>
+    <dcterms:source>M285 - Teilphase</dcterms:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/breakdown-structure/de-wbs-node-type#ConstructionMethod">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:notation>M287</skos:notation>
+    <skos:prefLabel xml:lang="en">Construction Method</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Bauweise</skos:prefLabel>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-wbs-node-type#WBSNodeTypeScheme"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-wbs-node-type#WBSNodeTypeScheme"/>
+    <dcterms:source>M287 - Bauweise</dcterms:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/breakdown-structure/de-wbs-node-type#Trade">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:notation>M286</skos:notation>
+    <skos:prefLabel xml:lang="en">Trade</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Gewerk</skos:prefLabel>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-wbs-node-type#WBSNodeTypeScheme"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-wbs-node-type#WBSNodeTypeScheme"/>
+    <dcterms:source>M286 - Gewerk</dcterms:source>
+  </rdf:Description>
+</rdf:RDF>

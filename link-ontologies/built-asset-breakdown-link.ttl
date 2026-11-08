@@ -1,0 +1,76 @@
+@prefix conx-ba: <https://www.construct-x.org/ontology/built-asset#> .
+@prefix conx-bs: <https://www.construct-x.org/ontology/breakdown-structure#> .
+@prefix conx-babl: <https://www.construct-x.org/ontology/built-asset-breakdown-link#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/ontology/built-asset-breakdown-link>
+    a owl:Ontology ;
+    owl:versionIRI <https://www.construct-x.org/ontology/built-asset-breakdown-link/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports
+        <https://www.construct-x.org/ontology/built-asset/0.1.0> ,
+        <https://www.construct-x.org/ontology/breakdown-structure/0.7.0> ;
+    dcterms:title "Construct-X Built Asset–Breakdown Link Ontology"@en ;
+    dcterms:title "Construct-X-Verknüpfungsontologie für Bauwerk und Gliederungsstrukturen"@de ;
+    dcterms:description "Links intrinsic Built Asset structures to project-specific Location, System and Cost Breakdown Structures."@en ;
+    dcterms:created "2026-10-22"^^xsd:date ;
+    vann:preferredNamespacePrefix "conx-babl" ;
+    vann:preferredNamespaceUri "https://www.construct-x.org/ontology/built-asset-breakdown-link#" .
+
+conx-babl:isRepresentedByLBSNode
+    a owl:ObjectProperty ;
+    owl:inverseOf conx-babl:representsSpatialStructureElement ;
+    rdfs:domain conx-ba:SpatialStructureElement ;
+    rdfs:range conx-bs:LBSNode ;
+    rdfs:label "is represented by LBS node"@en ;
+    skos:altLabel "wird durch LBS-Knoten repräsentiert"@de ;
+    rdfs:comment "Links an intrinsic spatial structure element of a Built Asset to the project-specific LBS node representing that location."@en ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/built-asset-breakdown-link> .
+
+conx-babl:representsSpatialStructureElement
+    a owl:ObjectProperty ;
+    rdfs:domain conx-bs:LBSNode ;
+    rdfs:range conx-ba:SpatialStructureElement ;
+    rdfs:label "represents spatial structure element"@en ;
+    skos:altLabel "repräsentiert räumliches Strukturelement"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/built-asset-breakdown-link> .
+
+conx-babl:isRepresentedBySBSNode
+    a owl:ObjectProperty ;
+    owl:inverseOf conx-babl:representsTechnicalSystem ;
+    rdfs:domain conx-ba:TechnicalSystem ;
+    rdfs:range conx-bs:SBSNode ;
+    rdfs:label "is represented by SBS node"@en ;
+    skos:altLabel "wird durch SBS-Knoten repräsentiert"@de ;
+    rdfs:comment "Links an intrinsic Technical System to the project-specific SBS node representing that system."@en ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/built-asset-breakdown-link> .
+
+conx-babl:representsTechnicalSystem
+    a owl:ObjectProperty ;
+    rdfs:domain conx-bs:SBSNode ;
+    rdfs:range conx-ba:TechnicalSystem ;
+    rdfs:label "represents technical system"@en ;
+    skos:altLabel "repräsentiert technisches System"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/built-asset-breakdown-link> .
+
+conx-babl:isClassifiedByCBSNode
+    a owl:ObjectProperty ;
+    rdfs:domain [
+        a owl:Class ;
+        owl:unionOf (
+            conx-ba:BuiltAsset
+            conx-ba:TechnicalSystem
+            conx-ba:Component
+        )
+    ] ;
+    rdfs:range conx-bs:CBSNode ;
+    rdfs:label "is classified by CBS node"@en ;
+    skos:altLabel "ist durch CBS-Knoten klassifiziert"@de ;
+    rdfs:comment "Associates a Built Asset, Technical System or Component with a project-specific Cost Breakdown Structure node."@en ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/built-asset-breakdown-link> .

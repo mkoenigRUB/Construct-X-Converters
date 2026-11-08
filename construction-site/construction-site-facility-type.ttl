@@ -1,0 +1,22 @@
+@prefix conx-fac: <https://www.construct-x.org/vocab/construction-site/facility-type#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/vocab/construction-site/facility-type>
+    a owl:Ontology, skos:ConceptScheme ;
+    owl:versionIRI <https://www.construct-x.org/vocab/construction-site/facility-type/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+    dcterms:title "Construct-X Temporary Site Facility Type Vocabulary"@en ;
+    dcterms:created "2026-10-22"^^xsd:date ;
+    vann:preferredNamespacePrefix "conx-fac" ;
+    vann:preferredNamespaceUri "https://www.construct-x.org/vocab/construction-site/facility-type#" ;
+    skos:prefLabel "Temporary Site Facility Type"@en ;
+    skos:prefLabel "Typ temporärer Baustelleneinrichtung"@de .
+
+conx-fac:ContainerSystem a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/construction-site/facility-type> ; skos:prefLabel "Container System"@en ; skos:prefLabel "Containeranlage"@de .
+conx-fac:OfficeContainer a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/construction-site/facility-type> ; skos:prefLabel "Office Container"@en ; skos:prefLabel "Bürocontainer"@de .
+conx-fac:SanitaryContainer a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/construction-site/facility-type> ; skos:prefLabel "Sanitary Container"@en ; skos:prefLabel "Sanitärcontainer"@de .
+conx-fac:MaterialContainer a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/construction-site/facility-type> ; skos:prefLabel "Material Container"@en ; skos:prefLabel "Materialcontainer"@de .

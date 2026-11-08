@@ -1,0 +1,21 @@
+services:
+  rdf-converter-service:
+    build:
+      context: .
+      dockerfile: rdf-converter-service/Dockerfile
+    environment:
+      SERVER_PORT: 8082
+      CONX_ONTOLOGY_ROOT: /app/ontologies
+    ports:
+      - "8082:8082"
+    restart: unless-stopped
+
+  rdf-converter-frontend:
+    build:
+      context: .
+      dockerfile: rdf-converter-frontend/Dockerfile
+    depends_on:
+      - rdf-converter-service
+    ports:
+      - "8080:80"
+    restart: unless-stopped

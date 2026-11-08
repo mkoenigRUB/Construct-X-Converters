@@ -1,0 +1,74 @@
+
+@prefix conx-status: <https://www.construct-x.org/vocab/construction-schedule/activity-status#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/vocab/construction-schedule/activity-status>
+    a owl:Ontology ;
+    owl:versionIRI <https://www.construct-x.org/vocab/construction-schedule/activity-status/0.1.2> ;
+    owl:versionInfo "0.1.2" ;
+    dcterms:title "Construct-X Activity Status Vocabulary"@en ;
+    dcterms:title "Construct-X-Vokabular für den Ausführungsstand von Vorgängen"@de ;
+    dcterms:description "Controlled vocabulary for the status of construction schedule activities."@en ;
+    dcterms:description "Kontrolliertes Vokabular für den Ausführungsstand von Vorgängen eines Bauablaufplans. Die deutschen Benennungen orientieren sich, soweit semantisch passend, an DIN 69900:2009-01."@de ;
+    dcterms:publisher <https://www.construct-x.org/id/organization/construct-x> ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:created "2026-10-01"^^xsd:date ;
+    dcterms:modified "2026-10-21"^^xsd:date ;
+    dcterms:source "DIN 69900:2009-01, Project management — Project network techniques; Descriptions and concepts"@en ;
+    vann:preferredNamespacePrefix "conx-status" ;
+    vann:preferredNamespaceUri "https://www.construct-x.org/vocab/construction-schedule/activity-status#" .
+
+conx-status:ActivityStatus
+    a skos:ConceptScheme ;
+    skos:prefLabel "Activity Status"@en ;
+    skos:prefLabel "Ausführungsstand"@de ;
+    skos:altLabel "Vorgangsstatus"@de ;
+    dcterms:source "DIN 69900:2009-01, 4.4.2.6.4" ;
+    skos:hasTopConcept
+        conx-status:Planned ,
+        conx-status:InProgress ,
+        conx-status:Completed ,
+        conx-status:Cancelled .
+
+conx-status:Planned
+    a skos:Concept ;
+    skos:inScheme conx-status:ActivityStatus ;
+    skos:topConceptOf conx-status:ActivityStatus ;
+    skos:prefLabel "Planned"@en ;
+    skos:prefLabel "Geplant"@de ;
+    skos:definition "The activity is planned but has not yet started."@en ;
+    skos:definition "Der Vorgang ist geplant, wurde aber noch nicht begonnen. Dieser zusätzliche Status ist nicht Bestandteil der in DIN 69900 dargestellten drei Kennzeichnungen des Ausführungsstands."@de .
+
+conx-status:InProgress
+    a skos:Concept ;
+    skos:inScheme conx-status:ActivityStatus ;
+    skos:topConceptOf conx-status:ActivityStatus ;
+    skos:prefLabel "In Progress"@en ;
+    skos:prefLabel "Angefangen"@de ;
+    skos:altLabel "In Bearbeitung"@de ;
+    skos:definition "The activity has started and is currently being performed."@en ;
+    skos:definition "Der Vorgang wurde begonnen. DIN 69900 verwendet für den dargestellten Ausführungsstand die Benennung „Angefangen“."@de ;
+    dcterms:source "DIN 69900:2009-01, 4.4.2.6.4, Table 9" .
+conx-status:Completed
+    a skos:Concept ;
+    skos:inScheme conx-status:ActivityStatus ;
+    skos:topConceptOf conx-status:ActivityStatus ;
+    skos:prefLabel "Completed"@en ;
+    skos:prefLabel "Beendet"@de ;
+    skos:altLabel "Abgeschlossen"@de ;
+    skos:definition "The activity has been completed."@en ;
+    skos:definition "Der Vorgang wurde beendet. DIN 69900 verwendet für diesen Ausführungsstand die Benennung „Beendet“."@de ;
+    dcterms:source "DIN 69900:2009-01, 4.4.2.6.4, Table 9" .
+conx-status:Cancelled
+    a skos:Concept ;
+    skos:inScheme conx-status:ActivityStatus ;
+    skos:topConceptOf conx-status:ActivityStatus ;
+    skos:prefLabel "Cancelled"@en ;
+    skos:prefLabel "Abgebrochen"@de ;
+    skos:altLabel "Entfällt"@de ;
+    skos:definition "The activity has been cancelled and is no longer intended to be performed."@en ;
+    skos:definition "Der Vorgang wurde abgebrochen und soll nicht mehr ausgeführt werden. DIN 69900 verwendet im Ausführungsstand die Benennung „Entfällt“ für einen Vorgang, der im Plan zu Dokumentationszwecken verbleiben kann; dies ist keine vollständig deckungsgleiche Bedeutung zu „Cancelled“."@de .

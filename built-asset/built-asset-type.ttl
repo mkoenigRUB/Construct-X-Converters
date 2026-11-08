@@ -1,0 +1,26 @@
+@prefix conx-bat: <https://www.construct-x.org/vocab/built-asset/asset-type#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/vocab/built-asset/asset-type>
+    a owl:Ontology, skos:ConceptScheme ;
+    owl:versionIRI <https://www.construct-x.org/vocab/built-asset/asset-type/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+    dcterms:title "Construct-X Built Asset Type Vocabulary"@en ;
+    dcterms:title "Construct-X-Vokabular für Bauwerkstypen"@de ;
+    dcterms:created "2026-10-22"^^xsd:date ;
+    vann:preferredNamespacePrefix "conx-bat" ;
+    vann:preferredNamespaceUri "https://www.construct-x.org/vocab/built-asset/asset-type#" ;
+    skos:prefLabel "Built Asset Type"@en ;
+    skos:prefLabel "Bauwerkstyp"@de .
+
+conx-bat:Building a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/built-asset/asset-type> ; skos:prefLabel "Building"@en ; skos:prefLabel "Gebäude"@de .
+conx-bat:Bridge a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/built-asset/asset-type> ; skos:prefLabel "Bridge"@en ; skos:prefLabel "Brücke"@de .
+conx-bat:Tunnel a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/built-asset/asset-type> ; skos:prefLabel "Tunnel"@en ; skos:prefLabel "Tunnel"@de .
+conx-bat:Road a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/built-asset/asset-type> ; skos:prefLabel "Road"@en ; skos:prefLabel "Straße"@de .
+conx-bat:Railway a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/built-asset/asset-type> ; skos:prefLabel "Railway"@en ; skos:prefLabel "Eisenbahnanlage"@de .
+conx-bat:MarineFacility a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/built-asset/asset-type> ; skos:prefLabel "Marine Facility"@en ; skos:prefLabel "Wasserbauwerk"@de .
+conx-bat:OtherInfrastructure a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/built-asset/asset-type> ; skos:prefLabel "Other Infrastructure"@en ; skos:prefLabel "Sonstiges Infrastrukturbauwerk"@de .

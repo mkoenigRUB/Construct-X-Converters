@@ -1,0 +1,34 @@
+@prefix conx-area: <https://www.construct-x.org/vocab/construction-site/area-type#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/vocab/construction-site/area-type>
+    a owl:Ontology, skos:ConceptScheme ;
+    owl:versionIRI <https://www.construct-x.org/vocab/construction-site/area-type/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+    dcterms:title "Construct-X Construction Site Area Type Vocabulary"@en ;
+    dcterms:title "Construct-X-Vokabular für Baustellenflächentypen"@de ;
+    dcterms:created "2026-10-22"^^xsd:date ;
+    vann:preferredNamespacePrefix "conx-area" ;
+    vann:preferredNamespaceUri "https://www.construct-x.org/vocab/construction-site/area-type#" ;
+    skos:prefLabel "Construction Site Area Type"@en ;
+    skos:prefLabel "Baustellenflächentyp"@de .
+
+conx-area:WaitingZone a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/construction-site/area-type> ; skos:prefLabel "Waiting Zone"@en ; skos:prefLabel "Wartezone"@de .
+conx-area:PreStagingArea a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/construction-site/area-type> ; skos:prefLabel "Pre-Staging Area"@en ; skos:prefLabel "Vorstaubereich"@de .
+conx-area:SiteAccess a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/construction-site/area-type> ; skos:prefLabel "Site Access"@en ; skos:prefLabel "Zufahrt"@de .
+conx-area:ConstructionRoad a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/construction-site/area-type> ; skos:prefLabel "Construction Road"@en ; skos:prefLabel "Baustraße"@de .
+conx-area:TrafficRoute a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/construction-site/area-type> ; skos:prefLabel "Traffic Route"@en ; skos:prefLabel "Verkehrsweg"@de .
+conx-area:EscapeRoute a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/construction-site/area-type> ; skos:prefLabel "Escape Route"@en ; skos:prefLabel "Fluchtweg"@de .
+conx-area:LoadingZone a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/construction-site/area-type> ; skos:prefLabel "Loading Zone"@en ; skos:prefLabel "Ladezone"@de .
+conx-area:EquipmentSetupArea a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/construction-site/area-type> ; skos:prefLabel "Equipment Setup Area"@en ; skos:prefLabel "Aufstellfläche"@de .
+conx-area:ParkingArea a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/construction-site/area-type> ; skos:prefLabel "Parking Area"@en ; skos:prefLabel "Stellfläche"@de .
+conx-area:ConstructionPath a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/construction-site/area-type> ; skos:prefLabel "Construction Path"@en ; skos:prefLabel "Bauweg"@de .
+conx-area:StorageArea a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/construction-site/area-type> ; skos:prefLabel "Storage Area"@en ; skos:prefLabel "Lager"@de .
+conx-area:IntermediateStorageArea a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/construction-site/area-type> ; skos:prefLabel "Intermediate Storage Area"@en ; skos:prefLabel "Zwischenlager"@de .
+conx-area:WorkArea a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/construction-site/area-type> ; skos:prefLabel "Work Area"@en ; skos:prefLabel "Arbeitsbereich"@de .
+conx-area:RestrictedZone a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/construction-site/area-type> ; skos:prefLabel "Restricted Zone"@en ; skos:prefLabel "Sperrzone"@de .
+conx-area:GreenArea a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/construction-site/area-type> ; skos:prefLabel "Green Area"@en ; skos:prefLabel "Grünfläche"@de .

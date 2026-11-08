@@ -1,0 +1,91 @@
+@prefix conx-ba: <https://www.construct-x.org/ontology/built-asset#> .
+@prefix conx-ba-sh: <https://www.construct-x.org/shapes/built-asset#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/shapes/built-asset/core>
+    a owl:Ontology ;
+    owl:versionIRI <https://www.construct-x.org/shapes/built-asset/core/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://www.construct-x.org/ontology/built-asset/0.1.0> ;
+    dcterms:title "Construct-X Built Asset Core SHACL Profile"@en .
+
+conx-ba-sh:BuiltAssetShape
+    a sh:NodeShape ;
+    sh:targetClass conx-ba:BuiltAsset ;
+    sh:property [ sh:path conx-ba:identifier ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-ba:name ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-ba:description ; sh:datatype xsd:string ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-ba:hasAssetType ; sh:nodeKind sh:IRI ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-ba:hasSpatialStructureElement ; sh:class conx-ba:SpatialStructureElement ; sh:minCount 1 ] ;
+    sh:property [ sh:path conx-ba:hasPhysicalComponent ; sh:class conx-ba:Component ] ;
+    sh:property [ sh:path conx-ba:hasTechnicalSystem ; sh:class conx-ba:TechnicalSystem ] ;
+    sh:property [ sh:path locn:address ; sh:class locn:Address ; sh:maxCount 1 ] ;
+    sh:property [ sh:path geo:hasGeometry ; sh:class geo:Geometry ; sh:maxCount 1 ] .
+
+conx-ba-sh:SpatialStructureElementShape
+    a sh:NodeShape ;
+    sh:targetClass conx-ba:SpatialStructureElement ;
+    sh:property [ sh:path conx-ba:identifier ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-ba:hierarchyCode ; sh:datatype xsd:string ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-ba:name ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-ba:description ; sh:datatype xsd:string ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-ba:isSpatialStructureElementOf ; sh:class conx-ba:BuiltAsset ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-ba:hasSpatialStructureType ; sh:nodeKind sh:IRI ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-ba:isSubSpatialStructureElementOf ; sh:class conx-ba:SpatialStructureElement ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-ba:hasSubSpatialStructureElement ; sh:class conx-ba:SpatialStructureElement ] ;
+    sh:property [ sh:path geo:hasGeometry ; sh:class geo:Geometry ; sh:maxCount 1 ] ;
+    sh:sparql [
+      a sh:SPARQLConstraint ;
+      sh:message "A spatial-structure hierarchy must not contain a cycle."@en ;
+      sh:message "Eine räumliche Strukturhierarchie darf keinen Zyklus enthalten."@de ;
+      sh:select """
+        PREFIX conx-ba: <https://www.construct-x.org/ontology/built-asset#>
+        SELECT $this WHERE { $this conx-ba:isSubSpatialStructureElementOf+ $this . }
+      """
+    ] .
+
+conx-ba-sh:TechnicalSystemShape
+    a sh:NodeShape ;
+    sh:targetClass conx-ba:TechnicalSystem ;
+    sh:property [ sh:path conx-ba:identifier ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-ba:name ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-ba:description ; sh:datatype xsd:string ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-ba:servesBuiltAsset ; sh:class conx-ba:BuiltAsset ] ;
+    sh:property [ sh:path conx-ba:servesSpatialStructureElement ; sh:class conx-ba:SpatialStructureElement ] ;
+    sh:property [ sh:path conx-ba:isSubSystemOf ; sh:class conx-ba:TechnicalSystem ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-ba:hasSubSystem ; sh:class conx-ba:TechnicalSystem ] ;
+    sh:property [ sh:path conx-ba:hasSystemComponent ; sh:class conx-ba:Component ] ;
+    sh:sparql [
+      a sh:SPARQLConstraint ;
+      sh:message "A technical-system hierarchy must not contain a cycle."@en ;
+      sh:message "Eine technische Systemhierarchie darf keinen Zyklus enthalten."@de ;
+      sh:select """
+        PREFIX conx-ba: <https://www.construct-x.org/ontology/built-asset#>
+        SELECT $this WHERE { $this conx-ba:isSubSystemOf+ $this . }
+      """
+    ] .
+
+conx-ba-sh:ComponentShape
+    a sh:NodeShape ;
+    sh:targetClass conx-ba:Component ;
+    sh:property [ sh:path conx-ba:identifier ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-ba:name ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-ba:description ; sh:datatype xsd:string ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-ba:isPhysicalComponentOf ; sh:class conx-ba:BuiltAsset ] ;
+    sh:property [ sh:path conx-ba:isLocatedIn ; sh:class conx-ba:SpatialStructureElement ] ;
+    sh:property [ sh:path conx-ba:isSubComponentOf ; sh:class conx-ba:Component ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-ba:hasSubComponent ; sh:class conx-ba:Component ] ;
+    sh:sparql [
+      a sh:SPARQLConstraint ;
+      sh:message "A component hierarchy must not contain a cycle."@en ;
+      sh:message "Eine Komponentenhierarchie darf keinen Zyklus enthalten."@de ;
+      sh:select """
+        PREFIX conx-ba: <https://www.construct-x.org/ontology/built-asset#>
+        SELECT $this WHERE { $this conx-ba:isSubComponentOf+ $this . }
+      """
+    ] .

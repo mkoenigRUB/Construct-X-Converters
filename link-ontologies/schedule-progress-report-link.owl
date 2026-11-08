@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+   xmlns:vann="http://purl.org/vocab/vann/"
+>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/schedule-progress-report-link">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <owl:versionIRI rdf:resource="https://www.construct-x.org/ontology/schedule-progress-report-link/0.1.0"/>
+    <owl:versionInfo>0.1.0</owl:versionInfo>
+    <owl:imports rdf:resource="https://www.construct-x.org/ontology/construction-schedule/0.5.0"/>
+    <owl:imports rdf:resource="https://www.construct-x.org/ontology/construction-progress-report/0.1.0"/>
+    <dcterms:title xml:lang="en">Construct-X Schedule–Progress Report Link Ontology</dcterms:title>
+    <dcterms:title xml:lang="de">Construct-X-Link-Ontologie zwischen Bauablauf und Baufortschrittsmeldung</dcterms:title>
+    <dcterms:description xml:lang="en">Defines cross-domain relations between Construction Progress Reports and construction schedule Activities.</dcterms:description>
+    <dcterms:description xml:lang="de">Definiert domänenübergreifende Beziehungen zwischen Baufortschrittsmeldungen und Vorgängen eines Bauablaufplans.</dcterms:description>
+    <dcterms:publisher rdf:resource="https://www.construct-x.org/id/organization/construct-x"/>
+    <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-04</dcterms:created>
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-21</dcterms:modified>
+    <vann:preferredNamespacePrefix>conx-sprl</vann:preferredNamespacePrefix>
+    <vann:preferredNamespaceUri>https://www.construct-x.org/ontology/schedule-progress-report-link#</vann:preferredNamespaceUri>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/schedule-progress-report-link#reportsOnActivity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-progress-report#ConstructionProgressReport"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/construction-schedule#Activity"/>
+    <rdfs:label xml:lang="en">reports on activity</rdfs:label>
+    <skos:altLabel xml:lang="de">meldet Fortschritt zu Vorgang</skos:altLabel>
+    <skos:altLabel xml:lang="de">bezieht sich auf Vorgang</skos:altLabel>
+    <rdfs:comment xml:lang="en">Associates a Construction Progress Report with the single construction schedule Activity whose progress state is reported.</rdfs:comment>
+    <rdfs:comment xml:lang="de">Verknüpft eine Baufortschrittsmeldung mit dem einzelnen Vorgang des Bauablaufplans, dessen Fortschrittsstand gemeldet wird.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/schedule-progress-report-link"/>
+  </rdf:Description>
+</rdf:RDF>

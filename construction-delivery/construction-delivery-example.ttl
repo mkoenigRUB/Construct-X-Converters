@@ -1,0 +1,66 @@
+@prefix conx-del: <https://www.construct-x.org/ontology/construction-delivery#> .
+@prefix conx-drs: <https://www.construct-x.org/vocab/construction-delivery/requirement-status#> .
+@prefix conx-dot: <https://www.construct-x.org/vocab/construction-delivery/operation-type#> .
+@prefix ex: <https://data.example.com/project/alpha/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:req-001
+    a conx-del:LogisticsRequirement ;
+    conx-del:identifier "REQ-001" ;
+    conx-del:name "Doppelboden 5. OG anliefern" ;
+    conx-del:description "Anlieferung der Doppelbodenelemente für den Einbau im 5. OG." ;
+    conx-del:requestedStart "2026-11-03T08:00:00+01:00"^^xsd:dateTime ;
+    conx-del:requestedFinish "2026-11-03T09:00:00+01:00"^^xsd:dateTime ;
+    conx-del:hasStatus conx-drs:Scheduled ;
+    conx-del:hasLogisticsOperation ex:op-arrival-001, ex:op-unload-001, ex:op-handover-001 .
+
+ex:load-001
+    a conx-del:LogisticsLoad ;
+    conx-del:identifier "LOAD-001" ;
+    conx-del:name "Doppelbodenlieferung" ;
+    conx-del:hasLoadItem ex:item-001 .
+
+ex:item-001
+    a conx-del:LogisticsLoadItem ;
+    conx-del:identifier "LOADITEM-001" ;
+    conx-del:name "Doppelbodenelemente" ;
+    conx-del:isLoadItemOf ex:load-001 ;
+    conx-del:quantity "120"^^xsd:decimal ;
+    conx-del:unitCode "PCE" .
+
+ex:op-arrival-001
+    a conx-del:LogisticsOperation ;
+    conx-del:identifier "OP-ARR-001" ;
+    conx-del:name "Ankunft und Warten" ;
+    conx-del:isOperationOf ex:req-001 ;
+    conx-del:operationType conx-dot:Arrival ;
+    conx-del:plannedStart "2026-11-03T07:45:00+01:00"^^xsd:dateTime ;
+    conx-del:plannedFinish "2026-11-03T08:00:00+01:00"^^xsd:dateTime ;
+    conx-del:handlesLoad ex:load-001 .
+
+ex:op-unload-001
+    a conx-del:LogisticsOperation ;
+    conx-del:identifier "OP-UNLOAD-001" ;
+    conx-del:name "Entladen in Ladezone" ;
+    conx-del:isOperationOf ex:req-001 ;
+    conx-del:operationType conx-dot:Unloading ;
+    conx-del:plannedStart "2026-11-03T08:00:00+01:00"^^xsd:dateTime ;
+    conx-del:plannedFinish "2026-11-03T08:20:00+01:00"^^xsd:dateTime ;
+    conx-del:handlesLoad ex:load-001 ;
+    conx-del:hasDeliveryNote ex:delivery-note-001 .
+
+ex:op-handover-001
+    a conx-del:LogisticsOperation ;
+    conx-del:identifier "OP-HO-001" ;
+    conx-del:name "Übergabe der Ladung" ;
+    conx-del:isOperationOf ex:req-001 ;
+    conx-del:operationType conx-dot:Handover ;
+    conx-del:plannedStart "2026-11-03T08:20:00+01:00"^^xsd:dateTime ;
+    conx-del:plannedFinish "2026-11-03T08:30:00+01:00"^^xsd:dateTime ;
+    conx-del:handlesLoad ex:load-001 .
+
+ex:delivery-note-001
+    a conx-del:DeliveryNote ;
+    conx-del:identifier "DN-2026-1103-001" ;
+    conx-del:issuedAt "2026-11-03T08:15:00+01:00"^^xsd:dateTime ;
+    conx-del:documentsLoad ex:load-001 .

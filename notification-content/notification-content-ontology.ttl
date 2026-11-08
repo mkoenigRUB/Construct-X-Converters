@@ -1,0 +1,108 @@
+@prefix conx-nc: <https://www.construct-x.org/ontology/notification-content#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+
+conx-nc:assignedResource a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "assigned resource"@en ;
+    rdfs:comment "Von der Benachrichtigung referenziertes Objekt."@de,
+        "Resource referenced by the notification."@en ;
+    rdfs:domain conx-nc:SubjectAssignment ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/notification-content> ;
+    rdfs:range owl:Thing ;
+    skos:altLabel "zugeordnetes Objekt"@de .
+
+conx-nc:contextResource a owl:ObjectProperty ;
+    rdfs:label "context resource"@en ;
+    rdfs:comment "Verweist auf einen eigenständigen fachlichen Dateninhalt, der den Kontext für die Benachrichtigung bereitstellt."@de,
+        "References a separate business data resource providing context for the notification."@en ;
+    rdfs:domain conx-nc:NotificationContent ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/notification-content> ;
+    rdfs:range owl:Thing ;
+    skos:altLabel "Kontextressource"@de .
+
+conx-nc:hasResult a owl:ObjectProperty ;
+    rdfs:label "has result"@en ;
+    rdfs:comment "Durch die Benachrichtigung bereitgestelltes Ergebnisobjekt."@de,
+        "Result resource made available by the notification."@en ;
+    rdfs:domain conx-nc:NotificationContent ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/notification-content> ;
+    rdfs:range owl:Thing ;
+    skos:altLabel "hat Ergebnis"@de .
+
+conx-nc:hasSubjectAssignment a owl:ObjectProperty ;
+    rdfs:label "has subject assignment"@en ;
+    rdfs:comment "Verknüpft die Benachrichtigung mit einem oder mehreren Ziel- oder Kontextobjekten."@de,
+        "Associates the notification with one or more target or context resources."@en ;
+    rdfs:domain conx-nc:NotificationContent ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/notification-content> ;
+    rdfs:range conx-nc:SubjectAssignment ;
+    skos:altLabel "hat Objektzuordnung"@de .
+
+conx-nc:notificationType a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "notification type"@en ;
+    rdfs:comment "Klassifiziert die fachliche Bedeutung der Benachrichtigung."@de,
+        "Classifies the business meaning of the notification."@en ;
+    rdfs:domain conx-nc:NotificationContent ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/notification-content> ;
+    rdfs:range skos:Concept ;
+    skos:altLabel "Benachrichtigungstyp"@de .
+
+conx-nc:subjectRole a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "subject role"@en ;
+    rdfs:comment "Rolle des Objekts innerhalb der Benachrichtigung, z. B. Target oder ContextOnly."@de,
+        "Role of the resource within the notification, e.g. Target or ContextOnly."@en ;
+    rdfs:domain conx-nc:SubjectAssignment ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/notification-content> ;
+    rdfs:range skos:Concept ;
+    skos:altLabel "Objektrolle"@de .
+
+conx-nc:taskStatus a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "task status"@en ;
+    rdfs:comment "In einer Statusbenachrichtigung mitgeteilter Bearbeitungsstatus."@de,
+        "Status communicated in a task-status notification."@en ;
+    rdfs:domain conx-nc:NotificationContent ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/notification-content> ;
+    rdfs:range skos:Concept ;
+    skos:altLabel "Auftragsstatus"@de .
+
+conx-nc:taskType a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "task type"@en ;
+    rdfs:comment "Angeforderter Aufgabentyp, wenn die Benachrichtigung einen Arbeitsauftrag oder eine auftragsbezogene Folgemeldung darstellt."@de,
+        "Requested task type when the notification represents a task request or a task-related follow-up."@en ;
+    rdfs:domain conx-nc:NotificationContent ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/notification-content> ;
+    rdfs:range skos:Concept ;
+    skos:altLabel "Aufgabentyp"@de .
+
+conx-nc:SubjectAssignment a owl:Class ;
+    rdfs:label "Subject Assignment"@en ;
+    rdfs:comment "Ordnet einem Objekt seine Rolle innerhalb einer Benachrichtigung zu."@de,
+        "Associates a resource with its role in a notification."@en ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/notification-content> ;
+    skos:altLabel "Objektzuordnung"@de .
+
+conx-nc:NotificationContent a owl:Class ;
+    rdfs:label "Notification Content"@en ;
+    rdfs:comment "Fachsemantischer Inhalt innerhalb eines technischen Notification-Umschlags."@de,
+        "Business-semantic content carried inside a technical notification envelope."@en ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/notification-content> ;
+    skos:altLabel "Benachrichtigungsinhalt"@de .
+
+<https://www.construct-x.org/ontology/notification-content> a owl:Ontology ;
+    dcterms:description "Entwurf eines Construct-X-Fachmodells für Benachrichtigungsinhalte. Transport- und Routing-Metadaten wie messageId, Sender, Empfänger, Zeitstempel und relatedMessageId werden bewusst nicht modelliert; sie verbleiben im externen Notification-Header, z. B. nach Industry Core / Tractus-X."@de,
+        "Draft Construct-X business-content model for notifications. It deliberately excludes transport and routing metadata such as messageId, sender, receiver, timestamps and relatedMessageId; these remain in the external notification header (e.g. an Industry Core / Tractus-X message header)."@en ;
+    dcterms:title "Construct-X Ontologie für Benachrichtigungsinhalte"@de,
+        "Construct-X Notification Content Ontology"@en ;
+    owl:versionIRI <https://www.construct-x.org/ontology/notification-content/0.1.1> ;
+    vann:preferredNamespacePrefix "conx-nc" ;
+    vann:preferredNamespaceUri "https://www.construct-x.org/ontology/notification-content#" ;
+    owl:versionInfo "0.1.1" .
+

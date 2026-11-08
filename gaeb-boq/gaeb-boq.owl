@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+   xmlns:vann="http://purl.org/vocab/vann/"
+>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq#BoQComponent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#IdentifiedEntity"/>
+    <rdfs:label xml:lang="en">BoQ Component</rdfs:label>
+    <skos:altLabel xml:lang="de">LV-Strukturelement</skos:altLabel>
+    <rdfs:comment xml:lang="en">Abstract superclass for hierarchical BoQ components such as sections and items.</rdfs:comment>
+    <rdfs:comment xml:lang="de">Abstrakte Oberklasse für hierarchische LV-Strukturelemente wie Bereiche und Positionen.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/gaeb-boq"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq#name">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#IdentifiedEntity"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">name</rdfs:label>
+    <skos:altLabel xml:lang="de">Bezeichnung</skos:altLabel>
+    <rdfs:comment xml:lang="en">Optional human-readable name.</rdfs:comment>
+    <rdfs:comment xml:lang="de">Optionale menschenlesbare Bezeichnung.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/gaeb-boq"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq#isContainedIn">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#BoQItem"/>
+    <rdfs:range rdf:nodeID="n43871abe4d7048deb2d942eb8c22ba23b9"/>
+    <rdfs:label xml:lang="en">is contained in</rdfs:label>
+    <skos:altLabel xml:lang="de">ist enthalten in</skos:altLabel>
+    <rdfs:comment xml:lang="en">Abstract super-property for the direct or section-based containment of a BoQ Item.</rdfs:comment>
+    <rdfs:comment xml:lang="de">Abstrakte Oberrelation für die direkte oder bereichsbezogene Einordnung einer Leistungsposition.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/gaeb-boq"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <owl:versionIRI rdf:resource="https://www.construct-x.org/ontology/gaeb-boq/0.5.0"/>
+    <owl:versionInfo>0.5.0</owl:versionInfo>
+    <dcterms:title xml:lang="en">Construct-X GAEB BoQ Ontology</dcterms:title>
+    <dcterms:title xml:lang="de">Construct-X-Ontologie für GAEB-Leistungsverzeichnisse</dcterms:title>
+    <dcterms:description xml:lang="en">Core ontology for hierarchical bills of quantities, item quantities, quantity splits, pricing information, unit-price components and generic external-object references, based on selected concepts from GAEB DA XML 3.3.</dcterms:description>
+    <dcterms:description xml:lang="de">Kernontologie für hierarchische Leistungsverzeichnisse, Positionsmengen, Mengensplits, Preisangaben, Einheitspreisanteile und generische externe Objektreferenzen auf Grundlage ausgewählter Konzepte aus GAEB DA XML 3.3.</dcterms:description>
+    <dcterms:source>GAEB DA XML 3.3</dcterms:source>
+    <dcterms:publisher rdf:resource="https://www.construct-x.org/id/organization/construct-x"/>
+    <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-01</dcterms:created>
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-21</dcterms:modified>
+    <vann:preferredNamespacePrefix>conx-gaeb</vann:preferredNamespacePrefix>
+    <vann:preferredNamespaceUri>https://www.construct-x.org/ontology/gaeb-boq#</vann:preferredNamespaceUri>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq#ExternalObjectReference">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#IdentifiedEntity"/>
+    <rdfs:label xml:lang="en">External Object Reference</rdfs:label>
+    <skos:altLabel xml:lang="de">Externe Objektreferenz</skos:altLabel>
+    <rdfs:comment xml:lang="en">A generic reference resource for an object identified in an external system or model. Domain-specific semantic links belong in separate link ontologies.</rdfs:comment>
+    <rdfs:comment xml:lang="de">Generische Referenzressource für ein Objekt, das in einem externen System oder Modell identifiziert ist. Domänenspezifische semantische Verknüpfungen werden in separaten Link-Ontologien definiert.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/gaeb-boq"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq#externalIdentifier">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#ExternalObjectReference"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">external object identifier</rdfs:label>
+    <skos:altLabel xml:lang="de">externer Objektidentifikator</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/gaeb-boq"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq#currencyCode">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#BillOfQuantities"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">currency code</rdfs:label>
+    <skos:altLabel xml:lang="de">Währungscode</skos:altLabel>
+    <rdfs:comment xml:lang="en">Three-letter currency code used for monetary amounts in the Bill of Quantities, typically according to ISO 4217.</rdfs:comment>
+    <rdfs:comment xml:lang="de">Dreistelliger Währungscode für monetäre Beträge des Leistungsverzeichnisses, typischerweise gemäß ISO 4217.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/gaeb-boq"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq#positionCounter">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#BoQItem"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+    <rdfs:label xml:lang="en">position counter</rdfs:label>
+    <skos:altLabel xml:lang="de">Positionszähler</skos:altLabel>
+    <dcterms:source>GAEB DA XML 3.3</dcterms:source>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/gaeb-boq"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq#totalAmount">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#BoQItem"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:label xml:lang="en">total amount</rdfs:label>
+    <skos:altLabel xml:lang="de">Gesamtbetrag</skos:altLabel>
+    <skos:altLabel xml:lang="de">GB</skos:altLabel>
+    <rdfs:comment xml:lang="en">Monetary total amount of the BoQ Item. It is normally derived from quantity and unit price subject to the applicable rounding rules.</rdfs:comment>
+    <rdfs:comment xml:lang="de">Monetärer Gesamtbetrag der Leistungsposition. Er wird üblicherweise aus Menge und Einheitspreis unter Berücksichtigung der anzuwendenden Rundungsregeln abgeleitet.</rdfs:comment>
+    <dcterms:source>GAEB DA XML 3.3</dcterms:source>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/gaeb-boq"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq#CatalogAssignableEntity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#IdentifiedEntity"/>
+    <rdfs:label xml:lang="en">Catalog-Assignable Entity</rdfs:label>
+    <skos:altLabel xml:lang="de">Entität mit Katalogzuordnung</skos:altLabel>
+    <rdfs:comment xml:lang="en">Abstract superclass for resources that can be linked to an external identified object through a catalog assignment.</rdfs:comment>
+    <rdfs:comment xml:lang="de">Abstrakte Oberklasse für Ressourcen, die über eine Katalogzuordnung mit einem extern identifizierten Objekt verknüpft werden können.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/gaeb-boq"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n43871abe4d7048deb2d942eb8c22ba23b3">
+    <rdf:first rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#BoQSection"/>
+    <rdf:rest rdf:nodeID="n43871abe4d7048deb2d942eb8c22ba23b4"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq#hierarchyLevelName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#BoQSection"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">hierarchy level name</rdfs:label>
+    <skos:altLabel xml:lang="de">Bezeichnung der Hierarchieebene</skos:altLabel>
+    <dcterms:source>GAEB DA XML 3.3</dcterms:source>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/gaeb-boq"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq#identifier">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#IdentifiedEntity"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">identifier</rdfs:label>
+    <skos:altLabel xml:lang="de">Kennung</skos:altLabel>
+    <skos:altLabel xml:lang="de">Identifikator</skos:altLabel>
+    <rdfs:comment xml:lang="en">Mandatory domain identifier within the respective project or information context. Mandatory cardinality is enforced by the Core SHACL profile.</rdfs:comment>
+    <rdfs:comment xml:lang="de">Verpflichtende fachliche Kennung innerhalb des jeweiligen Projekt- oder Informationskontexts. Die Kardinalität wird durch das Core-SHACL-Profil geprüft.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/gaeb-boq"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq#BoQItem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#BoQComponent"/>
+    <rdfs:subClassOf rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#CatalogAssignableEntity"/>
+    <rdfs:subClassOf rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#QuantifiedEntity"/>
+    <rdfs:label xml:lang="en">BoQ Item</rdfs:label>
+    <skos:altLabel xml:lang="de">Leistungsposition</skos:altLabel>
+    <rdfs:comment xml:lang="en">A concrete partial service. It is contained either directly in the Bill of Quantities or in exactly one BoQ Section.</rdfs:comment>
+    <rdfs:comment xml:lang="de">Konkrete Teilleistung. Sie liegt entweder direkt im Leistungsverzeichnis oder in genau einem LV-Bereich.</rdfs:comment>
+    <dcterms:source>GAEB DA XML 3.3</dcterms:source>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/gaeb-boq"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq#QuantitySplit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#CatalogAssignableEntity"/>
+    <rdfs:subClassOf rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#QuantifiedEntity"/>
+    <rdfs:label xml:lang="en">Quantity Split</rdfs:label>
+    <skos:altLabel xml:lang="de">Mengensplit</skos:altLabel>
+    <rdfs:comment xml:lang="en">A delimited partial quantity of a BoQ Item. Quantity splits can be used as the fine-grained unit for external assignments.</rdfs:comment>
+    <rdfs:comment xml:lang="de">Abgegrenzte Teilmenge einer Leistungsposition. Mengensplits können als feingranulare Einheit für externe Zuordnungen verwendet werden.</rdfs:comment>
+    <dcterms:source>GAEB DA XML 3.3</dcterms:source>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/gaeb-boq"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq#objectType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#ExternalObjectReference"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">external object type</rdfs:label>
+    <skos:altLabel xml:lang="de">externer Objekttyp</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/gaeb-boq"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq#unitPrice">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#BoQItem"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:label xml:lang="en">unit price</rdfs:label>
+    <skos:altLabel xml:lang="de">Einheitspreis</skos:altLabel>
+    <skos:altLabel xml:lang="de">EP</skos:altLabel>
+    <rdfs:comment xml:lang="en">Monetary price per unit of the BoQ Item. The applicable currency is defined at the Bill of Quantities level.</rdfs:comment>
+    <rdfs:comment xml:lang="de">Monetärer Preis je Einheit der Leistungsposition. Die verwendete Währung wird auf Ebene des Leistungsverzeichnisses angegeben.</rdfs:comment>
+    <dcterms:source>GAEB DA XML 3.3</dcterms:source>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/gaeb-boq"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq#catalogIdentifier">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#CatalogAssignment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">catalog identifier</rdfs:label>
+    <skos:altLabel xml:lang="de">Katalogidentifikator</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/gaeb-boq"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq#isDirectItemOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#BoQItem"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#BillOfQuantities"/>
+    <rdfs:label xml:lang="en">is direct item of</rdfs:label>
+    <skos:altLabel xml:lang="de">ist direkte Position von</skos:altLabel>
+    <rdfs:subPropertyOf rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#isContainedIn"/>
+    <owl:inverseOf rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#hasDirectItem"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/gaeb-boq"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq#hasUnitPriceComponent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#BoQItem"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#UnitPriceComponent"/>
+    <rdfs:label xml:lang="en">has unit price component</rdfs:label>
+    <skos:altLabel xml:lang="de">hat Einheitspreisanteil</skos:altLabel>
+    <owl:inverseOf rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#isUnitPriceComponentOf"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/gaeb-boq"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq#hasPriceComponentType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#UnitPriceComponent"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:label xml:lang="en">has price component type</rdfs:label>
+    <skos:altLabel xml:lang="de">hat Typ des Einheitspreisanteils</skos:altLabel>
+    <rdfs:comment xml:lang="en">Classifies a Unit Price Component using a controlled SKOS concept.</rdfs:comment>
+    <rdfs:comment xml:lang="de">Klassifiziert einen Einheitspreisanteil über ein kontrolliertes SKOS-Konzept.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/gaeb-boq"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq#isAssignmentOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#CatalogAssignment"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#CatalogAssignableEntity"/>
+    <rdfs:label xml:lang="en">is assignment of</rdfs:label>
+    <skos:altLabel xml:lang="de">ist Katalogzuordnung von</skos:altLabel>
+    <owl:inverseOf rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#hasCatalogAssignment"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/gaeb-boq"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq#shortText">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#BoQItem"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">short text</rdfs:label>
+    <skos:altLabel xml:lang="de">Kurztext</skos:altLabel>
+    <dcterms:source>GAEB DA XML 3.3</dcterms:source>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/gaeb-boq"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq#splitsAreExhaustive">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#BoQItem"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:label xml:lang="en">splits are exhaustive</rdfs:label>
+    <skos:altLabel xml:lang="de">Mengensplits sind vollständig</skos:altLabel>
+    <rdfs:comment xml:lang="en">Indicates that the explicitly modelled Quantity Splits completely partition the quantity of the BoQ Item.</rdfs:comment>
+    <rdfs:comment xml:lang="de">Kennzeichnet, dass die explizit modellierten Mengensplits die Menge der Leistungsposition vollständig aufteilen.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/gaeb-boq"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq#levelNumber">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#BoQSection"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#positiveInteger"/>
+    <rdfs:label xml:lang="en">hierarchy level number</rdfs:label>
+    <skos:altLabel xml:lang="de">Nummer der Hierarchieebene</skos:altLabel>
+    <rdfs:comment xml:lang="en">One-based hierarchy level; the current GAEB-oriented SHACL profile permits levels 1 to 5.</rdfs:comment>
+    <rdfs:comment xml:lang="de">Einsbasierte Hierarchieebene; das aktuelle GAEB-orientierte SHACL-Profil erlaubt die Ebenen 1 bis 5.</rdfs:comment>
+    <dcterms:source>GAEB DA XML 3.3</dcterms:source>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/gaeb-boq"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq#isUnitPriceComponentOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#UnitPriceComponent"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#BoQItem"/>
+    <rdfs:label xml:lang="en">is unit price component of</rdfs:label>
+    <skos:altLabel xml:lang="de">ist Einheitspreisanteil von</skos:altLabel>
+    <owl:inverseOf rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#hasUnitPriceComponent"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/gaeb-boq"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq#hasSubSection">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#BoQSection"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#BoQSection"/>
+    <rdfs:label xml:lang="en">has subsection</rdfs:label>
+    <skos:altLabel xml:lang="de">hat untergeordneten LV-Bereich</skos:altLabel>
+    <owl:inverseOf rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#isSubSectionOf"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/gaeb-boq"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq#IdentifiedEntity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Identified Entity</rdfs:label>
+    <skos:altLabel xml:lang="de">Identifizierbare Entität</skos:altLabel>
+    <rdfs:comment xml:lang="en">Abstract superclass for GAEB BoQ resources that carry a stable domain identifier.</rdfs:comment>
+    <rdfs:comment xml:lang="de">Abstrakte Oberklasse für Ressourcen der GAEB-BoQ-Ontologie mit stabiler fachlicher Kennung.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/gaeb-boq"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq#belongsToSection">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#BoQItem"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#BoQSection"/>
+    <rdfs:label xml:lang="en">belongs to section</rdfs:label>
+    <skos:altLabel xml:lang="de">gehört zu LV-Bereich</skos:altLabel>
+    <rdfs:subPropertyOf rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#isContainedIn"/>
+    <owl:inverseOf rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#hasItem"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/gaeb-boq"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq#hasQuantitySplit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#BoQItem"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#QuantitySplit"/>
+    <rdfs:label xml:lang="en">has quantity split</rdfs:label>
+    <skos:altLabel xml:lang="de">hat Mengensplit</skos:altLabel>
+    <owl:inverseOf rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#isQuantitySplitOf"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/gaeb-boq"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq#isSubSectionOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#BoQSection"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#BoQSection"/>
+    <rdfs:label xml:lang="en">is subsection of</rdfs:label>
+    <skos:altLabel xml:lang="de">ist Unterbereich von</skos:altLabel>
+    <rdfs:subPropertyOf rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#isSectionContainedIn"/>
+    <owl:inverseOf rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#hasSubSection"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/gaeb-boq"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n43871abe4d7048deb2d942eb8c22ba23b4">
+    <rdf:first rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#BoQItem"/>
+    <rdf:rest rdf:nodeID="n43871abe4d7048deb2d942eb8c22ba23b5"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq#quantity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#QuantifiedEntity"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:label xml:lang="en">quantity</rdfs:label>
+    <skos:altLabel xml:lang="de">Menge</skos:altLabel>
+    <dcterms:source>GAEB DA XML 3.3</dcterms:source>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/gaeb-boq"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq#UnitPriceComponent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#IdentifiedEntity"/>
+    <rdfs:label xml:lang="en">Unit Price Component</rdfs:label>
+    <skos:altLabel xml:lang="de">Einheitspreisanteil</skos:altLabel>
+    <rdfs:comment xml:lang="en">A monetary component of the unit price of a BoQ Item. The component is classified by a controlled price-component type.</rdfs:comment>
+    <rdfs:comment xml:lang="de">Monetärer Anteil am Einheitspreis einer Leistungsposition. Der Anteil wird über einen kontrollierten Typ des Einheitspreisanteils klassifiziert.</rdfs:comment>
+    <dcterms:source>GAEB DA XML 3.3</dcterms:source>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/gaeb-boq"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq#amount">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#UnitPriceComponent"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:label xml:lang="en">amount</rdfs:label>
+    <skos:altLabel xml:lang="de">Betrag</skos:altLabel>
+    <rdfs:comment xml:lang="en">Monetary amount of a unit price component in the currency of the Bill of Quantities.</rdfs:comment>
+    <rdfs:comment xml:lang="de">Monetärer Betrag eines Einheitspreisanteils in der Währung des Leistungsverzeichnisses.</rdfs:comment>
+    <dcterms:source>GAEB DA XML 3.3</dcterms:source>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/gaeb-boq"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq#isQuantitySplitOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#QuantitySplit"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#BoQItem"/>
+    <rdfs:label xml:lang="en">is quantity split of</rdfs:label>
+    <skos:altLabel xml:lang="de">ist Mengensplit von</skos:altLabel>
+    <owl:inverseOf rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#hasQuantitySplit"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/gaeb-boq"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq#unitCode">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#QuantifiedEntity"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">unit code</rdfs:label>
+    <skos:altLabel xml:lang="de">Mengeneinheit</skos:altLabel>
+    <skos:altLabel xml:lang="de">GAEB-Einheitencode</skos:altLabel>
+    <rdfs:comment xml:lang="en">Original unit value from the GAEB context. A Quantity Split may omit the value and inherit the unit from its BoQ Item in application logic.</rdfs:comment>
+    <rdfs:comment xml:lang="de">Originaler Einheitenwert aus dem GAEB-Kontext. Bei einem Mengensplit kann der Wert fehlen und anwendungsseitig von der Position übernommen werden.</rdfs:comment>
+    <dcterms:source>GAEB DA XML 3.3</dcterms:source>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/gaeb-boq"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq#ordinalIndex">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#BoQItem"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">ordinal index</rdfs:label>
+    <skos:altLabel xml:lang="de">OZ-Index</skos:altLabel>
+    <dcterms:source>GAEB DA XML 3.3</dcterms:source>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/gaeb-boq"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq#isSectionContainedIn">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#BoQSection"/>
+    <rdfs:range rdf:nodeID="n43871abe4d7048deb2d942eb8c22ba23b12"/>
+    <rdfs:label xml:lang="en">section is contained in</rdfs:label>
+    <skos:altLabel xml:lang="de">LV-Bereich ist enthalten in</skos:altLabel>
+    <rdfs:comment xml:lang="en">Abstract super-property for the placement of a BoQ Section as a root section or subsection.</rdfs:comment>
+    <rdfs:comment xml:lang="de">Abstrakte Oberrelation für die Einordnung eines LV-Bereichs als Wurzel- oder Unterbereich.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/gaeb-boq"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq#BoQSection">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#BoQComponent"/>
+    <rdfs:label xml:lang="en">BoQ Section</rdfs:label>
+    <skos:altLabel xml:lang="de">LV-Bereich</skos:altLabel>
+    <rdfs:comment xml:lang="en">A hierarchical section of a bill of quantities. A section is either a root section or a subsection of another section.</rdfs:comment>
+    <rdfs:comment xml:lang="de">Hierarchischer LV-Bereich. Ein Bereich ist entweder oberster Bereich eines LV oder Unterbereich eines anderen Bereichs.</rdfs:comment>
+    <dcterms:source>GAEB DA XML 3.3</dcterms:source>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/gaeb-boq"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq#referencesExternalObject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#CatalogAssignment"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#ExternalObjectReference"/>
+    <rdfs:label xml:lang="en">references external object</rdfs:label>
+    <skos:altLabel xml:lang="de">referenziert externes Objekt</skos:altLabel>
+    <rdfs:comment xml:lang="en">References one generic external-object reference. A typed cross-domain relationship to another ontology is defined only in a separate link ontology.</rdfs:comment>
+    <rdfs:comment xml:lang="de">Referenziert eine generische externe Objektreferenz. Eine typisierte domänenübergreifende Beziehung zu einer anderen Ontologie wird ausschließlich in einer separaten Link-Ontologie definiert.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/gaeb-boq"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n43871abe4d7048deb2d942eb8c22ba23b11">
+    <rdf:first rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#BoQSection"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq#BillOfQuantities">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#IdentifiedEntity"/>
+    <rdfs:label xml:lang="en">Bill of Quantities</rdfs:label>
+    <skos:altLabel xml:lang="de">Leistungsverzeichnis</skos:altLabel>
+    <rdfs:comment xml:lang="en">A concrete bill of quantities containing either direct items or one or more root sections.</rdfs:comment>
+    <rdfs:comment xml:lang="de">Konkretes Leistungsverzeichnis mit entweder direkten Positionen oder einem bzw. mehreren obersten LV-Bereichen.</rdfs:comment>
+    <dcterms:source>GAEB DA XML 3.3</dcterms:source>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/gaeb-boq"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq#CatalogAssignment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#IdentifiedEntity"/>
+    <rdfs:label xml:lang="en">Catalog Assignment</rdfs:label>
+    <skos:altLabel xml:lang="de">Katalogzuordnung</skos:altLabel>
+    <rdfs:comment xml:lang="en">An assignment from a catalog-assignable BoQ resource to a generic external-object reference.</rdfs:comment>
+    <rdfs:comment xml:lang="de">Zuordnung einer katalogisierbaren BoQ-Ressource zu einer generischen externen Objektreferenz.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/gaeb-boq"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq#longText">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#BoQItem"/>
+    <rdfs:range rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
+    <rdfs:label xml:lang="en">long text</rdfs:label>
+    <skos:altLabel xml:lang="de">Langtext</skos:altLabel>
+    <dcterms:source>GAEB DA XML 3.3</dcterms:source>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/gaeb-boq"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq#ordinalNumber">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#BoQComponent"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">ordinal number</rdfs:label>
+    <skos:altLabel xml:lang="de">Ordnungszahl</skos:altLabel>
+    <rdfs:comment xml:lang="en">Fully formatted ordinal number of a BoQ section or item.</rdfs:comment>
+    <rdfs:comment xml:lang="de">Vollständig formatierte Ordnungszahl eines LV-Bereichs oder einer Position.</rdfs:comment>
+    <dcterms:source>GAEB DA XML 3.3</dcterms:source>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/gaeb-boq"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq#isRootSectionOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#BoQSection"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#BillOfQuantities"/>
+    <rdfs:label xml:lang="en">is root section of</rdfs:label>
+    <skos:altLabel xml:lang="de">ist oberster LV-Bereich von</skos:altLabel>
+    <rdfs:subPropertyOf rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#isSectionContainedIn"/>
+    <owl:inverseOf rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#hasRootSection"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/gaeb-boq"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq#QuantifiedEntity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#IdentifiedEntity"/>
+    <rdfs:label xml:lang="en">Quantified Entity</rdfs:label>
+    <skos:altLabel xml:lang="de">Entität mit Menge</skos:altLabel>
+    <rdfs:comment xml:lang="en">Abstract superclass for resources that can carry a quantity and unit code.</rdfs:comment>
+    <rdfs:comment xml:lang="de">Abstrakte Oberklasse für Ressourcen, denen eine Menge und eine Einheit zugeordnet werden können.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/gaeb-boq"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq#hasRootSection">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#BillOfQuantities"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#BoQSection"/>
+    <rdfs:label xml:lang="en">has root section</rdfs:label>
+    <skos:altLabel xml:lang="de">hat obersten LV-Bereich</skos:altLabel>
+    <owl:inverseOf rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#isRootSectionOf"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/gaeb-boq"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq#sourceSystem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#ExternalObjectReference"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">source system or model</rdfs:label>
+    <skos:altLabel xml:lang="de">Quellsystem oder Modell</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/gaeb-boq"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n43871abe4d7048deb2d942eb8c22ba23b9">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="n43871abe4d7048deb2d942eb8c22ba23b10"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n43871abe4d7048deb2d942eb8c22ba23b1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+    <owl:members rdf:nodeID="n43871abe4d7048deb2d942eb8c22ba23b2"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq#hasDirectItem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#BillOfQuantities"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#BoQItem"/>
+    <rdfs:label xml:lang="en">has direct item</rdfs:label>
+    <skos:altLabel xml:lang="de">enthält direkte Position</skos:altLabel>
+    <owl:inverseOf rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#isDirectItemOf"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/gaeb-boq"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq#hasCatalogAssignment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#CatalogAssignableEntity"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#CatalogAssignment"/>
+    <rdfs:label xml:lang="en">has catalog assignment</rdfs:label>
+    <skos:altLabel xml:lang="de">hat Katalogzuordnung</skos:altLabel>
+    <owl:inverseOf rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#isAssignmentOf"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/gaeb-boq"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n43871abe4d7048deb2d942eb8c22ba23b14">
+    <rdf:first rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#BoQSection"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n43871abe4d7048deb2d942eb8c22ba23b10">
+    <rdf:first rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#BillOfQuantities"/>
+    <rdf:rest rdf:nodeID="n43871abe4d7048deb2d942eb8c22ba23b11"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/gaeb-boq#hasItem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#BoQSection"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#BoQItem"/>
+    <rdfs:label xml:lang="en">has item</rdfs:label>
+    <skos:altLabel xml:lang="de">enthält Leistungsposition</skos:altLabel>
+    <owl:inverseOf rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#belongsToSection"/>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/gaeb-boq"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n43871abe4d7048deb2d942eb8c22ba23b7">
+    <rdf:first rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#ExternalObjectReference"/>
+    <rdf:rest rdf:nodeID="n43871abe4d7048deb2d942eb8c22ba23b8"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n43871abe4d7048deb2d942eb8c22ba23b12">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="n43871abe4d7048deb2d942eb8c22ba23b13"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n43871abe4d7048deb2d942eb8c22ba23b2">
+    <rdf:first rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#BillOfQuantities"/>
+    <rdf:rest rdf:nodeID="n43871abe4d7048deb2d942eb8c22ba23b3"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n43871abe4d7048deb2d942eb8c22ba23b13">
+    <rdf:first rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#BillOfQuantities"/>
+    <rdf:rest rdf:nodeID="n43871abe4d7048deb2d942eb8c22ba23b14"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n43871abe4d7048deb2d942eb8c22ba23b8">
+    <rdf:first rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#UnitPriceComponent"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n43871abe4d7048deb2d942eb8c22ba23b6">
+    <rdf:first rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#CatalogAssignment"/>
+    <rdf:rest rdf:nodeID="n43871abe4d7048deb2d942eb8c22ba23b7"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n43871abe4d7048deb2d942eb8c22ba23b5">
+    <rdf:first rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#QuantitySplit"/>
+    <rdf:rest rdf:nodeID="n43871abe4d7048deb2d942eb8c22ba23b6"/>
+  </rdf:Description>
+</rdf:RDF>

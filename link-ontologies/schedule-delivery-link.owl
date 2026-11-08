@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+   xmlns:vann="http://purl.org/vocab/vann/"
+>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/schedule-delivery-link#requiresLogisticsRequirement">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-schedule#Activity"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/construction-delivery#LogisticsRequirement"/>
+    <rdfs:label xml:lang="en">requires logistics requirement</rdfs:label>
+    <skos:altLabel xml:lang="de">benötigt Logistikanforderung</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/schedule-delivery-link"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/schedule-delivery-link">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <owl:versionIRI rdf:resource="https://www.construct-x.org/ontology/schedule-delivery-link/0.1.0"/>
+    <owl:versionInfo>0.1.0</owl:versionInfo>
+    <owl:imports rdf:resource="https://www.construct-x.org/ontology/construction-schedule/0.5.0"/>
+    <owl:imports rdf:resource="https://www.construct-x.org/ontology/construction-delivery/0.1.0"/>
+    <dcterms:title xml:lang="en">Construct-X Schedule–Delivery Link Ontology</dcterms:title>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-22</dcterms:created>
+    <vann:preferredNamespacePrefix>conx-sdl</vann:preferredNamespacePrefix>
+    <vann:preferredNamespaceUri>https://www.construct-x.org/ontology/schedule-delivery-link#</vann:preferredNamespaceUri>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/schedule-delivery-link#supportsActivity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="https://www.construct-x.org/ontology/schedule-delivery-link#requiresLogisticsRequirement"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-delivery#LogisticsRequirement"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/construction-schedule#Activity"/>
+    <rdfs:label xml:lang="en">supports activity</rdfs:label>
+    <skos:altLabel xml:lang="de">unterstützt Vorgang</skos:altLabel>
+    <rdfs:comment xml:lang="en">Associates a Logistics Requirement with the Schedule Activity whose execution it supports.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/schedule-delivery-link"/>
+  </rdf:Description>
+</rdf:RDF>

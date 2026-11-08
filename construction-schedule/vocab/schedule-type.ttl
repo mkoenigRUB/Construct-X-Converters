@@ -1,0 +1,89 @@
+@prefix conx-st: <https://www.construct-x.org/vocab/construction-schedule/schedule-type#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/vocab/construction-schedule/schedule-type>
+    a owl:Ontology ;
+    owl:versionIRI <https://www.construct-x.org/vocab/construction-schedule/schedule-type/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+    dcterms:title "Construct-X Schedule Type Vocabulary"@en ;
+    dcterms:title "Construct-X-Vokabular für Terminplantypen"@de ;
+    dcterms:description "Controlled vocabulary based on DIN 69900 network types. Common terms such as Grobterminplan and Feinterminplan are non-normative alternative labels."@en ;
+    dcterms:description "Kontrolliertes Vokabular auf Basis der Netzplantypen nach DIN 69900. Gebräuchliche Begriffe wie Grobterminplan und Feinterminplan sind nicht-normative Alternativbezeichnungen."@de ;
+    dcterms:publisher <https://www.construct-x.org/id/organization/construct-x> ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:source "DIN 69900:2009-01" ;
+    vann:preferredNamespacePrefix "conx-st" ;
+    vann:preferredNamespaceUri "https://www.construct-x.org/vocab/construction-schedule/schedule-type#" .
+
+conx-st:ScheduleType
+    a skos:ConceptScheme ;
+    skos:prefLabel "Schedule Type"@en ;
+    skos:prefLabel "Terminplantyp"@de ;
+    skos:note "The concepts are not necessarily mutually exclusive."@en ;
+    skos:note "Die Begriffe schließen sich nicht notwendigerweise gegenseitig aus."@de .
+
+conx-st:RoughNetwork
+    a skos:Concept ;
+    skos:prefLabel "Rough Network"@en ;
+    skos:prefLabel "Grobnetzplan"@de ;
+    skos:altLabel "Grobterminplan"@de ;
+    skos:inScheme conx-st:ScheduleType ;
+    skos:topConceptOf conx-st:ScheduleType ;
+    dcterms:source "DIN 69900:2009-01, 3.33" .
+
+conx-st:DetailedNetwork
+    a skos:Concept ;
+    skos:prefLabel "Detailed Network"@en ;
+    skos:prefLabel "Feinnetzplan"@de ;
+    skos:altLabel "Feinterminplan"@de ;
+    skos:inScheme conx-st:ScheduleType ;
+    skos:topConceptOf conx-st:ScheduleType ;
+    dcterms:source "DIN 69900:2009-01, 3.20" .
+
+conx-st:TotalNetwork
+    a skos:Concept ;
+    skos:prefLabel "Total Network"@en ;
+    skos:prefLabel "Gesamtnetzplan"@de ;
+    skos:altLabel "Gesamtterminplan"@de ;
+    skos:inScheme conx-st:ScheduleType ;
+    skos:topConceptOf conx-st:ScheduleType ;
+    dcterms:source "DIN 69900:2009-01, 3.32" .
+
+conx-st:FrameNetwork
+    a skos:Concept ;
+    skos:prefLabel "Frame Network"@en ;
+    skos:prefLabel "Rahmennetzplan"@de ;
+    skos:altLabel "Rahmenterminplan"@de ;
+    skos:broader conx-st:RoughNetwork, conx-st:TotalNetwork ;
+    skos:inScheme conx-st:ScheduleType ;
+    dcterms:source "DIN 69900:2009-01, 3.67" .
+
+conx-st:PartialNetwork
+    a skos:Concept ;
+    skos:prefLabel "Partial Network"@en ;
+    skos:prefLabel "Teilnetzplan"@de ;
+    skos:altLabel "Teilterminplan"@de ;
+    skos:inScheme conx-st:ScheduleType ;
+    skos:topConceptOf conx-st:ScheduleType ;
+    dcterms:source "DIN 69900:2009-01, 3.88" .
+
+conx-st:MilestoneNetwork
+    a skos:Concept ;
+    skos:prefLabel "Milestone Network"@en ;
+    skos:prefLabel "Meilenstein-Netzplan"@de ;
+    skos:altLabel "Meilensteinplan"@de ;
+    skos:inScheme conx-st:ScheduleType ;
+    skos:topConceptOf conx-st:ScheduleType ;
+    dcterms:source "DIN 69900:2009-01, 3.41" .
+
+conx-st:StandardNetwork
+    a skos:Concept ;
+    skos:prefLabel "Standard Network"@en ;
+    skos:prefLabel "Standardnetzplan"@de ;
+    skos:inScheme conx-st:ScheduleType ;
+    skos:topConceptOf conx-st:ScheduleType ;
+    dcterms:source "DIN 69900:2009-01, 3.84" .

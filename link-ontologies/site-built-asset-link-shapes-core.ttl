@@ -1,0 +1,31 @@
+@prefix conx-site: <https://www.construct-x.org/ontology/construction-site#> .
+@prefix conx-ba: <https://www.construct-x.org/ontology/built-asset#> .
+@prefix conx-sbal: <https://www.construct-x.org/ontology/site-built-asset-link#> .
+@prefix conx-sbal-sh: <https://www.construct-x.org/shapes/site-built-asset-link#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<https://www.construct-x.org/shapes/site-built-asset-link/core>
+    a owl:Ontology ;
+    owl:versionIRI <https://www.construct-x.org/shapes/site-built-asset-link/core/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports
+        <https://www.construct-x.org/ontology/construction-site/0.2.0> ,
+        <https://www.construct-x.org/ontology/built-asset/0.1.0> ,
+        <https://www.construct-x.org/ontology/site-built-asset-link/0.1.0> .
+
+conx-sbal-sh:ConstructionFieldBuiltAssetShape
+    a sh:NodeShape ;
+    sh:targetClass conx-site:ConstructionField ;
+    sh:property [
+        sh:path conx-sbal:containsBuiltAsset ;
+        sh:class conx-ba:BuiltAsset
+    ] .
+
+conx-sbal-sh:SiteAreaSpatialStructureShape
+    a sh:NodeShape ;
+    sh:targetClass conx-site:SiteArea ;
+    sh:property [
+        sh:path conx-sbal:isLocatedInSpatialStructureElement ;
+        sh:class conx-ba:SpatialStructureElement
+    ] .

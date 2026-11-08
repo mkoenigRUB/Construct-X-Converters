@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+   xmlns:vann="http://purl.org/vocab/vann/"
+>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/delivery-site-link">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <owl:versionIRI rdf:resource="https://www.construct-x.org/ontology/delivery-site-link/0.1.0"/>
+    <owl:versionInfo>0.1.0</owl:versionInfo>
+    <owl:imports rdf:resource="https://www.construct-x.org/ontology/construction-delivery/0.1.0"/>
+    <owl:imports rdf:resource="https://www.construct-x.org/ontology/construction-site/0.2.0"/>
+    <dcterms:title xml:lang="en">Construct-X Delivery–Site Link Ontology</dcterms:title>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-22</dcterms:created>
+    <vann:preferredNamespacePrefix>conx-dsl</vann:preferredNamespacePrefix>
+    <vann:preferredNamespaceUri>https://www.construct-x.org/ontology/delivery-site-link#</vann:preferredNamespaceUri>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/delivery-site-link#usesTransferPoint">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-delivery#LogisticsOperation"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/construction-site#TransferPoint"/>
+    <rdfs:label xml:lang="en">uses transfer point</rdfs:label>
+    <skos:altLabel xml:lang="de">verwendet Übergabepunkt</skos:altLabel>
+    <rdfs:comment xml:lang="en">Associates a Logistics Operation with the construction-site Transfer Point used by that operation.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/delivery-site-link"/>
+  </rdf:Description>
+</rdf:RDF>

@@ -1,0 +1,28 @@
+@prefix conx-cs: <https://www.construct-x.org/ontology/construction-schedule#> .
+@prefix conx-cs-sh: <https://www.construct-x.org/shapes/construction-schedule#> .
+@prefix conx-st: <https://www.construct-x.org/vocab/construction-schedule/schedule-type#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<https://www.construct-x.org/shapes/construction-schedule/schedule-type>
+    a owl:Ontology ;
+    owl:versionIRI <https://www.construct-x.org/shapes/construction-schedule/schedule-type/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports
+        <https://www.construct-x.org/ontology/construction-schedule/0.5.0> ,
+        <https://www.construct-x.org/vocab/construction-schedule/schedule-type/0.1.0> ;
+    dcterms:title "Construct-X Schedule Type SHACL Profile"@en .
+
+conx-cs-sh:ScheduleTypeVocabularyShape
+    a sh:NodeShape ;
+    sh:targetClass conx-cs:ConstructionSchedule ;
+    sh:property [
+        sh:path conx-cs:scheduleType ;
+        sh:nodeKind sh:IRI ;
+        sh:in (
+            conx-st:RoughNetwork conx-st:DetailedNetwork conx-st:TotalNetwork
+            conx-st:FrameNetwork conx-st:PartialNetwork conx-st:MilestoneNetwork
+            conx-st:StandardNetwork
+        )
+    ] .

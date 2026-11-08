@@ -1,0 +1,32 @@
+@prefix conx-ba: <https://www.construct-x.org/ontology/built-asset#> .
+@prefix conx-bs: <https://www.construct-x.org/ontology/breakdown-structure#> .
+@prefix conx-site: <https://www.construct-x.org/ontology/construction-site#> .
+@prefix conx-babl: <https://www.construct-x.org/ontology/built-asset-breakdown-link#> .
+@prefix conx-sbal: <https://www.construct-x.org/ontology/site-built-asset-link#> .
+@prefix ex: <https://data.example.com/project/alpha/> .
+
+ex:field-01
+    a conx-site:ConstructionField ;
+    conx-sbal:containsBuiltAsset ex:building-01 .
+
+ex:work-area-05
+    a conx-site:SiteArea ;
+    conx-sbal:isLocatedInSpatialStructureElement ex:storey-05 .
+
+ex:building-01
+    a conx-ba:BuiltAsset ;
+    conx-babl:isClassifiedByCBSNode ex:cbs-building .
+
+ex:storey-05
+    a conx-ba:SpatialStructureElement ;
+    conx-babl:isRepresentedByLBSNode ex:lbs-storey-05 .
+
+ex:ventilation-system-01
+    a conx-ba:TechnicalSystem ;
+    conx-babl:isRepresentedBySBSNode ex:sbs-ventilation ;
+    conx-babl:isClassifiedByCBSNode ex:cbs-mep .
+
+ex:lbs-storey-05 a conx-bs:LBSNode .
+ex:sbs-ventilation a conx-bs:SBSNode .
+ex:cbs-building a conx-bs:CBSNode .
+ex:cbs-mep a conx-bs:CBSNode .

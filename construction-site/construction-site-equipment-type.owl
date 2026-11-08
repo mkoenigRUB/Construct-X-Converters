@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+   xmlns:vann="http://purl.org/vocab/vann/"
+>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-site/equipment-type#ConstructionLift">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://www.construct-x.org/vocab/construction-site/equipment-type#LiftingEquipment"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/construction-site/equipment-type"/>
+    <skos:prefLabel xml:lang="en">Construction Lift</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Bauaufzug</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-site/equipment-type#Forklift">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://www.construct-x.org/vocab/construction-site/equipment-type#IndustrialTruck"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/construction-site/equipment-type"/>
+    <skos:prefLabel xml:lang="en">Forklift</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Gabelstapler</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-site/equipment-type">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <owl:versionIRI rdf:resource="https://www.construct-x.org/vocab/construction-site/equipment-type/0.1.0"/>
+    <owl:versionInfo>0.1.0</owl:versionInfo>
+    <dcterms:title xml:lang="en">Construct-X Construction Site Equipment Type Vocabulary</dcterms:title>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-22</dcterms:created>
+    <vann:preferredNamespacePrefix>conx-eq</vann:preferredNamespacePrefix>
+    <vann:preferredNamespaceUri>https://www.construct-x.org/vocab/construction-site/equipment-type#</vann:preferredNamespaceUri>
+    <skos:prefLabel xml:lang="en">Construction Site Equipment Type</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Baustellengerätetyp</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-site/equipment-type#StorageAid">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/construction-site/equipment-type"/>
+    <skos:prefLabel xml:lang="en">Storage Aid</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Lagerhilfsmittel</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-site/equipment-type#Crane">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://www.construct-x.org/vocab/construction-site/equipment-type#LiftingEquipment"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/construction-site/equipment-type"/>
+    <skos:prefLabel xml:lang="en">Crane</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Kran</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-site/equipment-type#LiftingEquipment">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/construction-site/equipment-type"/>
+    <skos:prefLabel xml:lang="en">Lifting Equipment</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Hebezeug</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-site/equipment-type#IndustrialTruck">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/construction-site/equipment-type"/>
+    <skos:prefLabel xml:lang="en">Industrial Truck</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Flurförderer</skos:prefLabel>
+  </rdf:Description>
+</rdf:RDF>

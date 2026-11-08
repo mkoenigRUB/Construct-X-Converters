@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+   xmlns:vann="http://purl.org/vocab/vann/"
+>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-progress-report#recordedAt">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-progress-report#ConstructionProgressReport"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:label xml:lang="en">recorded at</rdfs:label>
+    <skos:altLabel xml:lang="en">recording date</skos:altLabel>
+    <skos:altLabel xml:lang="de">Erfassungszeitpunkt</skos:altLabel>
+    <skos:altLabel xml:lang="de">Erfassungsdatum</skos:altLabel>
+    <rdfs:comment xml:lang="en">Date and time at which the progress state was recorded.</rdfs:comment>
+    <rdfs:comment xml:lang="de">Datum und Uhrzeit, zu denen der Fortschrittsstand erfasst wurde.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-progress-report"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-progress-report#actualStart">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-progress-report#ConstructionProgressReport"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:label xml:lang="en">actual start date</rdfs:label>
+    <skos:altLabel xml:lang="en">actual start</skos:altLabel>
+    <skos:altLabel xml:lang="de">tatsächlicher Anfangstermin</skos:altLabel>
+    <skos:altLabel xml:lang="de">Startdatum der Aktivität</skos:altLabel>
+    <rdfs:comment xml:lang="en">Actual date and time at which the reported Activity started, if known at the recording time.</rdfs:comment>
+    <rdfs:comment xml:lang="de">Tatsächlicher Anfangstermin des gemeldeten Vorgangs, sofern zum Erfassungszeitpunkt bekannt.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-progress-report"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-progress-report">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <owl:versionIRI rdf:resource="https://www.construct-x.org/ontology/construction-progress-report/0.1.0"/>
+    <owl:versionInfo>0.1.0</owl:versionInfo>
+    <dcterms:title xml:lang="en">Construct-X Construction Progress Report Ontology</dcterms:title>
+    <dcterms:title xml:lang="de">Construct-X-Ontologie für Baufortschrittsmeldungen</dcterms:title>
+    <dcterms:description xml:lang="en">Defines point-in-time construction progress reports with recording time, reported activity status, optional completion percentage, actual start and finish, and an optional forecast finish.</dcterms:description>
+    <dcterms:description xml:lang="de">Definiert zeitpunktbezogene Baufortschrittsmeldungen mit Erfassungszeitpunkt, gemeldetem Vorgangsstatus, optionalem Fertigstellungsgrad, tatsächlichem Anfang und Ende sowie optionalem prognostiziertem Ende.</dcterms:description>
+    <dcterms:publisher rdf:resource="https://www.construct-x.org/id/organization/construct-x"/>
+    <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-04</dcterms:created>
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-21</dcterms:modified>
+    <vann:preferredNamespacePrefix>conx-cpr</vann:preferredNamespacePrefix>
+    <vann:preferredNamespaceUri>https://www.construct-x.org/ontology/construction-progress-report#</vann:preferredNamespaceUri>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-progress-report#identifier">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-progress-report#ConstructionProgressReport"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">identifier</rdfs:label>
+    <skos:altLabel xml:lang="de">Kennung</skos:altLabel>
+    <skos:altLabel xml:lang="de">Identifikator</skos:altLabel>
+    <rdfs:comment xml:lang="en">Mandatory domain identifier of the Construction Progress Report within its project or information context. Mandatory cardinality is enforced by SHACL.</rdfs:comment>
+    <rdfs:comment xml:lang="de">Verpflichtende fachliche Kennung der Baufortschrittsmeldung innerhalb ihres Projekt- oder Informationskontexts. Die Kardinalität wird durch SHACL geprüft.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-progress-report"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-progress-report#forecastFinish">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-progress-report#ConstructionProgressReport"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:label xml:lang="en">forecast finish date</rdfs:label>
+    <skos:altLabel xml:lang="en">forecast finish</skos:altLabel>
+    <skos:altLabel xml:lang="de">prognostizierter Endtermin</skos:altLabel>
+    <skos:altLabel xml:lang="de">prognostiziertes Enddatum der Aktivität</skos:altLabel>
+    <rdfs:comment xml:lang="en">Optional forecast date and time at which the reported Activity is expected to finish. It is used only while no actual finish is available.</rdfs:comment>
+    <rdfs:comment xml:lang="de">Optional prognostizierter Endtermin des gemeldeten Vorgangs. Er wird nur verwendet, solange noch kein tatsächlicher Endtermin vorliegt.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-progress-report"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-progress-report#activityStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-progress-report#ConstructionProgressReport"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:label xml:lang="en">activity status</rdfs:label>
+    <skos:altLabel xml:lang="de">Vorgangsstatus</skos:altLabel>
+    <skos:altLabel xml:lang="de">Ausführungsstand</skos:altLabel>
+    <rdfs:comment xml:lang="en">Status of the reported Activity at the recording time. The core ontology does not prescribe a concrete vocabulary; an optional SHACL profile can restrict the value to the Construct-X Activity Status vocabulary.</rdfs:comment>
+    <rdfs:comment xml:lang="de">Status des gemeldeten Vorgangs zum Erfassungszeitpunkt. Die Core-Ontologie schreibt kein konkretes Vokabular vor; ein optionales SHACL-Profil kann den Wert auf das Construct-X Activity Status Vocabulary beschränken.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-progress-report"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-progress-report#completionPercentage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-progress-report#ConstructionProgressReport"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:label xml:lang="en">completion percentage</rdfs:label>
+    <skos:altLabel xml:lang="de">Fertigstellungsgrad</skos:altLabel>
+    <skos:altLabel xml:lang="de">Fertigstellungsgrad in Prozent</skos:altLabel>
+    <rdfs:comment xml:lang="en">Optional reported degree of completion expressed as a percentage from 0 to 100.</rdfs:comment>
+    <rdfs:comment xml:lang="de">Optional gemeldeter Fertigstellungsgrad in Prozent von 0 bis 100.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-progress-report"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-progress-report#actualFinish">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-progress-report#ConstructionProgressReport"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:label xml:lang="en">actual finish date</rdfs:label>
+    <skos:altLabel xml:lang="en">actual finish</skos:altLabel>
+    <skos:altLabel xml:lang="de">tatsächlicher Endtermin</skos:altLabel>
+    <skos:altLabel xml:lang="de">Enddatum der Aktivität</skos:altLabel>
+    <rdfs:comment xml:lang="en">Actual date and time at which the reported Activity finished, if it has already finished.</rdfs:comment>
+    <rdfs:comment xml:lang="de">Tatsächlicher Endtermin des gemeldeten Vorgangs, sofern der Vorgang bereits beendet ist.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-progress-report"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-progress-report#ConstructionProgressReport">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Construction Progress Report</rdfs:label>
+    <skos:altLabel xml:lang="en">Progress Report</skos:altLabel>
+    <skos:altLabel xml:lang="de">Baufortschrittsmeldung</skos:altLabel>
+    <skos:altLabel xml:lang="de">Fortschrittsmeldung</skos:altLabel>
+    <rdfs:comment xml:lang="en">A point-in-time report that records the observed or reported progress state of a construction activity. The relation to the Activity is defined in a separate link ontology.</rdfs:comment>
+    <rdfs:comment xml:lang="de">Zeitpunktbezogene Meldung, die den beobachteten oder gemeldeten Fortschrittsstand eines Bauvorgangs dokumentiert. Die Beziehung zum Vorgang wird in einer separaten Link-Ontologie definiert.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-progress-report"/>
+  </rdf:Description>
+</rdf:RDF>

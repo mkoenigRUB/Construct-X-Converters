@@ -1,0 +1,242 @@
+@prefix conx-del: <https://www.construct-x.org/ontology/construction-delivery#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/ontology/construction-delivery>
+    a owl:Ontology ;
+    owl:versionIRI <https://www.construct-x.org/ontology/construction-delivery/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+    dcterms:title "Construct-X Construction Delivery Ontology"@en ;
+    dcterms:title "Construct-X-Ontologie für Baustellenanlieferungen"@de ;
+    dcterms:description "Describes requirements, operations, loads, load items and delivery notes of a construction-site delivery process. Spatial transfer points, schedule activities and BoQ quantities are linked through dedicated link ontologies."@en ;
+    dcterms:description "Beschreibt Anforderungen, Logistikvorgänge, Ladungen, Ladungspositionen und Lieferscheine eines Baustellenanlieferungsprozesses. Räumliche Übergabepunkte, Terminplanvorgänge und LV-Mengen werden über separate Link-Ontologien angebunden."@de ;
+    dcterms:publisher <https://www.construct-x.org/id/organization/construct-x> ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:created "2026-10-22"^^xsd:date ;
+    dcterms:modified "2026-10-22"^^xsd:date ;
+    dcterms:source "Construct-X working document: Ontologien & Standards für Baustellen, 22 Oct 2026"@de ;
+    vann:preferredNamespacePrefix "conx-del" ;
+    vann:preferredNamespaceUri "https://www.construct-x.org/ontology/construction-delivery#" .
+
+#################################################################
+# Classes
+#################################################################
+
+conx-del:LogisticsRequirement
+    a owl:Class ;
+    rdfs:label "Logistics Requirement"@en ;
+    skos:altLabel "Logistikanforderung"@de ;
+    rdfs:comment "A requirement that initiates or specifies a construction-site delivery need."@en ;
+    rdfs:comment "Anforderung, die einen Bedarf für eine Baustellenanlieferung auslöst oder spezifiziert."@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-delivery> .
+
+conx-del:LogisticsOperation
+    a owl:Class ;
+    rdfs:label "Logistics Operation"@en ;
+    skos:altLabel "Logistikvorgang"@de ;
+    rdfs:comment "An operational step within a construction delivery process."@en ;
+    rdfs:comment "Operativer Schritt innerhalb eines Baustellenanlieferungsprozesses."@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-delivery> .
+
+conx-del:LogisticsLoad
+    a owl:Class ;
+    rdfs:label "Logistics Load"@en ;
+    skos:altLabel "Ladung"@de ;
+    rdfs:comment "A physical load handled by one or more Logistics Operations."@en ;
+    rdfs:comment "Physische Ladung, die durch einen oder mehrere Logistikvorgänge behandelt wird."@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-delivery> .
+
+conx-del:LogisticsLoadItem
+    a owl:Class ;
+    rdfs:label "Logistics Load Item"@en ;
+    skos:altLabel "Ladungsposition"@de ;
+    rdfs:comment "A quantified item contained in a Logistics Load."@en ;
+    rdfs:comment "Mengenmäßig beschriebene Position innerhalb einer Ladung."@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-delivery> .
+
+conx-del:DeliveryNote
+    a owl:Class ;
+    rdfs:label "Delivery Note"@en ;
+    skos:altLabel "Lieferschein"@de ;
+    rdfs:comment "A delivery note documenting one or more Logistics Loads."@en ;
+    rdfs:comment "Lieferschein, der eine oder mehrere Ladungen dokumentiert."@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-delivery> .
+
+#################################################################
+# Object properties
+#################################################################
+
+conx-del:hasStatus
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain conx-del:LogisticsRequirement ;
+    rdfs:range skos:Concept ;
+    rdfs:label "has status"@en ;
+    skos:altLabel "hat Status"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-delivery> .
+
+conx-del:hasLogisticsOperation
+    a owl:ObjectProperty ;
+    owl:inverseOf conx-del:isOperationOf ;
+    rdfs:domain conx-del:LogisticsRequirement ;
+    rdfs:range conx-del:LogisticsOperation ;
+    rdfs:label "has logistics operation"@en ;
+    skos:altLabel "hat Logistikvorgang"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-delivery> .
+
+conx-del:isOperationOf
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain conx-del:LogisticsOperation ;
+    rdfs:range conx-del:LogisticsRequirement ;
+    rdfs:label "is operation of"@en ;
+    skos:altLabel "ist Logistikvorgang von"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-delivery> .
+
+conx-del:operationType
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain conx-del:LogisticsOperation ;
+    rdfs:range skos:Concept ;
+    rdfs:label "operation type"@en ;
+    skos:altLabel "Logistikvorgangstyp"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-delivery> .
+
+conx-del:handlesLoad
+    a owl:ObjectProperty ;
+    rdfs:domain conx-del:LogisticsOperation ;
+    rdfs:range conx-del:LogisticsLoad ;
+    rdfs:label "handles load"@en ;
+    skos:altLabel "behandelt Ladung"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-delivery> .
+
+conx-del:hasLoadItem
+    a owl:ObjectProperty ;
+    owl:inverseOf conx-del:isLoadItemOf ;
+    rdfs:domain conx-del:LogisticsLoad ;
+    rdfs:range conx-del:LogisticsLoadItem ;
+    rdfs:label "has load item"@en ;
+    skos:altLabel "hat Ladungsposition"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-delivery> .
+
+conx-del:isLoadItemOf
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain conx-del:LogisticsLoadItem ;
+    rdfs:range conx-del:LogisticsLoad ;
+    rdfs:label "is load item of"@en ;
+    skos:altLabel "ist Ladungsposition von"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-delivery> .
+
+conx-del:hasDeliveryNote
+    a owl:ObjectProperty ;
+    rdfs:domain conx-del:LogisticsOperation ;
+    rdfs:range conx-del:DeliveryNote ;
+    rdfs:label "has delivery note"@en ;
+    skos:altLabel "hat Lieferschein"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-delivery> .
+
+conx-del:documentsLoad
+    a owl:ObjectProperty ;
+    rdfs:domain conx-del:DeliveryNote ;
+    rdfs:range conx-del:LogisticsLoad ;
+    rdfs:label "documents load"@en ;
+    skos:altLabel "dokumentiert Ladung"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-delivery> .
+
+#################################################################
+# Datatype properties
+#################################################################
+
+conx-del:identifier
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:range xsd:string ;
+    rdfs:label "identifier"@en ;
+    skos:altLabel "Kennung"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-delivery> .
+
+conx-del:name
+    a owl:DatatypeProperty ;
+    rdfs:range xsd:string ;
+    rdfs:label "name"@en ;
+    skos:altLabel "Bezeichnung"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-delivery> .
+
+conx-del:description
+    a owl:DatatypeProperty ;
+    rdfs:range xsd:string ;
+    rdfs:label "description"@en ;
+    skos:altLabel "Beschreibung"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-delivery> .
+
+conx-del:requestedStart
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain conx-del:LogisticsRequirement ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "requested start"@en ;
+    skos:altLabel "gewünschter Beginn"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-delivery> .
+
+conx-del:requestedFinish
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain conx-del:LogisticsRequirement ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "requested finish"@en ;
+    skos:altLabel "gewünschtes Ende"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-delivery> .
+
+conx-del:plannedStart
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain conx-del:LogisticsOperation ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "planned start"@en ;
+    skos:altLabel "geplanter Beginn"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-delivery> .
+
+conx-del:plannedFinish
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain conx-del:LogisticsOperation ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "planned finish"@en ;
+    skos:altLabel "geplantes Ende"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-delivery> .
+
+conx-del:actualStart
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain conx-del:LogisticsOperation ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "actual start"@en ;
+    skos:altLabel "tatsächlicher Beginn"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-delivery> .
+
+conx-del:actualFinish
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain conx-del:LogisticsOperation ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "actual finish"@en ;
+    skos:altLabel "tatsächliches Ende"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-delivery> .
+
+conx-del:quantity
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain conx-del:LogisticsLoadItem ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "quantity"@en ;
+    skos:altLabel "Menge"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-delivery> .
+
+conx-del:unitCode
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain conx-del:LogisticsLoadItem ;
+    rdfs:range xsd:string ;
+    rdfs:label "unit code"@en ;
+    skos:altLabel "Mengeneinheit"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-delivery> .
+
+conx-del:issuedAt
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain conx-del:DeliveryNote ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "issued at"@en ;
+    skos:altLabel "ausgestellt am"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-delivery> .

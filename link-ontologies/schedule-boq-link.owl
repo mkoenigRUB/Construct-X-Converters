@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:vann="http://purl.org/vocab/vann/"
+>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/schedule-boq-link#isAssignedToActivity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#QuantitySplit"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/construction-schedule#Activity"/>
+    <rdfs:label xml:lang="en">is assigned to activity</rdfs:label>
+    <rdfs:label xml:lang="de">ist Vorgang zugeordnet</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/schedule-boq-link"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/schedule-boq-link">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <owl:versionIRI rdf:resource="https://www.construct-x.org/ontology/schedule-boq-link/0.2.1"/>
+    <owl:versionInfo>0.2.1</owl:versionInfo>
+    <owl:imports rdf:resource="https://www.construct-x.org/ontology/construction-schedule/0.5.0"/>
+    <owl:imports rdf:resource="https://www.construct-x.org/ontology/gaeb-boq/0.5.0"/>
+    <dcterms:title xml:lang="en">Construct-X Schedule–BoQ Link Ontology</dcterms:title>
+    <dcterms:title xml:lang="de">Construct-X-Link-Ontologie zwischen Bauablauf und Leistungsverzeichnis</dcterms:title>
+    <dcterms:description xml:lang="en">Defines cross-domain relations between a Construction Schedule and Bills of Quantities, and between Quantity Splits and assigned Activities.</dcterms:description>
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-21</dcterms:modified>
+    <vann:preferredNamespacePrefix>conx-sbq</vann:preferredNamespacePrefix>
+    <vann:preferredNamespaceUri>https://www.construct-x.org/ontology/schedule-boq-link#</vann:preferredNamespaceUri>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/schedule-boq-link#usesBillOfQuantities">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-schedule#ConstructionSchedule"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#BillOfQuantities"/>
+    <rdfs:label xml:lang="en">uses bill of quantities</rdfs:label>
+    <rdfs:label xml:lang="de">verwendet Leistungsverzeichnis</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/schedule-boq-link"/>
+  </rdf:Description>
+</rdf:RDF>

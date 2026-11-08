@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+   xmlns:vann="http://purl.org/vocab/vann/"
+>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/breakdown-structure/de-cbs-node-type#CBSNodeTypeScheme">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <skos:prefLabel xml:lang="en">CBS Node Type Vocabulary</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">CBS-Knotentyp-Vokabular</skos:prefLabel>
+    <dcterms:source>DIN 276:2018-12, 5.1</dcterms:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/breakdown-structure/de-cbs-node-type#CostGroup500">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:notation>500</skos:notation>
+    <skos:prefLabel xml:lang="en">External Works and Open Spaces</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Außenanlagen und Freiflächen</skos:prefLabel>
+    <skos:altLabel xml:lang="en">Cost Group 500</skos:altLabel>
+    <skos:altLabel xml:lang="de">Kostengruppe 500</skos:altLabel>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-cbs-node-type#CBSNodeTypeScheme"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-cbs-node-type#CBSNodeTypeScheme"/>
+    <dcterms:source>DIN 276:2018-12, 5.1 — 500 Außenanlagen und Freiflächen</dcterms:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/breakdown-structure/de-cbs-node-type#CostGroup700">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:notation>700</skos:notation>
+    <skos:prefLabel xml:lang="en">Ancillary Construction Costs</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Baunebenkosten</skos:prefLabel>
+    <skos:altLabel xml:lang="en">Cost Group 700</skos:altLabel>
+    <skos:altLabel xml:lang="de">Kostengruppe 700</skos:altLabel>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-cbs-node-type#CBSNodeTypeScheme"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-cbs-node-type#CBSNodeTypeScheme"/>
+    <dcterms:source>DIN 276:2018-12, 5.1 — 700 Baunebenkosten</dcterms:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/breakdown-structure/de-cbs-node-type#CostGroup100">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:notation>100</skos:notation>
+    <skos:prefLabel xml:lang="en">Land</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Grundstück</skos:prefLabel>
+    <skos:altLabel xml:lang="en">Cost Group 100</skos:altLabel>
+    <skos:altLabel xml:lang="de">Kostengruppe 100</skos:altLabel>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-cbs-node-type#CBSNodeTypeScheme"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-cbs-node-type#CBSNodeTypeScheme"/>
+    <dcterms:source>DIN 276:2018-12, 5.1 — 100 Grundstück</dcterms:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/breakdown-structure/de-cbs-node-type#CostGroup800">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:notation>800</skos:notation>
+    <skos:prefLabel xml:lang="en">Financing</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Finanzierung</skos:prefLabel>
+    <skos:altLabel xml:lang="en">Cost Group 800</skos:altLabel>
+    <skos:altLabel xml:lang="de">Kostengruppe 800</skos:altLabel>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-cbs-node-type#CBSNodeTypeScheme"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-cbs-node-type#CBSNodeTypeScheme"/>
+    <dcterms:source>DIN 276:2018-12, 5.1 — 800 Finanzierung</dcterms:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/breakdown-structure/de-cbs-node-type#CostGroup200">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:notation>200</skos:notation>
+    <skos:prefLabel xml:lang="en">Preparatory Measures</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Vorbereitende Maßnahmen</skos:prefLabel>
+    <skos:altLabel xml:lang="en">Cost Group 200</skos:altLabel>
+    <skos:altLabel xml:lang="de">Kostengruppe 200</skos:altLabel>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-cbs-node-type#CBSNodeTypeScheme"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-cbs-node-type#CBSNodeTypeScheme"/>
+    <dcterms:source>DIN 276:2018-12, 5.1 — 200 Vorbereitende Maßnahmen</dcterms:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/breakdown-structure/de-cbs-node-type#CostGroup300">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:notation>300</skos:notation>
+    <skos:prefLabel xml:lang="en">Structure — Building Construction</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Bauwerk — Baukonstruktionen</skos:prefLabel>
+    <skos:altLabel xml:lang="en">Cost Group 300</skos:altLabel>
+    <skos:altLabel xml:lang="de">Kostengruppe 300</skos:altLabel>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-cbs-node-type#CBSNodeTypeScheme"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-cbs-node-type#CBSNodeTypeScheme"/>
+    <dcterms:source>DIN 276:2018-12, 5.1 — 300 Bauwerk — Baukonstruktionen</dcterms:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/breakdown-structure/de-cbs-node-type">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <owl:versionIRI rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-cbs-node-type/0.1.0"/>
+    <owl:versionInfo>0.1.0</owl:versionInfo>
+    <dcterms:title xml:lang="en">Construct-X DE CBS Node Type Vocabulary</dcterms:title>
+    <dcterms:title xml:lang="de">Construct-X-DE-Vokabular für CBS-Knotentypen</dcterms:title>
+    <dcterms:description xml:lang="en">Germany-specific controlled vocabulary for semantic node types of Cost Breakdown Structures (CBS). The current concepts represent first-level cost groups according to DIN 276:2018-12.</dcterms:description>
+    <dcterms:description xml:lang="de">Deutschland-spezifisches kontrolliertes Vokabular für fachliche Knotentypen von Cost Breakdown Structures (CBS). Die aktuellen Konzepte bilden Kostengruppen der ersten Ebene nach DIN 276:2018-12 ab.</dcterms:description>
+    <dcterms:publisher rdf:resource="https://www.construct-x.org/id/organization/construct-x"/>
+    <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-02</dcterms:created>
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-21</dcterms:modified>
+    <dcterms:source>DIN 276:2018-12, 5.1</dcterms:source>
+    <vann:preferredNamespacePrefix>conx-de-cbs</vann:preferredNamespacePrefix>
+    <vann:preferredNamespaceUri>https://www.construct-x.org/vocab/breakdown-structure/de-cbs-node-type#</vann:preferredNamespaceUri>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/breakdown-structure/de-cbs-node-type#CostGroup400">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:notation>400</skos:notation>
+    <skos:prefLabel xml:lang="en">Structure — Technical Systems</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Bauwerk — Technische Anlagen</skos:prefLabel>
+    <skos:altLabel xml:lang="en">Cost Group 400</skos:altLabel>
+    <skos:altLabel xml:lang="de">Kostengruppe 400</skos:altLabel>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-cbs-node-type#CBSNodeTypeScheme"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-cbs-node-type#CBSNodeTypeScheme"/>
+    <dcterms:source>DIN 276:2018-12, 5.1 — 400 Bauwerk — Technische Anlagen</dcterms:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/breakdown-structure/de-cbs-node-type#CostGroup600">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:notation>600</skos:notation>
+    <skos:prefLabel xml:lang="en">Equipment and Works of Art</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Ausstattung und Kunstwerke</skos:prefLabel>
+    <skos:altLabel xml:lang="en">Cost Group 600</skos:altLabel>
+    <skos:altLabel xml:lang="de">Kostengruppe 600</skos:altLabel>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-cbs-node-type#CBSNodeTypeScheme"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/breakdown-structure/de-cbs-node-type#CBSNodeTypeScheme"/>
+    <dcterms:source>DIN 276:2018-12, 5.1 — 600 Ausstattung und Kunstwerke</dcterms:source>
+  </rdf:Description>
+</rdf:RDF>

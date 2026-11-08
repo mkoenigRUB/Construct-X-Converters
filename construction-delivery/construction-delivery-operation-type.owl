@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+   xmlns:vann="http://purl.org/vocab/vann/"
+>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-delivery/operation-type#Arrival">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/construction-delivery/operation-type"/>
+    <skos:prefLabel xml:lang="en">Arrival</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Ankunft</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-delivery/operation-type#InternalTransport">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/construction-delivery/operation-type"/>
+    <skos:prefLabel xml:lang="en">Internal Transport</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Baustelleninterner Transport</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-delivery/operation-type#CheckIn">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/construction-delivery/operation-type"/>
+    <skos:prefLabel xml:lang="en">Check-In</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Einfahrt / Anmeldung</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-delivery/operation-type">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <owl:versionIRI rdf:resource="https://www.construct-x.org/vocab/construction-delivery/operation-type/0.1.0"/>
+    <owl:versionInfo>0.1.0</owl:versionInfo>
+    <dcterms:title xml:lang="en">Construct-X Logistics Operation Type Vocabulary</dcterms:title>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-22</dcterms:created>
+    <vann:preferredNamespacePrefix>conx-dot</vann:preferredNamespacePrefix>
+    <vann:preferredNamespaceUri>https://www.construct-x.org/vocab/construction-delivery/operation-type#</vann:preferredNamespaceUri>
+    <skos:prefLabel xml:lang="en">Logistics Operation Type</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Logistikvorgangstyp</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-delivery/operation-type#Lifting">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/construction-delivery/operation-type"/>
+    <skos:prefLabel xml:lang="en">Lifting</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Heben</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-delivery/operation-type#Unloading">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/construction-delivery/operation-type"/>
+    <skos:prefLabel xml:lang="en">Unloading</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Entladen</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-delivery/operation-type#Loading">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/construction-delivery/operation-type"/>
+    <skos:prefLabel xml:lang="en">Loading</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Beladen</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-delivery/operation-type#Handover">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/construction-delivery/operation-type"/>
+    <skos:prefLabel xml:lang="en">Handover</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Übergabe</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-delivery/operation-type#Waiting">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/construction-delivery/operation-type"/>
+    <skos:prefLabel xml:lang="en">Waiting</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Warten</skos:prefLabel>
+  </rdf:Description>
+</rdf:RDF>

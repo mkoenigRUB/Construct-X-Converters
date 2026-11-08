@@ -1,0 +1,65 @@
+@prefix conx-ba: <https://www.construct-x.org/ontology/built-asset#> .
+@prefix conx-bat: <https://www.construct-x.org/vocab/built-asset/asset-type#> .
+@prefix conx-bst: <https://www.construct-x.org/vocab/built-asset/spatial-structure-type#> .
+@prefix ex: <https://data.example.com/project/alpha/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+
+ex:building-01
+    a conx-ba:BuiltAsset ;
+    conx-ba:identifier "BA-001" ;
+    conx-ba:name "Bürogebäude A" ;
+    conx-ba:hasAssetType conx-bat:Building ;
+    conx-ba:hasSpatialStructureElement ex:storey-05, ex:room-5-12 ;
+    conx-ba:hasPhysicalComponent ex:ahu-01, ex:column-c23 ;
+    conx-ba:hasTechnicalSystem ex:ventilation-system-01 ;
+    locn:address ex:address-01 ;
+    geo:hasGeometry ex:building-geometry .
+
+ex:storey-05
+    a conx-ba:SpatialStructureElement ;
+    conx-ba:identifier "SSE-05" ;
+    conx-ba:hierarchyCode "05" ;
+    conx-ba:name "5. Obergeschoss" ;
+    conx-ba:isSpatialStructureElementOf ex:building-01 ;
+    conx-ba:hasSpatialStructureType conx-bst:Storey ;
+    conx-ba:hasSubSpatialStructureElement ex:room-5-12 .
+
+ex:room-5-12
+    a conx-ba:SpatialStructureElement ;
+    conx-ba:identifier "SSE-05-12" ;
+    conx-ba:hierarchyCode "05.12" ;
+    conx-ba:name "Technikraum 5.12" ;
+    conx-ba:isSpatialStructureElementOf ex:building-01 ;
+    conx-ba:isSubSpatialStructureElementOf ex:storey-05 ;
+    conx-ba:hasSpatialStructureType conx-bst:Space .
+
+ex:ventilation-system-01
+    a conx-ba:TechnicalSystem ;
+    conx-ba:identifier "SYS-V-01" ;
+    conx-ba:name "Lüftungsanlage 1" ;
+    conx-ba:servesBuiltAsset ex:building-01 ;
+    conx-ba:servesSpatialStructureElement ex:storey-05 ;
+    conx-ba:hasSystemComponent ex:ahu-01 .
+
+ex:ahu-01
+    a conx-ba:Component ;
+    conx-ba:identifier "COMP-AHU-01" ;
+    conx-ba:name "Lüftungsgerät 1" ;
+    conx-ba:isPhysicalComponentOf ex:building-01 ;
+    conx-ba:isLocatedIn ex:room-5-12 .
+
+ex:column-c23
+    a conx-ba:Component ;
+    conx-ba:identifier "COMP-C23" ;
+    conx-ba:name "Stütze C23" ;
+    conx-ba:isPhysicalComponentOf ex:building-01 ;
+    conx-ba:isLocatedIn ex:storey-05 .
+
+ex:address-01
+    a locn:Address ;
+    locn:fullAddress "Universitätsstraße 150, 44801 Bochum, Germany" .
+
+ex:building-geometry
+    a geo:Geometry ;
+    geo:asWKT "POINT(0 0)"^^geo:wktLiteral .

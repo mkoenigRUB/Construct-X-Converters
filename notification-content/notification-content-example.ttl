@@ -1,0 +1,35 @@
+@prefix conx-nc: <https://www.construct-x.org/ontology/notification-content#> .
+@prefix conx-nt: <https://www.construct-x.org/vocab/notification-content/notification-type#> .
+@prefix conx-sr: <https://www.construct-x.org/vocab/notification-content/subject-role#> .
+@prefix conx-ts: <https://www.construct-x.org/vocab/notification-content/task-status#> .
+@prefix conx-tt: <https://www.construct-x.org/vocab/notification-content/task-type#> .
+@prefix ex: <https://data.example.com/project/alpha/nc/> .
+
+# Angeforderte Feinterminplanung (wie notification/doppelboden-task-request.json im Referenzbeispiel)
+ex:nc-detail-001
+    a conx-nc:NotificationContent ;
+    conx-nc:notificationType conx-nt:TaskRequested ;
+    conx-nc:taskType conx-tt:DetailedScheduling ;
+    conx-nc:contextResource ex:pcs-001 ;
+    conx-nc:hasSubjectAssignment ex:sa-a100 .
+
+ex:sa-a100
+    a conx-nc:SubjectAssignment ;
+    conx-nc:assignedResource ex:a100 ;
+    conx-nc:subjectRole conx-sr:Target .
+
+# Statusänderung derselben Aufgabe
+ex:nc-detail-002
+    a conx-nc:NotificationContent ;
+    conx-nc:notificationType conx-nt:TaskStatusChanged ;
+    conx-nc:taskStatus conx-ts:InProgress ;
+    conx-nc:contextResource ex:pcs-001 ;
+    conx-nc:hasSubjectAssignment ex:sa-a100 .
+
+# Ergebnis verfügbar
+ex:nc-detail-003
+    a conx-nc:NotificationContent ;
+    conx-nc:notificationType conx-nt:ResultAvailable ;
+    conx-nc:contextResource ex:pcs-001 ;
+    conx-nc:hasResult ex:detail-schedule-001 ;
+    conx-nc:hasSubjectAssignment ex:sa-a100 .

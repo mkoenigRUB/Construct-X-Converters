@@ -1,0 +1,24 @@
+@prefix conx-drs: <https://www.construct-x.org/vocab/construction-delivery/requirement-status#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/vocab/construction-delivery/requirement-status>
+    a owl:Ontology, skos:ConceptScheme ;
+    owl:versionIRI <https://www.construct-x.org/vocab/construction-delivery/requirement-status/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+    dcterms:title "Construct-X Logistics Requirement Status Vocabulary"@en ;
+    dcterms:created "2026-10-22"^^xsd:date ;
+    vann:preferredNamespacePrefix "conx-drs" ;
+    vann:preferredNamespaceUri "https://www.construct-x.org/vocab/construction-delivery/requirement-status#" ;
+    skos:prefLabel "Logistics Requirement Status"@en ;
+    skos:prefLabel "Status der Logistikanforderung"@de .
+
+conx-drs:Requested a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/construction-delivery/requirement-status> ; skos:prefLabel "Requested"@en ; skos:prefLabel "Angefragt"@de .
+conx-drs:Confirmed a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/construction-delivery/requirement-status> ; skos:prefLabel "Confirmed"@en ; skos:prefLabel "Bestätigt"@de .
+conx-drs:Scheduled a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/construction-delivery/requirement-status> ; skos:prefLabel "Scheduled"@en ; skos:prefLabel "Terminiert"@de .
+conx-drs:InProgress a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/construction-delivery/requirement-status> ; skos:prefLabel "In Progress"@en ; skos:prefLabel "In Bearbeitung"@de .
+conx-drs:Completed a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/construction-delivery/requirement-status> ; skos:prefLabel "Completed"@en ; skos:prefLabel "Abgeschlossen"@de .
+conx-drs:Cancelled a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/construction-delivery/requirement-status> ; skos:prefLabel "Cancelled"@en ; skos:prefLabel "Abgebrochen"@de .

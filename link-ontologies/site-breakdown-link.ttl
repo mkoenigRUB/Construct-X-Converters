@@ -1,0 +1,39 @@
+@prefix conx-site: <https://www.construct-x.org/ontology/construction-site#> .
+@prefix conx-bs: <https://www.construct-x.org/ontology/breakdown-structure#> .
+@prefix conx-sbdl: <https://www.construct-x.org/ontology/site-breakdown-link#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/ontology/site-breakdown-link>
+    a owl:Ontology ;
+    owl:versionIRI <https://www.construct-x.org/ontology/site-breakdown-link/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports
+        <https://www.construct-x.org/ontology/construction-site/0.2.0> ,
+        <https://www.construct-x.org/ontology/breakdown-structure/0.7.0> ;
+    dcterms:title "Construct-X Site–Breakdown Link Ontology"@en ;
+    dcterms:created "2026-10-22"^^xsd:date ;
+    vann:preferredNamespacePrefix "conx-sbdl" ;
+    vann:preferredNamespaceUri "https://www.construct-x.org/ontology/site-breakdown-link#" .
+
+conx-sbdl:isRepresentedByLBSNode
+    a owl:ObjectProperty ;
+    owl:inverseOf conx-sbdl:representsSiteArea ;
+    rdfs:domain conx-site:SiteArea ;
+    rdfs:range conx-bs:LBSNode ;
+    rdfs:label "is represented by LBS node"@en ;
+    skos:altLabel "wird durch LBS-Knoten repräsentiert"@de ;
+    rdfs:comment "Links an operational Site Area to the LBS Node that represents the same spatial/logistics area in a Location Breakdown Structure."@en ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/site-breakdown-link> .
+
+conx-sbdl:representsSiteArea
+    a owl:ObjectProperty ;
+    rdfs:domain conx-bs:LBSNode ;
+    rdfs:range conx-site:SiteArea ;
+    rdfs:label "represents site area"@en ;
+    skos:altLabel "repräsentiert Baustellenfläche"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/site-breakdown-link> .

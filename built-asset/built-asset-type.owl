@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+   xmlns:vann="http://purl.org/vocab/vann/"
+>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/built-asset/asset-type#MarineFacility">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/built-asset/asset-type"/>
+    <skos:prefLabel xml:lang="en">Marine Facility</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Wasserbauwerk</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/built-asset/asset-type">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <owl:versionIRI rdf:resource="https://www.construct-x.org/vocab/built-asset/asset-type/0.1.0"/>
+    <owl:versionInfo>0.1.0</owl:versionInfo>
+    <dcterms:title xml:lang="en">Construct-X Built Asset Type Vocabulary</dcterms:title>
+    <dcterms:title xml:lang="de">Construct-X-Vokabular für Bauwerkstypen</dcterms:title>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-22</dcterms:created>
+    <vann:preferredNamespacePrefix>conx-bat</vann:preferredNamespacePrefix>
+    <vann:preferredNamespaceUri>https://www.construct-x.org/vocab/built-asset/asset-type#</vann:preferredNamespaceUri>
+    <skos:prefLabel xml:lang="en">Built Asset Type</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Bauwerkstyp</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/built-asset/asset-type#OtherInfrastructure">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/built-asset/asset-type"/>
+    <skos:prefLabel xml:lang="en">Other Infrastructure</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Sonstiges Infrastrukturbauwerk</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/built-asset/asset-type#Building">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/built-asset/asset-type"/>
+    <skos:prefLabel xml:lang="en">Building</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Gebäude</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/built-asset/asset-type#Tunnel">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/built-asset/asset-type"/>
+    <skos:prefLabel xml:lang="en">Tunnel</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Tunnel</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/built-asset/asset-type#Bridge">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/built-asset/asset-type"/>
+    <skos:prefLabel xml:lang="en">Bridge</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Brücke</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/built-asset/asset-type#Railway">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/built-asset/asset-type"/>
+    <skos:prefLabel xml:lang="en">Railway</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Eisenbahnanlage</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/built-asset/asset-type#Road">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/built-asset/asset-type"/>
+    <skos:prefLabel xml:lang="en">Road</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Straße</skos:prefLabel>
+  </rdf:Description>
+</rdf:RDF>

@@ -1,0 +1,23 @@
+@prefix conx-cs: <https://www.construct-x.org/ontology/construction-schedule#> .
+@prefix conx-site: <https://www.construct-x.org/ontology/construction-site#> .
+@prefix conx-ssl: <https://www.construct-x.org/ontology/schedule-site-link#> .
+@prefix conx-ssl-sh: <https://www.construct-x.org/shapes/schedule-site-link#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<https://www.construct-x.org/shapes/schedule-site-link/core>
+    a owl:Ontology ;
+    owl:versionIRI <https://www.construct-x.org/shapes/schedule-site-link/core/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports
+        <https://www.construct-x.org/ontology/construction-schedule/0.5.0> ,
+        <https://www.construct-x.org/ontology/construction-site/0.2.0> ,
+        <https://www.construct-x.org/ontology/schedule-site-link/0.1.0> .
+
+conx-ssl-sh:AreaAllocationActivityShape
+    a sh:NodeShape ;
+    sh:targetClass conx-site:AreaAllocation ;
+    sh:property [
+        sh:path conx-ssl:allocatedForActivity ;
+        sh:class conx-cs:Activity
+    ] .

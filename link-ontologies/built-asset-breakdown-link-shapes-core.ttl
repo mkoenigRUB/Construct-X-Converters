@@ -1,0 +1,51 @@
+@prefix conx-ba: <https://www.construct-x.org/ontology/built-asset#> .
+@prefix conx-bs: <https://www.construct-x.org/ontology/breakdown-structure#> .
+@prefix conx-babl: <https://www.construct-x.org/ontology/built-asset-breakdown-link#> .
+@prefix conx-babl-sh: <https://www.construct-x.org/shapes/built-asset-breakdown-link#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<https://www.construct-x.org/shapes/built-asset-breakdown-link/core>
+    a owl:Ontology ;
+    owl:versionIRI <https://www.construct-x.org/shapes/built-asset-breakdown-link/core/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports
+        <https://www.construct-x.org/ontology/built-asset/0.1.0> ,
+        <https://www.construct-x.org/ontology/breakdown-structure/0.7.0> ,
+        <https://www.construct-x.org/ontology/built-asset-breakdown-link/0.1.0> .
+
+conx-babl-sh:SpatialStructureLBSShape
+    a sh:NodeShape ;
+    sh:targetClass conx-ba:SpatialStructureElement ;
+    sh:property [
+        sh:path conx-babl:isRepresentedByLBSNode ;
+        sh:class conx-bs:LBSNode
+    ] .
+
+conx-babl-sh:TechnicalSystemSBSShape
+    a sh:NodeShape ;
+    sh:targetClass conx-ba:TechnicalSystem ;
+    sh:property [
+        sh:path conx-babl:isRepresentedBySBSNode ;
+        sh:class conx-bs:SBSNode
+    ] ;
+    sh:property [
+        sh:path conx-babl:isClassifiedByCBSNode ;
+        sh:class conx-bs:CBSNode
+    ] .
+
+conx-babl-sh:BuiltAssetCBSShape
+    a sh:NodeShape ;
+    sh:targetClass conx-ba:BuiltAsset ;
+    sh:property [
+        sh:path conx-babl:isClassifiedByCBSNode ;
+        sh:class conx-bs:CBSNode
+    ] .
+
+conx-babl-sh:ComponentCBSShape
+    a sh:NodeShape ;
+    sh:targetClass conx-ba:Component ;
+    sh:property [
+        sh:path conx-babl:isClassifiedByCBSNode ;
+        sh:class conx-bs:CBSNode
+    ] .

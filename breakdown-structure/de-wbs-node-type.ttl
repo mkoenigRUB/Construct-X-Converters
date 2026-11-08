@@ -1,0 +1,91 @@
+@prefix conx-de-wbs: <https://www.construct-x.org/vocab/breakdown-structure/de-wbs-node-type#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/vocab/breakdown-structure/de-wbs-node-type>
+    a owl:Ontology ;
+    owl:versionIRI <https://www.construct-x.org/vocab/breakdown-structure/de-wbs-node-type/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+    dcterms:title "Construct-X DE WBS Node Type Vocabulary"@en ;
+    dcterms:title "Construct-X-DE-Vokabular für WBS-Knotentypen"@de ;
+    dcterms:description "Germany-specific controlled vocabulary for semantic node types of Work Breakdown Structures (WBS), based on the supplied classification excerpt GR54 / M284-M290."@en ;
+    dcterms:description "Deutschland-spezifisches kontrolliertes Vokabular für fachliche Knotentypen von Work Breakdown Structures (WBS), basierend auf dem bereitgestellten Klassifikationsauszug GR54 / M284-M290."@de ;
+    dcterms:publisher <https://www.construct-x.org/id/organization/construct-x> ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:created "2026-10-02"^^xsd:date ;
+    dcterms:modified "2026-10-21"^^xsd:date ;
+    dcterms:source "Provided classification excerpt: GR54 Work Breakdown; M284-M290." ;
+    vann:preferredNamespacePrefix "conx-de-wbs" ;
+    vann:preferredNamespaceUri "https://www.construct-x.org/vocab/breakdown-structure/de-wbs-node-type#" .
+
+conx-de-wbs:WBSNodeTypeScheme
+    a skos:ConceptScheme ;
+    skos:prefLabel "WBS Node Type Vocabulary"@en ;
+    skos:prefLabel "WBS-Knotentyp-Vokabular"@de ;
+    dcterms:source "Provided classification excerpt: GR54 Work Breakdown; M284-M290." .
+
+conx-de-wbs:ConstructionMethod
+    a skos:Concept ;
+    skos:notation "M287" ;
+    skos:prefLabel "Construction Method"@en ;
+    skos:prefLabel "Bauweise"@de ;
+    skos:inScheme conx-de-wbs:WBSNodeTypeScheme ;
+    skos:topConceptOf conx-de-wbs:WBSNodeTypeScheme ;
+    dcterms:source "M287 - Bauweise" .
+
+conx-de-wbs:MaterialGroup
+    a skos:Concept ;
+    skos:notation "M288" ;
+    skos:prefLabel "Material Group"@en ;
+    skos:prefLabel "Materialgruppe"@de ;
+    skos:inScheme conx-de-wbs:WBSNodeTypeScheme ;
+    skos:topConceptOf conx-de-wbs:WBSNodeTypeScheme ;
+    dcterms:source "M288 - Materialgruppe" .
+
+conx-de-wbs:Phase
+    a skos:Concept ;
+    skos:notation "M284" ;
+    skos:prefLabel "Phase"@en ;
+    skos:prefLabel "Phase"@de ;
+    skos:inScheme conx-de-wbs:WBSNodeTypeScheme ;
+    skos:topConceptOf conx-de-wbs:WBSNodeTypeScheme ;
+    dcterms:source "M284 - Phase" .
+
+conx-de-wbs:Process
+    a skos:Concept ;
+    skos:notation "M289" ;
+    skos:prefLabel "Process"@en ;
+    skos:prefLabel "Prozess"@de ;
+    skos:inScheme conx-de-wbs:WBSNodeTypeScheme ;
+    skos:topConceptOf conx-de-wbs:WBSNodeTypeScheme ;
+    dcterms:source "M289 - Prozess" .
+
+conx-de-wbs:ProcessStep
+    a skos:Concept ;
+    skos:notation "M290" ;
+    skos:prefLabel "Process Step"@en ;
+    skos:prefLabel "Prozessschritt"@de ;
+    skos:inScheme conx-de-wbs:WBSNodeTypeScheme ;
+    skos:topConceptOf conx-de-wbs:WBSNodeTypeScheme ;
+    dcterms:source "M290 - Prozessschritt" .
+
+conx-de-wbs:Subphase
+    a skos:Concept ;
+    skos:notation "M285" ;
+    skos:prefLabel "Subphase"@en ;
+    skos:prefLabel "Teilphase"@de ;
+    skos:inScheme conx-de-wbs:WBSNodeTypeScheme ;
+    skos:topConceptOf conx-de-wbs:WBSNodeTypeScheme ;
+    dcterms:source "M285 - Teilphase" .
+
+conx-de-wbs:Trade
+    a skos:Concept ;
+    skos:notation "M286" ;
+    skos:prefLabel "Trade"@en ;
+    skos:prefLabel "Gewerk"@de ;
+    skos:inScheme conx-de-wbs:WBSNodeTypeScheme ;
+    skos:topConceptOf conx-de-wbs:WBSNodeTypeScheme ;
+    dcterms:source "M286 - Gewerk" .

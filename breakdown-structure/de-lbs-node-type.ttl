@@ -1,0 +1,155 @@
+@prefix conx-de-lbs: <https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type>
+    a owl:Ontology ;
+    owl:versionIRI <https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+    dcterms:title "Construct-X DE LBS Node Type Vocabulary"@en ;
+    dcterms:title "Construct-X-DE-Vokabular für LBS-Knotentypen"@de ;
+    dcterms:description "Germany-specific controlled vocabulary for semantic node types of Location Breakdown Structures (LBS), based on the supplied classification excerpt GR51 / M270-M283."@en ;
+    dcterms:description "Deutschland-spezifisches kontrolliertes Vokabular für fachliche Knotentypen von Location Breakdown Structures (LBS), basierend auf dem bereitgestellten Klassifikationsauszug GR51 / M270-M283."@de ;
+    dcterms:publisher <https://www.construct-x.org/id/organization/construct-x> ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:created "2026-10-02"^^xsd:date ;
+    dcterms:modified "2026-10-21"^^xsd:date ;
+    dcterms:source "Provided classification excerpt: GR51 Location Breakdown; M270-M283." ;
+    vann:preferredNamespacePrefix "conx-de-lbs" ;
+    vann:preferredNamespaceUri "https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type#" .
+
+conx-de-lbs:LBSNodeTypeScheme
+    a skos:ConceptScheme ;
+    skos:prefLabel "LBS Node Type Vocabulary"@en ;
+    skos:prefLabel "LBS-Knotentyp-Vokabular"@de ;
+    dcterms:source "Provided classification excerpt: GR51 Location Breakdown; M270-M283." .
+
+conx-de-lbs:Area
+    a skos:Concept ;
+    skos:notation "M281" ;
+    skos:prefLabel "Area"@en ;
+    skos:prefLabel "Bereich"@de ;
+    skos:inScheme conx-de-lbs:LBSNodeTypeScheme ;
+    skos:topConceptOf conx-de-lbs:LBSNodeTypeScheme ;
+    dcterms:source "M281 - Bereich" .
+
+conx-de-lbs:Assembly
+    a skos:Concept ;
+    skos:notation "M274" ;
+    skos:prefLabel "Assembly"@en ;
+    skos:prefLabel "Baugruppe"@de ;
+    skos:inScheme conx-de-lbs:LBSNodeTypeScheme ;
+    skos:topConceptOf conx-de-lbs:LBSNodeTypeScheme ;
+    dcterms:source "M274 - Baugruppe" .
+
+conx-de-lbs:Axis
+    a skos:Concept ;
+    skos:notation "M271" ;
+    skos:prefLabel "Axis"@en ;
+    skos:prefLabel "Achse"@de ;
+    skos:inScheme conx-de-lbs:LBSNodeTypeScheme ;
+    skos:topConceptOf conx-de-lbs:LBSNodeTypeScheme ;
+    dcterms:source "M271 - Achse" .
+
+conx-de-lbs:BuildingComponent
+    a skos:Concept ;
+    skos:notation "M275" ;
+    skos:prefLabel "Building Component"@en ;
+    skos:prefLabel "Bauteil"@de ;
+    skos:inScheme conx-de-lbs:LBSNodeTypeScheme ;
+    skos:topConceptOf conx-de-lbs:LBSNodeTypeScheme ;
+    dcterms:source "M275 - Bauteil" .
+
+conx-de-lbs:ConstructionSection
+    a skos:Concept ;
+    skos:notation "M270" ;
+    skos:prefLabel "Construction Section"@en ;
+    skos:prefLabel "Bauabschnitt"@de ;
+    skos:inScheme conx-de-lbs:LBSNodeTypeScheme ;
+    skos:topConceptOf conx-de-lbs:LBSNodeTypeScheme ;
+    dcterms:source "M270 - Bauabschnitt" .
+
+conx-de-lbs:DirectionalCarriageway
+    a skos:Concept ;
+    skos:notation "M277" ;
+    skos:prefLabel "Directional Carriageway"@en ;
+    skos:prefLabel "Richtungsfahrbahn"@de ;
+    skos:inScheme conx-de-lbs:LBSNodeTypeScheme ;
+    skos:topConceptOf conx-de-lbs:LBSNodeTypeScheme ;
+    dcterms:source "M277 - Richtungsfahrbahn" .
+
+conx-de-lbs:Lane
+    a skos:Concept ;
+    skos:notation "M278" ;
+    skos:prefLabel "Lane"@en ;
+    skos:prefLabel "Fahrstreifen"@de ;
+    skos:inScheme conx-de-lbs:LBSNodeTypeScheme ;
+    skos:topConceptOf conx-de-lbs:LBSNodeTypeScheme ;
+    dcterms:source "M278 - Fahrstreifen" .
+
+conx-de-lbs:Room
+    a skos:Concept ;
+    skos:notation "M283" ;
+    skos:prefLabel "Room"@en ;
+    skos:prefLabel "Raum"@de ;
+    skos:inScheme conx-de-lbs:LBSNodeTypeScheme ;
+    skos:topConceptOf conx-de-lbs:LBSNodeTypeScheme ;
+    dcterms:source "M283 - Raum" .
+
+conx-de-lbs:Storey
+    a skos:Concept ;
+    skos:notation "M280" ;
+    skos:prefLabel "Storey"@en ;
+    skos:prefLabel "Geschoss"@de ;
+    skos:inScheme conx-de-lbs:LBSNodeTypeScheme ;
+    skos:topConceptOf conx-de-lbs:LBSNodeTypeScheme ;
+    dcterms:source "M280 - Geschoss" .
+
+conx-de-lbs:Structure
+    a skos:Concept ;
+    skos:notation "M273" ;
+    skos:prefLabel "Structure"@en ;
+    skos:prefLabel "Bauwerk"@de ;
+    skos:inScheme conx-de-lbs:LBSNodeTypeScheme ;
+    skos:topConceptOf conx-de-lbs:LBSNodeTypeScheme ;
+    dcterms:source "M273 - Bauwerk" .
+
+conx-de-lbs:StructurePart
+    a skos:Concept ;
+    skos:notation "M279" ;
+    skos:prefLabel "Structure Part"@en ;
+    skos:prefLabel "Teilbauwerk"@de ;
+    skos:inScheme conx-de-lbs:LBSNodeTypeScheme ;
+    skos:topConceptOf conx-de-lbs:LBSNodeTypeScheme ;
+    dcterms:source "M279 - Teilbauwerk" .
+
+conx-de-lbs:Subarea
+    a skos:Concept ;
+    skos:notation "M282" ;
+    skos:prefLabel "Subarea"@en ;
+    skos:prefLabel "Teilbereich"@de ;
+    skos:inScheme conx-de-lbs:LBSNodeTypeScheme ;
+    skos:topConceptOf conx-de-lbs:LBSNodeTypeScheme ;
+    dcterms:source "M282 - Teilbereich" .
+
+conx-de-lbs:System
+    a skos:Concept ;
+    skos:notation "M272" ;
+    skos:prefLabel "System"@en ;
+    skos:prefLabel "System"@de ;
+    skos:inScheme conx-de-lbs:LBSNodeTypeScheme ;
+    skos:topConceptOf conx-de-lbs:LBSNodeTypeScheme ;
+    dcterms:source "M272 - System" .
+
+conx-de-lbs:TransverseAxis
+    a skos:Concept ;
+    skos:notation "M276" ;
+    skos:prefLabel "Transverse Axis"@en ;
+    skos:prefLabel "Querachse"@de ;
+    skos:altLabel "Cross Axis"@en ;
+    skos:inScheme conx-de-lbs:LBSNodeTypeScheme ;
+    skos:topConceptOf conx-de-lbs:LBSNodeTypeScheme ;
+    dcterms:source "M276 - Querachse" .

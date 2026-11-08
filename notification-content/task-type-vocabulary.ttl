@@ -1,0 +1,36 @@
+@prefix conx-tt: <https://www.construct-x.org/vocab/notification-content/task-type#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+
+<https://www.construct-x.org/vocab/notification-content/task-type> a owl:Ontology ;
+    dcterms:title "Construct-X Vokabular für Aufgabentypen"@de,
+        "Construct-X Task Type Vocabulary"@en ;
+    owl:versionIRI <https://www.construct-x.org/vocab/notification-content/task-type/0.1.0> ;
+    vann:preferredNamespacePrefix "conx-tt" ;
+    vann:preferredNamespaceUri "https://www.construct-x.org/vocab/notification-content/task-type#" ;
+    owl:versionInfo "0.1.0" .
+
+conx-tt:DetailedScheduling a skos:Concept ;
+    skos:altLabel "Feinterminplanung"@de ;
+    skos:definition "Create or refine a detailed execution schedule for the target activity or activities."@en ;
+    skos:inScheme conx-tt:TaskTypeScheme ;
+    skos:prefLabel "Detailed scheduling"@en .
+
+conx-tt:PriceCalculation a skos:Concept ;
+    skos:altLabel "Preis kalkulieren"@de ;
+    skos:definition "Calculate monetary pricing information for the target bill-of-quantities item or items."@en ;
+    skos:inScheme conx-tt:TaskTypeScheme ;
+    skos:prefLabel "Price calculation"@en .
+
+conx-tt:ProgressReporting a skos:Concept ;
+    skos:altLabel "Baufortschritt melden"@de ;
+    skos:definition "Provide a point-in-time construction progress report for the target activity or activities."@en ;
+    skos:inScheme conx-tt:TaskTypeScheme ;
+    skos:prefLabel "Construction progress reporting"@en .
+
+conx-tt:TaskTypeScheme a skos:ConceptScheme ;
+    skos:prefLabel "Construct-X Vokabular für Aufgabentypen"@de,
+        "Construct-X Task Type Vocabulary"@en .
+

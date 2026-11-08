@@ -1,0 +1,38 @@
+@prefix conx-ba: <https://www.construct-x.org/ontology/built-asset#> .
+@prefix conx-ba-sh: <https://www.construct-x.org/shapes/built-asset#> .
+@prefix conx-bat: <https://www.construct-x.org/vocab/built-asset/asset-type#> .
+@prefix conx-bst: <https://www.construct-x.org/vocab/built-asset/spatial-structure-type#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<https://www.construct-x.org/shapes/built-asset/vocabularies>
+    a owl:Ontology ;
+    owl:versionIRI <https://www.construct-x.org/shapes/built-asset/vocabularies/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports
+        <https://www.construct-x.org/ontology/built-asset/0.1.0> ,
+        <https://www.construct-x.org/vocab/built-asset/asset-type/0.1.0> ,
+        <https://www.construct-x.org/vocab/built-asset/spatial-structure-type/0.1.0> .
+
+conx-ba-sh:BuiltAssetTypeVocabularyShape
+    a sh:NodeShape ;
+    sh:targetClass conx-ba:BuiltAsset ;
+    sh:property [
+      sh:path conx-ba:hasAssetType ;
+      sh:in (
+        conx-bat:Building conx-bat:Bridge conx-bat:Tunnel
+        conx-bat:Road conx-bat:Railway conx-bat:MarineFacility
+        conx-bat:OtherInfrastructure
+      )
+    ] .
+
+conx-ba-sh:SpatialStructureTypeVocabularyShape
+    a sh:NodeShape ;
+    sh:targetClass conx-ba:SpatialStructureElement ;
+    sh:property [
+      sh:path conx-ba:hasSpatialStructureType ;
+      sh:in (
+        conx-bst:Storey conx-bst:Space conx-bst:Section
+        conx-bst:Segment conx-bst:Zone conx-bst:Part
+      )
+    ] .

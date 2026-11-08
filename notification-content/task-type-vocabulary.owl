@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+   xmlns:vann="http://purl.org/vocab/vann/"
+>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/notification-content/task-type">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <dcterms:title xml:lang="de">Construct-X Vokabular für Aufgabentypen</dcterms:title>
+    <dcterms:title xml:lang="en">Construct-X Task Type Vocabulary</dcterms:title>
+    <owl:versionIRI rdf:resource="https://www.construct-x.org/vocab/notification-content/task-type/0.1.0"/>
+    <vann:preferredNamespacePrefix>conx-tt</vann:preferredNamespacePrefix>
+    <vann:preferredNamespaceUri>https://www.construct-x.org/vocab/notification-content/task-type#</vann:preferredNamespaceUri>
+    <owl:versionInfo>0.1.0</owl:versionInfo>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/notification-content/task-type#PriceCalculation">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:altLabel xml:lang="de">Preis kalkulieren</skos:altLabel>
+    <skos:definition xml:lang="en">Calculate monetary pricing information for the target bill-of-quantities item or items.</skos:definition>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/notification-content/task-type#TaskTypeScheme"/>
+    <skos:prefLabel xml:lang="en">Price calculation</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/notification-content/task-type#TaskTypeScheme">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <skos:prefLabel xml:lang="de">Construct-X Vokabular für Aufgabentypen</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Construct-X Task Type Vocabulary</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/notification-content/task-type#ProgressReporting">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:altLabel xml:lang="de">Baufortschritt melden</skos:altLabel>
+    <skos:definition xml:lang="en">Provide a point-in-time construction progress report for the target activity or activities.</skos:definition>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/notification-content/task-type#TaskTypeScheme"/>
+    <skos:prefLabel xml:lang="en">Construction progress reporting</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/notification-content/task-type#DetailedScheduling">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:altLabel xml:lang="de">Feinterminplanung</skos:altLabel>
+    <skos:definition xml:lang="en">Create or refine a detailed execution schedule for the target activity or activities.</skos:definition>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/notification-content/task-type#TaskTypeScheme"/>
+    <skos:prefLabel xml:lang="en">Detailed scheduling</skos:prefLabel>
+  </rdf:Description>
+</rdf:RDF>

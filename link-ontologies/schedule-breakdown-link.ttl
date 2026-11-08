@@ -1,0 +1,102 @@
+@prefix conx-bs: <https://www.construct-x.org/ontology/breakdown-structure#> .
+@prefix conx-cs: <https://www.construct-x.org/ontology/construction-schedule#> .
+@prefix conx-sbl: <https://www.construct-x.org/ontology/schedule-breakdown-link#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/ontology/schedule-breakdown-link>
+    a owl:Ontology ;
+    owl:versionIRI <https://www.construct-x.org/ontology/schedule-breakdown-link/0.6.0> ;
+    owl:versionInfo "0.6.0" ;
+    owl:imports
+        <https://www.construct-x.org/ontology/construction-schedule/0.5.0> ,
+        <https://www.construct-x.org/ontology/breakdown-structure/0.7.0> ;
+    dcterms:title "Construct-X Schedule–Breakdown Link Ontology"@en ;
+    dcterms:title "Construct-X-Verknüpfungsontologie für Terminplan und Gliederungsstrukturen"@de ;
+    dcterms:description "Links Construction Schedules and Activities to Work, Location, System and Cost Breakdown Structures while keeping the source ontologies independent."@en ;
+    dcterms:description "Verknüpft Bauablaufpläne und Vorgänge mit WBS-, LBS-, SBS- und CBS-Strukturen, während die Fachontologien unabhängig bleiben."@de ;
+    dcterms:publisher <https://www.construct-x.org/id/organization/construct-x> ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:modified "2026-10-21"^^xsd:date ;
+    vann:preferredNamespacePrefix "conx-sbl" ;
+    vann:preferredNamespaceUri "https://www.construct-x.org/ontology/schedule-breakdown-link#" .
+
+conx-sbl:usesBreakdownStructure
+    a owl:ObjectProperty ;
+    rdfs:domain conx-cs:ConstructionSchedule ;
+    rdfs:range conx-bs:BreakdownStructure ;
+    rdfs:label "uses breakdown structure"@en ;
+    skos:altLabel "verwendet Gliederungsstruktur"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/schedule-breakdown-link> .
+
+conx-sbl:usesWorkBreakdownStructure
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:subPropertyOf conx-sbl:usesBreakdownStructure ;
+    rdfs:domain conx-cs:ConstructionSchedule ;
+    rdfs:range conx-bs:WorkBreakdownStructure ;
+    rdfs:label "uses Work Breakdown Structure"@en ;
+    skos:altLabel "verwendet WBS"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/schedule-breakdown-link> .
+
+conx-sbl:usesLocationBreakdownStructure
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:subPropertyOf conx-sbl:usesBreakdownStructure ;
+    rdfs:domain conx-cs:ConstructionSchedule ;
+    rdfs:range conx-bs:LocationBreakdownStructure ;
+    rdfs:label "uses Location Breakdown Structure"@en ;
+    skos:altLabel "verwendet LBS"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/schedule-breakdown-link> .
+
+conx-sbl:usesSystemBreakdownStructure
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:subPropertyOf conx-sbl:usesBreakdownStructure ;
+    rdfs:domain conx-cs:ConstructionSchedule ;
+    rdfs:range conx-bs:SystemBreakdownStructure ;
+    rdfs:label "uses System Breakdown Structure"@en ;
+    skos:altLabel "verwendet SBS"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/schedule-breakdown-link> .
+
+conx-sbl:usesCostBreakdownStructure
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:subPropertyOf conx-sbl:usesBreakdownStructure ;
+    rdfs:domain conx-cs:ConstructionSchedule ;
+    rdfs:range conx-bs:CostBreakdownStructure ;
+    rdfs:label "uses Cost Breakdown Structure"@en ;
+    skos:altLabel "verwendet CBS"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/schedule-breakdown-link> .
+
+conx-sbl:isClassifiedByWBSNode
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain conx-cs:Activity ;
+    rdfs:range conx-bs:WBSNode ;
+    rdfs:label "is classified by WBS node"@en ;
+    skos:altLabel "ist durch WBS-Knoten klassifiziert"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/schedule-breakdown-link> .
+
+conx-sbl:isPerformedIn
+    a owl:ObjectProperty ;
+    rdfs:domain conx-cs:Activity ;
+    rdfs:range conx-bs:LBSNode ;
+    rdfs:label "is performed in"@en ;
+    skos:altLabel "wird ausgeführt in"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/schedule-breakdown-link> .
+
+conx-sbl:isClassifiedBySBSNode
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain conx-cs:Activity ;
+    rdfs:range conx-bs:SBSNode ;
+    rdfs:label "is classified by SBS node"@en ;
+    skos:altLabel "ist durch SBS-Knoten klassifiziert"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/schedule-breakdown-link> .
+
+conx-sbl:isClassifiedByCBSNode
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain conx-cs:Activity ;
+    rdfs:range conx-bs:CBSNode ;
+    rdfs:label "is classified by CBS node"@en ;
+    skos:altLabel "ist durch CBS-Knoten klassifiziert"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/schedule-breakdown-link> .

@@ -1,0 +1,54 @@
+@prefix conx-nt: <https://www.construct-x.org/vocab/notification-content/notification-type#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+
+<https://www.construct-x.org/vocab/notification-content/notification-type> a owl:Ontology ;
+    dcterms:title "Construct-X Vokabular für Benachrichtigungstypen"@de,
+        "Construct-X Notification Type Vocabulary"@en ;
+    owl:versionIRI <https://www.construct-x.org/vocab/notification-content/notification-type/0.1.0> ;
+    vann:preferredNamespacePrefix "conx-nt" ;
+    vann:preferredNamespaceUri "https://www.construct-x.org/vocab/notification-content/notification-type#" ;
+    owl:versionInfo "0.1.0" .
+
+conx-nt:DataAvailable a skos:Concept ;
+    skos:altLabel "Daten verfügbar"@de ;
+    skos:definition "New data or a new data resource is available to the receiver."@en ;
+    skos:inScheme conx-nt:NotificationTypeScheme ;
+    skos:prefLabel "Data available"@en .
+
+conx-nt:DataDeleted a skos:Concept ;
+    skos:altLabel "Daten gelöscht"@de ;
+    skos:definition "Previously available data has been deleted or withdrawn."@en ;
+    skos:inScheme conx-nt:NotificationTypeScheme ;
+    skos:prefLabel "Data deleted"@en .
+
+conx-nt:DataUpdated a skos:Concept ;
+    skos:altLabel "Daten aktualisiert"@de ;
+    skos:definition "Existing data relevant to the receiver has been updated."@en ;
+    skos:inScheme conx-nt:NotificationTypeScheme ;
+    skos:prefLabel "Data updated"@en .
+
+conx-nt:ResultAvailable a skos:Concept ;
+    skos:altLabel "Ergebnis verfügbar"@de ;
+    skos:definition "A result of a previously requested task is available."@en ;
+    skos:inScheme conx-nt:NotificationTypeScheme ;
+    skos:prefLabel "Result available"@en .
+
+conx-nt:TaskRequested a skos:Concept ;
+    skos:altLabel "Aufgabe angefordert"@de ;
+    skos:definition "The receiver is requested to perform a standardized task."@en ;
+    skos:inScheme conx-nt:NotificationTypeScheme ;
+    skos:prefLabel "Task requested"@en .
+
+conx-nt:TaskStatusChanged a skos:Concept ;
+    skos:altLabel "Auftragsstatus geändert"@de ;
+    skos:definition "The processing status of a previously requested task has changed."@en ;
+    skos:inScheme conx-nt:NotificationTypeScheme ;
+    skos:prefLabel "Task status changed"@en .
+
+conx-nt:NotificationTypeScheme a skos:ConceptScheme ;
+    skos:prefLabel "Construct-X Vokabular für Benachrichtigungstypen"@de,
+        "Construct-X Notification Type Vocabulary"@en .
+

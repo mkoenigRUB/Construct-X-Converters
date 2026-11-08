@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.5.3</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>org.constructx</groupId>
+    <artifactId>msproject-converter-service</artifactId>
+    <version>1.0.0</version>
+    <name>MS Project Converter Service</name>
+    <description>Converts MS Project XML files (2016/2019/2021/2024) to TTL or JSON-LD based on the Construct-X construction-schedule ontology</description>
+
+    <properties>
+        <java.version>25</java.version>
+        <jena.version>4.10.0</jena.version>
+        <!-- byte-buddy-agent jar for preloading the Mockito agent (attach is blocked on this machine) -->
+        <!-- 8.3 short path: the umlaut in the user profile breaks the surefire fork (cmd.exe encoding) -->
+        <byte-buddy-agent.jar>${settings.localRepository}/net/bytebuddy/byte-buddy-agent/1.17.6/byte-buddy-agent-1.17.6.jar</byte-buddy-agent.jar>
+    </properties>
+
+    <dependencies>
+        <!-- Construct-X SDK (shared CURIE register, RDF input/output) -->
+        <dependency>
+            <groupId>org.construct-x</groupId>
+            <artifactId>construct-x-sdk</artifactId>
+            <version>0.1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.jena</groupId>
+            <artifactId>jena-shacl</artifactId>
+            <version>${jena.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.jena</groupId>
+            <artifactId>jena-arq</artifactId>
+            <version>${jena.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <!-- JDK 21+: allow ByteBuddy/Mockito to self-attach the Java agent -->
+                    <!-- Preload the Mockito/ByteBuddy agent: dynamic self-attach is blocked on this machine (Windows attach access denied) -->
+                    <argLine>-javaagent:${byte-buddy-agent.jar}</argLine>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

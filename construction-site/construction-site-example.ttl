@@ -1,0 +1,128 @@
+@prefix conx-site: <https://www.construct-x.org/ontology/construction-site#> .
+@prefix conx-area: <https://www.construct-x.org/vocab/construction-site/area-type#> .
+@prefix conx-eq: <https://www.construct-x.org/vocab/construction-site/equipment-type#> .
+@prefix conx-util: <https://www.construct-x.org/vocab/construction-site/utility-type#> .
+@prefix conx-aas: <https://www.construct-x.org/vocab/construction-site/area-allocation-status#> .
+@prefix ex: <https://data.example.com/project/alpha/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:logistics-area-01
+    a conx-site:ConstructionLogisticsArea ;
+    conx-site:identifier "CLA-01" ;
+    conx-site:name "Baulogistikareal Projekt Alpha" ;
+    conx-site:hasConstructionSite ex:site-01 ;
+    conx-site:hasExternalSiteArea ex:waiting-area-01 .
+
+ex:site-01
+    a conx-site:ConstructionSite ;
+    conx-site:identifier "SITE-01" ;
+    conx-site:name "Baustelle Projekt Alpha" ;
+    conx-site:hasConstructionField ex:field-01 ;
+    conx-site:hasLocalCoordinateSystem ex:lcs-01 ;
+    conx-site:hasSiteInstallation ex:site-electricity-01, ex:crane-01 .
+
+ex:field-01
+    a conx-site:ConstructionField ;
+    conx-site:identifier "FIELD-01" ;
+    conx-site:name "Baufeld A" ;
+    conx-site:isConstructionFieldOf ex:site-01 ;
+    conx-site:hasSiteArea ex:loading-area-01, ex:crane-setup-01, ex:crane-zone-01, ex:work-area-01 .
+
+ex:waiting-area-01
+    a conx-site:SiteArea ;
+    conx-site:identifier "AREA-WAIT-01" ;
+    conx-site:name "Wartezone Nord" ;
+    conx-site:hasAreaType conx-area:WaitingZone ;
+    geo:hasGeometry ex:geom-waiting .
+
+ex:loading-area-01
+    a conx-site:SiteArea ;
+    conx-site:identifier "AREA-LOAD-01" ;
+    conx-site:name "Ladezone Kran" ;
+    conx-site:hasAreaType conx-area:LoadingZone ;
+    conx-site:isSiteAreaOf ex:field-01 ;
+    geo:hasGeometry ex:geom-loading .
+
+ex:crane-setup-01
+    a conx-site:SiteArea ;
+    conx-site:identifier "AREA-SETUP-01" ;
+    conx-site:name "Aufstellfläche Kran" ;
+    conx-site:hasAreaType conx-area:EquipmentSetupArea ;
+    conx-site:isSiteAreaOf ex:field-01 ;
+    geo:hasGeometry ex:geom-crane-setup .
+
+ex:crane-zone-01
+    a conx-site:SiteArea ;
+    conx-site:identifier "AREA-RZ-01" ;
+    conx-site:name "Sperrzone Kran" ;
+    conx-site:hasAreaType conx-area:RestrictedZone ;
+    conx-site:isSiteAreaOf ex:field-01 ;
+    geo:hasGeometry ex:geom-crane-zone .
+
+ex:work-area-01
+    a conx-site:SiteArea ;
+    conx-site:identifier "AREA-WORK-01" ;
+    conx-site:name "Arbeitsbereich Stützenbetonage" ;
+    conx-site:hasAreaType conx-area:WorkArea ;
+    conx-site:isSiteAreaOf ex:field-01 ;
+    geo:hasGeometry ex:geom-work .
+
+ex:transfer-point-01
+    a conx-site:TransferPoint ;
+    conx-site:identifier "TP-01" ;
+    conx-site:name "Übergabepunkt Ladezone Kran" ;
+    conx-site:isLocatedInArea ex:loading-area-01 .
+
+ex:lcs-01
+    a conx-site:LocalCoordinateSystem ;
+    conx-site:identifier "LCS-01" ;
+    conx-site:referencePoint ex:geom-reference ;
+    conx-site:crsIdentifier "EPSG:25832" ;
+    conx-site:rotationToGridNorth "0.0"^^xsd:decimal .
+
+ex:site-electricity-01
+    a conx-site:UtilitySupply, conx-site:SiteInstallation ;
+    conx-site:identifier "UTIL-E-01" ;
+    conx-site:name "Baustromversorgung" ;
+    conx-site:hasUtilityType conx-util:SiteElectricity .
+
+ex:crane-01
+    a conx-site:SiteEquipment, conx-site:SiteInstallation ;
+    conx-site:identifier "EQ-CRANE-01" ;
+    conx-site:name "Turmdrehkran 1" ;
+    conx-site:hasEquipmentType conx-eq:Crane ;
+    conx-site:usesSiteArea ex:crane-setup-01 ;
+    conx-site:hasRestrictedZone ex:crane-zone-01 ;
+    conx-site:requiresUtility ex:site-electricity-01 .
+
+ex:geom-waiting a geo:Geometry ; geo:asWKT "POLYGON((0 0,20 0,20 10,0 10,0 0))"^^geo:wktLiteral .
+ex:geom-loading a geo:Geometry ; geo:asWKT "POLYGON((30 0,45 0,45 10,30 10,30 0))"^^geo:wktLiteral .
+ex:geom-crane-setup a geo:Geometry ; geo:asWKT "POLYGON((50 0,60 0,60 10,50 10,50 0))"^^geo:wktLiteral .
+ex:geom-crane-zone a geo:Geometry ; geo:asWKT "POLYGON((45 -5,70 -5,70 20,45 20,45 -5))"^^geo:wktLiteral .
+ex:geom-work a geo:Geometry ; geo:asWKT "POLYGON((80 0,100 0,100 15,80 15,80 0))"^^geo:wktLiteral .
+ex:geom-reference a geo:Geometry ; geo:asWKT "POINT(0 0)"^^geo:wktLiteral .
+
+# Zeitlich veränderliche Flächenbelegung: dieselbe Ladezone wird in zwei
+# aufeinanderfolgenden, sich nicht überschneidenden Intervallen unterschiedlich genutzt.
+ex:alloc-loading-01
+    a conx-site:AreaAllocation ;
+    conx-site:identifier "ALLOC-LOAD-01" ;
+    conx-site:name "Ladezone Kran — Entladebetrieb" ;
+    conx-site:allocatedArea ex:loading-area-01 ;
+    conx-site:allocationType conx-area:LoadingZone ;
+    conx-site:allocationStatus conx-aas:Actual ;
+    conx-site:validFrom "2026-11-01T00:00:00+01:00"^^xsd:dateTime ;
+    conx-site:validTo "2026-11-15T23:59:59+01:00"^^xsd:dateTime .
+
+ex:alloc-loading-02
+    a conx-site:AreaAllocation ;
+    conx-site:identifier "ALLOC-LOAD-02" ;
+    conx-site:name "Ladezone Kran — Zwischenlager" ;
+    conx-site:allocatedArea ex:loading-area-01 ;
+    conx-site:allocationType conx-area:IntermediateStorageArea ;
+    conx-site:allocationStatus conx-aas:Planned ;
+    conx-site:validFrom "2026-11-16T00:00:00+01:00"^^xsd:dateTime ;
+    conx-site:validTo "2026-11-30T23:59:59+01:00"^^xsd:dateTime .
+
+ex:loading-area-01 conx-site:hasAreaAllocation ex:alloc-loading-01, ex:alloc-loading-02 .

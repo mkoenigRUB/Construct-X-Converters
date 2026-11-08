@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+   xmlns:vann="http://purl.org/vocab/vann/"
+>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/notification-content/subject-role#SubjectRoleScheme">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <skos:prefLabel xml:lang="de">Construct-X Vokabular für Objektrollen</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Construct-X Subject Role Vocabulary</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/notification-content/subject-role">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <dcterms:title xml:lang="de">Construct-X Vokabular für Objektrollen</dcterms:title>
+    <dcterms:title xml:lang="en">Construct-X Subject Role Vocabulary</dcterms:title>
+    <owl:versionIRI rdf:resource="https://www.construct-x.org/vocab/notification-content/subject-role/0.1.0"/>
+    <vann:preferredNamespacePrefix>conx-sr</vann:preferredNamespacePrefix>
+    <vann:preferredNamespaceUri>https://www.construct-x.org/vocab/notification-content/subject-role#</vann:preferredNamespaceUri>
+    <owl:versionInfo>0.1.0</owl:versionInfo>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/notification-content/subject-role#ContextOnly">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:altLabel xml:lang="de">nur Kontextinformation</skos:altLabel>
+    <skos:definition xml:lang="en">Resource supplied only to understand dependencies or constraints; no action is requested on it.</skos:definition>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/notification-content/subject-role#SubjectRoleScheme"/>
+    <skos:prefLabel xml:lang="en">Context only</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/notification-content/subject-role#Target">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:altLabel xml:lang="de">Zielobjekt</skos:altLabel>
+    <skos:definition xml:lang="en">Resource to which the notification action directly applies.</skos:definition>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/notification-content/subject-role#SubjectRoleScheme"/>
+    <skos:prefLabel xml:lang="en">Target</skos:prefLabel>
+  </rdf:Description>
+</rdf:RDF>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+   xmlns:vann="http://purl.org/vocab/vann/"
+>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/delivery-boq-link">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <owl:versionIRI rdf:resource="https://www.construct-x.org/ontology/delivery-boq-link/0.1.0"/>
+    <owl:versionInfo>0.1.0</owl:versionInfo>
+    <owl:imports rdf:resource="https://www.construct-x.org/ontology/construction-delivery/0.1.0"/>
+    <owl:imports rdf:resource="https://www.construct-x.org/ontology/gaeb-boq/0.5.0"/>
+    <dcterms:title xml:lang="en">Construct-X Delivery–BoQ Link Ontology</dcterms:title>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-22</dcterms:created>
+    <vann:preferredNamespacePrefix>conx-dbl</vann:preferredNamespacePrefix>
+    <vann:preferredNamespaceUri>https://www.construct-x.org/ontology/delivery-boq-link#</vann:preferredNamespaceUri>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/delivery-boq-link#fulfillsQuantitySplit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-delivery#LogisticsLoadItem"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/gaeb-boq#QuantitySplit"/>
+    <rdfs:label xml:lang="en">fulfills quantity split</rdfs:label>
+    <skos:altLabel xml:lang="de">erfüllt Mengensplit</skos:altLabel>
+    <rdfs:comment xml:lang="en">Associates a delivered Logistics Load Item with the BoQ Quantity Split whose quantity it fulfils in whole or in part.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/delivery-boq-link"/>
+  </rdf:Description>
+</rdf:RDF>

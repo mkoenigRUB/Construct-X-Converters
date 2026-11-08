@@ -1,0 +1,60 @@
+@prefix conx-pct: <https://www.construct-x.org/vocab/boq-price-component-type#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/vocab/boq-price-component-type>
+    a owl:Ontology, skos:ConceptScheme ;
+    owl:versionIRI <https://www.construct-x.org/vocab/boq-price-component-type/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+    dcterms:title "Construct-X BoQ Price Component Type Vocabulary"@en ;
+    skos:prefLabel "BoQ Price Component Type"@en ;
+    skos:prefLabel "Typ des Einheitspreisanteils"@de ;
+    skos:definition "Controlled concept scheme for classifying unit price components of BoQ items."@en ;
+    skos:definition "Kontrolliertes Begriffsschema zur Klassifikation von Einheitspreisanteilen von Leistungspositionen."@de ;
+    dcterms:title "Construct-X-Vokabular für Typen von Einheitspreisanteilen"@de ;
+    dcterms:description "Controlled vocabulary for classifying unit price components of BoQ items."@en ;
+    dcterms:description "Kontrolliertes Vokabular zur Klassifikation von Einheitspreisanteilen einer Leistungsposition."@de ;
+    dcterms:publisher <https://www.construct-x.org/id/organization/construct-x> ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:created "2026-10-08"^^xsd:date ;
+    skos:hasTopConcept conx-pct:Labor , conx-pct:Materials , conx-pct:Equipment , conx-pct:Other , conx-pct:Unknown ;
+    vann:preferredNamespacePrefix "conx-pct" ;
+    vann:preferredNamespaceUri "https://www.construct-x.org/vocab/boq-price-component-type#" .
+
+conx-pct:Labor
+    a skos:Concept ;
+    skos:inScheme <https://www.construct-x.org/vocab/boq-price-component-type> ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/boq-price-component-type> ;
+    skos:prefLabel "Labor"@en ;
+    skos:prefLabel "Löhne"@de .
+
+conx-pct:Materials
+    a skos:Concept ;
+    skos:inScheme <https://www.construct-x.org/vocab/boq-price-component-type> ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/boq-price-component-type> ;
+    skos:prefLabel "Materials"@en ;
+    skos:prefLabel "Stoffe"@de .
+
+conx-pct:Equipment
+    a skos:Concept ;
+    skos:inScheme <https://www.construct-x.org/vocab/boq-price-component-type> ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/boq-price-component-type> ;
+    skos:prefLabel "Equipment"@en ;
+    skos:prefLabel "Geräte"@de .
+
+conx-pct:Other
+    a skos:Concept ;
+    skos:inScheme <https://www.construct-x.org/vocab/boq-price-component-type> ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/boq-price-component-type> ;
+    skos:prefLabel "Other"@en ;
+    skos:prefLabel "Sonstiges"@de .
+
+conx-pct:Unknown
+    a skos:Concept ;
+    skos:inScheme <https://www.construct-x.org/vocab/boq-price-component-type> ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/boq-price-component-type> ;
+    skos:prefLabel "Unknown"@en ;
+    skos:prefLabel "Unbekannt"@de .

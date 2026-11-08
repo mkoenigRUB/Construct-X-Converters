@@ -1,0 +1,15 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: msproject-converter-service
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+
+constructx:
+  ontology-root: ${CONX_ONTOLOGY_ROOT:..}
+  cors:
+    allowed-origins: ${CONX_CORS_ALLOWED_ORIGINS:http://localhost:8084}

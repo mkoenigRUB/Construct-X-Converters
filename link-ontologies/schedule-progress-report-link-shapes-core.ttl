@@ -1,0 +1,32 @@
+@prefix conx-cpr: <https://www.construct-x.org/ontology/construction-progress-report#> .
+@prefix conx-cs: <https://www.construct-x.org/ontology/construction-schedule#> .
+@prefix conx-sprl: <https://www.construct-x.org/ontology/schedule-progress-report-link#> .
+@prefix conx-sprl-sh: <https://www.construct-x.org/shapes/schedule-progress-report-link#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<https://www.construct-x.org/shapes/schedule-progress-report-link/core>
+    a owl:Ontology ;
+    owl:versionIRI <https://www.construct-x.org/shapes/schedule-progress-report-link/core/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports
+        <https://www.construct-x.org/ontology/construction-schedule/0.5.0> ,
+        <https://www.construct-x.org/ontology/construction-progress-report/0.1.0> ,
+        <https://www.construct-x.org/ontology/schedule-progress-report-link/0.1.0> ;
+    dcterms:title "Construct-X Schedule–Progress Report Link Core SHACL"@en ;
+    dcterms:title "Construct-X Core-SHACL für die Schedule–Progress-Report-Link-Ontologie"@de ;
+    dcterms:publisher <https://www.construct-x.org/id/organization/construct-x> ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> .
+
+conx-sprl-sh:ConstructionProgressReportActivityLinkShape
+    a sh:NodeShape ;
+    sh:targetClass conx-cpr:ConstructionProgressReport ;
+    sh:property [
+        sh:path conx-sprl:reportsOnActivity ;
+        sh:class conx-cs:Activity ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "A Construction Progress Report must reference exactly one Activity."@en ;
+        sh:message "Eine Baufortschrittsmeldung muss genau einen Vorgang referenzieren."@de
+    ] .

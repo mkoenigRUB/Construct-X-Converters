@@ -1,0 +1,66 @@
+@prefix conx-cs: <https://www.construct-x.org/ontology/construction-schedule#> .
+@prefix conx-bs: <https://www.construct-x.org/ontology/breakdown-structure#> .
+@prefix conx-gaeb: <https://www.construct-x.org/ontology/gaeb-boq#> .
+@prefix conx-cpr: <https://www.construct-x.org/ontology/construction-progress-report#> .
+@prefix conx-sbl: <https://www.construct-x.org/ontology/schedule-breakdown-link#> .
+@prefix conx-sbdl: <https://www.construct-x.org/ontology/site-breakdown-link#> .
+@prefix conx-sbq: <https://www.construct-x.org/ontology/schedule-boq-link#> .
+@prefix conx-sprl: <https://www.construct-x.org/ontology/schedule-progress-report-link#> .
+@prefix conx-site: <https://www.construct-x.org/ontology/construction-site#> .
+@prefix conx-del: <https://www.construct-x.org/ontology/construction-delivery#> .
+@prefix conx-dsl: <https://www.construct-x.org/ontology/delivery-site-link#> .
+@prefix conx-sdl: <https://www.construct-x.org/ontology/schedule-delivery-link#> .
+@prefix conx-dbl: <https://www.construct-x.org/ontology/delivery-boq-link#> .
+@prefix conx-ssl: <https://www.construct-x.org/ontology/schedule-site-link#> .
+@prefix ex: <https://data.example.com/project/alpha/> .
+
+ex:schedule-01 a conx-cs:ConstructionSchedule ;
+    conx-sbl:usesWorkBreakdownStructure ex:wbs-01 ;
+    conx-sbl:usesLocationBreakdownStructure ex:lbs-01 ;
+    conx-sbl:usesSystemBreakdownStructure ex:sbs-01 ;
+    conx-sbl:usesCostBreakdownStructure ex:cbs-01 ;
+    conx-sbq:usesBillOfQuantities ex:boq-01 .
+
+ex:activity-A100 a conx-cs:Activity ;
+    conx-sbl:isClassifiedByWBSNode ex:wbs-120 ;
+    conx-sbl:isPerformedIn ex:lbs-eg ;
+    conx-sbl:isClassifiedBySBSNode ex:sbs-10 ;
+    conx-sbl:isClassifiedByCBSNode ex:cbs-300 .
+
+ex:wbs-01 a conx-bs:WorkBreakdownStructure .
+ex:lbs-01 a conx-bs:LocationBreakdownStructure .
+ex:sbs-01 a conx-bs:SystemBreakdownStructure .
+ex:cbs-01 a conx-bs:CostBreakdownStructure .
+ex:wbs-120 a conx-bs:WBSNode .
+ex:lbs-eg a conx-bs:LBSNode .
+ex:sbs-10 a conx-bs:SBSNode .
+ex:cbs-300 a conx-bs:CBSNode .
+ex:boq-01 a conx-gaeb:BillOfQuantities .
+
+ex:split-001 a conx-gaeb:QuantitySplit ;
+    conx-sbq:isAssignedToActivity ex:activity-A100 .
+
+ex:progress-report-A100 a conx-cpr:ConstructionProgressReport ;
+    conx-sprl:reportsOnActivity ex:activity-A100 .
+
+ex:loading-area-01 a conx-site:SiteArea ;
+conx-sbdl:isRepresentedByLBSNode ex:lbs-loading-zone .
+
+ex:op-unload-001 a conx-del:LogisticsOperation ;
+conx-dsl:usesTransferPoint ex:transfer-point-01 .
+
+ex:req-001 a conx-del:LogisticsRequirement ;
+conx-sdl:supportsActivity ex:activity-install-raised-floor .
+
+ex:item-001 a conx-del:LogisticsLoadItem ;
+conx-dbl:fulfillsQuantitySplit ex:split-raised-floor-01 .
+
+ex:lbs-loading-zone a conx-bs:LBSNode .
+ex:activity-install-raised-floor a conx-cs:Activity .
+ex:split-raised-floor-01 a conx-gaeb:QuantitySplit .
+ex:transfer-point-01 a conx-site:TransferPoint .
+
+# Zeitlich veränderliche Flächenbelegung: die Belegung der Ladezone wird der
+# Montage-Aktivität zugeordnet (Schedule ↔ Site).
+ex:alloc-loading-01 a conx-site:AreaAllocation ;
+    conx-ssl:allocatedForActivity ex:activity-install-raised-floor .

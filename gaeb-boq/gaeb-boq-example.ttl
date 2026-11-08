@@ -1,0 +1,41 @@
+@prefix conx-gaeb: <https://www.construct-x.org/ontology/gaeb-boq#> .
+@prefix conx-pct: <https://www.construct-x.org/vocab/boq-price-component-type#> .
+@prefix ex: <https://data.example.com/project/alpha/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:boq-01 a conx-gaeb:BillOfQuantities ;
+    conx-gaeb:identifier "BOQ-01" ;
+    conx-gaeb:name "Rohbau Leistungsverzeichnis" ;
+    conx-gaeb:currencyCode "EUR" ;
+    conx-gaeb:hasRootSection ex:section-01 .
+
+ex:section-01 a conx-gaeb:BoQSection ;
+    conx-gaeb:identifier "SEC-01" ;
+    conx-gaeb:name "Betonarbeiten" ;
+    conx-gaeb:ordinalNumber "01" ;
+    conx-gaeb:levelNumber "1"^^xsd:positiveInteger ;
+    conx-gaeb:isRootSectionOf ex:boq-01 ;
+    conx-gaeb:hasItem ex:item-0010 .
+
+ex:item-0010 a conx-gaeb:BoQItem ;
+    conx-gaeb:identifier "ITEM-0010" ;
+    conx-gaeb:ordinalNumber "01.0010" ;
+    conx-gaeb:shortText "Stahlbetondecke C30/37 herstellen" ;
+    conx-gaeb:quantity "125.500"^^xsd:decimal ;
+    conx-gaeb:unitCode "m3" ;
+    conx-gaeb:unitPrice "185.50"^^xsd:decimal ;
+    conx-gaeb:totalAmount "23280.25"^^xsd:decimal ;
+    conx-gaeb:belongsToSection ex:section-01 ;
+    conx-gaeb:hasUnitPriceComponent ex:price-labor, ex:price-materials .
+
+ex:price-labor a conx-gaeb:UnitPriceComponent ;
+    conx-gaeb:identifier "PRICE-01" ;
+    conx-gaeb:amount "90.00"^^xsd:decimal ;
+    conx-gaeb:hasPriceComponentType conx-pct:Labor ;
+    conx-gaeb:isUnitPriceComponentOf ex:item-0010 .
+
+ex:price-materials a conx-gaeb:UnitPriceComponent ;
+    conx-gaeb:identifier "PRICE-02" ;
+    conx-gaeb:amount "95.50"^^xsd:decimal ;
+    conx-gaeb:hasPriceComponentType conx-pct:Materials ;
+    conx-gaeb:isUnitPriceComponentOf ex:item-0010 .

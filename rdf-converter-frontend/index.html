@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#003560">
+    <title>Construct-X RDF Studio</title>
+    <link rel="stylesheet" href="/design/conx.css?v=5">
+    <link rel="stylesheet" href="styles.css?v=5">
+</head>
+<body>
+<header class="topbar">
+    <div class="container">
+        <a class="brand" href="/" aria-label="Construct-X RDF Studio Startseite">
+            <img class="brand-logo" src="/design/logo.svg" alt="Lehrstuhl Computing in Engineering, Ruhr-Universität Bochum">
+            <span class="brand-name">Construct-X <span>RDF Studio</span></span>
+        </a>
+        <div class="topbar-status">
+            <span class="state-dot" aria-hidden="true"></span>
+            <span id="serviceStatus">Dienst wird geprüft</span>
+        </div>
+    </div>
+</header>
+
+<main class="layout">
+    <section class="intro">
+        <p class="eyebrow">Semantische Datenwerkstatt</p>
+        <h1>RDF-Daten konvertieren<br>und gegen Profile prüfen.</h1>
+        <p class="intro-copy">Turtle und JSON-LD sicher umwandeln. Construct-X-Ontologien und SHACL-Profile lokal auf Konformität prüfen.</p>
+        <ul class="feature-list">
+            <li><b>01</b> TTL ↔ JSON-LD ↔ JSON</li>
+            <li><b>02</b> Ontologieprofile</li>
+            <li><b>03</b> SHACL-Bericht</li>
+        </ul>
+    </section>
+
+    <section class="workspace" aria-label="RDF-Verarbeitung">
+        <nav class="tabs workspace-tabs" role="tablist">
+            <button id="convertTab" class="tab active" role="tab" aria-selected="true">Konvertieren</button>
+            <button id="validateTab" class="tab" role="tab" aria-selected="false">Validieren</button>
+        </nav>
+        <div class="work-card">
+            <div class="step">
+                <span class="step-num" aria-hidden="true">1</span>
+                <div><h2>RDF-Datei auswählen</h2><p>Turtle (.ttl) oder JSON-LD (.jsonld)</p></div>
+            </div>
+            <label id="dropzone" class="dropzone" for="fileInput">
+                <span class="dz-icon" aria-hidden="true">
+                    <svg class="ic ic-24" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
+                </span>
+                <p class="dz-title"><strong>Datei ablegen</strong> oder <u>durchsuchen</u></p>
+                <p class="dz-hint" id="fileHint">Maximal 50 MB · Verarbeitung ohne dauerhafte Speicherung</p>
+                <input id="fileInput" type="file" accept=".ttl,.json,.jsonld,text/turtle,application/ld+json">
+            </label>
+            <div class="file-pill hidden" id="filePill">
+                <span class="file-icon" aria-hidden="true">
+                    <svg class="ic ic-16" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
+                </span>
+                <span class="file-details">
+                    <span class="file-name" id="fileName"></span>
+                    <span class="file-meta" id="fileSize"></span>
+                </span>
+                <button id="removeFile" class="file-remove" type="button" aria-label="Datei entfernen">
+                    <svg class="ic ic-16" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                </button>
+            </div>
+
+            <div class="step settings-heading">
+                <span class="step-num" aria-hidden="true">2</span>
+                <div><h2 id="optionsTitle">Zielformat festlegen</h2><p id="optionsDescription">Das Eingabeformat wird anhand der Dateiendung erkannt.</p></div>
+            </div>
+            <div id="convertOptions" class="format-controls">
+                <label class="field"><span class="field-label">Quelldatei</span><select id="sourceFormat">
+                    <option value="auto">Automatisch erkennen</option>
+                    <option value="ttl">Turtle (.ttl)</option>
+                    <option value="jsonld">JSON-LD (.jsonld)</option>
+                </select></label>
+                <span class="format-arrow" aria-hidden="true">
+                    <svg class="ic ic-16" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </span>
+                <label class="field"><span class="field-label">Zielformat</span><select id="targetFormat">
+                    <option value="jsonld">JSON-LD (.jsonld)</option>
+                    <option value="ttl">Turtle (.ttl)</option>
+                    <option value="plainjson">JSON – plain, ohne Ontologie (.json)</option>
+                </select></label>
+            </div>
+            <div id="envelopeRow" class="envelope-row hidden">
+                <label class="radio"><input type="checkbox" id="envelopeCheckbox">
+                    <span>Exchange-Paket-Envelope erzeugen (id, identifier, semanticModel, content.entities)</span>
+                </label>
+            </div>
+            <div id="validateOptions" class="validation-controls hidden">
+                <label class="field"><span class="field-label">RDF-Format</span><select id="validationFormat">
+                    <option value="auto">Automatisch erkennen</option>
+                    <option value="ttl">Turtle (.ttl)</option>
+                    <option value="jsonld">JSON-LD (.jsonld)</option>
+                </select></label>
+                <label class="field"><span class="field-label">SHACL-Profil</span><select id="profileSelect">
+                    <option value="">Profile werden geladen …</option>
+                </select></label>
+            </div>
+            <div id="status" class="status hidden" role="status"></div>
+            <button id="runButton" class="run-button" type="button" disabled>
+                <span id="runIcon" aria-hidden="true">⇄</span>
+                <span id="runLabel">Datei konvertieren</span>
+                <span class="button-arrow" aria-hidden="true">→</span>
+            </button>
+        </div>
+    </section>
+
+    <section id="resultSection" class="card result-card hidden" aria-live="polite">
+        <div class="result-header">
+            <div><p class="eyebrow">Ergebnis</p><h2 id="resultTitle">Verarbeitung abgeschlossen</h2></div>
+            <button id="downloadButton" class="btn btn-secondary hidden" type="button">
+                <svg class="ic ic-16" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+                <span>Herunterladen</span>
+            </button>
+        </div>
+        <p id="resultSummary" class="result-summary"></p>
+        <div id="reportList" class="report-list"></div>
+        <details id="previewDetails" class="preview-details hidden">
+            <summary>Inhalt anzeigen</summary>
+            <pre id="preview"></pre>
+        </details>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <span>Construct-X · RDF Studio</span>
+        <span>Eigenständiger Konvertierungs- und Validierungsdienst</span>
+    </div>
+</footer>
+<script src="app.js?v=6"></script>
+</body>
+</html>

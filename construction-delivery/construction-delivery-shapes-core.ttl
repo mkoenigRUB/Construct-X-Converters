@@ -1,0 +1,95 @@
+@prefix conx-del: <https://www.construct-x.org/ontology/construction-delivery#> .
+@prefix conx-del-sh: <https://www.construct-x.org/shapes/construction-delivery#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/shapes/construction-delivery/core>
+    a owl:Ontology ;
+    owl:versionIRI <https://www.construct-x.org/shapes/construction-delivery/core/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://www.construct-x.org/ontology/construction-delivery/0.1.0> ;
+    dcterms:title "Construct-X Construction Delivery Core SHACL Profile"@en .
+
+conx-del-sh:LogisticsRequirementShape
+    a sh:NodeShape ;
+    sh:targetClass conx-del:LogisticsRequirement ;
+    sh:property [ sh:path conx-del:identifier ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-del:name ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-del:description ; sh:datatype xsd:string ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-del:requestedStart ; sh:datatype xsd:dateTime ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-del:requestedFinish ; sh:datatype xsd:dateTime ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-del:hasStatus ; sh:nodeKind sh:IRI ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-del:hasLogisticsOperation ; sh:class conx-del:LogisticsOperation ; sh:minCount 1 ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "requestedStart must not be later than requestedFinish."@en ;
+        sh:select """
+          PREFIX conx-del: <https://www.construct-x.org/ontology/construction-delivery#>
+          SELECT $this WHERE {
+            $this conx-del:requestedStart ?s ; conx-del:requestedFinish ?f .
+            FILTER (?s > ?f)
+          }
+        """
+    ] .
+
+conx-del-sh:LogisticsOperationShape
+    a sh:NodeShape ;
+    sh:targetClass conx-del:LogisticsOperation ;
+    sh:property [ sh:path conx-del:identifier ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-del:name ; sh:datatype xsd:string ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-del:isOperationOf ; sh:class conx-del:LogisticsRequirement ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-del:operationType ; sh:nodeKind sh:IRI ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-del:plannedStart ; sh:datatype xsd:dateTime ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-del:plannedFinish ; sh:datatype xsd:dateTime ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-del:actualStart ; sh:datatype xsd:dateTime ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-del:actualFinish ; sh:datatype xsd:dateTime ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-del:handlesLoad ; sh:class conx-del:LogisticsLoad ] ;
+    sh:property [ sh:path conx-del:hasDeliveryNote ; sh:class conx-del:DeliveryNote ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "plannedStart must not be later than plannedFinish."@en ;
+        sh:select """
+          PREFIX conx-del: <https://www.construct-x.org/ontology/construction-delivery#>
+          SELECT $this WHERE {
+            $this conx-del:plannedStart ?s ; conx-del:plannedFinish ?f .
+            FILTER (?s > ?f)
+          }
+        """
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "actualStart must not be later than actualFinish."@en ;
+        sh:select """
+          PREFIX conx-del: <https://www.construct-x.org/ontology/construction-delivery#>
+          SELECT $this WHERE {
+            $this conx-del:actualStart ?s ; conx-del:actualFinish ?f .
+            FILTER (?s > ?f)
+          }
+        """
+    ] .
+
+conx-del-sh:LogisticsLoadShape
+    a sh:NodeShape ;
+    sh:targetClass conx-del:LogisticsLoad ;
+    sh:property [ sh:path conx-del:identifier ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-del:name ; sh:datatype xsd:string ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-del:hasLoadItem ; sh:class conx-del:LogisticsLoadItem ; sh:minCount 1 ] .
+
+conx-del-sh:LogisticsLoadItemShape
+    a sh:NodeShape ;
+    sh:targetClass conx-del:LogisticsLoadItem ;
+    sh:property [ sh:path conx-del:identifier ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-del:name ; sh:datatype xsd:string ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-del:isLoadItemOf ; sh:class conx-del:LogisticsLoad ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-del:quantity ; sh:datatype xsd:decimal ; sh:minInclusive 0 ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-del:unitCode ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ] .
+
+conx-del-sh:DeliveryNoteShape
+    a sh:NodeShape ;
+    sh:targetClass conx-del:DeliveryNote ;
+    sh:property [ sh:path conx-del:identifier ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-del:name ; sh:datatype xsd:string ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-del:issuedAt ; sh:datatype xsd:dateTime ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-del:documentsLoad ; sh:class conx-del:LogisticsLoad ; sh:minCount 1 ] .

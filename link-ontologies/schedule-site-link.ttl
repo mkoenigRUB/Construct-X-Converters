@@ -1,0 +1,43 @@
+@prefix conx-cs: <https://www.construct-x.org/ontology/construction-schedule#> .
+@prefix conx-site: <https://www.construct-x.org/ontology/construction-site#> .
+@prefix conx-ssl: <https://www.construct-x.org/ontology/schedule-site-link#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/ontology/schedule-site-link>
+    a owl:Ontology ;
+    owl:versionIRI <https://www.construct-x.org/ontology/schedule-site-link/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports
+        <https://www.construct-x.org/ontology/construction-schedule/0.5.0> ,
+        <https://www.construct-x.org/ontology/construction-site/0.2.0> ;
+    dcterms:title "Construct-X Schedule–Site Link Ontology"@en ;
+    dcterms:title "Construct-X-Verknüpfungsontologie für Terminplan und Baustelle"@de ;
+    dcterms:description "Links time-bounded site area allocations to the schedule activities that drive them, keeping the source ontologies independent."@en ;
+    dcterms:description "Verknüpft zeitlich begrenzte Flächenbelegungen der Baustelle mit den Terminplanvorgängen, die sie auslösen, während die Fachontologien unabhängig bleiben."@de ;
+    dcterms:created "2026-10-22"^^xsd:date ;
+    vann:preferredNamespacePrefix "conx-ssl" ;
+    vann:preferredNamespaceUri "https://www.construct-x.org/ontology/schedule-site-link#" .
+
+conx-ssl:allocatedForActivity
+    a owl:ObjectProperty ;
+    owl:inverseOf conx-ssl:requiresAreaAllocation ;
+    rdfs:domain conx-site:AreaAllocation ;
+    rdfs:range conx-cs:Activity ;
+    rdfs:label "allocated for activity"@en ;
+    skos:altLabel "belegt für Vorgang"@de ;
+    rdfs:comment "Associates a time-bounded area allocation with the schedule activity whose execution requires that area to be used in the given functional type."@en ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/schedule-site-link> .
+
+conx-ssl:requiresAreaAllocation
+    a owl:ObjectProperty ;
+    rdfs:domain conx-cs:Activity ;
+    rdfs:range conx-site:AreaAllocation ;
+    rdfs:label "requires area allocation"@en ;
+    skos:altLabel "benötigt Flächenbelegung"@de ;
+    rdfs:comment "Associates a schedule activity with the time-bounded area allocations it requires."@en ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/schedule-site-link> .

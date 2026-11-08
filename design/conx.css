@@ -1,0 +1,615 @@
+/* ============================================================================
+   Construct-X Shared UI — conx.css
+   Stand: 2026-11-06
+   ----------------------------------------------------------------------------
+   DIE übertragbare Design-Schicht für alle Construct-X-Frontends.
+   Jedes Frontend bindet genau eine Datei ein (vor seiner lokalen layout.css):
+
+       <link rel="stylesheet" href="/design/conx.css?v=N">
+
+   conx.css importiert die Tokens und definiert die gemeinsamen Komponenten.
+   Lokale Stylesheets der Frontends tragen NUR noch das Frontend-spezifische
+   Layout (Spalten, Abstände, Seitentitel) — keine neuen Farben/Fonts/Radien.
+
+   Regeln:
+   - Einheitliches Erscheinungsbild: alle Werte aus tokens.css (Single Source).
+   - Einheitliche Klassennamen: siehe GUIDELINE.md §6 (Kopieren für neue Apps).
+   - JS-States bleiben stabil: .active .hidden .dragover .up .down
+     .online .offline .info .success .error .warning
+   ============================================================================ */
+@import url("tokens.css?v=4");
+
+/* ==== Basis ================================================================= */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: var(--text-md);
+    line-height: var(--leading);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: var(--leading-tight);
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+
+p { margin: 0; }
+
+a { color: var(--primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+code, pre, kbd { font-family: var(--font-mono); }
+
+/* Zahlen/IDs tabellarisch, wenn verglichen (guidelines §4) */
+.tnum, .mono, .file-meta, .preview-meta, .result-summary, .tab-status-count {
+    font-variant-numeric: tabular-nums;
+}
+
+/* Fokus — sichtbar, überall (guidelines §8) */
+:focus-visible {
+    outline: var(--focus-ring);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+/* ==== Utilities ============================================================== */
+.muted    { color: var(--muted); }
+.hidden   { display: none !important; }
+.eyebrow  {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 var(--space-2);
+}
+.container { max-width: 1080px; margin: 0 auto; padding: 0 var(--space-6); }
+.text-right { text-align: right; }
+
+/* ==== Topbar / Brand ======================================================== */
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+}
+.topbar .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    height: 72px;
+    padding: 0 var(--space-6);
+}
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    color: var(--text);
+    min-width: 0;
+}
+.brand:hover { text-decoration: none; }
+/* Logo: Lehrstuhl-Lockup (Würfel ≥ 36 px → Datei 60 px hoch, GUIDELINE.md §7) */
+.brand-logo {
+    height: var(--logo-lockup-h);
+    width: auto;
+    flex: 0 0 auto;
+    display: block;
+}
+.brand-name {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: var(--text-md);
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+}
+.brand-name span { font-weight: 400; color: var(--muted); }
+
+/* Status-Dot (Service-State) — Farbe + Text, nie Farbe allein (§8) */
+.topbar-status {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--muted);
+    font-size: var(--text-sm);
+    white-space: nowrap;
+}
+.state-dot {
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: var(--pending);
+    box-shadow: 0 0 0 3px var(--pending-soft);
+    flex: 0 0 auto;
+}
+.state-dot.online  { background: var(--success); box-shadow: 0 0 0 3px var(--success-soft); }
+.state-dot.offline { background: var(--error);   box-shadow: 0 0 0 3px var(--error-soft); }
+
+/* ==== Tabs ================================================================== */
+.tabs {
+    display: flex;
+    gap: var(--space-1);
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+}
+.tab {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-4);
+    font-family: var(--font-body);
+    font-size: var(--text-md);
+    font-weight: 500;
+    color: var(--muted);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: color .15s, border-color .15s;
+    white-space: nowrap;
+}
+.tab:hover { color: var(--text); }
+.tab.active {
+    color: var(--primary);
+    border-bottom-color: var(--primary);
+    font-weight: 700;
+}
+/* kleiner Status-Punkt in Tabs */
+.tab-status {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--border);
+    display: inline-block;
+    flex: 0 0 auto;
+}
+.tab-status.up   { background: var(--success); }
+.tab-status.down { background: var(--error); }
+
+/* ==== Card ================================================================== */
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: var(--space-6);
+    margin-bottom: var(--space-6);
+    box-shadow: var(--shadow-sm);
+}
+.card > h2 {
+    font-size: var(--text-lg);
+    color: var(--text);
+    margin-bottom: var(--space-4);
+}
+.card-title {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    margin-bottom: var(--space-4);
+}
+
+/* Schritt-Kopf mit Nummernkreis (RDF-Studio) */
+.step { display: flex; align-items: flex-start; gap: var(--space-3); }
+.step-num {
+    width: 24px; height: 24px; flex: 0 0 24px;
+    display: grid; place-items: center;
+    border-radius: 50%;
+    background: var(--selection);
+    color: var(--primary);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    font-weight: 500;
+    margin-top: 2px;
+}
+.step h2 { font-size: var(--text-md); font-weight: 700; margin-bottom: 2px; }
+.step p  { color: var(--muted); font-size: var(--text-sm); }
+
+/* ==== Dropzone ============================================================== */
+.dropzone {
+    border: 2px dashed var(--border);
+    border-radius: var(--radius);
+    background: var(--surface-muted);
+    padding: var(--space-8) var(--space-6);
+    text-align: center;
+    cursor: pointer;
+    transition: border-color .15s, background .15s;
+    display: block;
+}
+.dropzone:hover,
+.dropzone.dragover {
+    border-color: var(--primary);
+    background: var(--primary-tint);
+}
+.dz-icon {
+    width: 40px; height: 40px;
+    margin: 0 auto var(--space-3);
+    display: grid; place-items: center;
+    border-radius: var(--radius);
+    background: var(--selection);
+    color: var(--primary);
+}
+.dz-icon svg { width: 22px; height: 22px; }
+.dz-title { font-weight: 700; font-size: var(--text-md); }
+.dz-title u { color: var(--primary); text-underline-offset: 3px; }
+.dz-hint  { color: var(--muted); font-size: var(--text-xs); margin-top: var(--space-2); }
+
+/* ==== File-Pill (ausgewählte Datei) ======================================== */
+.file-pill {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-2) var(--space-3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+    margin-top: var(--space-3);
+}
+.file-icon {
+    width: 34px; height: 34px; flex: 0 0 34px;
+    display: grid; place-items: center;
+    border-radius: var(--radius-xs);
+    background: var(--selection);
+    color: var(--primary);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 500;
+}
+.file-icon svg { width: 18px; height: 18px; }
+.file-details { min-width: 0; flex: 1; display: grid; gap: 2px; }
+.file-name {
+    font-weight: 700; font-size: var(--text-sm);
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.file-meta { color: var(--muted); font-size: var(--text-xs); }
+.file-remove {
+    border: 0; background: none; cursor: pointer;
+    color: var(--muted);
+    width: 28px; height: 28px;
+    display: grid; place-items: center;
+    border-radius: var(--radius-xs);
+    font-size: 18px; line-height: 1;
+}
+.file-remove:hover { background: var(--surface-muted); color: var(--error); }
+
+/* ==== Formulare ============================================================== */
+.field { display: grid; gap: var(--space-1); min-width: 0; }
+.field-label {
+    font-size: var(--text-xs);
+    font-weight: 700;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+.select,
+input[type="text"],
+input[type="search"] {
+    width: 100%;
+    height: 38px;
+    padding: 0 var(--space-3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: var(--text-md);
+}
+.select:focus, input:focus { border-color: var(--primary); }
+/* einfarbige Radio/Checkbox in Primärfarbe */
+input[type="radio"], input[type="checkbox"] { accent-color: var(--primary); width: 15px; height: 15px; }
+.radio {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    cursor: pointer;
+    font-size: var(--text-md);
+}
+.format-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-4);
+    font-size: var(--text-md);
+}
+
+/* ==== Buttons ================================================================ */
+.btn {
+    appearance: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    padding: 0 var(--space-4);
+    height: 38px;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-body);
+    font-size: var(--text-md);
+    font-weight: 500;
+    cursor: pointer;
+    transition: background .15s, border-color .15s, color .15s;
+    white-space: nowrap;
+}
+.btn:hover:not(:disabled) { background: var(--surface-muted); }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn svg { width: 16px; height: 16px; }
+
+.btn-primary {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: var(--primary-contrast);
+}
+.btn-primary:hover:not(:disabled) { background: var(--primary-hover); border-color: var(--primary-hover); }
+
+.btn-secondary {
+    background: var(--surface);
+    border-color: var(--primary);
+    color: var(--primary);
+}
+.btn-secondary:hover:not(:disabled) { background: var(--selection); }
+
+.btn-small { height: 30px; padding: 0 var(--space-3); font-size: var(--text-sm); }
+.btn-block { width: 100%; }
+.btn .arrow { margin-left: auto; font-size: 18px; line-height: 1; }
+
+.actions { display: flex; gap: var(--space-3); flex-wrap: wrap; align-items: center; }
+
+/* große Lauf-Aktion (RDF-Studio) */
+.run-button {
+    width: 100%;
+    min-height: 46px;
+    display: flex; align-items: center; gap: var(--space-3);
+    border: 0; border-radius: var(--radius-sm);
+    background: var(--primary); color: var(--primary-contrast);
+    font-family: var(--font-display);
+    font-size: var(--text-md); font-weight: 700;
+    cursor: pointer;
+    transition: background .15s;
+}
+.run-button:hover:not(:disabled) { background: var(--primary-hover); }
+.run-button:disabled { opacity: 0.5; cursor: not-allowed; }
+.run-button .run-icon { font-size: 18px; }
+
+/* ==== Status-Meldungen ======================================================= */
+/* Basis = Info (Standardzustand, z. B. "…wird verarbeitet") */
+.status {
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-sm);
+    font-size: var(--text-sm);
+    line-height: 1.5;
+    margin-top: var(--space-4);
+    border: 1px solid #cfe3f2;
+    background: var(--info-soft);
+    color: var(--info);
+    display: flex;
+    gap: var(--space-2);
+    align-items: flex-start;
+}
+/* Symbol zusätzlich zur Farbe — nie nur Farbe (GUIDELINE.md §8) */
+.status::before {
+    content: "i";
+    font-family: var(--font-mono);
+    font-weight: 700;
+    flex: 0 0 auto;
+}
+.status.info { /* explizit, wie die Basis */ }
+.status.success { background: var(--success-soft); color: var(--success); border-color: #bfe3c9; }
+.status.success::before { content: "✓"; }
+.status.error   { background: var(--error-soft);   color: var(--error);   border-color: var(--error-border); }
+.status.error::before   { content: "!"; }
+.status.warning { background: var(--warning-soft); color: var(--warning); border-color: var(--warning-border); }
+.status.warning::before { content: "!"; }
+
+/* Rückwärtskonvertierungs-Warnungen */
+.warnings {
+    padding: var(--space-3) var(--space-4);
+    background: var(--warning-soft);
+    border: 1px solid var(--warning-border);
+    border-radius: var(--radius-sm);
+    font-size: var(--text-sm);
+    color: var(--warning);
+    margin-bottom: var(--space-4);
+}
+.warnings ul { margin: var(--space-2) 0 0; padding-left: 1.2rem; }
+.warnings li { margin-bottom: var(--space-1); }
+
+/* ==== Ergebnis =============================================================== */
+.result-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-3);
+}
+.result-summary { color: var(--muted); font-size: var(--text-sm); line-height: 1.6; margin-top: var(--space-2); }
+
+/* ==== Code-Panel (dunkel, read-only) ======================================= */
+.code, .result-output.code {
+    background: var(--code-bg);
+    color: var(--code-fg);
+    font-family: var(--font-mono);
+    font-size: 13px;
+    line-height: 1.6;
+    padding: var(--space-4);
+    border-radius: var(--radius);
+    max-height: 520px;
+    overflow: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+    tab-size: 2;
+}
+.result-output:not(.code) {
+    background: var(--code-bg);
+    color: var(--code-fg);
+    padding: var(--space-4);
+    border-radius: var(--radius);
+    font-size: 13px;
+    max-height: 480px;
+    overflow: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+.code:focus-visible, .result-output:focus-visible { outline-offset: -2px; }
+
+.code .hl-line { display: block; white-space: pre; word-break: normal; border-left: 2px solid transparent; }
+.hl-ln {
+    display: inline-block;
+    min-width: 2.6em;
+    margin-right: 1em;
+    text-align: right;
+    color: var(--code-gutter);
+    user-select: none;
+    -webkit-user-select: none;
+}
+.hl-code { user-select: text; }
+
+/* Syntax-Palette (Werte aus tokens.css) */
+.hl-keyword, .hl-directive { color: var(--hl-keyword); }
+.hl-directive { font-style: italic; }
+.hl-attr, .hl-name, .hl-key { color: var(--hl-attr); }
+.hl-tag { color: var(--hl-tag); }
+.hl-string { color: var(--hl-string); }
+.hl-uri, .hl-prefix { color: var(--hl-uri); }
+.hl-number { color: var(--hl-number); }
+.hl-comment, .hl-pi { color: var(--hl-comment); }
+.hl-cdata { color: var(--hl-cdata); font-style: italic; }
+.hl-entity, .hl-decl { color: var(--hl-entity); }
+.hl-blank { color: var(--hl-blank); }
+.hl-punct { color: var(--hl-punct); }
+
+/* ==== Fehler-Output ========================================================== */
+.error-output {
+    background: var(--error-soft);
+    color: var(--error);
+    border: 1px solid var(--error-border);
+    padding: var(--space-4);
+    border-radius: var(--radius-sm);
+    font-size: var(--text-sm);
+    max-height: 360px;
+    overflow: auto;
+}
+.error-output li { margin-bottom: var(--space-1); }
+
+/* ==== SHACL-Bericht (RDF-Studio) =========================================== */
+.report-list { display: grid; gap: var(--space-2); margin-top: var(--space-4); }
+.report-item {
+    padding: var(--space-3);
+    border: 1px solid var(--error-border);
+    border-radius: var(--radius-sm);
+    background: var(--error-soft);
+}
+.report-item strong {
+    display: block;
+    margin-bottom: var(--space-1);
+    color: var(--error);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    font-weight: 500;
+}
+.report-item p { color: var(--text); font-size: var(--text-sm); line-height: 1.5; overflow-wrap: anywhere; }
+
+/* expandierbare Vorschau */
+.preview-details { margin-top: var(--space-4); color: var(--primary); font-size: var(--text-sm); cursor: pointer; }
+.preview-details pre {
+    max-height: 360px; overflow: auto;
+    margin: var(--space-3) 0 0;
+    padding: var(--space-4);
+    border-radius: var(--radius-sm);
+    background: var(--surface-muted);
+    color: var(--text);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+/* Datei-Vorschau (Converter) */
+.preview { margin-top: var(--space-4); }
+.preview-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-2);
+}
+.preview-title { font-weight: 700; font-size: var(--text-sm); color: var(--primary); }
+.preview-meta  { color: var(--muted); font-size: var(--text-xs); }
+
+/* ==== Domain-Icons =========================================================== */
+.icon {
+    display: inline-block;
+    width: 18px; height: 18px;
+    background: var(--icon, none) center / contain no-repeat;
+    flex: 0 0 auto;
+    vertical-align: middle;
+}
+.icon-16 { width: 16px; height: 16px; }
+.icon-24 { width: 24px; height: 24px; }
+/* Domain-Icon-Shortcuts (Werte aus tokens.css) */
+.icon-boq      { --icon: var(--icon-dom-boq); }
+.icon-schedule { --icon: var(--icon-dom-schedule); }
+.icon-progress { --icon: var(--icon-dom-progress); }
+.icon-site     { --icon: var(--icon-dom-site); }
+.icon-delivery { --icon: var(--icon-dom-delivery); }
+
+/* Inline-SVG-Icons (Lucide) erben die Textfarbe */
+.ic { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: 0 0 auto; vertical-align: middle; }
+.ic-16 { width: 16px; height: 16px; }
+.ic-24 { width: 24px; height: 24px; }
+
+/* ==== Footer ================================================================= */
+.footer {
+    border-top: 1px solid var(--border);
+    padding: var(--space-4) 0;
+    color: var(--muted);
+    font-size: var(--text-sm);
+    text-align: center;
+    margin-top: var(--space-8);
+}
+.footer a { color: var(--primary); }
+.footer .container { display: flex; justify-content: space-between; gap: var(--space-3); flex-wrap: wrap; text-align: left; }
+
+/* ==== Barrierefreiheit / Motion ============================================ */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ==== Responsive (Basis) ===================================================== */
+@media (max-width: 640px) {
+    .container { padding: 0 var(--space-4); }
+    .topbar .container { height: auto; min-height: 64px; padding: var(--space-2) var(--space-4); flex-wrap: wrap; }
+    /* Mobile-Ausnahme: Lockup 48 px (Würfel 29 px), damit Brand + Name
+       nebeneinander passen (GUIDELINE.md §7). */
+    .brand-logo { height: 48px; }
+    .card { padding: var(--space-4); }
+    .code, .result-output.code { font-size: 12px; max-height: 400px; }
+    .actions { width: 100%; }
+    .btn-block, .run-button { width: 100%; }
+}
+/* ≤ 374 px (kleine Smartphones, z. B. 320/360 px): kurzer Brand-Name —
+   nur „Construct-X", App-Variante weglassen; Logo 44 px. Die volle Topbar
+   braucht ~365 px, daher kompakt nur unterhalb (GUIDELINE.md §7). */
+@media (max-width: 374px) {
+    .brand-logo { height: 44px; }
+    .brand-name span { display: none; }
+}

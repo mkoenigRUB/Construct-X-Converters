@@ -1,0 +1,244 @@
+@prefix conx-ba: <https://www.construct-x.org/ontology/built-asset#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/ontology/built-asset>
+    a owl:Ontology ;
+    owl:versionIRI <https://www.construct-x.org/ontology/built-asset/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+    dcterms:title "Construct-X Built Asset Ontology"@en ;
+    dcterms:title "Construct-X-Ontologie für Bauwerke"@de ;
+    dcterms:description "Describes permanent built assets for buildings and infrastructure through spatial structure elements, technical systems and physical components. Cost, project, construction-site and other cross-domain views are connected through dedicated link ontologies."@en ;
+    dcterms:description "Beschreibt dauerhafte Bauwerke des Hoch- und Infrastrukturbaus über räumliche Strukturelemente, technische Systeme und physische Komponenten. Kosten-, Projekt-, Baustellen- und weitere domänenübergreifende Sichten werden über separate Link-Ontologien angebunden."@de ;
+    dcterms:publisher <https://www.construct-x.org/id/organization/construct-x> ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:created "2026-10-22"^^xsd:date ;
+    dcterms:modified "2026-10-22"^^xsd:date ;
+    vann:preferredNamespacePrefix "conx-ba" ;
+    vann:preferredNamespaceUri "https://www.construct-x.org/ontology/built-asset#" .
+
+#################################################################
+# Classes
+#################################################################
+
+conx-ba:BuiltAsset
+    a owl:Class ;
+    rdfs:label "Built Asset"@en ;
+    skos:altLabel "Bauwerk"@de ;
+    rdfs:comment "A permanent built asset such as a building, bridge, tunnel, road or other infrastructure facility."@en ;
+    rdfs:comment "Dauerhaftes Bauwerk wie Gebäude, Brücke, Tunnel, Straße oder sonstiges Infrastrukturbauwerk."@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/built-asset> .
+
+conx-ba:SpatialStructureElement
+    a owl:Class ;
+    rdfs:label "Spatial Structure Element"@en ;
+    skos:altLabel "Räumliches Strukturelement"@de ;
+    rdfs:comment "A hierarchical spatial element used to structure a Built Asset, independently of whether the asset is a building or infrastructure facility."@en ;
+    rdfs:comment "Hierarchisches räumliches Element zur Gliederung eines Bauwerks, unabhängig davon, ob es sich um Hochbau oder Infrastruktur handelt."@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/built-asset> .
+
+conx-ba:TechnicalSystem
+    a owl:Class ;
+    rdfs:label "Technical System"@en ;
+    skos:altLabel "Anlage"@de ;
+    skos:altLabel "Technisches System"@de ;
+    rdfs:comment "A functionally coherent technical system consisting of subsystems and/or physical components and serving one or more built assets or spatial elements."@en ;
+    rdfs:comment "Funktional zusammengehöriges technisches System aus Subsystemen und/oder physischen Komponenten, das ein oder mehrere Bauwerke oder räumliche Bereiche versorgt."@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/built-asset> .
+
+conx-ba:Component
+    a owl:Class ;
+    rdfs:label "Component"@en ;
+    skos:altLabel "Komponente"@de ;
+    rdfs:comment "A physical component belonging to a Built Asset or Technical System and optionally located within a Spatial Structure Element."@en ;
+    rdfs:comment "Physische Komponente eines Bauwerks oder technischen Systems, die optional in einem räumlichen Strukturelement verortet ist."@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/built-asset> .
+
+#################################################################
+# Object properties
+#################################################################
+
+conx-ba:hasAssetType
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain conx-ba:BuiltAsset ;
+    rdfs:range skos:Concept ;
+    rdfs:label "has asset type"@en ;
+    skos:altLabel "hat Bauwerkstyp"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/built-asset> .
+
+conx-ba:hasSpatialStructureElement
+    a owl:ObjectProperty ;
+    owl:inverseOf conx-ba:isSpatialStructureElementOf ;
+    rdfs:domain conx-ba:BuiltAsset ;
+    rdfs:range conx-ba:SpatialStructureElement ;
+    rdfs:label "has spatial structure element"@en ;
+    skos:altLabel "hat räumliches Strukturelement"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/built-asset> .
+
+conx-ba:isSpatialStructureElementOf
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain conx-ba:SpatialStructureElement ;
+    rdfs:range conx-ba:BuiltAsset ;
+    rdfs:label "is spatial structure element of"@en ;
+    skos:altLabel "ist räumliches Strukturelement von"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/built-asset> .
+
+conx-ba:hasSubSpatialStructureElement
+    a owl:ObjectProperty ;
+    owl:inverseOf conx-ba:isSubSpatialStructureElementOf ;
+    rdfs:domain conx-ba:SpatialStructureElement ;
+    rdfs:range conx-ba:SpatialStructureElement ;
+    rdfs:label "has sub spatial structure element"@en ;
+    skos:altLabel "hat untergeordnetes räumliches Strukturelement"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/built-asset> .
+
+conx-ba:isSubSpatialStructureElementOf
+    a owl:ObjectProperty, owl:FunctionalProperty, owl:IrreflexiveProperty ;
+    rdfs:domain conx-ba:SpatialStructureElement ;
+    rdfs:range conx-ba:SpatialStructureElement ;
+    rdfs:label "is sub spatial structure element of"@en ;
+    skos:altLabel "ist untergeordnetes räumliches Strukturelement von"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/built-asset> .
+
+conx-ba:hasSpatialStructureType
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain conx-ba:SpatialStructureElement ;
+    rdfs:range skos:Concept ;
+    rdfs:label "has spatial structure type"@en ;
+    skos:altLabel "hat räumlichen Strukturtyp"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/built-asset> .
+
+conx-ba:hasPhysicalComponent
+    a owl:ObjectProperty ;
+    owl:inverseOf conx-ba:isPhysicalComponentOf ;
+    rdfs:domain conx-ba:BuiltAsset ;
+    rdfs:range conx-ba:Component ;
+    rdfs:label "has physical component"@en ;
+    skos:altLabel "hat physische Komponente"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/built-asset> .
+
+conx-ba:isPhysicalComponentOf
+    a owl:ObjectProperty ;
+    rdfs:domain conx-ba:Component ;
+    rdfs:range conx-ba:BuiltAsset ;
+    rdfs:label "is physical component of"@en ;
+    skos:altLabel "ist physische Komponente von"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/built-asset> .
+
+conx-ba:hasSubComponent
+    a owl:ObjectProperty ;
+    owl:inverseOf conx-ba:isSubComponentOf ;
+    rdfs:domain conx-ba:Component ;
+    rdfs:range conx-ba:Component ;
+    rdfs:label "has sub component"@en ;
+    skos:altLabel "hat Unterkomponente"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/built-asset> .
+
+conx-ba:isSubComponentOf
+    a owl:ObjectProperty, owl:FunctionalProperty, owl:IrreflexiveProperty ;
+    rdfs:domain conx-ba:Component ;
+    rdfs:range conx-ba:Component ;
+    rdfs:label "is sub component of"@en ;
+    skos:altLabel "ist Unterkomponente von"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/built-asset> .
+
+conx-ba:isLocatedIn
+    a owl:ObjectProperty ;
+    rdfs:domain conx-ba:Component ;
+    rdfs:range conx-ba:SpatialStructureElement ;
+    rdfs:label "is located in"@en ;
+    skos:altLabel "befindet sich in"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/built-asset> .
+
+conx-ba:hasTechnicalSystem
+    a owl:ObjectProperty ;
+    owl:inverseOf conx-ba:servesBuiltAsset ;
+    rdfs:domain conx-ba:BuiltAsset ;
+    rdfs:range conx-ba:TechnicalSystem ;
+    rdfs:label "has technical system"@en ;
+    skos:altLabel "hat technisches System"@de ;
+    rdfs:comment "Associates a Built Asset with a Technical System that serves it. The system is not thereby made part of the spatial hierarchy."@en ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/built-asset> .
+
+conx-ba:servesBuiltAsset
+    a owl:ObjectProperty ;
+    rdfs:domain conx-ba:TechnicalSystem ;
+    rdfs:range conx-ba:BuiltAsset ;
+    rdfs:label "serves built asset"@en ;
+    skos:altLabel "versorgt Bauwerk"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/built-asset> .
+
+conx-ba:servesSpatialStructureElement
+    a owl:ObjectProperty ;
+    rdfs:domain conx-ba:TechnicalSystem ;
+    rdfs:range conx-ba:SpatialStructureElement ;
+    rdfs:label "serves spatial structure element"@en ;
+    skos:altLabel "versorgt räumliches Strukturelement"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/built-asset> .
+
+conx-ba:hasSubSystem
+    a owl:ObjectProperty ;
+    owl:inverseOf conx-ba:isSubSystemOf ;
+    rdfs:domain conx-ba:TechnicalSystem ;
+    rdfs:range conx-ba:TechnicalSystem ;
+    rdfs:label "has sub system"@en ;
+    skos:altLabel "hat Subsystem"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/built-asset> .
+
+conx-ba:isSubSystemOf
+    a owl:ObjectProperty, owl:FunctionalProperty, owl:IrreflexiveProperty ;
+    rdfs:domain conx-ba:TechnicalSystem ;
+    rdfs:range conx-ba:TechnicalSystem ;
+    rdfs:label "is sub system of"@en ;
+    skos:altLabel "ist Subsystem von"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/built-asset> .
+
+conx-ba:hasSystemComponent
+    a owl:ObjectProperty ;
+    rdfs:domain conx-ba:TechnicalSystem ;
+    rdfs:range conx-ba:Component ;
+    rdfs:label "has system component"@en ;
+    skos:altLabel "hat Systemkomponente"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/built-asset> .
+
+#################################################################
+# Datatype properties
+#################################################################
+
+conx-ba:identifier
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:range xsd:string ;
+    rdfs:label "identifier"@en ;
+    skos:altLabel "Kennung"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/built-asset> .
+
+conx-ba:name
+    a owl:DatatypeProperty ;
+    rdfs:range xsd:string ;
+    rdfs:label "name"@en ;
+    skos:altLabel "Bezeichnung"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/built-asset> .
+
+conx-ba:description
+    a owl:DatatypeProperty ;
+    rdfs:range xsd:string ;
+    rdfs:label "description"@en ;
+    skos:altLabel "Beschreibung"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/built-asset> .
+
+conx-ba:hierarchyCode
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain conx-ba:SpatialStructureElement ;
+    rdfs:range xsd:string ;
+    rdfs:label "hierarchy code"@en ;
+    skos:altLabel "Gliederungsnummer"@de ;
+    rdfs:comment "Structured identifier describing the position of a Spatial Structure Element within a spatial hierarchy."@en ;
+    rdfs:comment "Strukturierte Kennung, die die Position eines räumlichen Strukturelements innerhalb einer Hierarchie beschreibt."@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/built-asset> .

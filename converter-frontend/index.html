@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#003560">
+    <title>Construct-X Converter</title>
+    <link rel="stylesheet" href="/design/conx.css?v=5">
+    <link rel="stylesheet" href="css/style.css?v=8">
+</head>
+<body>
+<header class="topbar">
+    <div class="container">
+        <a class="brand" href="/" aria-label="Construct-X Converter Startseite">
+            <img class="brand-logo" src="/design/logo.svg" alt="Lehrstuhl Computing in Engineering, Ruhr-Universität Bochum">
+            <span class="brand-name">Construct-X <span>Converter</span></span>
+        </a>
+    </div>
+</header>
+
+<main class="container main">
+    <h1 class="page-title">GAEB &amp; MS Project Converter</h1>
+    <p class="subtitle muted">Dateien in Construct-X Ontologie-Daten umwandeln – und zurück (TTL / JSON-LD / Plain JSON)</p>
+
+    <nav class="tabs" role="tablist">
+        <button class="tab active" id="tab-gaeb" role="tab" aria-selected="true" data-tab="gaeb">
+            <span class="icon icon-boq" aria-hidden="true"></span>
+            GAEB BoQ
+            <span class="tab-status" id="status-gaeb"></span>
+        </button>
+        <button class="tab" id="tab-msproject" role="tab" aria-selected="false" data-tab="msproject">
+            <span class="icon icon-schedule" aria-hidden="true"></span>
+            MS Project
+            <span class="tab-status" id="status-msproject"></span>
+        </button>
+    </nav>
+
+    <!-- ==================== GAEB TAB ==================== -->
+    <div class="tab-panel" id="panel-gaeb">
+        <section class="card">
+            <h2>1. Datei hochladen</h2>
+            <div id="gaeb-dropzone" class="dropzone" tabindex="0">
+                <span class="dz-icon" aria-hidden="true">
+                    <svg class="ic ic-24" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
+                </span>
+                <p class="dz-title"><strong>Datei hierher ziehen</strong> oder klicken zum Auswählen</p>
+                <p class="dz-hint">GAEB DA XML 3.3 (Datenaustauschphasen X80–X87)</p>
+                <input type="file" id="gaeb-fileInput" accept=".xml,application/xml,text/xml" hidden>
+            </div>
+            <div class="example-row">
+                <span class="muted">Keine Datei zur Hand?</span>
+                <button id="gaeb-exampleBtn" class="btn btn-small">
+                    <svg class="ic ic-16" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+                    Beispieldatei laden (GAEB X80)
+                </button>
+            </div>
+            <div id="gaeb-fileInfo" class="file-pill hidden">
+                <span class="file-icon" aria-hidden="true">XML</span>
+                <span class="file-details">
+                    <span class="file-name" id="gaeb-fileName"></span>
+                    <span class="file-meta" id="gaeb-fileSize"></span>
+                </span>
+                <button id="gaeb-removeFile" class="file-remove" type="button" title="Datei entfernen" aria-label="Datei entfernen">
+                    <svg class="ic ic-16" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                </button>
+            </div>
+            <div id="gaeb-preview" class="preview hidden" role="region" aria-label="Dateivorschau">
+                <div class="preview-head">
+                    <span class="preview-title">
+                        <svg class="ic ic-16" viewBox="0 0 24 24"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>
+                        Vorschau (nur Lesemodus)
+                    </span>
+                    <span id="gaeb-previewMeta" class="preview-meta"></span>
+                </div>
+                <pre id="gaeb-previewOutput" class="code" tabindex="0"></pre>
+            </div>
+            <div id="gaeb-selection" class="selection hidden">
+                <div class="selection-head">
+                    <span class="selection-title">
+                        <svg class="ic ic-16" viewBox="0 0 24 24"><path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></svg>
+                        Bauposten-Auswahl (optional)
+                    </span>
+                    <span class="selection-actions">
+                        <button id="gaeb-selectionAllBtn" class="btn btn-small">Alle</button>
+                        <button id="gaeb-selectionNoneBtn" class="btn btn-small">Alle abwählen (komplette LV)</button>
+                    </span>
+                </div>
+                <div id="gaeb-selectionStatus" class="selection-status hidden"></div>
+                <div id="gaeb-selectionTree" class="selection-tree" role="tree" aria-label="Bauposten-Auswahl"></div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>2. Konvertieren</h2>
+            <div class="format-row">
+                <span class="muted">Ausgabeformat:</span>
+                <label class="radio"><input type="radio" name="gaeb-format" value="ttl" checked> TTL (Turtle)</label>
+                <label class="radio"><input type="radio" name="gaeb-format" value="json"> JSON (JSON-LD)</label>
+                <label class="radio"><input type="radio" name="gaeb-format" value="plainjson"> JSON (plain, ohne Ontologie)</label>
+            </div>
+            <div class="format-row">
+                <label class="radio"><input type="checkbox" id="gaeb-envelope"> Exchange-Paket-Envelope (id, semanticModel, content.entities)</label>
+            </div>
+            <div class="actions">
+                <button id="gaeb-convertBtn" class="btn btn-primary" disabled>
+                    <svg class="ic ic-16" viewBox="0 0 24 24"><path d="M8 3 4 7l4 4"/><path d="M4 7h16"/><path d="m16 21 4-4-4-4"/><path d="M20 17H4"/></svg>
+                    Konvertieren
+                </button>
+                <button id="gaeb-validateBtn" class="btn" disabled>
+                    <svg class="ic ic-16" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+                    Nur XSD-Validierung
+                </button>
+            </div>
+            <div id="gaeb-status" class="status hidden"></div>
+        </section>
+
+        <section class="card hidden" id="gaeb-resultSection">
+            <h2>3. Ergebnis</h2>
+            <div class="result-meta">
+                <span id="gaeb-resultMeta" class="muted"></span>
+                <button id="gaeb-downloadBtn" class="btn btn-secondary btn-small">
+                    <svg class="ic ic-16" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+                    Datei herunterladen
+                </button>
+            </div>
+            <pre id="gaeb-resultOutput" class="code" data-lang="ttl" tabindex="0" aria-label="Konvertiertes Ergebnis"></pre>
+        </section>
+
+        <section class="card hidden" id="gaeb-errorSection">
+            <h2>Fehler</h2>
+            <div id="gaeb-errorOutput" class="error-output"></div>
+        </section>
+
+        <section class="card">
+            <h2>Rückwärtskonvertierung (RDF → GAEB DA XML 3.3)</h2>
+            <div id="gaeb-rev-dropzone" class="dropzone" tabindex="0">
+                <span class="dz-icon" aria-hidden="true">
+                    <svg class="ic ic-24" viewBox="0 0 24 24"><path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5a5.5 5.5 0 0 1-5.5 5.5H11"/></svg>
+                </span>
+                <p class="dz-title"><strong>RDF-Datei hierher ziehen</strong> oder klicken zum Auswählen</p>
+                <p class="dz-hint">Construct-X Daten: TTL, JSON-LD oder plain JSON</p>
+                <input type="file" id="gaeb-rev-fileInput" accept=".ttl,.json,.jsonld,text/turtle,application/ld+json,application/json,text/plain" hidden>
+            </div>
+            <div id="gaeb-rev-fileInfo" class="file-pill hidden">
+                <span class="file-icon" aria-hidden="true">RDF</span>
+                <span class="file-details">
+                    <span class="file-name" id="gaeb-rev-fileName"></span>
+                    <span class="file-meta" id="gaeb-rev-fileSize"></span>
+                </span>
+                <button id="gaeb-rev-removeFile" class="file-remove" type="button" title="Datei entfernen" aria-label="Datei entfernen">
+                    <svg class="ic ic-16" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                </button>
+            </div>
+            <div class="format-row">
+                <span class="muted">Eingabeformat:</span>
+                <label class="radio"><input type="radio" name="gaeb-rev-format" value="ttl" checked> TTL (Turtle)</label>
+                <label class="radio"><input type="radio" name="gaeb-rev-format" value="jsonld"> JSON-LD</label>
+                <label class="radio"><input type="radio" name="gaeb-rev-format" value="plainjson"> JSON (plain)</label>
+            </div>
+            <div class="format-row">
+                <label class="radio"><input type="checkbox" id="gaeb-rev-strict"> Strikt-Modus: Datenverluste (übersprungene/unabbildbare Einträge) brechen die Konvertierung ab</label>
+            </div>
+            <div class="actions">
+                <button id="gaeb-rev-convertBtn" class="btn btn-primary" disabled>
+                    <svg class="ic ic-16" viewBox="0 0 24 24"><path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5a5.5 5.5 0 0 1-5.5 5.5H11"/></svg>
+                    Zu GAEB DA XML konvertieren
+                </button>
+            </div>
+            <div id="gaeb-rev-status" class="status hidden"></div>
+        </section>
+
+        <section class="card hidden" id="gaeb-rev-resultSection">
+            <h2>Ergebnis</h2>
+            <div class="result-meta">
+                <span id="gaeb-rev-resultMeta" class="muted"></span>
+                <button id="gaeb-rev-downloadBtn" class="btn btn-secondary btn-small">
+                    <svg class="ic ic-16" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+                    Datei herunterladen
+                </button>
+            </div>
+            <div id="gaeb-rev-warnings" class="warnings hidden"></div>
+            <pre id="gaeb-rev-resultOutput" class="code" data-lang="xml" tabindex="0" aria-label="Generiertes GAEB XML"></pre>
+        </section>
+
+        <section class="card hidden" id="gaeb-rev-errorSection">
+            <h2>Fehler</h2>
+            <div id="gaeb-rev-errorOutput" class="error-output"></div>
+        </section>
+    </div>
+
+    <!-- ==================== MS PROJECT TAB ==================== -->
+    <div class="tab-panel hidden" id="panel-msproject">
+        <section class="card">
+            <h2>1. Datei hochladen</h2>
+            <div id="ms-dropzone" class="dropzone" tabindex="0">
+                <span class="dz-icon" aria-hidden="true">
+                    <svg class="ic ic-24" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
+                </span>
+                <p class="dz-title"><strong>Datei hierher ziehen</strong> oder klicken zum Auswählen</p>
+                <p class="dz-hint">MS Project XML (2016 / 2019 / 2021 / 2024)</p>
+                <input type="file" id="ms-fileInput" accept=".xml,application/xml,text/xml" hidden>
+            </div>
+            <div class="example-row">
+                <span class="muted">Keine Datei zur Hand?</span>
+                <button id="ms-exampleBtn" class="btn btn-small">
+                    <svg class="ic ic-16" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+                    Beispieldatei laden (MS Project)
+                </button>
+            </div>
+            <div id="ms-fileInfo" class="file-pill hidden">
+                <span class="file-icon" aria-hidden="true">XML</span>
+                <span class="file-details">
+                    <span class="file-name" id="ms-fileName"></span>
+                    <span class="file-meta" id="ms-fileSize"></span>
+                </span>
+                <button id="ms-removeFile" class="file-remove" type="button" title="Datei entfernen" aria-label="Datei entfernen">
+                    <svg class="ic ic-16" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                </button>
+            </div>
+            <div id="ms-preview" class="preview hidden" role="region" aria-label="Dateivorschau">
+                <div class="preview-head">
+                    <span class="preview-title">
+                        <svg class="ic ic-16" viewBox="0 0 24 24"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>
+                        Vorschau (nur Lesemodus)
+                    </span>
+                    <span id="ms-previewMeta" class="preview-meta"></span>
+                </div>
+                <pre id="ms-previewOutput" class="code" tabindex="0"></pre>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>2. Konvertieren</h2>
+            <div class="format-row">
+                <span class="muted">Ausgabeformat:</span>
+                <label class="radio"><input type="radio" name="ms-format" value="ttl" checked> TTL (Turtle)</label>
+                <label class="radio"><input type="radio" name="ms-format" value="json"> JSON (JSON-LD)</label>
+                <label class="radio"><input type="radio" name="ms-format" value="plainjson"> JSON (plain, ohne Ontologie)</label>
+            </div>
+            <div class="format-row">
+                <label class="radio"><input type="checkbox" id="ms-envelope"> Exchange-Paket-Envelope (id, semanticModel, content.entities)</label>
+            </div>
+            <div class="format-row">
+                <span class="muted">Planart (scheduleType):</span>
+                <select id="ms-scheduleType" class="select" style="max-width: 320px">
+                    <option value="RoughNetwork" selected>Grobterminplan (RoughNetwork)</option>
+                    <option value="DetailedNetwork">Feinterminplan (DetailedNetwork)</option>
+                    <option value="TotalNetwork">Gesamtplan (TotalNetwork)</option>
+                    <option value="FrameNetwork">Rahmenplan (FrameNetwork)</option>
+                    <option value="PartialNetwork">Teilplan (PartialNetwork)</option>
+                    <option value="MilestoneNetwork">Meilensteinplan (MilestoneNetwork)</option>
+                    <option value="StandardNetwork">Standardplan (StandardNetwork)</option>
+                </select>
+            </div>
+            <div class="actions">
+                <button id="ms-convertBtn" class="btn btn-primary" disabled>
+                    <svg class="ic ic-16" viewBox="0 0 24 24"><path d="M8 3 4 7l4 4"/><path d="M4 7h16"/><path d="m16 21 4-4-4-4"/><path d="M20 17H4"/></svg>
+                    Konvertieren
+                </button>
+                <button id="ms-validateBtn" class="btn" disabled>
+                    <svg class="ic ic-16" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+                    SHACL-Validierung
+                </button>
+            </div>
+            <div id="ms-status" class="status hidden"></div>
+        </section>
+
+        <section class="card hidden" id="ms-resultSection">
+            <h2>3. Ergebnis</h2>
+            <div class="result-meta">
+                <span id="ms-resultMeta" class="muted"></span>
+                <button id="ms-downloadBtn" class="btn btn-secondary btn-small">
+                    <svg class="ic ic-16" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+                    Datei herunterladen
+                </button>
+            </div>
+            <pre id="ms-resultOutput" class="code" data-lang="ttl" tabindex="0" aria-label="Konvertiertes Ergebnis"></pre>
+        </section>
+
+        <section class="card hidden" id="ms-errorSection">
+            <h2>Fehler</h2>
+            <div id="ms-errorOutput" class="error-output"></div>
+        </section>
+
+        <section class="card">
+            <h2>Rückwärtskonvertierung (RDF → MS Project XML)</h2>
+            <div id="ms-rev-dropzone" class="dropzone" tabindex="0">
+                <span class="dz-icon" aria-hidden="true">
+                    <svg class="ic ic-24" viewBox="0 0 24 24"><path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5a5.5 5.5 0 0 1-5.5 5.5H11"/></svg>
+                </span>
+                <p class="dz-title"><strong>RDF-Datei hierher ziehen</strong> oder klicken zum Auswählen</p>
+                <p class="dz-hint">Construct-X construction-schedule Daten: TTL, JSON-LD oder plain JSON</p>
+                <input type="file" id="ms-rev-fileInput" accept=".ttl,.json,.jsonld,text/turtle,application/ld+json,application/json,text/plain" hidden>
+            </div>
+            <div id="ms-rev-fileInfo" class="file-pill hidden">
+                <span class="file-icon" aria-hidden="true">RDF</span>
+                <span class="file-details">
+                    <span class="file-name" id="ms-rev-fileName"></span>
+                    <span class="file-meta" id="ms-rev-fileSize"></span>
+                </span>
+                <button id="ms-rev-removeFile" class="file-remove" type="button" title="Datei entfernen" aria-label="Datei entfernen">
+                    <svg class="ic ic-16" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                </button>
+            </div>
+            <div class="format-row">
+                <span class="muted">Eingabeformat:</span>
+                <label class="radio"><input type="radio" name="ms-rev-format" value="ttl" checked> TTL (Turtle)</label>
+                <label class="radio"><input type="radio" name="ms-rev-format" value="jsonld"> JSON-LD</label>
+                <label class="radio"><input type="radio" name="ms-rev-format" value="plainjson"> JSON (plain)</label>
+            </div>
+            <div class="format-row">
+                <label class="radio"><input type="checkbox" id="ms-rev-strict"> Strikt-Modus: Datenverluste (übersprungene/unabbildbare Einträge) brechen die Konvertierung ab</label>
+            </div>
+            <div class="actions">
+                <button id="ms-rev-convertBtn" class="btn btn-primary" disabled>
+                    <svg class="ic ic-16" viewBox="0 0 24 24"><path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5a5.5 5.5 0 0 1-5.5 5.5H11"/></svg>
+                    Zu MS Project XML konvertieren
+                </button>
+            </div>
+            <div id="ms-rev-status" class="status hidden"></div>
+        </section>
+
+        <section class="card hidden" id="ms-rev-resultSection">
+            <h2>Ergebnis</h2>
+            <div class="result-meta">
+                <span id="ms-rev-resultMeta" class="muted"></span>
+                <button id="ms-rev-downloadBtn" class="btn btn-secondary btn-small">
+                    <svg class="ic ic-16" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+                    Datei herunterladen
+                </button>
+            </div>
+            <div id="ms-rev-warnings" class="warnings hidden"></div>
+            <pre id="ms-rev-resultOutput" class="code" data-lang="xml" tabindex="0" aria-label="Generiertes MS Project XML"></pre>
+        </section>
+
+        <section class="card hidden" id="ms-rev-errorSection">
+            <h2>Fehler</h2>
+            <div id="ms-rev-errorOutput" class="error-output"></div>
+        </section>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <span>Construct-X · Ontologie-basierte Datenkonvertierung · Ruhr-Universität Bochum</span>
+        <span>
+            GAEB-Dienst: <a href="http://localhost:8081/api/v1/converters" target="_blank" rel="noopener">API</a> ·
+            MS Project-Dienst: <a href="http://localhost:8085/api/v1/converters" target="_blank" rel="noopener">API</a>
+        </span>
+    </div>
+</footer>
+
+<script src="js/highlight.js?v=2"></script>
+<script src="js/app.js?v=8"></script>
+</body>
+</html>

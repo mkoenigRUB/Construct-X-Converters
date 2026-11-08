@@ -1,0 +1,28 @@
+@prefix conx-gaeb: <https://www.construct-x.org/ontology/gaeb-boq#> .
+@prefix conx-gaeb-sh: <https://www.construct-x.org/shapes/gaeb-boq#> .
+@prefix conx-pct: <https://www.construct-x.org/vocab/boq-price-component-type#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<https://www.construct-x.org/shapes/gaeb-boq/price-component-type>
+    a owl:Ontology ;
+    owl:versionIRI <https://www.construct-x.org/shapes/gaeb-boq/price-component-type/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports
+        <https://www.construct-x.org/ontology/gaeb-boq/0.5.0> ,
+        <https://www.construct-x.org/vocab/boq-price-component-type/0.1.0> ;
+    dcterms:title "Construct-X GAEB BoQ Price Component Type SHACL Profile"@en .
+
+conx-gaeb-sh:UnitPriceComponentTypeVocabularyShape
+    a sh:NodeShape ;
+    sh:targetClass conx-gaeb:UnitPriceComponent ;
+    sh:property [
+        sh:path conx-gaeb:hasPriceComponentType ;
+        sh:nodeKind sh:IRI ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:in (
+            conx-pct:Labor conx-pct:Materials conx-pct:Equipment
+            conx-pct:Other conx-pct:Unknown
+        )
+    ] .

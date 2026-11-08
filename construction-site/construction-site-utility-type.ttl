@@ -1,0 +1,20 @@
+@prefix conx-util: <https://www.construct-x.org/vocab/construction-site/utility-type#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/vocab/construction-site/utility-type>
+    a owl:Ontology, skos:ConceptScheme ;
+    owl:versionIRI <https://www.construct-x.org/vocab/construction-site/utility-type/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+    dcterms:title "Construct-X Construction Site Utility Type Vocabulary"@en ;
+    dcterms:created "2026-10-22"^^xsd:date ;
+    vann:preferredNamespacePrefix "conx-util" ;
+    vann:preferredNamespaceUri "https://www.construct-x.org/vocab/construction-site/utility-type#" ;
+    skos:prefLabel "Construction Site Utility Type"@en ;
+    skos:prefLabel "Baustellenmedientyp"@de .
+
+conx-util:SiteElectricity a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/construction-site/utility-type> ; skos:prefLabel "Site Electricity"@en ; skos:prefLabel "Baustrom"@de .
+conx-util:SiteWater a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/construction-site/utility-type> ; skos:prefLabel "Site Water"@en ; skos:prefLabel "Bauwasser"@de .

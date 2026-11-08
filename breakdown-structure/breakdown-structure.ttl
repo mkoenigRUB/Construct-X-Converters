@@ -1,0 +1,241 @@
+@prefix conx-bs: <https://www.construct-x.org/ontology/breakdown-structure#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/ontology/breakdown-structure>
+    a owl:Ontology ;
+    owl:versionIRI <https://www.construct-x.org/ontology/breakdown-structure/0.7.0> ;
+    owl:versionInfo "0.7.0" ;
+    dcterms:title "Construct-X Breakdown Structure Ontology"@en ;
+    dcterms:title "Construct-X-Ontologie für Gliederungsstrukturen"@de ;
+    dcterms:description "Defines reusable Work, Location, System and Cost Breakdown Structures and their hierarchy nodes."@en ;
+    dcterms:description "Definiert wiederverwendbare Arbeits-, Orts-, System- und Kostengliederungsstrukturen sowie deren Hierarchieknoten."@de ;
+    dcterms:publisher <https://www.construct-x.org/id/organization/construct-x> ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:created "2026-10-01"^^xsd:date ;
+    dcterms:modified "2026-10-21"^^xsd:date ;
+    vann:preferredNamespacePrefix "conx-bs" ;
+    vann:preferredNamespaceUri "https://www.construct-x.org/ontology/breakdown-structure#" .
+
+#################################################################
+# Classes
+#################################################################
+
+conx-bs:BreakdownStructure
+    a owl:Class ;
+    rdfs:label "Breakdown Structure"@en ;
+    skos:altLabel "Gliederungsstruktur"@de ;
+    rdfs:comment "A hierarchical structure that decomposes a defined subject into progressively more detailed nodes."@en ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/breakdown-structure> .
+
+conx-bs:BreakdownNode
+    a owl:Class ;
+    rdfs:label "Breakdown Node"@en ;
+    skos:altLabel "Gliederungsknoten"@de ;
+    rdfs:comment "A node within a Breakdown Structure. A node represents one element of the hierarchy and may have at most one direct parent node."@en ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/breakdown-structure> .
+
+conx-bs:WorkBreakdownStructure
+    a owl:Class ;
+    rdfs:subClassOf conx-bs:BreakdownStructure ;
+    rdfs:label "Work Breakdown Structure"@en ;
+    skos:altLabel "Projektstrukturplan (PSP)"@de ;
+    skos:altLabel "Work Breakdown Structure (WBS)"@de ;
+    rdfs:comment "A hierarchical decomposition of the defined project scope into progressively more detailed work-scope elements. It describes what work is structured, not where the work is performed."@en ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/breakdown-structure> .
+
+conx-bs:LocationBreakdownStructure
+    a owl:Class ;
+    rdfs:subClassOf conx-bs:BreakdownStructure ;
+    rdfs:label "Location Breakdown Structure"@en ;
+    skos:altLabel "räumliche Gliederungsstruktur (LBS)"@de ;
+    skos:altLabel "Ortsstruktur (LBS)"@de ;
+    rdfs:comment "A hierarchical decomposition of a project into physical or logical location categories used for planning and execution."@en ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/breakdown-structure> .
+
+conx-bs:SystemBreakdownStructure
+    a owl:Class ;
+    rdfs:subClassOf conx-bs:BreakdownStructure ;
+    rdfs:label "System Breakdown Structure"@en ;
+    skos:altLabel "Systemgliederungsstruktur"@de ;
+    skos:altLabel "System Breakdown (SBS)"@de ;
+    rdfs:comment "A hierarchical decomposition of a project or asset according to systems, system types, assemblies, elements or components."@en ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/breakdown-structure> .
+
+conx-bs:CostBreakdownStructure
+    a owl:Class ;
+    rdfs:subClassOf conx-bs:BreakdownStructure ;
+    rdfs:label "Cost Breakdown Structure"@en ;
+    skos:altLabel "Kostengliederungsstruktur"@de ;
+    skos:altLabel "Cost Breakdown (CBS)"@de ;
+    rdfs:comment "A hierarchical decomposition used to structure project costs according to a selected cost classification or project-specific cost scheme."@en ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/breakdown-structure> .
+
+[] a owl:AllDisjointClasses ;
+   owl:members (
+       conx-bs:WorkBreakdownStructure
+       conx-bs:LocationBreakdownStructure
+       conx-bs:SystemBreakdownStructure
+       conx-bs:CostBreakdownStructure
+   ) .
+
+conx-bs:WBSNode
+    a owl:Class ;
+    rdfs:subClassOf conx-bs:BreakdownNode ;
+    rdfs:label "WBS Node"@en ;
+    skos:altLabel "PSP-Knoten"@de ;
+    skos:altLabel "WBS-Knoten"@de ;
+    rdfs:comment "A Breakdown Node that belongs to a Work Breakdown Structure and represents a work-scope category or hierarchy element."@en ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/breakdown-structure> .
+
+conx-bs:LBSNode
+    a owl:Class ;
+    rdfs:subClassOf conx-bs:BreakdownNode ;
+    rdfs:label "LBS Node"@en ;
+    skos:altLabel "LBS-Knoten"@de ;
+    rdfs:comment "A Breakdown Node that belongs to a Location Breakdown Structure and represents a location category or hierarchy element."@en ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/breakdown-structure> .
+
+conx-bs:SBSNode
+    a owl:Class ;
+    rdfs:subClassOf conx-bs:BreakdownNode ;
+    rdfs:label "SBS Node"@en ;
+    skos:altLabel "Systemgliederungsknoten"@de ;
+    skos:altLabel "System Breakdown Node"@en ;
+    skos:altLabel "System-Breakdown-Knoten"@de ;
+    rdfs:comment "A Breakdown Node that belongs to a System Breakdown Structure and represents a system-related hierarchy element."@en ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/breakdown-structure> .
+
+conx-bs:CBSNode
+    a owl:Class ;
+    rdfs:subClassOf conx-bs:BreakdownNode ;
+    rdfs:label "CBS Node"@en ;
+    skos:altLabel "Kostengliederungsknoten"@de ;
+    skos:altLabel "Cost Breakdown Node"@en ;
+    skos:altLabel "Cost-Breakdown-Knoten"@de ;
+    rdfs:comment "A Breakdown Node that belongs to a Cost Breakdown Structure and represents a cost-related hierarchy element."@en ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/breakdown-structure> .
+
+[] a owl:AllDisjointClasses ;
+   owl:members (
+       conx-bs:WBSNode
+       conx-bs:LBSNode
+       conx-bs:SBSNode
+       conx-bs:CBSNode
+   ) .
+
+
+#################################################################
+# Object properties
+#################################################################
+
+conx-bs:hasNode
+    a owl:ObjectProperty ;
+    rdfs:domain conx-bs:BreakdownStructure ;
+    rdfs:range conx-bs:BreakdownNode ;
+    rdfs:label "has node"@en ;
+    skos:altLabel "enthält Knoten"@de ;
+    rdfs:comment "Associates a Breakdown Structure with one of its nodes."@en ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/breakdown-structure> .
+
+conx-bs:hasRootNode
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf conx-bs:hasNode ;
+    rdfs:domain conx-bs:BreakdownStructure ;
+    rdfs:range conx-bs:BreakdownNode ;
+    rdfs:label "has root node"@en ;
+    skos:altLabel "hat Wurzelknoten"@de ;
+    rdfs:comment "Associates a Breakdown Structure with a node that has no parent node within that structure."@en ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/breakdown-structure> .
+
+conx-bs:isSubNodeOf
+    a owl:ObjectProperty, owl:FunctionalProperty, owl:IrreflexiveProperty ;
+    owl:inverseOf conx-bs:hasSubNode ;
+    rdfs:domain conx-bs:BreakdownNode ;
+    rdfs:range conx-bs:BreakdownNode ;
+    rdfs:label "is sub-node of"@en ;
+    skos:altLabel "ist untergeordneter Knoten von"@de ;
+    rdfs:comment "Relates a Breakdown Node to its direct parent node."@en ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/breakdown-structure> .
+
+conx-bs:hasSubNode
+    a owl:ObjectProperty ;
+    rdfs:domain conx-bs:BreakdownNode ;
+    rdfs:range conx-bs:BreakdownNode ;
+    rdfs:label "has sub-node"@en ;
+    skos:altLabel "hat untergeordneten Knoten"@de ;
+    rdfs:comment "Inverse relation of isSubNodeOf."@en ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/breakdown-structure> .
+
+
+
+
+conx-bs:nodeType
+    a owl:ObjectProperty ;
+    rdfs:domain conx-bs:BreakdownNode ;
+    rdfs:range skos:Concept ;
+    rdfs:label "node type"@en ;
+    skos:altLabel "Knotentyp"@de ;
+    rdfs:comment "Associates a Breakdown Node with a controlled concept that describes the semantic type of the node, for example Storey, Trade, Component Type or Cost Group 300. The concrete allowed vocabulary is selected by optional SHACL profiles."@en ;
+    rdfs:comment "Verknüpft einen Gliederungsknoten mit einem kontrollierten Konzept, das den fachlichen Typ des Knotens beschreibt, zum Beispiel Geschoss, Gewerk, Komponententyp oder Kostengruppe 300. Das konkret zulässige Vokabular wird über optionale SHACL-Profile festgelegt."@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/breakdown-structure> .
+
+#################################################################
+# Datatype properties
+#################################################################
+
+conx-bs:identifier
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain [
+        a owl:Class ;
+        owl:unionOf (
+            conx-bs:BreakdownStructure
+            conx-bs:BreakdownNode
+        )
+    ] ;
+    rdfs:range xsd:string ;
+    rdfs:label "identifier"@en ;
+    skos:altLabel "Kennung"@de ;
+    skos:altLabel "Identifikator"@de ;
+    rdfs:comment "A mandatory domain identifier for a Breakdown Structure or Breakdown Node within its information context. Mandatory cardinality is enforced by the Core SHACL profile."@en ;
+    rdfs:comment "Verpflichtende fachliche Kennung einer Breakdown Structure oder eines Breakdown Node innerhalb seines Informationskontexts. Die verpflichtende Kardinalität wird durch das Core-SHACL-Profil geprüft."@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/breakdown-structure> .
+
+conx-bs:name
+    a owl:DatatypeProperty ;
+    rdfs:domain [
+        a owl:Class ;
+        owl:unionOf (
+            conx-bs:BreakdownStructure
+            conx-bs:BreakdownNode
+        )
+    ] ;
+    rdfs:range xsd:string ;
+    rdfs:label "name"@en ;
+    skos:altLabel "Bezeichnung"@de ;
+    rdfs:comment "Optional human-readable name of a Breakdown Structure or Breakdown Node."@en ;
+    rdfs:comment "Optionale menschenlesbare Bezeichnung einer Breakdown Structure oder eines Breakdown Node."@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/breakdown-structure> .
+
+conx-bs:code
+    a owl:DatatypeProperty ;
+    rdfs:domain conx-bs:BreakdownNode ;
+    rdfs:range xsd:string ;
+    rdfs:label "code"@en ;
+    skos:altLabel "Code"@de ;
+    rdfs:comment "Optional domain or classification code of a Breakdown Node."@en ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/breakdown-structure> .
+
+conx-bs:level
+    a owl:DatatypeProperty ;
+    rdfs:domain conx-bs:BreakdownNode ;
+    rdfs:range xsd:nonNegativeInteger ;
+    rdfs:label "level"@en ;
+    skos:altLabel "Ebene"@de ;
+    rdfs:comment "Optional numeric hierarchy level. Explicit parent-child relations remain authoritative."@en ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/breakdown-structure> .

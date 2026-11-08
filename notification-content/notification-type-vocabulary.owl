@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+   xmlns:vann="http://purl.org/vocab/vann/"
+>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/notification-content/notification-type#DataAvailable">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:altLabel xml:lang="de">Daten verfügbar</skos:altLabel>
+    <skos:definition xml:lang="en">New data or a new data resource is available to the receiver.</skos:definition>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/notification-content/notification-type#NotificationTypeScheme"/>
+    <skos:prefLabel xml:lang="en">Data available</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/notification-content/notification-type">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <dcterms:title xml:lang="de">Construct-X Vokabular für Benachrichtigungstypen</dcterms:title>
+    <dcterms:title xml:lang="en">Construct-X Notification Type Vocabulary</dcterms:title>
+    <owl:versionIRI rdf:resource="https://www.construct-x.org/vocab/notification-content/notification-type/0.1.0"/>
+    <vann:preferredNamespacePrefix>conx-nt</vann:preferredNamespacePrefix>
+    <vann:preferredNamespaceUri>https://www.construct-x.org/vocab/notification-content/notification-type#</vann:preferredNamespaceUri>
+    <owl:versionInfo>0.1.0</owl:versionInfo>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/notification-content/notification-type#ResultAvailable">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:altLabel xml:lang="de">Ergebnis verfügbar</skos:altLabel>
+    <skos:definition xml:lang="en">A result of a previously requested task is available.</skos:definition>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/notification-content/notification-type#NotificationTypeScheme"/>
+    <skos:prefLabel xml:lang="en">Result available</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/notification-content/notification-type#TaskStatusChanged">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:altLabel xml:lang="de">Auftragsstatus geändert</skos:altLabel>
+    <skos:definition xml:lang="en">The processing status of a previously requested task has changed.</skos:definition>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/notification-content/notification-type#NotificationTypeScheme"/>
+    <skos:prefLabel xml:lang="en">Task status changed</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/notification-content/notification-type#DataUpdated">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:altLabel xml:lang="de">Daten aktualisiert</skos:altLabel>
+    <skos:definition xml:lang="en">Existing data relevant to the receiver has been updated.</skos:definition>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/notification-content/notification-type#NotificationTypeScheme"/>
+    <skos:prefLabel xml:lang="en">Data updated</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/notification-content/notification-type#DataDeleted">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:altLabel xml:lang="de">Daten gelöscht</skos:altLabel>
+    <skos:definition xml:lang="en">Previously available data has been deleted or withdrawn.</skos:definition>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/notification-content/notification-type#NotificationTypeScheme"/>
+    <skos:prefLabel xml:lang="en">Data deleted</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/notification-content/notification-type#TaskRequested">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:altLabel xml:lang="de">Aufgabe angefordert</skos:altLabel>
+    <skos:definition xml:lang="en">The receiver is requested to perform a standardized task.</skos:definition>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/notification-content/notification-type#NotificationTypeScheme"/>
+    <skos:prefLabel xml:lang="en">Task requested</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/notification-content/notification-type#NotificationTypeScheme">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <skos:prefLabel xml:lang="de">Construct-X Vokabular für Benachrichtigungstypen</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Construct-X Notification Type Vocabulary</skos:prefLabel>
+  </rdf:Description>
+</rdf:RDF>

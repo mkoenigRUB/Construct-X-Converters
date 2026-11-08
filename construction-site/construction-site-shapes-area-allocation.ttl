@@ -1,0 +1,81 @@
+@prefix conx-site: <https://www.construct-x.org/ontology/construction-site#> .
+@prefix conx-site-sh: <https://www.construct-x.org/shapes/construction-site#> .
+@prefix conx-area: <https://www.construct-x.org/vocab/construction-site/area-type#> .
+@prefix conx-aas: <https://www.construct-x.org/vocab/construction-site/area-allocation-status#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/shapes/construction-site/area-allocation>
+    a owl:Ontology ;
+    owl:versionIRI <https://www.construct-x.org/shapes/construction-site/area-allocation/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports
+        <https://www.construct-x.org/ontology/construction-site/0.2.0> ,
+        <https://www.construct-x.org/vocab/construction-site/area-type/0.1.0> ,
+        <https://www.construct-x.org/vocab/construction-site/area-allocation-status/0.1.0> ;
+    dcterms:title "Construct-X Construction Site Area Allocation SHACL Profile"@en ;
+    dcterms:title "Construct-X SHACL-Profil für Flächenbelegungen"@de .
+
+conx-site-sh:AreaAllocationShape
+    a sh:NodeShape ;
+    sh:targetClass conx-site:AreaAllocation ;
+    sh:property [ sh:path conx-site:identifier ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-site:name ; sh:datatype xsd:string ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-site:allocatedArea ; sh:class conx-site:SiteArea ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-site:allocationType ; sh:nodeKind sh:IRI ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-site:allocationStatus ; sh:nodeKind sh:IRI ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-site:validFrom ; sh:datatype xsd:dateTime ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-site:validTo ; sh:datatype xsd:dateTime ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "validFrom must not be later than validTo."@en ;
+        sh:message "validFrom darf nicht nach validTo liegen."@de ;
+        sh:select """
+          PREFIX conx-site: <https://www.construct-x.org/ontology/construction-site#>
+          SELECT $this WHERE {
+            $this conx-site:validFrom ?s ; conx-site:validTo ?f .
+            FILTER (?s > ?f)
+          }
+        """
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "Two conflicting allocations of the same area must not overlap in time."@en ;
+        sh:message "Zwei konfliktbehaftete Belegungen derselben Fläche dürfen sich zeitlich nicht überschneiden."@de ;
+        sh:select """
+          PREFIX conx-site: <https://www.construct-x.org/ontology/construction-site#>
+          SELECT $this WHERE {
+            $this conx-site:allocatedArea ?area ;
+                  conx-site:validFrom ?s1 ; conx-site:validTo ?f1 .
+            ?other a conx-site:AreaAllocation ;
+                   conx-site:allocatedArea ?area ;
+                   conx-site:validFrom ?s2 ; conx-site:validTo ?f2 .
+            FILTER (?other != $this)
+            FILTER (?s1 < ?f2 && ?s2 < ?f1)
+          }
+        """
+    ] .
+
+conx-site-sh:AreaAllocationTypeVocabularyShape
+    a sh:NodeShape ;
+    sh:targetClass conx-site:AreaAllocation ;
+    sh:property [
+        sh:path conx-site:allocationType ;
+        sh:in (
+          conx-area:WaitingZone conx-area:PreStagingArea conx-area:SiteAccess
+          conx-area:ConstructionRoad conx-area:TrafficRoute conx-area:EscapeRoute
+          conx-area:LoadingZone conx-area:EquipmentSetupArea conx-area:ParkingArea
+          conx-area:ConstructionPath conx-area:StorageArea conx-area:IntermediateStorageArea
+          conx-area:WorkArea conx-area:RestrictedZone conx-area:GreenArea
+        )
+    ] .
+
+conx-site-sh:AreaAllocationStatusVocabularyShape
+    a sh:NodeShape ;
+    sh:targetClass conx-site:AreaAllocation ;
+    sh:property [
+        sh:path conx-site:allocationStatus ;
+        sh:in (conx-aas:Planned conx-aas:Actual conx-aas:Released)
+    ] .

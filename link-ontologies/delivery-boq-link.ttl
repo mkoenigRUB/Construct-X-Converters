@@ -1,0 +1,30 @@
+@prefix conx-del: <https://www.construct-x.org/ontology/construction-delivery#> .
+@prefix conx-gaeb: <https://www.construct-x.org/ontology/gaeb-boq#> .
+@prefix conx-dbl: <https://www.construct-x.org/ontology/delivery-boq-link#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/ontology/delivery-boq-link>
+    a owl:Ontology ;
+    owl:versionIRI <https://www.construct-x.org/ontology/delivery-boq-link/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports
+        <https://www.construct-x.org/ontology/construction-delivery/0.1.0> ,
+        <https://www.construct-x.org/ontology/gaeb-boq/0.5.0> ;
+    dcterms:title "Construct-X Delivery–BoQ Link Ontology"@en ;
+    dcterms:created "2026-10-22"^^xsd:date ;
+    vann:preferredNamespacePrefix "conx-dbl" ;
+    vann:preferredNamespaceUri "https://www.construct-x.org/ontology/delivery-boq-link#" .
+
+conx-dbl:fulfillsQuantitySplit
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain conx-del:LogisticsLoadItem ;
+    rdfs:range conx-gaeb:QuantitySplit ;
+    rdfs:label "fulfills quantity split"@en ;
+    skos:altLabel "erfüllt Mengensplit"@de ;
+    rdfs:comment "Associates a delivered Logistics Load Item with the BoQ Quantity Split whose quantity it fulfils in whole or in part."@en ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/delivery-boq-link> .

@@ -1,0 +1,136 @@
+@prefix conx-cs: <https://www.construct-x.org/ontology/construction-schedule#> .
+@prefix conx-cs-sh: <https://www.construct-x.org/shapes/construction-schedule#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/shapes/construction-schedule/core>
+    a owl:Ontology ;
+    owl:versionIRI <https://www.construct-x.org/shapes/construction-schedule/core/0.5.0> ;
+    owl:versionInfo "0.5.0" ;
+    owl:imports <https://www.construct-x.org/ontology/construction-schedule/0.5.0> ;
+    dcterms:title "Construct-X Construction Schedule Core SHACL Profile"@en ;
+    dcterms:title "Construct-X Core-SHACL-Profil für Bauablaufpläne"@de ;
+    dcterms:publisher <https://www.construct-x.org/id/organization/construct-x> ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> .
+
+conx-cs-sh:ConstructionScheduleShape
+    a sh:NodeShape ;
+    sh:targetClass conx-cs:ConstructionSchedule ;
+    sh:property [
+        sh:path conx-cs:identifier ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ; sh:maxCount 1
+    ] ;
+    sh:property [
+        sh:path conx-cs:name ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ; sh:maxCount 1
+    ] ;
+    sh:property [
+        sh:path conx-cs:scheduleType ;
+        sh:nodeKind sh:IRI
+    ] ;
+    sh:property [
+        sh:path conx-cs:hasActivity ;
+        sh:class conx-cs:Activity ;
+        sh:minCount 1
+    ] ;
+    sh:property [
+        sh:path conx-cs:hasMilestone ;
+        sh:class conx-cs:Milestone
+    ] .
+
+conx-cs-sh:ActivityShape
+    a sh:NodeShape ;
+    sh:targetClass conx-cs:Activity ;
+    sh:property [ sh:path conx-cs:identifier ; sh:datatype xsd:string ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-cs:hierarchyCode ; sh:datatype xsd:string ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-cs:name ; sh:datatype xsd:string ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-cs:description ; sh:datatype xsd:string ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-cs:hasStatus ; sh:nodeKind sh:IRI ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-cs:isSubActivityOf ; sh:class conx-cs:Activity ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-cs:hasSubActivity ; sh:class conx-cs:Activity ] ;
+    sh:property [ sh:path conx-cs:plannedStart ; sh:datatype xsd:dateTime ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-cs:plannedFinish ; sh:datatype xsd:dateTime ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-cs:earliestStart ; sh:datatype xsd:dateTime ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-cs:earliestFinish ; sh:datatype xsd:dateTime ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-cs:latestStart ; sh:datatype xsd:dateTime ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-cs:latestFinish ; sh:datatype xsd:dateTime ; sh:maxCount 1 ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "An Activity hierarchy must not contain a cycle."@en ;
+        sh:message "Eine Vorgangshierarchie darf keinen Zyklus enthalten."@de ;
+        sh:select """
+            PREFIX conx-cs: <https://www.construct-x.org/ontology/construction-schedule#>
+            SELECT $this WHERE { $this conx-cs:isSubActivityOf+ $this . }
+        """
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "plannedStart must not be later than plannedFinish."@en ;
+        sh:message "plannedStart darf nicht nach plannedFinish liegen."@de ;
+        sh:select """
+            PREFIX conx-cs: <https://www.construct-x.org/ontology/construction-schedule#>
+            SELECT $this WHERE {
+                $this conx-cs:plannedStart ?s ; conx-cs:plannedFinish ?f .
+                FILTER (?s > ?f)
+            }
+        """
+    ] .
+
+conx-cs-sh:MilestoneShape
+    a sh:NodeShape ;
+    sh:targetClass conx-cs:Milestone ;
+    sh:property [
+        sh:path conx-cs:plannedStart ;
+        sh:datatype xsd:dateTime ;
+        sh:minCount 1 ; sh:maxCount 1
+    ] ;
+    sh:property [
+        sh:path conx-cs:plannedFinish ;
+        sh:datatype xsd:dateTime ;
+        sh:minCount 1 ; sh:maxCount 1
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "plannedStart and plannedFinish of a Milestone must be identical."@en ;
+        sh:message "plannedStart und plannedFinish eines Meilensteins müssen identisch sein."@de ;
+        sh:select """
+            PREFIX conx-cs: <https://www.construct-x.org/ontology/construction-schedule#>
+            SELECT $this WHERE {
+                $this conx-cs:plannedStart ?s ; conx-cs:plannedFinish ?f .
+                FILTER (?s != ?f)
+            }
+        """
+    ] .
+
+conx-cs-sh:PrecedenceRelationshipShape
+    a sh:NodeShape ;
+    sh:targetClass conx-cs:PrecedenceRelationship ;
+    sh:property [ sh:path conx-cs:identifier ; sh:datatype xsd:string ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-cs:name ; sh:datatype xsd:string ; sh:maxCount 1 ] ;
+    sh:property [
+        sh:path conx-cs:hasPredecessor ;
+        sh:class conx-cs:Activity ;
+        sh:minCount 1 ; sh:maxCount 1
+    ] ;
+    sh:property [
+        sh:path conx-cs:hasSuccessor ;
+        sh:class conx-cs:Activity ;
+        sh:minCount 1 ; sh:maxCount 1
+    ] ;
+    sh:property [ sh:path conx-cs:relationshipType ; sh:nodeKind sh:IRI ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-cs:lag ; sh:datatype xsd:duration ; sh:maxCount 1 ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "Predecessor and successor must be different Activities."@en ;
+        sh:message "Vorgänger und Nachfolger müssen unterschiedliche Vorgänge sein."@de ;
+        sh:select """
+            PREFIX conx-cs: <https://www.construct-x.org/ontology/construction-schedule#>
+            SELECT $this WHERE {
+                $this conx-cs:hasPredecessor ?a ; conx-cs:hasSuccessor ?a .
+            }
+        """
+    ] .

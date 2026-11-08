@@ -1,0 +1,26 @@
+@prefix conx-bs: <https://www.construct-x.org/ontology/breakdown-structure#> .
+@prefix conx-de-wbs: <https://www.construct-x.org/vocab/breakdown-structure/de-wbs-node-type#> .
+@prefix ex: <https://data.example.com/project/alpha/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:wbs-01 a conx-bs:WorkBreakdownStructure ;
+    conx-bs:identifier "WBS-01" ;
+    conx-bs:name "Projektstruktur" ;
+    conx-bs:hasNode ex:wbs-1, ex:wbs-1-1 ;
+    conx-bs:hasRootNode ex:wbs-1 .
+
+ex:wbs-1 a conx-bs:WBSNode ;
+    conx-bs:identifier "WBS-1" ;
+    conx-bs:name "Rohbau" ;
+    conx-bs:code "01" ;
+    conx-bs:level "0"^^xsd:nonNegativeInteger ;
+    conx-bs:nodeType conx-de-wbs:Phase ;
+    conx-bs:hasSubNode ex:wbs-1-1 .
+
+ex:wbs-1-1 a conx-bs:WBSNode ;
+    conx-bs:identifier "WBS-1.1" ;
+    conx-bs:name "Decken" ;
+    conx-bs:code "01.01" ;
+    conx-bs:level "1"^^xsd:nonNegativeInteger ;
+    conx-bs:nodeType conx-de-wbs:Subphase ;
+    conx-bs:isSubNodeOf ex:wbs-1 .

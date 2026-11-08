@@ -1,0 +1,83 @@
+@prefix conx-site: <https://www.construct-x.org/ontology/construction-site#> .
+@prefix conx-site-sh: <https://www.construct-x.org/shapes/construction-site#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/shapes/construction-site/core>
+    a owl:Ontology ;
+    owl:versionIRI <https://www.construct-x.org/shapes/construction-site/core/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://www.construct-x.org/ontology/construction-site/0.2.0> ;
+    dcterms:title "Construct-X Construction Site Core SHACL Profile"@en ;
+    dcterms:title "Construct-X Core-SHACL-Profil für Baustellen"@de .
+
+conx-site-sh:ConstructionLogisticsAreaShape
+    a sh:NodeShape ;
+    sh:targetClass conx-site:ConstructionLogisticsArea ;
+    sh:property [ sh:path conx-site:identifier ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-site:name ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-site:hasConstructionSite ; sh:class conx-site:ConstructionSite ; sh:minCount 1 ] ;
+    sh:property [ sh:path conx-site:hasExternalSiteArea ; sh:class conx-site:SiteArea ] .
+
+conx-site-sh:ConstructionSiteShape
+    a sh:NodeShape ;
+    sh:targetClass conx-site:ConstructionSite ;
+    sh:property [ sh:path conx-site:identifier ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-site:name ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-site:hasConstructionField ; sh:class conx-site:ConstructionField ; sh:minCount 1 ] ;
+    sh:property [ sh:path conx-site:hasLocalCoordinateSystem ; sh:class conx-site:LocalCoordinateSystem ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-site:hasSiteInstallation ; sh:class conx-site:SiteInstallation ] .
+
+conx-site-sh:ConstructionFieldShape
+    a sh:NodeShape ;
+    sh:targetClass conx-site:ConstructionField ;
+    sh:property [ sh:path conx-site:identifier ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-site:name ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-site:isConstructionFieldOf ; sh:class conx-site:ConstructionSite ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-site:hasSiteArea ; sh:class conx-site:SiteArea ; sh:minCount 1 ] .
+
+conx-site-sh:SiteAreaShape
+    a sh:NodeShape ;
+    sh:targetClass conx-site:SiteArea ;
+    sh:property [ sh:path conx-site:identifier ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-site:name ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-site:hasAreaType ; sh:nodeKind sh:IRI ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path geo:hasGeometry ; sh:class geo:Geometry ; sh:minCount 1 ; sh:maxCount 1 ] .
+
+conx-site-sh:TransferPointShape
+    a sh:NodeShape ;
+    sh:targetClass conx-site:TransferPoint ;
+    sh:property [ sh:path conx-site:identifier ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-site:name ; sh:datatype xsd:string ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-site:isLocatedInArea ; sh:class conx-site:SiteArea ; sh:minCount 1 ; sh:maxCount 1 ] .
+
+conx-site-sh:LocalCoordinateSystemShape
+    a sh:NodeShape ;
+    sh:targetClass conx-site:LocalCoordinateSystem ;
+    sh:property [ sh:path conx-site:identifier ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-site:referencePoint ; sh:class geo:Geometry ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-site:crsIdentifier ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-site:rotationToGridNorth ; sh:datatype xsd:decimal ; sh:minCount 1 ; sh:maxCount 1 ] .
+
+conx-site-sh:SiteEquipmentShape
+    a sh:NodeShape ;
+    sh:targetClass conx-site:SiteEquipment ;
+    sh:property [ sh:path conx-site:hasEquipmentType ; sh:nodeKind sh:IRI ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-site:usesSiteArea ; sh:class conx-site:SiteArea ] ;
+    sh:property [ sh:path conx-site:requiresUtility ; sh:class conx-site:UtilitySupply ] ;
+    sh:property [ sh:path conx-site:hasRestrictedZone ; sh:class conx-site:SiteArea ] .
+
+conx-site-sh:TemporarySiteFacilityShape
+    a sh:NodeShape ;
+    sh:targetClass conx-site:TemporarySiteFacility ;
+    sh:property [ sh:path conx-site:hasFacilityType ; sh:nodeKind sh:IRI ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path conx-site:usesSiteArea ; sh:class conx-site:SiteArea ] ;
+    sh:property [ sh:path conx-site:requiresUtility ; sh:class conx-site:UtilitySupply ] .
+
+conx-site-sh:UtilitySupplyShape
+    a sh:NodeShape ;
+    sh:targetClass conx-site:UtilitySupply ;
+    sh:property [ sh:path conx-site:hasUtilityType ; sh:nodeKind sh:IRI ; sh:minCount 1 ; sh:maxCount 1 ] .

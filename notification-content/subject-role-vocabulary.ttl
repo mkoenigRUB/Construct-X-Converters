@@ -1,0 +1,30 @@
+@prefix conx-sr: <https://www.construct-x.org/vocab/notification-content/subject-role#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+
+<https://www.construct-x.org/vocab/notification-content/subject-role> a owl:Ontology ;
+    dcterms:title "Construct-X Vokabular für Objektrollen"@de,
+        "Construct-X Subject Role Vocabulary"@en ;
+    owl:versionIRI <https://www.construct-x.org/vocab/notification-content/subject-role/0.1.0> ;
+    vann:preferredNamespacePrefix "conx-sr" ;
+    vann:preferredNamespaceUri "https://www.construct-x.org/vocab/notification-content/subject-role#" ;
+    owl:versionInfo "0.1.0" .
+
+conx-sr:ContextOnly a skos:Concept ;
+    skos:altLabel "nur Kontextinformation"@de ;
+    skos:definition "Resource supplied only to understand dependencies or constraints; no action is requested on it."@en ;
+    skos:inScheme conx-sr:SubjectRoleScheme ;
+    skos:prefLabel "Context only"@en .
+
+conx-sr:Target a skos:Concept ;
+    skos:altLabel "Zielobjekt"@de ;
+    skos:definition "Resource to which the notification action directly applies."@en ;
+    skos:inScheme conx-sr:SubjectRoleScheme ;
+    skos:prefLabel "Target"@en .
+
+conx-sr:SubjectRoleScheme a skos:ConceptScheme ;
+    skos:prefLabel "Construct-X Vokabular für Objektrollen"@de,
+        "Construct-X Subject Role Vocabulary"@en .
+

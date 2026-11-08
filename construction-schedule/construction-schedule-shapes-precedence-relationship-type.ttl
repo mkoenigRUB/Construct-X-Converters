@@ -1,0 +1,27 @@
+@prefix conx-cs: <https://www.construct-x.org/ontology/construction-schedule#> .
+@prefix conx-cs-sh: <https://www.construct-x.org/shapes/construction-schedule#> .
+@prefix conx-prt: <https://www.construct-x.org/vocab/construction-schedule/precedence-relationship-type#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<https://www.construct-x.org/shapes/construction-schedule/precedence-relationship-type>
+    a owl:Ontology ;
+    owl:versionIRI <https://www.construct-x.org/shapes/construction-schedule/precedence-relationship-type/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports
+        <https://www.construct-x.org/ontology/construction-schedule/0.5.0> ,
+        <https://www.construct-x.org/vocab/construction-schedule/precedence-relationship-type/0.1.0> ;
+    dcterms:title "Construct-X Precedence Relationship Type SHACL Profile"@en .
+
+conx-cs-sh:PrecedenceRelationshipTypeVocabularyShape
+    a sh:NodeShape ;
+    sh:targetClass conx-cs:PrecedenceRelationship ;
+    sh:property [
+        sh:path conx-cs:relationshipType ;
+        sh:nodeKind sh:IRI ;
+        sh:in (
+            conx-prt:FinishToStart conx-prt:StartToStart
+            conx-prt:FinishToFinish conx-prt:StartToFinish
+        )
+    ] .

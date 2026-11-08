@@ -1,0 +1,30 @@
+@prefix conx-del: <https://www.construct-x.org/ontology/construction-delivery#> .
+@prefix conx-site: <https://www.construct-x.org/ontology/construction-site#> .
+@prefix conx-dsl: <https://www.construct-x.org/ontology/delivery-site-link#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/ontology/delivery-site-link>
+    a owl:Ontology ;
+    owl:versionIRI <https://www.construct-x.org/ontology/delivery-site-link/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports
+        <https://www.construct-x.org/ontology/construction-delivery/0.1.0> ,
+        <https://www.construct-x.org/ontology/construction-site/0.2.0> ;
+    dcterms:title "Construct-X Delivery–Site Link Ontology"@en ;
+    dcterms:created "2026-10-22"^^xsd:date ;
+    vann:preferredNamespacePrefix "conx-dsl" ;
+    vann:preferredNamespaceUri "https://www.construct-x.org/ontology/delivery-site-link#" .
+
+conx-dsl:usesTransferPoint
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain conx-del:LogisticsOperation ;
+    rdfs:range conx-site:TransferPoint ;
+    rdfs:label "uses transfer point"@en ;
+    skos:altLabel "verwendet Übergabepunkt"@de ;
+    rdfs:comment "Associates a Logistics Operation with the construction-site Transfer Point used by that operation."@en ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/delivery-site-link> .

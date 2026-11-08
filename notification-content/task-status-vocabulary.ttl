@@ -1,0 +1,48 @@
+@prefix conx-ts: <https://www.construct-x.org/vocab/notification-content/task-status#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+
+<https://www.construct-x.org/vocab/notification-content/task-status> a owl:Ontology ;
+    dcterms:title "Construct-X Vokabular für Auftragsstatus"@de,
+        "Construct-X Task Status Vocabulary"@en ;
+    owl:versionIRI <https://www.construct-x.org/vocab/notification-content/task-status/0.1.0> ;
+    vann:preferredNamespacePrefix "conx-ts" ;
+    vann:preferredNamespaceUri "https://www.construct-x.org/vocab/notification-content/task-status#" ;
+    owl:versionInfo "0.1.0" .
+
+conx-ts:Accepted a skos:Concept ;
+    skos:altLabel "angenommen"@de ;
+    skos:definition "The requested task has been accepted."@en ;
+    skos:inScheme conx-ts:TaskStatusScheme ;
+    skos:prefLabel "Accepted"@en .
+
+conx-ts:Cancelled a skos:Concept ;
+    skos:altLabel "abgebrochen"@de ;
+    skos:definition "The requested task has been cancelled."@en ;
+    skos:inScheme conx-ts:TaskStatusScheme ;
+    skos:prefLabel "Cancelled"@en .
+
+conx-ts:Completed a skos:Concept ;
+    skos:altLabel "abgeschlossen"@de ;
+    skos:definition "The requested task has been completed."@en ;
+    skos:inScheme conx-ts:TaskStatusScheme ;
+    skos:prefLabel "Completed"@en .
+
+conx-ts:InProgress a skos:Concept ;
+    skos:altLabel "in Bearbeitung"@de ;
+    skos:definition "The requested task is being processed."@en ;
+    skos:inScheme conx-ts:TaskStatusScheme ;
+    skos:prefLabel "In progress"@en .
+
+conx-ts:Rejected a skos:Concept ;
+    skos:altLabel "abgelehnt"@de ;
+    skos:definition "The requested task has been rejected."@en ;
+    skos:inScheme conx-ts:TaskStatusScheme ;
+    skos:prefLabel "Rejected"@en .
+
+conx-ts:TaskStatusScheme a skos:ConceptScheme ;
+    skos:prefLabel "Construct-X Vokabular für Auftragsstatus"@de,
+        "Construct-X Task Status Vocabulary"@en .
+

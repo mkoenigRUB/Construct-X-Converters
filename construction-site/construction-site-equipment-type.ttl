@@ -1,0 +1,24 @@
+@prefix conx-eq: <https://www.construct-x.org/vocab/construction-site/equipment-type#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/vocab/construction-site/equipment-type>
+    a owl:Ontology, skos:ConceptScheme ;
+    owl:versionIRI <https://www.construct-x.org/vocab/construction-site/equipment-type/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+    dcterms:title "Construct-X Construction Site Equipment Type Vocabulary"@en ;
+    dcterms:created "2026-10-22"^^xsd:date ;
+    vann:preferredNamespacePrefix "conx-eq" ;
+    vann:preferredNamespaceUri "https://www.construct-x.org/vocab/construction-site/equipment-type#" ;
+    skos:prefLabel "Construction Site Equipment Type"@en ;
+    skos:prefLabel "Baustellengerätetyp"@de .
+
+conx-eq:LiftingEquipment a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/construction-site/equipment-type> ; skos:prefLabel "Lifting Equipment"@en ; skos:prefLabel "Hebezeug"@de .
+conx-eq:Crane a skos:Concept ; skos:broader conx-eq:LiftingEquipment ; skos:inScheme <https://www.construct-x.org/vocab/construction-site/equipment-type> ; skos:prefLabel "Crane"@en ; skos:prefLabel "Kran"@de .
+conx-eq:ConstructionLift a skos:Concept ; skos:broader conx-eq:LiftingEquipment ; skos:inScheme <https://www.construct-x.org/vocab/construction-site/equipment-type> ; skos:prefLabel "Construction Lift"@en ; skos:prefLabel "Bauaufzug"@de .
+conx-eq:IndustrialTruck a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/construction-site/equipment-type> ; skos:prefLabel "Industrial Truck"@en ; skos:prefLabel "Flurförderer"@de .
+conx-eq:Forklift a skos:Concept ; skos:broader conx-eq:IndustrialTruck ; skos:inScheme <https://www.construct-x.org/vocab/construction-site/equipment-type> ; skos:prefLabel "Forklift"@en ; skos:prefLabel "Gabelstapler"@de .
+conx-eq:StorageAid a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/construction-site/equipment-type> ; skos:prefLabel "Storage Aid"@en ; skos:prefLabel "Lagerhilfsmittel"@de .

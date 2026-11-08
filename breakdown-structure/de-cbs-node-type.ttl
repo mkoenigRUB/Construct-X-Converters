@@ -1,0 +1,116 @@
+@prefix conx-de-cbs: <https://www.construct-x.org/vocab/breakdown-structure/de-cbs-node-type#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/vocab/breakdown-structure/de-cbs-node-type>
+    a owl:Ontology ;
+    owl:versionIRI <https://www.construct-x.org/vocab/breakdown-structure/de-cbs-node-type/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+    dcterms:title "Construct-X DE CBS Node Type Vocabulary"@en ;
+    dcterms:title "Construct-X-DE-Vokabular für CBS-Knotentypen"@de ;
+    dcterms:description "Germany-specific controlled vocabulary for semantic node types of Cost Breakdown Structures (CBS). The current concepts represent first-level cost groups according to DIN 276:2018-12."@en ;
+    dcterms:description "Deutschland-spezifisches kontrolliertes Vokabular für fachliche Knotentypen von Cost Breakdown Structures (CBS). Die aktuellen Konzepte bilden Kostengruppen der ersten Ebene nach DIN 276:2018-12 ab."@de ;
+    dcterms:publisher <https://www.construct-x.org/id/organization/construct-x> ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:created "2026-10-02"^^xsd:date ;
+    dcterms:modified "2026-10-21"^^xsd:date ;
+    dcterms:source "DIN 276:2018-12, 5.1" ;
+    vann:preferredNamespacePrefix "conx-de-cbs" ;
+    vann:preferredNamespaceUri "https://www.construct-x.org/vocab/breakdown-structure/de-cbs-node-type#" .
+
+conx-de-cbs:CBSNodeTypeScheme
+    a skos:ConceptScheme ;
+    skos:prefLabel "CBS Node Type Vocabulary"@en ;
+    skos:prefLabel "CBS-Knotentyp-Vokabular"@de ;
+    dcterms:source "DIN 276:2018-12, 5.1" .
+
+conx-de-cbs:CostGroup100
+    a skos:Concept ;
+    skos:notation "100" ;
+    skos:prefLabel "Land"@en ;
+    skos:prefLabel "Grundstück"@de ;
+    skos:altLabel "Cost Group 100"@en ;
+    skos:altLabel "Kostengruppe 100"@de ;
+    skos:inScheme conx-de-cbs:CBSNodeTypeScheme ;
+    skos:topConceptOf conx-de-cbs:CBSNodeTypeScheme ;
+    dcterms:source "DIN 276:2018-12, 5.1 — 100 Grundstück" .
+
+conx-de-cbs:CostGroup200
+    a skos:Concept ;
+    skos:notation "200" ;
+    skos:prefLabel "Preparatory Measures"@en ;
+    skos:prefLabel "Vorbereitende Maßnahmen"@de ;
+    skos:altLabel "Cost Group 200"@en ;
+    skos:altLabel "Kostengruppe 200"@de ;
+    skos:inScheme conx-de-cbs:CBSNodeTypeScheme ;
+    skos:topConceptOf conx-de-cbs:CBSNodeTypeScheme ;
+    dcterms:source "DIN 276:2018-12, 5.1 — 200 Vorbereitende Maßnahmen" .
+
+conx-de-cbs:CostGroup300
+    a skos:Concept ;
+    skos:notation "300" ;
+    skos:prefLabel "Structure — Building Construction"@en ;
+    skos:prefLabel "Bauwerk — Baukonstruktionen"@de ;
+    skos:altLabel "Cost Group 300"@en ;
+    skos:altLabel "Kostengruppe 300"@de ;
+    skos:inScheme conx-de-cbs:CBSNodeTypeScheme ;
+    skos:topConceptOf conx-de-cbs:CBSNodeTypeScheme ;
+    dcterms:source "DIN 276:2018-12, 5.1 — 300 Bauwerk — Baukonstruktionen" .
+
+conx-de-cbs:CostGroup400
+    a skos:Concept ;
+    skos:notation "400" ;
+    skos:prefLabel "Structure — Technical Systems"@en ;
+    skos:prefLabel "Bauwerk — Technische Anlagen"@de ;
+    skos:altLabel "Cost Group 400"@en ;
+    skos:altLabel "Kostengruppe 400"@de ;
+    skos:inScheme conx-de-cbs:CBSNodeTypeScheme ;
+    skos:topConceptOf conx-de-cbs:CBSNodeTypeScheme ;
+    dcterms:source "DIN 276:2018-12, 5.1 — 400 Bauwerk — Technische Anlagen" .
+
+conx-de-cbs:CostGroup500
+    a skos:Concept ;
+    skos:notation "500" ;
+    skos:prefLabel "External Works and Open Spaces"@en ;
+    skos:prefLabel "Außenanlagen und Freiflächen"@de ;
+    skos:altLabel "Cost Group 500"@en ;
+    skos:altLabel "Kostengruppe 500"@de ;
+    skos:inScheme conx-de-cbs:CBSNodeTypeScheme ;
+    skos:topConceptOf conx-de-cbs:CBSNodeTypeScheme ;
+    dcterms:source "DIN 276:2018-12, 5.1 — 500 Außenanlagen und Freiflächen" .
+
+conx-de-cbs:CostGroup600
+    a skos:Concept ;
+    skos:notation "600" ;
+    skos:prefLabel "Equipment and Works of Art"@en ;
+    skos:prefLabel "Ausstattung und Kunstwerke"@de ;
+    skos:altLabel "Cost Group 600"@en ;
+    skos:altLabel "Kostengruppe 600"@de ;
+    skos:inScheme conx-de-cbs:CBSNodeTypeScheme ;
+    skos:topConceptOf conx-de-cbs:CBSNodeTypeScheme ;
+    dcterms:source "DIN 276:2018-12, 5.1 — 600 Ausstattung und Kunstwerke" .
+
+conx-de-cbs:CostGroup700
+    a skos:Concept ;
+    skos:notation "700" ;
+    skos:prefLabel "Ancillary Construction Costs"@en ;
+    skos:prefLabel "Baunebenkosten"@de ;
+    skos:altLabel "Cost Group 700"@en ;
+    skos:altLabel "Kostengruppe 700"@de ;
+    skos:inScheme conx-de-cbs:CBSNodeTypeScheme ;
+    skos:topConceptOf conx-de-cbs:CBSNodeTypeScheme ;
+    dcterms:source "DIN 276:2018-12, 5.1 — 700 Baunebenkosten" .
+
+conx-de-cbs:CostGroup800
+    a skos:Concept ;
+    skos:notation "800" ;
+    skos:prefLabel "Financing"@en ;
+    skos:prefLabel "Finanzierung"@de ;
+    skos:altLabel "Cost Group 800"@en ;
+    skos:altLabel "Kostengruppe 800"@de ;
+    skos:inScheme conx-de-cbs:CBSNodeTypeScheme ;
+    skos:topConceptOf conx-de-cbs:CBSNodeTypeScheme ;
+    dcterms:source "DIN 276:2018-12, 5.1 — 800 Finanzierung" .

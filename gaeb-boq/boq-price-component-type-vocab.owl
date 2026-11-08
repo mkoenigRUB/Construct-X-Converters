@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+   xmlns:vann="http://purl.org/vocab/vann/"
+>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/boq-price-component-type#Equipment">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/boq-price-component-type"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/boq-price-component-type"/>
+    <skos:prefLabel xml:lang="en">Equipment</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Geräte</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/boq-price-component-type">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <owl:versionIRI rdf:resource="https://www.construct-x.org/vocab/boq-price-component-type/0.1.0"/>
+    <owl:versionInfo>0.1.0</owl:versionInfo>
+    <dcterms:title xml:lang="en">Construct-X BoQ Price Component Type Vocabulary</dcterms:title>
+    <dcterms:title xml:lang="de">Construct-X-Vokabular für Typen von Einheitspreisanteilen</dcterms:title>
+    <skos:prefLabel xml:lang="en">BoQ Price Component Type</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Typ des Einheitspreisanteils</skos:prefLabel>
+    <skos:definition xml:lang="en">Controlled concept scheme for classifying unit price components of BoQ items.</skos:definition>
+    <skos:definition xml:lang="de">Kontrolliertes Begriffsschema zur Klassifikation von Einheitspreisanteilen von Leistungspositionen.</skos:definition>
+    <dcterms:description xml:lang="en">Controlled vocabulary for classifying unit price components of BoQ items.</dcterms:description>
+    <dcterms:description xml:lang="de">Kontrolliertes Vokabular zur Klassifikation von Einheitspreisanteilen einer Leistungsposition.</dcterms:description>
+    <dcterms:publisher rdf:resource="https://www.construct-x.org/id/organization/construct-x"/>
+    <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-08</dcterms:created>
+    <skos:hasTopConcept rdf:resource="https://www.construct-x.org/vocab/boq-price-component-type#Labor"/>
+    <skos:hasTopConcept rdf:resource="https://www.construct-x.org/vocab/boq-price-component-type#Materials"/>
+    <skos:hasTopConcept rdf:resource="https://www.construct-x.org/vocab/boq-price-component-type#Equipment"/>
+    <skos:hasTopConcept rdf:resource="https://www.construct-x.org/vocab/boq-price-component-type#Other"/>
+    <skos:hasTopConcept rdf:resource="https://www.construct-x.org/vocab/boq-price-component-type#Unknown"/>
+    <vann:preferredNamespacePrefix>conx-pct</vann:preferredNamespacePrefix>
+    <vann:preferredNamespaceUri>https://www.construct-x.org/vocab/boq-price-component-type#</vann:preferredNamespaceUri>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/boq-price-component-type#Other">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/boq-price-component-type"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/boq-price-component-type"/>
+    <skos:prefLabel xml:lang="en">Other</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Sonstiges</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/boq-price-component-type#Unknown">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/boq-price-component-type"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/boq-price-component-type"/>
+    <skos:prefLabel xml:lang="en">Unknown</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Unbekannt</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/boq-price-component-type#Labor">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/boq-price-component-type"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/boq-price-component-type"/>
+    <skos:prefLabel xml:lang="en">Labor</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Löhne</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/boq-price-component-type#Materials">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/boq-price-component-type"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/boq-price-component-type"/>
+    <skos:prefLabel xml:lang="en">Materials</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Stoffe</skos:prefLabel>
+  </rdf:Description>
+</rdf:RDF>

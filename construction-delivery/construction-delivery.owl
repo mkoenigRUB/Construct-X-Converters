@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+   xmlns:vann="http://purl.org/vocab/vann/"
+>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-delivery#hasDeliveryNote">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-delivery#LogisticsOperation"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/construction-delivery#DeliveryNote"/>
+    <rdfs:label xml:lang="en">has delivery note</rdfs:label>
+    <skos:altLabel xml:lang="de">hat Lieferschein</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-delivery"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-delivery#description">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">description</rdfs:label>
+    <skos:altLabel xml:lang="de">Beschreibung</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-delivery"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-delivery">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <owl:versionIRI rdf:resource="https://www.construct-x.org/ontology/construction-delivery/0.1.0"/>
+    <owl:versionInfo>0.1.0</owl:versionInfo>
+    <dcterms:title xml:lang="en">Construct-X Construction Delivery Ontology</dcterms:title>
+    <dcterms:title xml:lang="de">Construct-X-Ontologie für Baustellenanlieferungen</dcterms:title>
+    <dcterms:description xml:lang="en">Describes requirements, operations, loads, load items and delivery notes of a construction-site delivery process. Spatial transfer points, schedule activities and BoQ quantities are linked through dedicated link ontologies.</dcterms:description>
+    <dcterms:description xml:lang="de">Beschreibt Anforderungen, Logistikvorgänge, Ladungen, Ladungspositionen und Lieferscheine eines Baustellenanlieferungsprozesses. Räumliche Übergabepunkte, Terminplanvorgänge und LV-Mengen werden über separate Link-Ontologien angebunden.</dcterms:description>
+    <dcterms:publisher rdf:resource="https://www.construct-x.org/id/organization/construct-x"/>
+    <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-22</dcterms:created>
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-22</dcterms:modified>
+    <dcterms:source xml:lang="de">Construct-X working document: Ontologien &amp; Standards für Baustellen, 22 Oct 2026</dcterms:source>
+    <vann:preferredNamespacePrefix>conx-del</vann:preferredNamespacePrefix>
+    <vann:preferredNamespaceUri>https://www.construct-x.org/ontology/construction-delivery#</vann:preferredNamespaceUri>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-delivery#requestedFinish">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-delivery#LogisticsRequirement"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:label xml:lang="en">requested finish</rdfs:label>
+    <skos:altLabel xml:lang="de">gewünschtes Ende</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-delivery"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-delivery#DeliveryNote">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Delivery Note</rdfs:label>
+    <skos:altLabel xml:lang="de">Lieferschein</skos:altLabel>
+    <rdfs:comment xml:lang="en">A delivery note documenting one or more Logistics Loads.</rdfs:comment>
+    <rdfs:comment xml:lang="de">Lieferschein, der eine oder mehrere Ladungen dokumentiert.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-delivery"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-delivery#issuedAt">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-delivery#DeliveryNote"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:label xml:lang="en">issued at</rdfs:label>
+    <skos:altLabel xml:lang="de">ausgestellt am</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-delivery"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-delivery#hasLogisticsOperation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="https://www.construct-x.org/ontology/construction-delivery#isOperationOf"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-delivery#LogisticsRequirement"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/construction-delivery#LogisticsOperation"/>
+    <rdfs:label xml:lang="en">has logistics operation</rdfs:label>
+    <skos:altLabel xml:lang="de">hat Logistikvorgang</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-delivery"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-delivery#hasLoadItem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="https://www.construct-x.org/ontology/construction-delivery#isLoadItemOf"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-delivery#LogisticsLoad"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/construction-delivery#LogisticsLoadItem"/>
+    <rdfs:label xml:lang="en">has load item</rdfs:label>
+    <skos:altLabel xml:lang="de">hat Ladungsposition</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-delivery"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-delivery#requestedStart">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-delivery#LogisticsRequirement"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:label xml:lang="en">requested start</rdfs:label>
+    <skos:altLabel xml:lang="de">gewünschter Beginn</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-delivery"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-delivery#operationType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-delivery#LogisticsOperation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:label xml:lang="en">operation type</rdfs:label>
+    <skos:altLabel xml:lang="de">Logistikvorgangstyp</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-delivery"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-delivery#name">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">name</rdfs:label>
+    <skos:altLabel xml:lang="de">Bezeichnung</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-delivery"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-delivery#LogisticsLoadItem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Logistics Load Item</rdfs:label>
+    <skos:altLabel xml:lang="de">Ladungsposition</skos:altLabel>
+    <rdfs:comment xml:lang="en">A quantified item contained in a Logistics Load.</rdfs:comment>
+    <rdfs:comment xml:lang="de">Mengenmäßig beschriebene Position innerhalb einer Ladung.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-delivery"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-delivery#plannedFinish">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-delivery#LogisticsOperation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:label xml:lang="en">planned finish</rdfs:label>
+    <skos:altLabel xml:lang="de">geplantes Ende</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-delivery"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-delivery#identifier">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">identifier</rdfs:label>
+    <skos:altLabel xml:lang="de">Kennung</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-delivery"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-delivery#LogisticsRequirement">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Logistics Requirement</rdfs:label>
+    <skos:altLabel xml:lang="de">Logistikanforderung</skos:altLabel>
+    <rdfs:comment xml:lang="en">A requirement that initiates or specifies a construction-site delivery need.</rdfs:comment>
+    <rdfs:comment xml:lang="de">Anforderung, die einen Bedarf für eine Baustellenanlieferung auslöst oder spezifiziert.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-delivery"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-delivery#documentsLoad">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-delivery#DeliveryNote"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/construction-delivery#LogisticsLoad"/>
+    <rdfs:label xml:lang="en">documents load</rdfs:label>
+    <skos:altLabel xml:lang="de">dokumentiert Ladung</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-delivery"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-delivery#handlesLoad">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-delivery#LogisticsOperation"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/construction-delivery#LogisticsLoad"/>
+    <rdfs:label xml:lang="en">handles load</rdfs:label>
+    <skos:altLabel xml:lang="de">behandelt Ladung</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-delivery"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-delivery#unitCode">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-delivery#LogisticsLoadItem"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">unit code</rdfs:label>
+    <skos:altLabel xml:lang="de">Mengeneinheit</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-delivery"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-delivery#LogisticsLoad">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Logistics Load</rdfs:label>
+    <skos:altLabel xml:lang="de">Ladung</skos:altLabel>
+    <rdfs:comment xml:lang="en">A physical load handled by one or more Logistics Operations.</rdfs:comment>
+    <rdfs:comment xml:lang="de">Physische Ladung, die durch einen oder mehrere Logistikvorgänge behandelt wird.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-delivery"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-delivery#isLoadItemOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-delivery#LogisticsLoadItem"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/construction-delivery#LogisticsLoad"/>
+    <rdfs:label xml:lang="en">is load item of</rdfs:label>
+    <skos:altLabel xml:lang="de">ist Ladungsposition von</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-delivery"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-delivery#isOperationOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-delivery#LogisticsOperation"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/construction-delivery#LogisticsRequirement"/>
+    <rdfs:label xml:lang="en">is operation of</rdfs:label>
+    <skos:altLabel xml:lang="de">ist Logistikvorgang von</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-delivery"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-delivery#actualFinish">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-delivery#LogisticsOperation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:label xml:lang="en">actual finish</rdfs:label>
+    <skos:altLabel xml:lang="de">tatsächliches Ende</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-delivery"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-delivery#actualStart">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-delivery#LogisticsOperation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:label xml:lang="en">actual start</rdfs:label>
+    <skos:altLabel xml:lang="de">tatsächlicher Beginn</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-delivery"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-delivery#LogisticsOperation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Logistics Operation</rdfs:label>
+    <skos:altLabel xml:lang="de">Logistikvorgang</skos:altLabel>
+    <rdfs:comment xml:lang="en">An operational step within a construction delivery process.</rdfs:comment>
+    <rdfs:comment xml:lang="de">Operativer Schritt innerhalb eines Baustellenanlieferungsprozesses.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-delivery"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-delivery#hasStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-delivery#LogisticsRequirement"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:label xml:lang="en">has status</rdfs:label>
+    <skos:altLabel xml:lang="de">hat Status</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-delivery"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-delivery#plannedStart">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-delivery#LogisticsOperation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:label xml:lang="en">planned start</rdfs:label>
+    <skos:altLabel xml:lang="de">geplanter Beginn</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-delivery"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-delivery#quantity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-delivery#LogisticsLoadItem"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:label xml:lang="en">quantity</rdfs:label>
+    <skos:altLabel xml:lang="de">Menge</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-delivery"/>
+  </rdf:Description>
+</rdf:RDF>

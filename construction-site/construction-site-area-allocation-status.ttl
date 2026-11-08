@@ -1,0 +1,24 @@
+@prefix conx-aas: <https://www.construct-x.org/vocab/construction-site/area-allocation-status#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/vocab/construction-site/area-allocation-status>
+    a owl:Ontology, skos:ConceptScheme ;
+    owl:versionIRI <https://www.construct-x.org/vocab/construction-site/area-allocation-status/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+    dcterms:title "Construct-X Area Allocation Status Vocabulary"@en ;
+    dcterms:title "Construct-X-Vokabular für Flächenbelegungsstatus"@de ;
+    dcterms:description "Controlled statuses for time-bounded area allocations of a construction site."@en ;
+    dcterms:description "Kontrollierte Statuswerte für zeitlich begrenzte Flächenbelegungen einer Baustelle."@de ;
+    dcterms:created "2026-10-22"^^xsd:date ;
+    vann:preferredNamespacePrefix "conx-aas" ;
+    vann:preferredNamespaceUri "https://www.construct-x.org/vocab/construction-site/area-allocation-status#" ;
+    skos:prefLabel "Area Allocation Status"@en ;
+    skos:prefLabel "Flächenbelegungsstatus"@de .
+
+conx-aas:Planned a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/construction-site/area-allocation-status> ; skos:prefLabel "Planned"@en ; skos:prefLabel "Geplant"@de .
+conx-aas:Actual a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/construction-site/area-allocation-status> ; skos:prefLabel "Actual"@en ; skos:prefLabel "Tatsächlich"@de .
+conx-aas:Released a skos:Concept ; skos:inScheme <https://www.construct-x.org/vocab/construction-site/area-allocation-status> ; skos:prefLabel "Released"@en ; skos:prefLabel "Freigegeben"@de .

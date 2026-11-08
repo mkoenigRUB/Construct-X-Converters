@@ -1,0 +1,13 @@
+@prefix conx-cpr: <https://www.construct-x.org/ontology/construction-progress-report#> .
+@prefix conx-status: <https://www.construct-x.org/vocab/construction-schedule/activity-status#> .
+@prefix ex: <https://data.example.com/project/alpha/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:progress-report-2026-10-04-A100
+    a conx-cpr:ConstructionProgressReport ;
+    conx-cpr:identifier "PR-A100-2026-10-04" ;
+    conx-cpr:recordedAt "2026-10-04T15:30:00+02:00"^^xsd:dateTime ;
+    conx-cpr:activityStatus conx-status:InProgress ;
+    conx-cpr:completionPercentage "65"^^xsd:decimal ;
+    conx-cpr:actualStart "2026-09-28T07:00:00+02:00"^^xsd:dateTime ;
+    conx-cpr:forecastFinish "2026-10-08T16:00:00+02:00"^^xsd:dateTime .

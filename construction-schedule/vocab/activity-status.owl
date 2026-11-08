@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+   xmlns:vann="http://purl.org/vocab/vann/"
+>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-schedule/activity-status#Completed">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/construction-schedule/activity-status#ActivityStatus"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/construction-schedule/activity-status#ActivityStatus"/>
+    <skos:prefLabel xml:lang="en">Completed</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Beendet</skos:prefLabel>
+    <skos:altLabel xml:lang="de">Abgeschlossen</skos:altLabel>
+    <skos:definition xml:lang="en">The activity has been completed.</skos:definition>
+    <skos:definition xml:lang="de">Der Vorgang wurde beendet. DIN 69900 verwendet für diesen Ausführungsstand die Benennung „Beendet“.</skos:definition>
+    <dcterms:source>DIN 69900:2009-01, 4.4.2.6.4, Table 9</dcterms:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-schedule/activity-status#ActivityStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <skos:prefLabel xml:lang="en">Activity Status</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Ausführungsstand</skos:prefLabel>
+    <skos:altLabel xml:lang="de">Vorgangsstatus</skos:altLabel>
+    <dcterms:source>DIN 69900:2009-01, 4.4.2.6.4</dcterms:source>
+    <skos:hasTopConcept rdf:resource="https://www.construct-x.org/vocab/construction-schedule/activity-status#Planned"/>
+    <skos:hasTopConcept rdf:resource="https://www.construct-x.org/vocab/construction-schedule/activity-status#InProgress"/>
+    <skos:hasTopConcept rdf:resource="https://www.construct-x.org/vocab/construction-schedule/activity-status#Completed"/>
+    <skos:hasTopConcept rdf:resource="https://www.construct-x.org/vocab/construction-schedule/activity-status#Cancelled"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-schedule/activity-status">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <owl:versionIRI rdf:resource="https://www.construct-x.org/vocab/construction-schedule/activity-status/0.1.2"/>
+    <owl:versionInfo>0.1.2</owl:versionInfo>
+    <dcterms:title xml:lang="en">Construct-X Activity Status Vocabulary</dcterms:title>
+    <dcterms:title xml:lang="de">Construct-X-Vokabular für den Ausführungsstand von Vorgängen</dcterms:title>
+    <dcterms:description xml:lang="en">Controlled vocabulary for the status of construction schedule activities.</dcterms:description>
+    <dcterms:description xml:lang="de">Kontrolliertes Vokabular für den Ausführungsstand von Vorgängen eines Bauablaufplans. Die deutschen Benennungen orientieren sich, soweit semantisch passend, an DIN 69900:2009-01.</dcterms:description>
+    <dcterms:publisher rdf:resource="https://www.construct-x.org/id/organization/construct-x"/>
+    <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-01</dcterms:created>
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-21</dcterms:modified>
+    <dcterms:source xml:lang="en">DIN 69900:2009-01, Project management — Project network techniques; Descriptions and concepts</dcterms:source>
+    <vann:preferredNamespacePrefix>conx-status</vann:preferredNamespacePrefix>
+    <vann:preferredNamespaceUri>https://www.construct-x.org/vocab/construction-schedule/activity-status#</vann:preferredNamespaceUri>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-schedule/activity-status#InProgress">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/construction-schedule/activity-status#ActivityStatus"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/construction-schedule/activity-status#ActivityStatus"/>
+    <skos:prefLabel xml:lang="en">In Progress</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Angefangen</skos:prefLabel>
+    <skos:altLabel xml:lang="de">In Bearbeitung</skos:altLabel>
+    <skos:definition xml:lang="en">The activity has started and is currently being performed.</skos:definition>
+    <skos:definition xml:lang="de">Der Vorgang wurde begonnen. DIN 69900 verwendet für den dargestellten Ausführungsstand die Benennung „Angefangen“.</skos:definition>
+    <dcterms:source>DIN 69900:2009-01, 4.4.2.6.4, Table 9</dcterms:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-schedule/activity-status#Cancelled">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/construction-schedule/activity-status#ActivityStatus"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/construction-schedule/activity-status#ActivityStatus"/>
+    <skos:prefLabel xml:lang="en">Cancelled</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Abgebrochen</skos:prefLabel>
+    <skos:altLabel xml:lang="de">Entfällt</skos:altLabel>
+    <skos:definition xml:lang="en">The activity has been cancelled and is no longer intended to be performed.</skos:definition>
+    <skos:definition xml:lang="de">Der Vorgang wurde abgebrochen und soll nicht mehr ausgeführt werden. DIN 69900 verwendet im Ausführungsstand die Benennung „Entfällt“ für einen Vorgang, der im Plan zu Dokumentationszwecken verbleiben kann; dies ist keine vollständig deckungsgleiche Bedeutung zu „Cancelled“.</skos:definition>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-schedule/activity-status#Planned">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/construction-schedule/activity-status#ActivityStatus"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/construction-schedule/activity-status#ActivityStatus"/>
+    <skos:prefLabel xml:lang="en">Planned</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Geplant</skos:prefLabel>
+    <skos:definition xml:lang="en">The activity is planned but has not yet started.</skos:definition>
+    <skos:definition xml:lang="de">Der Vorgang ist geplant, wurde aber noch nicht begonnen. Dieser zusätzliche Status ist nicht Bestandteil der in DIN 69900 dargestellten drei Kennzeichnungen des Ausführungsstands.</skos:definition>
+  </rdf:Description>
+</rdf:RDF>

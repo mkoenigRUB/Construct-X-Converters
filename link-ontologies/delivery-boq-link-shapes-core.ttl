@@ -1,0 +1,24 @@
+@prefix conx-del: <https://www.construct-x.org/ontology/construction-delivery#> .
+@prefix conx-gaeb: <https://www.construct-x.org/ontology/gaeb-boq#> .
+@prefix conx-dbl: <https://www.construct-x.org/ontology/delivery-boq-link#> .
+@prefix conx-dbl-sh: <https://www.construct-x.org/shapes/delivery-boq-link#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<https://www.construct-x.org/shapes/delivery-boq-link/core>
+    a owl:Ontology ;
+    owl:versionIRI <https://www.construct-x.org/shapes/delivery-boq-link/core/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports
+        <https://www.construct-x.org/ontology/construction-delivery/0.1.0> ,
+        <https://www.construct-x.org/ontology/gaeb-boq/0.5.0> ,
+        <https://www.construct-x.org/ontology/delivery-boq-link/0.1.0> .
+
+conx-dbl-sh:LogisticsLoadItemQuantitySplitShape
+    a sh:NodeShape ;
+    sh:targetClass conx-del:LogisticsLoadItem ;
+    sh:property [
+        sh:path conx-dbl:fulfillsQuantitySplit ;
+        sh:class conx-gaeb:QuantitySplit ;
+        sh:maxCount 1
+    ] .

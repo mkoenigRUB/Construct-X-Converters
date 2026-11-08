@@ -1,0 +1,59 @@
+@prefix conx-site: <https://www.construct-x.org/ontology/construction-site#> .
+@prefix conx-ba: <https://www.construct-x.org/ontology/built-asset#> .
+@prefix conx-sbal: <https://www.construct-x.org/ontology/site-built-asset-link#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/ontology/site-built-asset-link>
+    a owl:Ontology ;
+    owl:versionIRI <https://www.construct-x.org/ontology/site-built-asset-link/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports
+        <https://www.construct-x.org/ontology/construction-site/0.2.0> ,
+        <https://www.construct-x.org/ontology/built-asset/0.1.0> ;
+    dcterms:title "Construct-X Site–Built Asset Link Ontology"@en ;
+    dcterms:title "Construct-X-Verknüpfungsontologie für Baustelle und Bauwerk"@de ;
+    dcterms:description "Links the temporary Construction Site production environment to the permanent Built Asset and its intrinsic spatial structure."@en ;
+    dcterms:created "2026-10-22"^^xsd:date ;
+    vann:preferredNamespacePrefix "conx-sbal" ;
+    vann:preferredNamespaceUri "https://www.construct-x.org/ontology/site-built-asset-link#" .
+
+conx-sbal:containsBuiltAsset
+    a owl:ObjectProperty ;
+    owl:inverseOf conx-sbal:isLocatedInConstructionField ;
+    rdfs:domain conx-site:ConstructionField ;
+    rdfs:range conx-ba:BuiltAsset ;
+    rdfs:label "contains built asset"@en ;
+    skos:altLabel "enthält Bauwerk"@de ;
+    rdfs:comment "Associates a Construction Field with a permanent Built Asset located in that construction field."@en ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/site-built-asset-link> .
+
+conx-sbal:isLocatedInConstructionField
+    a owl:ObjectProperty ;
+    rdfs:domain conx-ba:BuiltAsset ;
+    rdfs:range conx-site:ConstructionField ;
+    rdfs:label "is located in construction field"@en ;
+    skos:altLabel "liegt in Baufeld"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/site-built-asset-link> .
+
+conx-sbal:isLocatedInSpatialStructureElement
+    a owl:ObjectProperty ;
+    owl:inverseOf conx-sbal:containsSiteArea ;
+    rdfs:domain conx-site:SiteArea ;
+    rdfs:range conx-ba:SpatialStructureElement ;
+    rdfs:label "is located in spatial structure element"@en ;
+    skos:altLabel "liegt in räumlichem Strukturelement"@de ;
+    rdfs:comment "Associates a temporary operational Site Area with a permanent spatial structure element of the Built Asset, for example a work area located on a storey or in a tunnel section."@en ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/site-built-asset-link> .
+
+conx-sbal:containsSiteArea
+    a owl:ObjectProperty ;
+    rdfs:domain conx-ba:SpatialStructureElement ;
+    rdfs:range conx-site:SiteArea ;
+    rdfs:label "contains site area"@en ;
+    skos:altLabel "enthält Baustellenfläche"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/site-built-asset-link> .

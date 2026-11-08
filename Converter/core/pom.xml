@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.construct-x</groupId>
+        <artifactId>construct-x-converters-parent</artifactId>
+        <version>0.1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>construct-x-converters-core</artifactId>
+    <packaging>jar</packaging>
+
+    <name>Construct-X Converters (Core)</name>
+    <description>Converter library: GAEB DA XML 3.3 to Construct-X GAEB BoQ ontology TTL, incl. XSD validation.</description>
+
+    <dependencies>
+        <!-- Construct-X SDK (shared CURIE register, RDF input/output, IRI factory) -->
+        <dependency>
+            <groupId>org.construct-x</groupId>
+            <artifactId>construct-x-sdk</artifactId>
+            <version>0.1.0-SNAPSHOT</version>
+        </dependency>
+
+        <!-- Apache Jena for RDF/TTL -->
+        <dependency>
+            <groupId>org.apache.jena</groupId>
+            <artifactId>apache-jena-libs</artifactId>
+            <type>pom</type>
+        </dependency>
+
+        <!-- Jena RIOT needs Jackson for JSON-LD parsing -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+
+        <!-- JUnit 5 -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <mainClass>org.constructx.converter.GaebConverterCli</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

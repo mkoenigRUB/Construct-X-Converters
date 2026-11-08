@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+   xmlns:vann="http://purl.org/vocab/vann/"
+>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-schedule#hasActivity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-schedule#ConstructionSchedule"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/construction-schedule#Activity"/>
+    <rdfs:label xml:lang="en">has activity</rdfs:label>
+    <skos:altLabel xml:lang="de">enthält Vorgang</skos:altLabel>
+    <rdfs:comment xml:lang="en">Associates a Construction Schedule with one of its Activities.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-schedule"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-schedule#hasMilestone">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="https://www.construct-x.org/ontology/construction-schedule#hasActivity"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-schedule#ConstructionSchedule"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/construction-schedule#Milestone"/>
+    <rdfs:label xml:lang="en">has milestone</rdfs:label>
+    <skos:altLabel xml:lang="de">enthält Meilenstein</skos:altLabel>
+    <rdfs:comment xml:lang="en">Associates a Construction Schedule with one of its explicitly modeled Milestones.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-schedule"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-schedule#hasSuccessor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-schedule#PrecedenceRelationship"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/construction-schedule#Activity"/>
+    <rdfs:label xml:lang="en">has successor activity</rdfs:label>
+    <skos:altLabel xml:lang="de">hat Nachfolger</skos:altLabel>
+    <rdfs:comment xml:lang="en">Associates a Precedence Relationship with its successor Activity.</rdfs:comment>
+    <dcterms:source>DIN 69900:2009-01, 3.45</dcterms:source>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-schedule"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-schedule#plannedStart">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-schedule#Activity"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:label xml:lang="en">planned start date</rdfs:label>
+    <skos:altLabel xml:lang="de">geplanter Anfangstermin</skos:altLabel>
+    <rdfs:comment xml:lang="en">Planned calendar date/time at which an Activity is intended to start.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-schedule"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-schedule#name">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">name</rdfs:label>
+    <skos:altLabel xml:lang="de">Bezeichnung</skos:altLabel>
+    <rdfs:comment xml:lang="en">Human-readable name.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-schedule"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-schedule#latestFinish">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-schedule#Activity"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:label xml:lang="en">late finish date</rdfs:label>
+    <skos:altLabel xml:lang="de">spätester Endtermin (SET)</skos:altLabel>
+    <rdfs:comment xml:lang="en">Calculated latest calendar finish date/time.</rdfs:comment>
+    <dcterms:source>DIN 69900:2009-01, 3.77</dcterms:source>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-schedule"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-schedule#scheduleType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-schedule#ConstructionSchedule"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:label xml:lang="en">schedule type</rdfs:label>
+    <skos:altLabel xml:lang="de">Terminplantyp</skos:altLabel>
+    <skos:altLabel xml:lang="de">Typ des Bauablaufplans</skos:altLabel>
+    <rdfs:comment xml:lang="en">Associates a Construction Schedule with one or more controlled schedule-type concepts. Multiple values are permitted because DIN 69900 classifications may describe different aspects of the same schedule.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-schedule"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-schedule#relationshipType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-schedule#PrecedenceRelationship"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:label xml:lang="en">relationship type</rdfs:label>
+    <skos:altLabel xml:lang="de">Beziehungstyp</skos:altLabel>
+    <skos:altLabel xml:lang="de">Typ der Anordnungsbeziehung</skos:altLabel>
+    <rdfs:comment xml:lang="en">Associates a Precedence Relationship with a controlled relationship-type concept. The core ontology does not prescribe a concrete vocabulary.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-schedule"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-schedule#plannedFinish">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-schedule#Activity"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:label xml:lang="en">planned finish date</rdfs:label>
+    <skos:altLabel xml:lang="de">geplanter Endtermin</skos:altLabel>
+    <rdfs:comment xml:lang="en">Planned calendar date/time at which an Activity is intended to finish.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-schedule"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-schedule#latestStart">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-schedule#Activity"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:label xml:lang="en">late start date</rdfs:label>
+    <skos:altLabel xml:lang="de">spätester Anfangstermin (SAT)</skos:altLabel>
+    <rdfs:comment xml:lang="en">Calculated latest calendar start date/time.</rdfs:comment>
+    <dcterms:source>DIN 69900:2009-01, 3.75</dcterms:source>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-schedule"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-schedule#PrecedenceRelationship">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Precedence Relationship</rdfs:label>
+    <skos:altLabel xml:lang="de">Anordnungsbeziehung</skos:altLabel>
+    <rdfs:comment xml:lang="en">A quantifiable dependency between a predecessor Activity and a successor Activity. The concrete relationship type is expressed through relationshipType rather than through subclasses.</rdfs:comment>
+    <dcterms:source>DIN 69900:2009-01, 3.3</dcterms:source>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-schedule"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-schedule#hasPredecessor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-schedule#PrecedenceRelationship"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/construction-schedule#Activity"/>
+    <rdfs:label xml:lang="en">has predecessor activity</rdfs:label>
+    <skos:altLabel xml:lang="de">hat Vorgänger</skos:altLabel>
+    <rdfs:comment xml:lang="en">Associates a Precedence Relationship with its predecessor Activity.</rdfs:comment>
+    <dcterms:source>DIN 69900:2009-01, 3.93</dcterms:source>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-schedule"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-schedule#hasStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-schedule#Activity"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:label xml:lang="en">has status</rdfs:label>
+    <skos:altLabel xml:lang="de">hat Status</skos:altLabel>
+    <skos:altLabel xml:lang="de">hat Ausführungsstand</skos:altLabel>
+    <rdfs:comment xml:lang="en">Associates an Activity with its current execution status. The concrete controlled vocabulary is selected by an optional validation profile.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-schedule"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-schedule#ConstructionSchedule">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Construction Schedule</rdfs:label>
+    <skos:altLabel xml:lang="en">Network Schedule</skos:altLabel>
+    <skos:altLabel xml:lang="de">Bauablaufplan</skos:altLabel>
+    <skos:altLabel xml:lang="de">Ablaufplan</skos:altLabel>
+    <skos:altLabel xml:lang="de">Terminplan</skos:altLabel>
+    <skos:altLabel xml:lang="de">Netzplan</skos:altLabel>
+    <rdfs:comment xml:lang="en">A project-specific schedule containing Activities. Activity hierarchies and Precedence Relationships define the internal process logic.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-schedule"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-schedule#lag">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-schedule#PrecedenceRelationship"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#duration"/>
+    <rdfs:label xml:lang="en">time interval</rdfs:label>
+    <skos:altLabel xml:lang="de">Zeitabstand (Z)</skos:altLabel>
+    <rdfs:comment xml:lang="en">Time interval (DIN 69900: Zeitabstand, Z) associated with a Precedence Relationship.</rdfs:comment>
+    <dcterms:source>DIN 69900:2009-01, 3.97</dcterms:source>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-schedule"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-schedule#earliestFinish">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-schedule#Activity"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:label xml:lang="en">early finish date</rdfs:label>
+    <skos:altLabel xml:lang="de">frühester Endtermin (FET)</skos:altLabel>
+    <rdfs:comment xml:lang="en">Calculated earliest calendar finish date/time.</rdfs:comment>
+    <dcterms:source>DIN 69900:2009-01, 3.26</dcterms:source>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-schedule"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-schedule#identifier">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">identifier</rdfs:label>
+    <skos:altLabel xml:lang="de">Kennung</skos:altLabel>
+    <skos:altLabel xml:lang="de">Identifikator</skos:altLabel>
+    <rdfs:comment xml:lang="en">A domain identifier within the relevant project or information context.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-schedule"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-schedule#Milestone">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://www.construct-x.org/ontology/construction-schedule#Activity"/>
+    <rdfs:label xml:lang="en">Milestone</rdfs:label>
+    <skos:altLabel xml:lang="en">Key Event</skos:altLabel>
+    <skos:altLabel xml:lang="de">Meilenstein</skos:altLabel>
+    <skos:altLabel xml:lang="de">Schlüsselereignis</skos:altLabel>
+    <rdfs:comment xml:lang="en">An explicitly identified milestone of particular significance. DIN 69900 defines a milestone as an event of particular significance; this ontology retains Milestone as a subclass of Activity and introduces no separate Event class.</rdfs:comment>
+    <dcterms:source>DIN 69900:2009-01, 3.40</dcterms:source>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-schedule"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-schedule#Activity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Activity</rdfs:label>
+    <skos:altLabel xml:lang="de">Vorgang</skos:altLabel>
+    <rdfs:comment xml:lang="en">A project-specific Activity (DIN 69900: Vorgang), i.e. an element of project flow describing a defined occurrence with a defined start and finish.</rdfs:comment>
+    <dcterms:source>DIN 69900:2009-01, 3.92</dcterms:source>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-schedule"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-schedule#isSubActivityOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+    <owl:inverseOf rdf:resource="https://www.construct-x.org/ontology/construction-schedule#hasSubActivity"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-schedule#Activity"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/construction-schedule#Activity"/>
+    <rdfs:label xml:lang="en">is sub-activity of</rdfs:label>
+    <skos:altLabel xml:lang="de">ist untergeordneter Vorgang von</skos:altLabel>
+    <rdfs:comment xml:lang="en">Relates an Activity to its direct parent Activity in the schedule hierarchy.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-schedule"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-schedule#hasSubActivity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-schedule#Activity"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/construction-schedule#Activity"/>
+    <rdfs:label xml:lang="en">has sub-activity</rdfs:label>
+    <skos:altLabel xml:lang="de">hat untergeordneten Vorgang</skos:altLabel>
+    <rdfs:comment xml:lang="en">Inverse relation of isSubActivityOf.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-schedule"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-schedule#description">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-schedule#Activity"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">description</rdfs:label>
+    <skos:altLabel xml:lang="de">Kurzbeschreibung</skos:altLabel>
+    <rdfs:comment xml:lang="en">Short textual description of an Activity.</rdfs:comment>
+    <rdfs:comment xml:lang="de">Kurzbeschreibung des Vorgangs.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-schedule"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-schedule">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <owl:versionIRI rdf:resource="https://www.construct-x.org/ontology/construction-schedule/0.5.0"/>
+    <owl:versionInfo>0.5.0</owl:versionInfo>
+    <dcterms:title xml:lang="en">Construct-X Construction Schedule Ontology</dcterms:title>
+    <dcterms:title xml:lang="de">Construct-X-Ontologie für Bauablaufpläne</dcterms:title>
+    <dcterms:description xml:lang="en">Defines construction schedules, activities, milestones, precedence relationships and schedule dates. Work Locations and WBS/LBS concepts are outside this core ontology.</dcterms:description>
+    <dcterms:description xml:lang="de">Definiert Bauablaufpläne, Vorgänge, Meilensteine, Anordnungsbeziehungen und Termine. Arbeitsorte sowie WBS-/LBS-Konzepte liegen außerhalb dieser Kernontologie.</dcterms:description>
+    <dcterms:publisher rdf:resource="https://www.construct-x.org/id/organization/construct-x"/>
+    <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-01</dcterms:created>
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-21</dcterms:modified>
+    <dcterms:source xml:lang="en">DIN 69900:2009-01, Project management — Project network techniques; Descriptions and concepts</dcterms:source>
+    <vann:preferredNamespacePrefix>conx-cs</vann:preferredNamespacePrefix>
+    <vann:preferredNamespaceUri>https://www.construct-x.org/ontology/construction-schedule#</vann:preferredNamespaceUri>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-schedule#earliestStart">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-schedule#Activity"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:label xml:lang="en">early start date</rdfs:label>
+    <skos:altLabel xml:lang="de">frühester Anfangstermin (FAT)</skos:altLabel>
+    <rdfs:comment xml:lang="en">Calculated earliest calendar start date/time.</rdfs:comment>
+    <dcterms:source>DIN 69900:2009-01, 3.23</dcterms:source>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-schedule"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/construction-schedule#hierarchyCode">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-schedule#Activity"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">hierarchy code</rdfs:label>
+    <skos:altLabel xml:lang="de">Gliederungsnummer</skos:altLabel>
+    <rdfs:comment xml:lang="en">Structured identifier that uniquely describes the position of an Activity within the hierarchical breakdown of a Construction Schedule.</rdfs:comment>
+    <rdfs:comment xml:lang="de">Strukturierte Kennung, die die Position eines Vorgangs innerhalb der hierarchischen Gliederung des Terminplans eindeutig beschreibt.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/construction-schedule"/>
+  </rdf:Description>
+</rdf:RDF>

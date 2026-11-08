@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+   xmlns:vann="http://purl.org/vocab/vann/"
+>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/built-asset#isPhysicalComponentOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/built-asset#Component"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/built-asset#BuiltAsset"/>
+    <rdfs:label xml:lang="en">is physical component of</rdfs:label>
+    <skos:altLabel xml:lang="de">ist physische Komponente von</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/built-asset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/built-asset#isSubSpatialStructureElementOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/built-asset#SpatialStructureElement"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/built-asset#SpatialStructureElement"/>
+    <rdfs:label xml:lang="en">is sub spatial structure element of</rdfs:label>
+    <skos:altLabel xml:lang="de">ist untergeordnetes räumliches Strukturelement von</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/built-asset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/built-asset#hasTechnicalSystem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="https://www.construct-x.org/ontology/built-asset#servesBuiltAsset"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/built-asset#BuiltAsset"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/built-asset#TechnicalSystem"/>
+    <rdfs:label xml:lang="en">has technical system</rdfs:label>
+    <skos:altLabel xml:lang="de">hat technisches System</skos:altLabel>
+    <rdfs:comment xml:lang="en">Associates a Built Asset with a Technical System that serves it. The system is not thereby made part of the spatial hierarchy.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/built-asset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/built-asset#hasSubSpatialStructureElement">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="https://www.construct-x.org/ontology/built-asset#isSubSpatialStructureElementOf"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/built-asset#SpatialStructureElement"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/built-asset#SpatialStructureElement"/>
+    <rdfs:label xml:lang="en">has sub spatial structure element</rdfs:label>
+    <skos:altLabel xml:lang="de">hat untergeordnetes räumliches Strukturelement</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/built-asset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/built-asset#isSubSystemOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/built-asset#TechnicalSystem"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/built-asset#TechnicalSystem"/>
+    <rdfs:label xml:lang="en">is sub system of</rdfs:label>
+    <skos:altLabel xml:lang="de">ist Subsystem von</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/built-asset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/built-asset#hierarchyCode">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/built-asset#SpatialStructureElement"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">hierarchy code</rdfs:label>
+    <skos:altLabel xml:lang="de">Gliederungsnummer</skos:altLabel>
+    <rdfs:comment xml:lang="en">Structured identifier describing the position of a Spatial Structure Element within a spatial hierarchy.</rdfs:comment>
+    <rdfs:comment xml:lang="de">Strukturierte Kennung, die die Position eines räumlichen Strukturelements innerhalb einer Hierarchie beschreibt.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/built-asset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/built-asset#isLocatedIn">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/built-asset#Component"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/built-asset#SpatialStructureElement"/>
+    <rdfs:label xml:lang="en">is located in</rdfs:label>
+    <skos:altLabel xml:lang="de">befindet sich in</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/built-asset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/built-asset#name">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">name</rdfs:label>
+    <skos:altLabel xml:lang="de">Bezeichnung</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/built-asset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/built-asset#hasSpatialStructureElement">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="https://www.construct-x.org/ontology/built-asset#isSpatialStructureElementOf"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/built-asset#BuiltAsset"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/built-asset#SpatialStructureElement"/>
+    <rdfs:label xml:lang="en">has spatial structure element</rdfs:label>
+    <skos:altLabel xml:lang="de">hat räumliches Strukturelement</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/built-asset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/built-asset#BuiltAsset">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Built Asset</rdfs:label>
+    <skos:altLabel xml:lang="de">Bauwerk</skos:altLabel>
+    <rdfs:comment xml:lang="en">A permanent built asset such as a building, bridge, tunnel, road or other infrastructure facility.</rdfs:comment>
+    <rdfs:comment xml:lang="de">Dauerhaftes Bauwerk wie Gebäude, Brücke, Tunnel, Straße oder sonstiges Infrastrukturbauwerk.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/built-asset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/built-asset#hasAssetType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/built-asset#BuiltAsset"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:label xml:lang="en">has asset type</rdfs:label>
+    <skos:altLabel xml:lang="de">hat Bauwerkstyp</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/built-asset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/built-asset#Component">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Component</rdfs:label>
+    <skos:altLabel xml:lang="de">Komponente</skos:altLabel>
+    <rdfs:comment xml:lang="en">A physical component belonging to a Built Asset or Technical System and optionally located within a Spatial Structure Element.</rdfs:comment>
+    <rdfs:comment xml:lang="de">Physische Komponente eines Bauwerks oder technischen Systems, die optional in einem räumlichen Strukturelement verortet ist.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/built-asset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/built-asset#hasSpatialStructureType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/built-asset#SpatialStructureElement"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:label xml:lang="en">has spatial structure type</rdfs:label>
+    <skos:altLabel xml:lang="de">hat räumlichen Strukturtyp</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/built-asset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/built-asset#SpatialStructureElement">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Spatial Structure Element</rdfs:label>
+    <skos:altLabel xml:lang="de">Räumliches Strukturelement</skos:altLabel>
+    <rdfs:comment xml:lang="en">A hierarchical spatial element used to structure a Built Asset, independently of whether the asset is a building or infrastructure facility.</rdfs:comment>
+    <rdfs:comment xml:lang="de">Hierarchisches räumliches Element zur Gliederung eines Bauwerks, unabhängig davon, ob es sich um Hochbau oder Infrastruktur handelt.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/built-asset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/built-asset#identifier">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">identifier</rdfs:label>
+    <skos:altLabel xml:lang="de">Kennung</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/built-asset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/built-asset#isSubComponentOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/built-asset#Component"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/built-asset#Component"/>
+    <rdfs:label xml:lang="en">is sub component of</rdfs:label>
+    <skos:altLabel xml:lang="de">ist Unterkomponente von</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/built-asset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/built-asset#hasSubSystem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="https://www.construct-x.org/ontology/built-asset#isSubSystemOf"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/built-asset#TechnicalSystem"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/built-asset#TechnicalSystem"/>
+    <rdfs:label xml:lang="en">has sub system</rdfs:label>
+    <skos:altLabel xml:lang="de">hat Subsystem</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/built-asset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/built-asset#hasSubComponent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="https://www.construct-x.org/ontology/built-asset#isSubComponentOf"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/built-asset#Component"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/built-asset#Component"/>
+    <rdfs:label xml:lang="en">has sub component</rdfs:label>
+    <skos:altLabel xml:lang="de">hat Unterkomponente</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/built-asset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/built-asset#servesSpatialStructureElement">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/built-asset#TechnicalSystem"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/built-asset#SpatialStructureElement"/>
+    <rdfs:label xml:lang="en">serves spatial structure element</rdfs:label>
+    <skos:altLabel xml:lang="de">versorgt räumliches Strukturelement</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/built-asset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/built-asset">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <owl:versionIRI rdf:resource="https://www.construct-x.org/ontology/built-asset/0.1.0"/>
+    <owl:versionInfo>0.1.0</owl:versionInfo>
+    <dcterms:title xml:lang="en">Construct-X Built Asset Ontology</dcterms:title>
+    <dcterms:title xml:lang="de">Construct-X-Ontologie für Bauwerke</dcterms:title>
+    <dcterms:description xml:lang="en">Describes permanent built assets for buildings and infrastructure through spatial structure elements, technical systems and physical components. Cost, project, construction-site and other cross-domain views are connected through dedicated link ontologies.</dcterms:description>
+    <dcterms:description xml:lang="de">Beschreibt dauerhafte Bauwerke des Hoch- und Infrastrukturbaus über räumliche Strukturelemente, technische Systeme und physische Komponenten. Kosten-, Projekt-, Baustellen- und weitere domänenübergreifende Sichten werden über separate Link-Ontologien angebunden.</dcterms:description>
+    <dcterms:publisher rdf:resource="https://www.construct-x.org/id/organization/construct-x"/>
+    <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-22</dcterms:created>
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-22</dcterms:modified>
+    <vann:preferredNamespacePrefix>conx-ba</vann:preferredNamespacePrefix>
+    <vann:preferredNamespaceUri>https://www.construct-x.org/ontology/built-asset#</vann:preferredNamespaceUri>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/built-asset#TechnicalSystem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Technical System</rdfs:label>
+    <skos:altLabel xml:lang="de">Anlage</skos:altLabel>
+    <skos:altLabel xml:lang="de">Technisches System</skos:altLabel>
+    <rdfs:comment xml:lang="en">A functionally coherent technical system consisting of subsystems and/or physical components and serving one or more built assets or spatial elements.</rdfs:comment>
+    <rdfs:comment xml:lang="de">Funktional zusammengehöriges technisches System aus Subsystemen und/oder physischen Komponenten, das ein oder mehrere Bauwerke oder räumliche Bereiche versorgt.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/built-asset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/built-asset#hasPhysicalComponent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="https://www.construct-x.org/ontology/built-asset#isPhysicalComponentOf"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/built-asset#BuiltAsset"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/built-asset#Component"/>
+    <rdfs:label xml:lang="en">has physical component</rdfs:label>
+    <skos:altLabel xml:lang="de">hat physische Komponente</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/built-asset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/built-asset#isSpatialStructureElementOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/built-asset#SpatialStructureElement"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/built-asset#BuiltAsset"/>
+    <rdfs:label xml:lang="en">is spatial structure element of</rdfs:label>
+    <skos:altLabel xml:lang="de">ist räumliches Strukturelement von</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/built-asset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/built-asset#servesBuiltAsset">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/built-asset#TechnicalSystem"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/built-asset#BuiltAsset"/>
+    <rdfs:label xml:lang="en">serves built asset</rdfs:label>
+    <skos:altLabel xml:lang="de">versorgt Bauwerk</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/built-asset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/built-asset#description">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">description</rdfs:label>
+    <skos:altLabel xml:lang="de">Beschreibung</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/built-asset"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/built-asset#hasSystemComponent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/built-asset#TechnicalSystem"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/built-asset#Component"/>
+    <rdfs:label xml:lang="en">has system component</rdfs:label>
+    <skos:altLabel xml:lang="de">hat Systemkomponente</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/built-asset"/>
+  </rdf:Description>
+</rdf:RDF>

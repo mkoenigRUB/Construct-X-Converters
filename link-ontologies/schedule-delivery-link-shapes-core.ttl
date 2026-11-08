@@ -1,0 +1,23 @@
+@prefix conx-cs: <https://www.construct-x.org/ontology/construction-schedule#> .
+@prefix conx-del: <https://www.construct-x.org/ontology/construction-delivery#> .
+@prefix conx-sdl: <https://www.construct-x.org/ontology/schedule-delivery-link#> .
+@prefix conx-sdl-sh: <https://www.construct-x.org/shapes/schedule-delivery-link#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<https://www.construct-x.org/shapes/schedule-delivery-link/core>
+    a owl:Ontology ;
+    owl:versionIRI <https://www.construct-x.org/shapes/schedule-delivery-link/core/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports
+        <https://www.construct-x.org/ontology/construction-schedule/0.5.0> ,
+        <https://www.construct-x.org/ontology/construction-delivery/0.1.0> ,
+        <https://www.construct-x.org/ontology/schedule-delivery-link/0.1.0> .
+
+conx-sdl-sh:LogisticsRequirementActivityShape
+    a sh:NodeShape ;
+    sh:targetClass conx-del:LogisticsRequirement ;
+    sh:property [
+        sh:path conx-sdl:supportsActivity ;
+        sh:class conx-cs:Activity
+    ] .

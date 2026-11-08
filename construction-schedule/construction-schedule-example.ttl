@@ -1,0 +1,41 @@
+@prefix conx-cs: <https://www.construct-x.org/ontology/construction-schedule#> .
+@prefix conx-st: <https://www.construct-x.org/vocab/construction-schedule/schedule-type#> .
+@prefix conx-status: <https://www.construct-x.org/vocab/construction-schedule/activity-status#> .
+@prefix conx-prt: <https://www.construct-x.org/vocab/construction-schedule/precedence-relationship-type#> .
+@prefix ex: <https://data.example.com/project/alpha/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:schedule-SCH-01
+    a conx-cs:ConstructionSchedule ;
+    conx-cs:identifier "SCH-01" ;
+    conx-cs:name "Rohbauterminplan" ;
+    conx-cs:scheduleType conx-st:DetailedNetwork ;
+    conx-cs:hasActivity ex:formwork, ex:reinforcement .
+
+ex:formwork
+    a conx-cs:Activity ;
+    conx-cs:identifier "A100" ;
+    conx-cs:hierarchyCode "01.01" ;
+    conx-cs:name "Install Formwork" ;
+    conx-cs:description "Install slab formwork." ;
+    conx-cs:hasStatus conx-status:Completed ;
+    conx-cs:plannedStart "2026-09-07T07:00:00+02:00"^^xsd:dateTime ;
+    conx-cs:plannedFinish "2026-09-11T16:00:00+02:00"^^xsd:dateTime .
+
+ex:reinforcement
+    a conx-cs:Activity ;
+    conx-cs:identifier "A110" ;
+    conx-cs:hierarchyCode "01.02" ;
+    conx-cs:name "Install Reinforcement" ;
+    conx-cs:description "Install reinforcement for slab." ;
+    conx-cs:hasStatus conx-status:Planned ;
+    conx-cs:plannedStart "2026-09-14T07:00:00+02:00"^^xsd:dateTime ;
+    conx-cs:plannedFinish "2026-09-18T16:00:00+02:00"^^xsd:dateTime .
+
+ex:rel-01
+    a conx-cs:PrecedenceRelationship ;
+    conx-cs:identifier "REL-01" ;
+    conx-cs:hasPredecessor ex:formwork ;
+    conx-cs:hasSuccessor ex:reinforcement ;
+    conx-cs:relationshipType conx-prt:FinishToStart ;
+    conx-cs:lag "P0D"^^xsd:duration .

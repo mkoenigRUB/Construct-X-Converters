@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+   xmlns:vann="http://purl.org/vocab/vann/"
+>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-schedule/schedule-type#MilestoneNetwork">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:prefLabel xml:lang="en">Milestone Network</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Meilenstein-Netzplan</skos:prefLabel>
+    <skos:altLabel xml:lang="de">Meilensteinplan</skos:altLabel>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/construction-schedule/schedule-type#ScheduleType"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/construction-schedule/schedule-type#ScheduleType"/>
+    <dcterms:source>DIN 69900:2009-01, 3.41</dcterms:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-schedule/schedule-type#FrameNetwork">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:prefLabel xml:lang="en">Frame Network</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Rahmennetzplan</skos:prefLabel>
+    <skos:altLabel xml:lang="de">Rahmenterminplan</skos:altLabel>
+    <skos:broader rdf:resource="https://www.construct-x.org/vocab/construction-schedule/schedule-type#RoughNetwork"/>
+    <skos:broader rdf:resource="https://www.construct-x.org/vocab/construction-schedule/schedule-type#TotalNetwork"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/construction-schedule/schedule-type#ScheduleType"/>
+    <dcterms:source>DIN 69900:2009-01, 3.67</dcterms:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-schedule/schedule-type#StandardNetwork">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:prefLabel xml:lang="en">Standard Network</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Standardnetzplan</skos:prefLabel>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/construction-schedule/schedule-type#ScheduleType"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/construction-schedule/schedule-type#ScheduleType"/>
+    <dcterms:source>DIN 69900:2009-01, 3.84</dcterms:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-schedule/schedule-type#RoughNetwork">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:prefLabel xml:lang="en">Rough Network</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Grobnetzplan</skos:prefLabel>
+    <skos:altLabel xml:lang="de">Grobterminplan</skos:altLabel>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/construction-schedule/schedule-type#ScheduleType"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/construction-schedule/schedule-type#ScheduleType"/>
+    <dcterms:source>DIN 69900:2009-01, 3.33</dcterms:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-schedule/schedule-type#PartialNetwork">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:prefLabel xml:lang="en">Partial Network</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Teilnetzplan</skos:prefLabel>
+    <skos:altLabel xml:lang="de">Teilterminplan</skos:altLabel>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/construction-schedule/schedule-type#ScheduleType"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/construction-schedule/schedule-type#ScheduleType"/>
+    <dcterms:source>DIN 69900:2009-01, 3.88</dcterms:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-schedule/schedule-type">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <owl:versionIRI rdf:resource="https://www.construct-x.org/vocab/construction-schedule/schedule-type/0.1.0"/>
+    <owl:versionInfo>0.1.0</owl:versionInfo>
+    <dcterms:title xml:lang="en">Construct-X Schedule Type Vocabulary</dcterms:title>
+    <dcterms:title xml:lang="de">Construct-X-Vokabular für Terminplantypen</dcterms:title>
+    <dcterms:description xml:lang="en">Controlled vocabulary based on DIN 69900 network types. Common terms such as Grobterminplan and Feinterminplan are non-normative alternative labels.</dcterms:description>
+    <dcterms:description xml:lang="de">Kontrolliertes Vokabular auf Basis der Netzplantypen nach DIN 69900. Gebräuchliche Begriffe wie Grobterminplan und Feinterminplan sind nicht-normative Alternativbezeichnungen.</dcterms:description>
+    <dcterms:publisher rdf:resource="https://www.construct-x.org/id/organization/construct-x"/>
+    <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+    <dcterms:source>DIN 69900:2009-01</dcterms:source>
+    <vann:preferredNamespacePrefix>conx-st</vann:preferredNamespacePrefix>
+    <vann:preferredNamespaceUri>https://www.construct-x.org/vocab/construction-schedule/schedule-type#</vann:preferredNamespaceUri>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-schedule/schedule-type#TotalNetwork">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:prefLabel xml:lang="en">Total Network</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Gesamtnetzplan</skos:prefLabel>
+    <skos:altLabel xml:lang="de">Gesamtterminplan</skos:altLabel>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/construction-schedule/schedule-type#ScheduleType"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/construction-schedule/schedule-type#ScheduleType"/>
+    <dcterms:source>DIN 69900:2009-01, 3.32</dcterms:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-schedule/schedule-type#ScheduleType">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <skos:prefLabel xml:lang="en">Schedule Type</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Terminplantyp</skos:prefLabel>
+    <skos:note xml:lang="en">The concepts are not necessarily mutually exclusive.</skos:note>
+    <skos:note xml:lang="de">Die Begriffe schließen sich nicht notwendigerweise gegenseitig aus.</skos:note>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-schedule/schedule-type#DetailedNetwork">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:prefLabel xml:lang="en">Detailed Network</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Feinnetzplan</skos:prefLabel>
+    <skos:altLabel xml:lang="de">Feinterminplan</skos:altLabel>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/construction-schedule/schedule-type#ScheduleType"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/construction-schedule/schedule-type#ScheduleType"/>
+    <dcterms:source>DIN 69900:2009-01, 3.20</dcterms:source>
+  </rdf:Description>
+</rdf:RDF>

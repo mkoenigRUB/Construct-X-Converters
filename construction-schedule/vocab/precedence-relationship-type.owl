@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+   xmlns:vann="http://purl.org/vocab/vann/"
+>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-schedule/precedence-relationship-type">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <owl:versionIRI rdf:resource="https://www.construct-x.org/vocab/construction-schedule/precedence-relationship-type/0.1.0"/>
+    <owl:versionInfo>0.1.0</owl:versionInfo>
+    <dcterms:title xml:lang="en">Construct-X Precedence Relationship Type Vocabulary</dcterms:title>
+    <dcterms:title xml:lang="de">Construct-X-Vokabular für Typen von Anordnungsbeziehungen</dcterms:title>
+    <dcterms:description xml:lang="en">Controlled vocabulary for the four classical precedence relationship types. DIN 69900 terminology is provided as source metadata and German labels.</dcterms:description>
+    <dcterms:description xml:lang="de">Kontrolliertes Vokabular für die vier klassischen Typen von Anordnungsbeziehungen. Die Terminologie nach DIN 69900 ist als Quellenmetadatum und über deutsche Benennungen hinterlegt.</dcterms:description>
+    <dcterms:publisher rdf:resource="https://www.construct-x.org/id/organization/construct-x"/>
+    <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-01</dcterms:created>
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-21</dcterms:modified>
+    <vann:preferredNamespacePrefix>conx-prt</vann:preferredNamespacePrefix>
+    <vann:preferredNamespaceUri>https://www.construct-x.org/vocab/construction-schedule/precedence-relationship-type#</vann:preferredNamespaceUri>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-schedule/precedence-relationship-type#FinishToFinish">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:notation>FF</skos:notation>
+    <skos:prefLabel xml:lang="en">Finish-to-Finish Relationship</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Endfolge</skos:prefLabel>
+    <skos:altLabel xml:lang="de">Endfolge (EF)</skos:altLabel>
+    <skos:altLabel xml:lang="de">Ende-Ende-Folge (EE)</skos:altLabel>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/construction-schedule/precedence-relationship-type#PrecedenceRelationshipType"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/construction-schedule/precedence-relationship-type#PrecedenceRelationshipType"/>
+    <dcterms:source>DIN 69900:2009-01, 3.11</dcterms:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-schedule/precedence-relationship-type#StartToStart">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:notation>SS</skos:notation>
+    <skos:prefLabel xml:lang="en">Start-to-Start Relationship</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Anfangsfolge</skos:prefLabel>
+    <skos:altLabel xml:lang="de">Anfangsfolge (AF)</skos:altLabel>
+    <skos:altLabel xml:lang="de">Anfang-Anfang-Folge (AA)</skos:altLabel>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/construction-schedule/precedence-relationship-type#PrecedenceRelationshipType"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/construction-schedule/precedence-relationship-type#PrecedenceRelationshipType"/>
+    <dcterms:source>DIN 69900:2009-01, 3.2</dcterms:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-schedule/precedence-relationship-type#PrecedenceRelationshipType">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <skos:prefLabel xml:lang="en">Precedence Relationship Type</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Typ der Anordnungsbeziehung</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-schedule/precedence-relationship-type#FinishToStart">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:notation>FS</skos:notation>
+    <skos:prefLabel xml:lang="en">End-to-Start Relationship</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Normalfolge</skos:prefLabel>
+    <skos:altLabel xml:lang="en">Finish-to-Start Relationship</skos:altLabel>
+    <skos:altLabel xml:lang="de">Normalfolge (NF)</skos:altLabel>
+    <skos:altLabel xml:lang="de">Ende-Anfang-Folge (EA)</skos:altLabel>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/construction-schedule/precedence-relationship-type#PrecedenceRelationshipType"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/construction-schedule/precedence-relationship-type#PrecedenceRelationshipType"/>
+    <dcterms:source>DIN 69900:2009-01, 3.57</dcterms:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-schedule/precedence-relationship-type#StartToFinish">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:notation>SF</skos:notation>
+    <skos:prefLabel xml:lang="en">Start-to-Finish Relationship</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Sprungfolge</skos:prefLabel>
+    <skos:altLabel xml:lang="de">Sprungfolge (SF)</skos:altLabel>
+    <skos:altLabel xml:lang="de">Anfang-Ende-Folge (AE)</skos:altLabel>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/construction-schedule/precedence-relationship-type#PrecedenceRelationshipType"/>
+    <skos:topConceptOf rdf:resource="https://www.construct-x.org/vocab/construction-schedule/precedence-relationship-type#PrecedenceRelationshipType"/>
+    <dcterms:source>DIN 69900:2009-01, 3.83</dcterms:source>
+  </rdf:Description>
+</rdf:RDF>

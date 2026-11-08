@@ -1,0 +1,38 @@
+@prefix conx-cpr: <https://www.construct-x.org/ontology/construction-progress-report#> .
+@prefix conx-cs: <https://www.construct-x.org/ontology/construction-schedule#> .
+@prefix conx-sprl: <https://www.construct-x.org/ontology/schedule-progress-report-link#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/ontology/schedule-progress-report-link>
+    a owl:Ontology ;
+    owl:versionIRI <https://www.construct-x.org/ontology/schedule-progress-report-link/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports
+        <https://www.construct-x.org/ontology/construction-schedule/0.5.0> ,
+        <https://www.construct-x.org/ontology/construction-progress-report/0.1.0> ;
+    dcterms:title "Construct-X Schedule–Progress Report Link Ontology"@en ;
+    dcterms:title "Construct-X-Link-Ontologie zwischen Bauablauf und Baufortschrittsmeldung"@de ;
+    dcterms:description "Defines cross-domain relations between Construction Progress Reports and construction schedule Activities."@en ;
+    dcterms:description "Definiert domänenübergreifende Beziehungen zwischen Baufortschrittsmeldungen und Vorgängen eines Bauablaufplans."@de ;
+    dcterms:publisher <https://www.construct-x.org/id/organization/construct-x> ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:created "2026-10-04"^^xsd:date ;
+    dcterms:modified "2026-10-21"^^xsd:date ;
+    vann:preferredNamespacePrefix "conx-sprl" ;
+    vann:preferredNamespaceUri "https://www.construct-x.org/ontology/schedule-progress-report-link#" .
+
+conx-sprl:reportsOnActivity
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain conx-cpr:ConstructionProgressReport ;
+    rdfs:range conx-cs:Activity ;
+    rdfs:label "reports on activity"@en ;
+    skos:altLabel "meldet Fortschritt zu Vorgang"@de ;
+    skos:altLabel "bezieht sich auf Vorgang"@de ;
+    rdfs:comment "Associates a Construction Progress Report with the single construction schedule Activity whose progress state is reported."@en ;
+    rdfs:comment "Verknüpft eine Baufortschrittsmeldung mit dem einzelnen Vorgang des Bauablaufplans, dessen Fortschrittsstand gemeldet wird."@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/schedule-progress-report-link> .

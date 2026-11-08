@@ -1,0 +1,37 @@
+@prefix conx-bs: <https://www.construct-x.org/ontology/breakdown-structure#> .
+@prefix conx-bs-sh: <https://www.construct-x.org/shapes/breakdown-structure#> .
+@prefix conx-de-wbs: <https://www.construct-x.org/vocab/breakdown-structure/de-wbs-node-type#> .
+@prefix conx-de-lbs: <https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type#> .
+@prefix conx-de-sbs: <https://www.construct-x.org/vocab/breakdown-structure/de-sbs-node-type#> .
+@prefix conx-de-cbs: <https://www.construct-x.org/vocab/breakdown-structure/de-cbs-node-type#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<https://www.construct-x.org/shapes/breakdown-structure/node-types>
+    a owl:Ontology ;
+    owl:versionIRI <https://www.construct-x.org/shapes/breakdown-structure/node-types/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports
+        <https://www.construct-x.org/ontology/breakdown-structure/0.7.0> ,
+        <https://www.construct-x.org/vocab/breakdown-structure/de-wbs-node-type/0.1.0> ,
+        <https://www.construct-x.org/vocab/breakdown-structure/de-lbs-node-type/0.1.0> ,
+        <https://www.construct-x.org/vocab/breakdown-structure/de-sbs-node-type/0.1.0> ,
+        <https://www.construct-x.org/vocab/breakdown-structure/de-cbs-node-type/0.1.0> ;
+    dcterms:title "Construct-X Breakdown Structure Node-Type SHACL Profile"@en .
+
+conx-bs-sh:WBSNodeTypeShape
+    a sh:NodeShape ; sh:targetClass conx-bs:WBSNode ;
+    sh:property [ sh:path conx-bs:nodeType ; sh:nodeKind sh:IRI ; sh:minCount 1 ; sh:maxCount 1 ] .
+
+conx-bs-sh:LBSNodeTypeShape
+    a sh:NodeShape ; sh:targetClass conx-bs:LBSNode ;
+    sh:property [ sh:path conx-bs:nodeType ; sh:nodeKind sh:IRI ; sh:minCount 1 ; sh:maxCount 1 ] .
+
+conx-bs-sh:SBSNodeTypeShape
+    a sh:NodeShape ; sh:targetClass conx-bs:SBSNode ;
+    sh:property [ sh:path conx-bs:nodeType ; sh:nodeKind sh:IRI ; sh:minCount 1 ; sh:maxCount 1 ] .
+
+conx-bs-sh:CBSNodeTypeShape
+    a sh:NodeShape ; sh:targetClass conx-bs:CBSNode ;
+    sh:property [ sh:path conx-bs:nodeType ; sh:nodeKind sh:IRI ; sh:minCount 1 ; sh:maxCount 1 ] .

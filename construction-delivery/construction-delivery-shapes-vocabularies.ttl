@@ -1,0 +1,40 @@
+@prefix conx-del: <https://www.construct-x.org/ontology/construction-delivery#> .
+@prefix conx-del-sh: <https://www.construct-x.org/shapes/construction-delivery#> .
+@prefix conx-drs: <https://www.construct-x.org/vocab/construction-delivery/requirement-status#> .
+@prefix conx-dot: <https://www.construct-x.org/vocab/construction-delivery/operation-type#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<https://www.construct-x.org/shapes/construction-delivery/vocabularies>
+    a owl:Ontology ;
+    owl:versionIRI <https://www.construct-x.org/shapes/construction-delivery/vocabularies/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports
+      <https://www.construct-x.org/ontology/construction-delivery/0.1.0> ,
+      <https://www.construct-x.org/vocab/construction-delivery/requirement-status/0.1.0> ,
+      <https://www.construct-x.org/vocab/construction-delivery/operation-type/0.1.0> .
+
+conx-del-sh:RequirementStatusVocabularyShape
+    a sh:NodeShape ;
+    sh:targetClass conx-del:LogisticsRequirement ;
+    sh:property [
+      sh:path conx-del:hasStatus ;
+      sh:nodeKind sh:IRI ;
+      sh:in (
+        conx-drs:Requested conx-drs:Confirmed conx-drs:Scheduled
+        conx-drs:InProgress conx-drs:Completed conx-drs:Cancelled
+      )
+    ] .
+
+conx-del-sh:OperationTypeVocabularyShape
+    a sh:NodeShape ;
+    sh:targetClass conx-del:LogisticsOperation ;
+    sh:property [
+      sh:path conx-del:operationType ;
+      sh:nodeKind sh:IRI ;
+      sh:in (
+        conx-dot:Arrival conx-dot:Waiting conx-dot:CheckIn conx-dot:Loading
+        conx-dot:Unloading conx-dot:InternalTransport conx-dot:Lifting conx-dot:Handover
+      )
+    ] .

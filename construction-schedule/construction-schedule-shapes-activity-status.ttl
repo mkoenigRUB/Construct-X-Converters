@@ -1,0 +1,27 @@
+@prefix conx-cs: <https://www.construct-x.org/ontology/construction-schedule#> .
+@prefix conx-cs-sh: <https://www.construct-x.org/shapes/construction-schedule#> .
+@prefix conx-status: <https://www.construct-x.org/vocab/construction-schedule/activity-status#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<https://www.construct-x.org/shapes/construction-schedule/activity-status>
+    a owl:Ontology ;
+    owl:versionIRI <https://www.construct-x.org/shapes/construction-schedule/activity-status/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports
+        <https://www.construct-x.org/ontology/construction-schedule/0.5.0> ,
+        <https://www.construct-x.org/vocab/construction-schedule/activity-status/0.1.2> ;
+    dcterms:title "Construct-X Activity Status SHACL Profile"@en .
+
+conx-cs-sh:ActivityStatusVocabularyShape
+    a sh:NodeShape ;
+    sh:targetClass conx-cs:Activity ;
+    sh:property [
+        sh:path conx-cs:hasStatus ;
+        sh:nodeKind sh:IRI ;
+        sh:in (
+            conx-status:Planned conx-status:InProgress
+            conx-status:Completed conx-status:Cancelled
+        )
+    ] .

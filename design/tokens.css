@@ -1,0 +1,257 @@
+/* ============================================================================
+   Construct-X Design Tokens — kanonische Quelle (Single Source of Truth)
+   Stand: 2026-11-06
+
+   Quellen (Verbindlichkeit):
+   [RUB]  RUB-Markenportal (PDFs in design/): Farben, Logo, Icons —
+          verbindliche Markenregeln.
+   [App]  Frontend-Designvorgaben "RUB-inspirierte Anwendungen" (Bauablaufplan):
+          wiederverwendbare UI-Entscheidungen, KEINE offiziellen RUB-Vorgaben.
+   [CONX] Construct-X-Projectwerte (Domänenfarben, Code-Palette).
+
+   Barrierefreiheit (WCAG 2.2, gemäß [RUB] "Farben"):
+   - Kleiner Text (< 24 px; < 19 px bei fetter Schrift): Kontrast AAA.
+   - Großer Text (≥ 24 px bzw. ≥ 19 px fett): Kontrast AA.
+   - Auf 100er-Volltönen digital nur großer Text; kleiner Text nur auf
+     50er-Abstufungen (diese erfüllen AAA).
+   - Text auf Ergänzungsfarben: RUB Blau; auf RUB Blau: Weiß.
+   - Status/Interaktion nie nur über Farbe (immer Text/Symbol/Form).
+
+   Nutzung (Vanilla-JS, kein Build-Step):
+   - design/conx.css importiert diese Datei (@import "tokens.css") und
+     definiert die gemeinsamen Komponenten.
+   - Jedes Frontend bindet EINE Datei ein:
+       <link rel="stylesheet" href="/design/conx.css?v=N">
+   - ÄNDERUNG: nur in dieser Datei, danach Cache-Buster ?v=N in allen
+     index.html erhöhen (GUIDELINE.md §9).
+   ============================================================================ */
+
+/* ==== Self-hosted Fonts (guidelines: nur tatsächlich genutzte Schriften,
+   zentral konfiguriert; keine Webfont-CSP — Dateien liegen in design/fonts/)
+   [App] — keine offizielle RUB-Schriftvorgabe.
+   Fallbacks: Segoe UI (System) / Consolas.                        ==== */
+@font-face {
+    font-family: "DM Sans";
+    src: url("fonts/dmsans-latin.woff2") format("woff2");
+    font-weight: 400 700;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "DM Sans";
+    src: url("fonts/dmsans-latin-ext.woff2") format("woff2");
+    font-weight: 400 700;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Manrope";
+    src: url("fonts/manrope-latin.woff2") format("woff2");
+    font-weight: 400 800;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Manrope";
+    src: url("fonts/manrope-latin-ext.woff2") format("woff2");
+    font-weight: 400 800;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "IBM Plex Mono";
+    src: url("fonts/ibmplexmono-r-latin.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "IBM Plex Mono";
+    src: url("fonts/ibmplexmono-m-latin.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "IBM Plex Mono";
+    src: url("fonts/ibmplexmono-r-latin-ext.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "IBM Plex Mono";
+    src: url("fonts/ibmplexmono-m-latin-ext.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    /* ==== [RUB] Markenfarben (Markenportal "Farben") ==================== */
+    --rub-blue:       #003560;  /* RUB Blau — Hauptfarbe (Pantone 540) */
+    --rub-white:      #ffffff;
+
+    /* Ergänzungsfarben: 6 Familien, je 100 (Vollton) / 50 (hell).
+       Regeln [RUB]:
+       - Pro Medium/Seite maximal EINE Familie als gestalterische
+         Farbgruppe; kein Kombinieren. Keine exklusiven Zuordnungen.
+       - 100er digital: nur großer Text. 50er: auch kleiner Text (AAA). */
+    --rub-hellblau-100: #66b3fb;
+    --rub-hellblau-50:  #dcebfb;
+    --rub-lila-100:     #bb97ff;
+    --rub-lila-50:      #e9dcfb;
+    --rub-rosa-100:     #f878dc;
+    --rub-rosa-50:      #fbdcf6;
+    --rub-orange-100:   #ff7c5f;
+    --rub-orange-50:    #ffddd6;
+    --rub-gelb-100:     #ffdf41;
+    --rub-gelb-50:      #fff3cd;
+    --rub-gruen-100:    #37de6f;
+    --rub-gruen-50:     #d3f7d4;
+
+    /* ==== [RUB] Diagramm-/Infografik-Palette ============================
+       Nur für Datenreihen auf hellem Hintergrund (Mindestkontrast 3:1).
+       Zusätzlich beschriften bzw. Formen/Muster unterscheiden —
+       Information nie nur über Farbe.                                 */
+    --chart-hellblau:   #4296e9;
+    --chart-rosa:       #e560c8;
+    --chart-rot:        #e8613d;
+    --chart-grau:       #899597;
+    --chart-gruen:      #18a748;
+
+    /* ==== [App] UI-Neutraltöne (Anwendungsentscheidung, keine
+       RUB-Markenfarben — sehr hell, kühl getönt, keine grauen Flächen) === */
+    --bg:               #f8fafc;  /* Seitenhintergrund */
+    --surface:          #ffffff;  /* Karten, Panels */
+    --surface-muted:    #f2f5f8;  /* gedämpfte Fläche (Gruppierung) */
+    --text:             #162636;  /* Primärtext */
+    --muted:            #506071;  /* Sekundärtext, Labels, Meta */
+    --border:           #dae0e7;  /* feine blau-graue Grenzen */
+    --selection:        #e9f4fb;  /* aktive Fläche: Auswahl, Hover, Chips */
+
+    /* ==== Primär-UI (auf RUB Blau abgeleitet) =========================== */
+    --primary:          var(--rub-blue);  /* Primäraktion, aktive Navigation */
+    --primary-hover:    #002a4d;          /* Primary −15 % (Hover/Active) */
+    --primary-contrast: var(--rub-white); /* Text/Symbole auf Primary */
+    --primary-soft:     var(--rub-hellblau-50);
+    --primary-tint:     var(--selection);
+
+    /* ==== UI-States ([CONX] — Kontrast auf Soft-Fläche ≥ 4.5:1) =========
+       Status immer zusätzlich mit Symbol/Text kenntlich machen.        */
+    --success:          #1a7f37;
+    --success-soft:     #e6f4ea;
+    --warning:          #9a6700;  /* dunkles Gelb: Text auf hellem Grund */
+    --warning-soft:     var(--rub-gelb-50);
+    --warning-border:   #f0d68a;
+    --error:            #b91c1c;
+    --error-soft:       #fdecee;
+    --error-border:     #f3c2c6;
+    --info:             var(--primary);
+    --info-soft:        var(--selection);
+    --pending:          #d69e2e;  /* Status-Punkt: wird geprüft */
+    --pending-soft:     #fcf3dd;
+
+    /* ==== [CONX] Domänen-Farben (9 Ontologie-Domänen) ===================
+       Kennfarben für Chips/Labels/Legenden. Dokumentierte Ausnahme zur
+       Markenregel "eine Farbgruppe pro Medium" (GUIDELINE.md §3.5).    */
+    --dom-schedule:     var(--rub-blue);  /* Construction Schedule */
+    --dom-breakdown:    #8250df;          /* Breakdown Structure */
+    --dom-boq:          #1a7f37;          /* GAEB BoQ */
+    --dom-progress:     #bf3989;          /* Progress Report */
+    --dom-site:         #0e7490;          /* Construction Site */
+    --dom-delivery:     #b45309;          /* Construction Delivery */
+    --dom-ba:           #b91c1c;          /* Built Asset */
+    --dom-link:         #9a6700;          /* Link-Ontologien */
+    --dom-vocab:        #57606a;          /* Vokabulare */
+
+    /* ==== [RUB] Domänen-Icons (design/Icons/*.svg, Lucide-Stil) =========
+       Data-URIs mit FIXER Primärfarbe #003560 (in background-image-URIs
+       wird currentColor nicht geerbt). Einsatz: .icon.icon-boq u. a.
+       Lucide nur für UI erlaubt → ausschließlich im Interface.        */
+    --icon-dom-boq: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23003560%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20aria-hidden%3D%22true%22%3E%3Crect%20x%3D%224%22%20y%3D%223%22%20width%3D%2216%22%20height%3D%2218%22%20rx%3D%222%22%2F%3E%3Cpath%20d%3D%22M4%209h16M4%2015h16%22%2F%3E%3Cpath%20d%3D%22M10%209v12%22%2F%3E%3C%2Fsvg%3E%0A");
+    --icon-dom-schedule: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23003560%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20aria-hidden%3D%22true%22%3E%3Crect%20x%3D%223%22%20y%3D%224%22%20width%3D%2218%22%20height%3D%2217%22%20rx%3D%222%22%2F%3E%3Cpath%20d%3D%22M3%209h18%22%2F%3E%3Cpath%20d%3D%22M8%202v4M16%202v4%22%2F%3E%3Cpath%20d%3D%22M8%2014l3%203%205-5%22%2F%3E%3C%2Fsvg%3E%0A");
+    --icon-dom-progress: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23003560%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20aria-hidden%3D%22true%22%3E%3Cpath%20d%3D%22M4%2012a8%208%200%200%201%2014.9-4%22%2F%3E%3Cpath%20d%3D%22M20%2012a8%208%200%200%201-14.9%204%22%2F%3E%3Cpath%20d%3D%22M19%204v4h-4%22%2F%3E%3Cpath%20d%3D%22M5%2020v-4h4%22%2F%3E%3C%2Fsvg%3E%0A");
+    --icon-dom-site: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23003560%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20aria-hidden%3D%22true%22%3E%3Cpath%20d%3D%22M12%2021s-6-5.2-6-9.5A6%206%200%200%201%2012%205a6%206%200%200%201%206%206.5C18%2015.8%2012%2021%2012%2021z%22%2F%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2211.5%22%20r%3D%222.5%22%2F%3E%3C%2Fsvg%3E%0A");
+    --icon-dom-delivery: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23003560%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20aria-hidden%3D%22true%22%3E%3Cpath%20d%3D%22M1%205h13v11H1z%22%2F%3E%3Cpath%20d%3D%22M14%208h4l4%204v4h-8%22%2F%3E%3Ccircle%20cx%3D%226%22%20cy%3D%2219%22%20r%3D%222%22%2F%3E%3Ccircle%20cx%3D%2218%22%20cy%3D%2219%22%20r%3D%222%22%2F%3E%3C%2Fsvg%3E%0A");
+
+    /* ==== [App] Typografie ==============================================
+       Rollen: Fließtext/UI = DM Sans · Überschriften = Manrope ·
+       Daten (IDs, Zahlen, Code, Ordnungsnummern) = IBM Plex Mono.      */
+    --font-body:    "DM Sans", "Segoe UI", -apple-system, system-ui, Arial, sans-serif;
+    --font-display: "Manrope", "Segoe UI", -apple-system, system-ui, Arial, sans-serif;
+    --font-mono:    "IBM Plex Mono", "Cascadia Code", Consolas, "SF Mono", monospace;
+    --text-xs:      12px;   /* Meta, Labels — Minimum, nichts Kleineres */
+    --text-sm:      13px;   /* Chips, Status */
+    --text-md:      14px;   /* UI-Standard (Fließtext, Formen, Buttons) */
+    --text-base:    16px;   /* längere Fließtexte */
+    --text-lg:      19px;   /* Unterabschnitte (fett = großer Text) */
+    --text-xl:      24px;   /* Seitentitel (ab hier "großer Text") */
+    --text-2xl:     32px;   /* Hero */
+    --leading:      1.5;
+    --leading-tight: 1.2;
+
+    /* ==== [App] Spacing: 4-px-Grundraster ===============================
+       Mehr Abstand ZWISCHEN Hauptbereichen als INNERHALB von Gruppen. */
+    --space-1:  4px;
+    --space-2:  8px;
+    --space-3:  12px;
+    --space-4:  16px;
+    --space-5:  20px;
+    --space-6:  24px;
+    --space-8:  32px;
+    --space-10: 40px;
+    --space-12: 48px;
+
+    /* ==== [App] Radien & Schatten (kompakt, sparsam) ==================== */
+    --radius-xs:  4px;   /* Chips, Table-Zellen */
+    --radius-sm:  5px;   /* Buttons, Inputs, kleine Flächen */
+    --radius:     8px;   /* Karten, Dropzone (generischer Wert) */
+    --radius-lg:  12px;  /* große Panels */
+    --shadow-sm:  0 1px 2px rgba(15, 23, 42, 0.05);
+    --shadow-md:  0 6px 18px rgba(15, 23, 42, 0.08);
+    --focus-ring: 2px solid var(--primary);
+
+    /* ==== [RUB] Logo =====================================================
+        design/logo.svg      — STANDARD für Topbars: Lehrstuhl-Lockup
+          "Computing in Engineering" + RUB-Würfel + Wortmarke (ein
+          horizontales Logo, viewBox 1173×300, rein #003560).
+          Mindestgröße digital: WÜRFEL ≥ 36 px. Der Würfel ist ≈ 60 %
+          der Bildhöhe → Lockup in der Topbar mit 60 px Höhe einsetzen
+          (→ --logo-lockup-h). Schutzraum = 1/5 der Würfelhöhe (≈ 7 px,
+          durch die Topbar-Höhe 72 px gedeckt).
+        design/logo-rub.svg  — kompakte Wortmarke (nur Text, 3 Zeilen).
+          KEIN vollständiges RUB-Logo (ohne Würfel) → nur für enge,
+          textlastige Kontexte, nie als alleiniges Markenzeichen.
+        Negativ-Variante (weiß) für blaue Hintergründe; B/W nur wenn
+        alle Logos daneben B/W sind. Favicon/App-Icon: gesonderte
+        Würfel-im-Kreis-Version (bei cd@rub.de anfragen).                */
+    --logo-lockup:   url("logo.svg");
+    --logo-lockup-h: 60px;  /* Topbar-Standard (Würfel-Mindestgröße 36 px) */
+    --logo-wordmark: url("logo-rub.svg");
+    --logo-guard: 7px;      /* 1/5 von 36 px */
+
+    /* ==== [CONX] Code-Panels (dunkel) =================================== */
+    --code-bg:            #0f172a;
+    --code-fg:            #cbd5e1;
+    --code-gutter:        #64748b;
+    --code-gutter-active: #94a3b8;
+    /* Syntax-Palette (Kontrast auf --code-bg geprüft, ≥ 4.5:1) */
+    --hl-keyword:   #c792ea;
+    --hl-directive: #c792ea;
+    --hl-attr:      #9cdcfe;
+    --hl-tag:       #569cd6;
+    --hl-name:      #9cdcfe;
+    --hl-string:    #ce9178;
+    --hl-key:       #9cdcfe;
+    --hl-uri:       #4ec9b0;
+    --hl-prefix:    #4ec9b0;
+    --hl-number:    #b5cea8;
+    --hl-comment:   #6a9955;
+    --hl-cdata:     #8a9971;
+    --hl-entity:    #dcdcaa;
+    --hl-pi:        #6a9955;
+    --hl-decl:      #dcdcaa;
+    --hl-blank:     #d7ba7d;
+    --hl-punct:     #8aa0c0;
+}

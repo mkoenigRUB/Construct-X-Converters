@@ -1,0 +1,36 @@
+@prefix conx-cpr: <https://www.construct-x.org/ontology/construction-progress-report#> .
+@prefix conx-cpr-sh: <https://www.construct-x.org/shapes/construction-progress-report#> .
+@prefix conx-status: <https://www.construct-x.org/vocab/construction-schedule/activity-status#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<https://www.construct-x.org/shapes/construction-progress-report/activity-status>
+    a owl:Ontology ;
+    owl:versionIRI <https://www.construct-x.org/shapes/construction-progress-report/activity-status/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports
+        <https://www.construct-x.org/ontology/construction-progress-report/0.1.0> ,
+        <https://www.construct-x.org/vocab/construction-schedule/activity-status/0.1.2> ;
+    dcterms:title "Construct-X Construction Progress Report Activity Status SHACL Profile"@en ;
+    dcterms:title "Construct-X-SHACL-Profil für Vorgangsstatus in Baufortschrittsmeldungen"@de ;
+    dcterms:publisher <https://www.construct-x.org/id/organization/construct-x> ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> .
+
+conx-cpr-sh:ConstructionProgressReportActivityStatusShape
+    a sh:NodeShape ;
+    sh:targetClass conx-cpr:ConstructionProgressReport ;
+    sh:property [
+        sh:path conx-cpr:activityStatus ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:in (
+            conx-status:Planned
+            conx-status:InProgress
+            conx-status:Completed
+            conx-status:Cancelled
+        ) ;
+        sh:message "activityStatus must use the Construct-X Activity Status vocabulary."@en ;
+        sh:message "activityStatus muss das Construct-X Activity Status Vocabulary verwenden."@de
+    ] .

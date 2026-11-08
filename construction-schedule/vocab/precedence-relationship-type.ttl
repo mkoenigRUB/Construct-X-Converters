@@ -1,0 +1,71 @@
+@prefix conx-prt: <https://www.construct-x.org/vocab/construction-schedule/precedence-relationship-type#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/vocab/construction-schedule/precedence-relationship-type>
+    a owl:Ontology ;
+    owl:versionIRI <https://www.construct-x.org/vocab/construction-schedule/precedence-relationship-type/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+    dcterms:title "Construct-X Precedence Relationship Type Vocabulary"@en ;
+    dcterms:title "Construct-X-Vokabular für Typen von Anordnungsbeziehungen"@de ;
+    dcterms:description "Controlled vocabulary for the four classical precedence relationship types. DIN 69900 terminology is provided as source metadata and German labels."@en ;
+    dcterms:description "Kontrolliertes Vokabular für die vier klassischen Typen von Anordnungsbeziehungen. Die Terminologie nach DIN 69900 ist als Quellenmetadatum und über deutsche Benennungen hinterlegt."@de ;
+    dcterms:publisher <https://www.construct-x.org/id/organization/construct-x> ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:created "2026-10-01"^^xsd:date ;
+    dcterms:modified "2026-10-21"^^xsd:date ;
+    vann:preferredNamespacePrefix "conx-prt" ;
+    vann:preferredNamespaceUri "https://www.construct-x.org/vocab/construction-schedule/precedence-relationship-type#" .
+
+conx-prt:PrecedenceRelationshipType
+    a skos:ConceptScheme ;
+    skos:prefLabel "Precedence Relationship Type"@en ;
+    skos:prefLabel "Typ der Anordnungsbeziehung"@de .
+
+conx-prt:FinishToStart
+    a skos:Concept ;
+    skos:notation "FS" ;
+    skos:prefLabel "End-to-Start Relationship"@en ;
+    skos:altLabel "Finish-to-Start Relationship"@en ;
+    skos:prefLabel "Normalfolge"@de ;
+    skos:altLabel "Normalfolge (NF)"@de ;
+    skos:altLabel "Ende-Anfang-Folge (EA)"@de ;
+    skos:inScheme conx-prt:PrecedenceRelationshipType ;
+    skos:topConceptOf conx-prt:PrecedenceRelationshipType ;
+    dcterms:source "DIN 69900:2009-01, 3.57" .
+
+conx-prt:StartToStart
+    a skos:Concept ;
+    skos:notation "SS" ;
+    skos:prefLabel "Start-to-Start Relationship"@en ;
+    skos:prefLabel "Anfangsfolge"@de ;
+    skos:altLabel "Anfangsfolge (AF)"@de ;
+    skos:altLabel "Anfang-Anfang-Folge (AA)"@de ;
+    skos:inScheme conx-prt:PrecedenceRelationshipType ;
+    skos:topConceptOf conx-prt:PrecedenceRelationshipType ;
+    dcterms:source "DIN 69900:2009-01, 3.2" .
+
+conx-prt:FinishToFinish
+    a skos:Concept ;
+    skos:notation "FF" ;
+    skos:prefLabel "Finish-to-Finish Relationship"@en ;
+    skos:prefLabel "Endfolge"@de ;
+    skos:altLabel "Endfolge (EF)"@de ;
+    skos:altLabel "Ende-Ende-Folge (EE)"@de ;
+    skos:inScheme conx-prt:PrecedenceRelationshipType ;
+    skos:topConceptOf conx-prt:PrecedenceRelationshipType ;
+    dcterms:source "DIN 69900:2009-01, 3.11" .
+
+conx-prt:StartToFinish
+    a skos:Concept ;
+    skos:notation "SF" ;
+    skos:prefLabel "Start-to-Finish Relationship"@en ;
+    skos:prefLabel "Sprungfolge"@de ;
+    skos:altLabel "Sprungfolge (SF)"@de ;
+    skos:altLabel "Anfang-Ende-Folge (AE)"@de ;
+    skos:inScheme conx-prt:PrecedenceRelationshipType ;
+    skos:topConceptOf conx-prt:PrecedenceRelationshipType ;
+    dcterms:source "DIN 69900:2009-01, 3.83" .

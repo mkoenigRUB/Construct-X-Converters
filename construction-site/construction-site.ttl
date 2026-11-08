@@ -1,0 +1,362 @@
+@prefix conx-site: <https://www.construct-x.org/ontology/construction-site#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/ontology/construction-site>
+    a owl:Ontology ;
+    owl:versionIRI <https://www.construct-x.org/ontology/construction-site/0.2.0> ;
+    owl:versionInfo "0.2.0" ;
+    dcterms:title "Construct-X Construction Site Ontology"@en ;
+    dcterms:title "Construct-X-Ontologie für Baustellen"@de ;
+    dcterms:description "Describes the construction site as a production environment, including logistics areas, construction fields, operational site areas, transfer points, site installations, equipment, temporary facilities, utility supply, local spatial referencing and time-varying area allocations."@en ;
+    dcterms:description "Beschreibt die Baustelle als Produktionsumgebung mit Baulogistikarealen, Baufeldern, operativen Baustellenflächen, Übergabepunkten, Baustelleneinrichtungen, Geräten, temporären Einrichtungen, Medienversorgung, lokaler räumlicher Referenzierung und zeitlich veränderlichen Flächenbelegungen."@de ;
+    dcterms:publisher <https://www.construct-x.org/id/organization/construct-x> ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:created "2026-10-22"^^xsd:date ;
+    dcterms:modified "2026-10-22"^^xsd:date ;
+    dcterms:source "Construct-X working document: Ontologien & Standards für Baustellen, 22 Oct 2026"@de ;
+    vann:preferredNamespacePrefix "conx-site" ;
+    vann:preferredNamespaceUri "https://www.construct-x.org/ontology/construction-site#" .
+
+#################################################################
+# Classes
+#################################################################
+
+conx-site:ConstructionLogisticsArea
+    a owl:Class ;
+    rdfs:label "Construction Logistics Area"@en ;
+    skos:altLabel "Baulogistikareal"@de ;
+    rdfs:comment "The overall operational area relevant to construction logistics, including areas located outside the construction-site boundary."@en ;
+    rdfs:comment "Gesamter Wirkbereich der Baulogistik einschließlich Flächen außerhalb der eigentlichen Baustellengrenze."@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-site> .
+
+conx-site:ConstructionSite
+    a owl:Class ;
+    rdfs:label "Construction Site"@en ;
+    skos:altLabel "Baustelle"@de ;
+    rdfs:comment "A project-specific construction site as an organisational and spatial production environment."@en ;
+    rdfs:comment "Projektbezogene Baustelle als organisatorische und räumliche Produktionsumgebung."@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-site> .
+
+conx-site:ConstructionField
+    a owl:Class ;
+    rdfs:label "Construction Field"@en ;
+    skos:altLabel "Baufeld"@de ;
+    rdfs:comment "A spatially delimited field within a Construction Site in which construction activities and site logistics take place."@en ;
+    rdfs:comment "Räumlich abgegrenztes Baufeld innerhalb einer Baustelle."@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-site> .
+
+conx-site:SiteArea
+    a owl:Class ;
+    rdfs:label "Site Area"@en ;
+    skos:altLabel "Baustelleneinrichtungsfläche"@de ;
+    rdfs:comment "A concrete operational or logistics area on or around a Construction Site. It is a stable spatial entity. hasAreaType denotes its standard (default) functional type; time-varying usage is expressed through AreaAllocations."@en ;
+    rdfs:comment "Konkrete operative oder logistische Fläche auf oder im Umfeld einer Baustelle. Sie ist eine stabile räumliche Entität. hasAreaType bezeichnet ihren Standard-Flächentyp; zeitlich veränderliche Nutzung wird über Flächenbelegungen (AreaAllocation) ausgedrückt."@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-site> .
+
+conx-site:TransferPoint
+    a owl:Class ;
+    rdfs:label "Transfer Point"@en ;
+    skos:altLabel "Übergabepunkt"@de ;
+    rdfs:comment "A designated location at which material, custody or responsibility is handed over."@en ;
+    rdfs:comment "Definierter Ort, an dem Material, Obhut oder Verantwortung übergeben wird."@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-site> .
+
+conx-site:LocalCoordinateSystem
+    a owl:Class ;
+    rdfs:label "Local Coordinate System"@en ;
+    skos:altLabel "Lokales Koordinatensystem"@de ;
+    rdfs:comment "A construction-site-specific coordinate system defined by a reference point, coordinate reference system identifier and rotation to grid north."@en ;
+    rdfs:comment "Baustellenspezifisches Koordinatensystem mit Referenzpunkt, Koordinatenreferenzsystem und Rotation zu Gitternord."@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-site> .
+
+conx-site:SiteInstallation
+    a owl:Class ;
+    rdfs:label "Site Installation"@en ;
+    skos:altLabel "Baustelleneinrichtung"@de ;
+    rdfs:comment "A temporary production resource or infrastructure element installed or used on a Construction Site."@en ;
+    rdfs:comment "Temporäres Produktionsmittel oder Infrastrukturelement einer Baustelle."@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-site> .
+
+conx-site:SiteEquipment
+    a owl:Class ;
+    rdfs:subClassOf conx-site:SiteInstallation ;
+    rdfs:label "Site Equipment"@en ;
+    skos:altLabel "Baustellengerät"@de ;
+    rdfs:comment "Equipment used for construction-site production or logistics, classified by an equipment-type vocabulary."@en ;
+    rdfs:comment "Gerät für Produktion oder Logistik auf der Baustelle, klassifiziert über ein Gerätetyp-Vokabular."@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-site> .
+
+conx-site:TemporarySiteFacility
+    a owl:Class ;
+    rdfs:subClassOf conx-site:SiteInstallation ;
+    rdfs:label "Temporary Site Facility"@en ;
+    skos:altLabel "Temporäre Baustelleneinrichtung"@de ;
+    rdfs:comment "A temporary facility such as a container system or site container."@en ;
+    rdfs:comment "Temporäre Einrichtung wie Containeranlage oder Baustellencontainer."@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-site> .
+
+conx-site:UtilitySupply
+    a owl:Class ;
+    rdfs:subClassOf conx-site:SiteInstallation ;
+    rdfs:label "Utility Supply"@en ;
+    skos:altLabel "Medienversorgung"@de ;
+    rdfs:comment "A utility supply available on the Construction Site, such as site electricity or site water."@en ;
+    rdfs:comment "Auf der Baustelle verfügbare Medienversorgung wie Baustrom oder Bauwasser."@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-site> .
+
+conx-site:AreaAllocation
+    a owl:Class ;
+    rdfs:label "Area Allocation"@en ;
+    skos:altLabel "Flächenbelegung"@de ;
+    rdfs:comment "A time-bounded assignment of a functional type to a Site Area. The Site Area itself remains a stable spatial entity; its usage over time is expressed through one or more AreaAllocations, each with its own validity interval and status."@en ;
+    rdfs:comment "Zeitlich begrenzte Zuordnung eines Flächentyps zu einer Baustellenfläche. Die Fläche selbst bleibt eine stabile räumliche Entität; ihre Nutzung über die Zeit wird durch eine oder mehrere Flächenbelegungen mit jeweils eigenem Gültigkeitsintervall und Status ausgedrückt."@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-site> .
+
+#################################################################
+# Object properties
+#################################################################
+
+conx-site:hasConstructionSite
+    a owl:ObjectProperty ;
+    rdfs:domain conx-site:ConstructionLogisticsArea ;
+    rdfs:range conx-site:ConstructionSite ;
+    rdfs:label "has construction site"@en ;
+    skos:altLabel "enthält Baustelle"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-site> .
+
+conx-site:hasExternalSiteArea
+    a owl:ObjectProperty ;
+    rdfs:domain conx-site:ConstructionLogisticsArea ;
+    rdfs:range conx-site:SiteArea ;
+    rdfs:label "has external site area"@en ;
+    skos:altLabel "enthält externe Baustellenfläche"@de ;
+    rdfs:comment "Associates the logistics area with operational areas outside the construction-site boundary, for example waiting or pre-staging areas."@en ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-site> .
+
+conx-site:hasConstructionField
+    a owl:ObjectProperty ;
+    owl:inverseOf conx-site:isConstructionFieldOf ;
+    rdfs:domain conx-site:ConstructionSite ;
+    rdfs:range conx-site:ConstructionField ;
+    rdfs:label "has construction field"@en ;
+    skos:altLabel "hat Baufeld"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-site> .
+
+conx-site:isConstructionFieldOf
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain conx-site:ConstructionField ;
+    rdfs:range conx-site:ConstructionSite ;
+    rdfs:label "is construction field of"@en ;
+    skos:altLabel "ist Baufeld von"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-site> .
+
+conx-site:hasSiteArea
+    a owl:ObjectProperty ;
+    owl:inverseOf conx-site:isSiteAreaOf ;
+    rdfs:domain conx-site:ConstructionField ;
+    rdfs:range conx-site:SiteArea ;
+    rdfs:label "has site area"@en ;
+    skos:altLabel "hat Baustellenfläche"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-site> .
+
+conx-site:isSiteAreaOf
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain conx-site:SiteArea ;
+    rdfs:range conx-site:ConstructionField ;
+    rdfs:label "is site area of"@en ;
+    skos:altLabel "ist Baustellenfläche von"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-site> .
+
+conx-site:hasLocalCoordinateSystem
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain conx-site:ConstructionSite ;
+    rdfs:range conx-site:LocalCoordinateSystem ;
+    rdfs:label "has local coordinate system"@en ;
+    skos:altLabel "hat lokales Koordinatensystem"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-site> .
+
+conx-site:hasAreaType
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain conx-site:SiteArea ;
+    rdfs:range skos:Concept ;
+    rdfs:label "has area type"@en ;
+    skos:altLabel "hat Flächentyp"@de ;
+    rdfs:comment "Classifies a Site Area using a controlled area-type concept."@en ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-site> .
+
+conx-site:isLocatedInArea
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain conx-site:TransferPoint ;
+    rdfs:range conx-site:SiteArea ;
+    rdfs:label "is located in area"@en ;
+    skos:altLabel "liegt in Fläche"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-site> .
+
+conx-site:hasSiteInstallation
+    a owl:ObjectProperty ;
+    rdfs:domain conx-site:ConstructionSite ;
+    rdfs:range conx-site:SiteInstallation ;
+    rdfs:label "has site installation"@en ;
+    skos:altLabel "hat Baustelleneinrichtung"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-site> .
+
+conx-site:usesSiteArea
+    a owl:ObjectProperty ;
+    rdfs:domain conx-site:SiteInstallation ;
+    rdfs:range conx-site:SiteArea ;
+    rdfs:label "uses site area"@en ;
+    skos:altLabel "nutzt Baustellenfläche"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-site> .
+
+conx-site:requiresUtility
+    a owl:ObjectProperty ;
+    rdfs:domain conx-site:SiteInstallation ;
+    rdfs:range conx-site:UtilitySupply ;
+    rdfs:label "requires utility"@en ;
+    skos:altLabel "benötigt Medium"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-site> .
+
+conx-site:hasRestrictedZone
+    a owl:ObjectProperty ;
+    rdfs:domain conx-site:SiteEquipment ;
+    rdfs:range conx-site:SiteArea ;
+    rdfs:label "has restricted zone"@en ;
+    skos:altLabel "hat Sperrzone"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-site> .
+
+conx-site:hasEquipmentType
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain conx-site:SiteEquipment ;
+    rdfs:range skos:Concept ;
+    rdfs:label "has equipment type"@en ;
+    skos:altLabel "hat Gerätetyp"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-site> .
+
+conx-site:hasFacilityType
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain conx-site:TemporarySiteFacility ;
+    rdfs:range skos:Concept ;
+    rdfs:label "has facility type"@en ;
+    skos:altLabel "hat Einrichtungstyp"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-site> .
+
+conx-site:hasUtilityType
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain conx-site:UtilitySupply ;
+    rdfs:range skos:Concept ;
+    rdfs:label "has utility type"@en ;
+    skos:altLabel "hat Medientyp"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-site> .
+
+conx-site:referencePoint
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain conx-site:LocalCoordinateSystem ;
+    rdfs:range geo:Geometry ;
+    rdfs:label "reference point"@en ;
+    skos:altLabel "Fixpunkt"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-site> .
+
+conx-site:hasAreaAllocation
+    a owl:ObjectProperty ;
+    owl:inverseOf conx-site:allocatedArea ;
+    rdfs:domain conx-site:SiteArea ;
+    rdfs:range conx-site:AreaAllocation ;
+    rdfs:label "has area allocation"@en ;
+    skos:altLabel "hat Flächenbelegung"@de ;
+    rdfs:comment "Associates a Site Area with the time-bounded allocations of functional types to that area."@en ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-site> .
+
+conx-site:allocatedArea
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain conx-site:AreaAllocation ;
+    rdfs:range conx-site:SiteArea ;
+    rdfs:label "allocated area"@en ;
+    skos:altLabel "belegte Fläche"@de ;
+    rdfs:comment "The Site Area to which this allocation applies (exactly one area per allocation)."@en ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-site> .
+
+conx-site:allocationType
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain conx-site:AreaAllocation ;
+    rdfs:range skos:Concept ;
+    rdfs:label "allocation type"@en ;
+    skos:altLabel "Belegungstyp"@de ;
+    rdfs:comment "The functional type assigned to the area during the validity interval, using the controlled area-type vocabulary."@en ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-site> .
+
+conx-site:allocationStatus
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain conx-site:AreaAllocation ;
+    rdfs:range skos:Concept ;
+    rdfs:label "allocation status"@en ;
+    skos:altLabel "Belegungsstatus"@de ;
+    rdfs:comment "The status of the allocation, for example planned, actual or released."@en ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-site> .
+
+#################################################################
+# Datatype properties
+#################################################################
+
+conx-site:identifier
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:range xsd:string ;
+    rdfs:label "identifier"@en ;
+    skos:altLabel "Kennung"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-site> .
+
+conx-site:name
+    a owl:DatatypeProperty ;
+    rdfs:range xsd:string ;
+    rdfs:label "name"@en ;
+    skos:altLabel "Bezeichnung"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-site> .
+
+conx-site:description
+    a owl:DatatypeProperty ;
+    rdfs:range xsd:string ;
+    rdfs:label "description"@en ;
+    skos:altLabel "Beschreibung"@de ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-site> .
+
+conx-site:crsIdentifier
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain conx-site:LocalCoordinateSystem ;
+    rdfs:range xsd:string ;
+    rdfs:label "coordinate reference system identifier"@en ;
+    skos:altLabel "Kennung des Koordinatenreferenzsystems"@de ;
+    rdfs:comment "Identifier of the external coordinate reference system, for example an EPSG identifier."@en ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-site> .
+
+conx-site:rotationToGridNorth
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain conx-site:LocalCoordinateSystem ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "rotation to grid north"@en ;
+    skos:altLabel "Rotation zu Gitternord"@de ;
+    rdfs:comment "Rotation angle from the local coordinate system to grid north, expressed in degrees."@en ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-site> .
+
+conx-site:validFrom
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain conx-site:AreaAllocation ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "valid from"@en ;
+    skos:altLabel "gültig ab"@de ;
+    rdfs:comment "Start of the validity interval of the area allocation."@en ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-site> .
+
+conx-site:validTo
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain conx-site:AreaAllocation ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "valid to"@en ;
+    skos:altLabel "gültig bis"@de ;
+    rdfs:comment "End of the validity interval of the area allocation."@en ;
+    rdfs:isDefinedBy <https://www.construct-x.org/ontology/construction-site> .

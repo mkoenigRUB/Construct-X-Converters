@@ -1,0 +1,195 @@
+@prefix conx-site: <https://www.construct-x.org/ontology/construction-site#> .
+@prefix conx-site-sh: <https://www.construct-x.org/shapes/construction-site#> .
+@prefix conx-area: <https://www.construct-x.org/vocab/construction-site/area-type#> .
+@prefix conx-eq: <https://www.construct-x.org/vocab/construction-site/equipment-type#> .
+@prefix conx-fac: <https://www.construct-x.org/vocab/construction-site/facility-type#> .
+@prefix conx-util: <https://www.construct-x.org/vocab/construction-site/utility-type#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<https://www.construct-x.org/shapes/construction-site/site-logistics>
+    a owl:Ontology ;
+    owl:versionIRI <https://www.construct-x.org/shapes/construction-site/site-logistics/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports
+        <https://www.construct-x.org/ontology/construction-site/0.2.0> ,
+        <https://www.construct-x.org/vocab/construction-site/area-type/0.1.0> ,
+        <https://www.construct-x.org/vocab/construction-site/equipment-type/0.1.0> ,
+        <https://www.construct-x.org/vocab/construction-site/facility-type/0.1.0> ,
+        <https://www.construct-x.org/vocab/construction-site/utility-type/0.1.0> ;
+    dcterms:title "Construct-X Construction Site Logistics SHACL Profile"@en .
+
+conx-site-sh:TransferPointAllowedAreaShape
+    a sh:NodeShape ;
+    sh:targetClass conx-site:TransferPoint ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "A Transfer Point must be located in a Loading Zone, Intermediate Storage Area, Storage Area, Work Area or Parking Area."@en ;
+        sh:message "Ein Übergabepunkt muss in einer Ladezone, einem Zwischenlager, Lager, Arbeitsbereich oder einer Stellfläche liegen."@de ;
+        sh:select """
+            PREFIX conx-site: <https://www.construct-x.org/ontology/construction-site#>
+            PREFIX conx-area: <https://www.construct-x.org/vocab/construction-site/area-type#>
+            SELECT $this WHERE {
+              $this conx-site:isLocatedInArea ?area .
+              ?area conx-site:hasAreaType ?type .
+              FILTER (?type NOT IN (
+                conx-area:LoadingZone,
+                conx-area:IntermediateStorageArea,
+                conx-area:StorageArea,
+                conx-area:WorkArea,
+                conx-area:ParkingArea
+              ))
+            }
+        """
+    ] .
+
+conx-site-sh:CraneRuleShape
+    a sh:NodeShape ;
+    sh:targetClass conx-site:SiteEquipment ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "A Crane must use exactly one Equipment Setup Area."@en ;
+        sh:select """
+            PREFIX conx-site: <https://www.construct-x.org/ontology/construction-site#>
+            PREFIX conx-area: <https://www.construct-x.org/vocab/construction-site/area-type#>
+            PREFIX conx-eq: <https://www.construct-x.org/vocab/construction-site/equipment-type#>
+            SELECT $this WHERE {
+              $this conx-site:hasEquipmentType conx-eq:Crane .
+              {
+                SELECT $this (COUNT(?area) AS ?count) WHERE {
+                  OPTIONAL {
+                    $this conx-site:usesSiteArea ?area .
+                    ?area conx-site:hasAreaType conx-area:EquipmentSetupArea .
+                  }
+                } GROUP BY $this
+              }
+              FILTER (?count != 1)
+            }
+        """
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "A Crane must have exactly one Restricted Zone."@en ;
+        sh:select """
+            PREFIX conx-site: <https://www.construct-x.org/ontology/construction-site#>
+            PREFIX conx-area: <https://www.construct-x.org/vocab/construction-site/area-type#>
+            PREFIX conx-eq: <https://www.construct-x.org/vocab/construction-site/equipment-type#>
+            SELECT $this WHERE {
+              $this conx-site:hasEquipmentType conx-eq:Crane .
+              {
+                SELECT $this (COUNT(?zone) AS ?count) WHERE {
+                  OPTIONAL {
+                    $this conx-site:hasRestrictedZone ?zone .
+                    ?zone conx-site:hasAreaType conx-area:RestrictedZone .
+                  }
+                } GROUP BY $this
+              }
+              FILTER (?count != 1)
+            }
+        """
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "A Crane must require Site Electricity."@en ;
+        sh:select """
+            PREFIX conx-site: <https://www.construct-x.org/ontology/construction-site#>
+            PREFIX conx-eq: <https://www.construct-x.org/vocab/construction-site/equipment-type#>
+            PREFIX conx-util: <https://www.construct-x.org/vocab/construction-site/utility-type#>
+            SELECT $this WHERE {
+              $this conx-site:hasEquipmentType conx-eq:Crane .
+              FILTER NOT EXISTS {
+                $this conx-site:requiresUtility ?utility .
+                ?utility conx-site:hasUtilityType conx-util:SiteElectricity .
+              }
+            }
+        """
+    ] .
+
+conx-site-sh:ConstructionLiftRuleShape
+    a sh:NodeShape ;
+    sh:targetClass conx-site:SiteEquipment ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "A Construction Lift must use exactly one Equipment Setup Area and require Site Electricity."@en ;
+        sh:select """
+            PREFIX conx-site: <https://www.construct-x.org/ontology/construction-site#>
+            PREFIX conx-area: <https://www.construct-x.org/vocab/construction-site/area-type#>
+            PREFIX conx-eq: <https://www.construct-x.org/vocab/construction-site/equipment-type#>
+            PREFIX conx-util: <https://www.construct-x.org/vocab/construction-site/utility-type#>
+            SELECT $this WHERE {
+              $this conx-site:hasEquipmentType conx-eq:ConstructionLift .
+              {
+                SELECT $this (COUNT(?area) AS ?count) WHERE {
+                  OPTIONAL {
+                    $this conx-site:usesSiteArea ?area .
+                    ?area conx-site:hasAreaType conx-area:EquipmentSetupArea .
+                  }
+                } GROUP BY $this
+              }
+              FILTER (?count != 1 ||
+                NOT EXISTS {
+                  $this conx-site:requiresUtility ?utility .
+                  ?utility conx-site:hasUtilityType conx-util:SiteElectricity .
+                })
+            }
+        """
+    ] .
+
+conx-site-sh:ContainerUtilityRuleShape
+    a sh:NodeShape ;
+    sh:targetClass conx-site:TemporarySiteFacility ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "Office, sanitary and material containers must use exactly one Equipment Setup Area and require Site Electricity; sanitary containers additionally require Site Water."@en ;
+        sh:select """
+            PREFIX conx-site: <https://www.construct-x.org/ontology/construction-site#>
+            PREFIX conx-area: <https://www.construct-x.org/vocab/construction-site/area-type#>
+            PREFIX conx-fac: <https://www.construct-x.org/vocab/construction-site/facility-type#>
+            PREFIX conx-util: <https://www.construct-x.org/vocab/construction-site/utility-type#>
+            SELECT $this WHERE {
+              $this conx-site:hasFacilityType ?type .
+              FILTER (?type IN (conx-fac:OfficeContainer, conx-fac:SanitaryContainer, conx-fac:MaterialContainer))
+              {
+                SELECT $this (COUNT(?area) AS ?count) WHERE {
+                  OPTIONAL {
+                    $this conx-site:usesSiteArea ?area .
+                    ?area conx-site:hasAreaType conx-area:EquipmentSetupArea .
+                  }
+                } GROUP BY $this
+              }
+              FILTER (
+                ?count != 1 ||
+                NOT EXISTS {
+                  $this conx-site:requiresUtility ?electricity .
+                  ?electricity conx-site:hasUtilityType conx-util:SiteElectricity .
+                } ||
+                (?type = conx-fac:SanitaryContainer &&
+                  NOT EXISTS {
+                    $this conx-site:requiresUtility ?water .
+                    ?water conx-site:hasUtilityType conx-util:SiteWater .
+                  })
+              )
+            }
+        """
+    ] .
+
+conx-site-sh:StorageAidRuleShape
+    a sh:NodeShape ;
+    sh:targetClass conx-site:SiteEquipment ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "A Storage Aid must use at least one Parking Area."@en ;
+        sh:select """
+            PREFIX conx-site: <https://www.construct-x.org/ontology/construction-site#>
+            PREFIX conx-area: <https://www.construct-x.org/vocab/construction-site/area-type#>
+            PREFIX conx-eq: <https://www.construct-x.org/vocab/construction-site/equipment-type#>
+            SELECT $this WHERE {
+              $this conx-site:hasEquipmentType conx-eq:StorageAid .
+              FILTER NOT EXISTS {
+                $this conx-site:usesSiteArea ?area .
+                ?area conx-site:hasAreaType conx-area:ParkingArea .
+              }
+            }
+        """
+    ] .

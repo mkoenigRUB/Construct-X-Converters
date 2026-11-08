@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+   xmlns:vann="http://purl.org/vocab/vann/"
+>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-site/facility-type">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <owl:versionIRI rdf:resource="https://www.construct-x.org/vocab/construction-site/facility-type/0.1.0"/>
+    <owl:versionInfo>0.1.0</owl:versionInfo>
+    <dcterms:title xml:lang="en">Construct-X Temporary Site Facility Type Vocabulary</dcterms:title>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-22</dcterms:created>
+    <vann:preferredNamespacePrefix>conx-fac</vann:preferredNamespacePrefix>
+    <vann:preferredNamespaceUri>https://www.construct-x.org/vocab/construction-site/facility-type#</vann:preferredNamespaceUri>
+    <skos:prefLabel xml:lang="en">Temporary Site Facility Type</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Typ temporärer Baustelleneinrichtung</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-site/facility-type#OfficeContainer">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/construction-site/facility-type"/>
+    <skos:prefLabel xml:lang="en">Office Container</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Bürocontainer</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-site/facility-type#ContainerSystem">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/construction-site/facility-type"/>
+    <skos:prefLabel xml:lang="en">Container System</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Containeranlage</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-site/facility-type#SanitaryContainer">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/construction-site/facility-type"/>
+    <skos:prefLabel xml:lang="en">Sanitary Container</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Sanitärcontainer</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/vocab/construction-site/facility-type#MaterialContainer">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="https://www.construct-x.org/vocab/construction-site/facility-type"/>
+    <skos:prefLabel xml:lang="en">Material Container</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Materialcontainer</skos:prefLabel>
+  </rdf:Description>
+</rdf:RDF>

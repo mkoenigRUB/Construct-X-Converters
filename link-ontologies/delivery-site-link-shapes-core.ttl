@@ -1,0 +1,24 @@
+@prefix conx-del: <https://www.construct-x.org/ontology/construction-delivery#> .
+@prefix conx-site: <https://www.construct-x.org/ontology/construction-site#> .
+@prefix conx-dsl: <https://www.construct-x.org/ontology/delivery-site-link#> .
+@prefix conx-dsl-sh: <https://www.construct-x.org/shapes/delivery-site-link#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<https://www.construct-x.org/shapes/delivery-site-link/core>
+    a owl:Ontology ;
+    owl:versionIRI <https://www.construct-x.org/shapes/delivery-site-link/core/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports
+        <https://www.construct-x.org/ontology/construction-delivery/0.1.0> ,
+        <https://www.construct-x.org/ontology/construction-site/0.2.0> ,
+        <https://www.construct-x.org/ontology/delivery-site-link/0.1.0> .
+
+conx-dsl-sh:LogisticsOperationTransferPointShape
+    a sh:NodeShape ;
+    sh:targetClass conx-del:LogisticsOperation ;
+    sh:property [
+        sh:path conx-dsl:usesTransferPoint ;
+        sh:class conx-site:TransferPoint ;
+        sh:maxCount 1
+    ] .

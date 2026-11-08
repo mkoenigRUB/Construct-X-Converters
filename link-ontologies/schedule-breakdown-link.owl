@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+   xmlns:vann="http://purl.org/vocab/vann/"
+>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/schedule-breakdown-link#usesCostBreakdownStructure">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:subPropertyOf rdf:resource="https://www.construct-x.org/ontology/schedule-breakdown-link#usesBreakdownStructure"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-schedule#ConstructionSchedule"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/breakdown-structure#CostBreakdownStructure"/>
+    <rdfs:label xml:lang="en">uses Cost Breakdown Structure</rdfs:label>
+    <skos:altLabel xml:lang="de">verwendet CBS</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/schedule-breakdown-link"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/schedule-breakdown-link#isClassifiedByCBSNode">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-schedule#Activity"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/breakdown-structure#CBSNode"/>
+    <rdfs:label xml:lang="en">is classified by CBS node</rdfs:label>
+    <skos:altLabel xml:lang="de">ist durch CBS-Knoten klassifiziert</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/schedule-breakdown-link"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/schedule-breakdown-link">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <owl:versionIRI rdf:resource="https://www.construct-x.org/ontology/schedule-breakdown-link/0.6.0"/>
+    <owl:versionInfo>0.6.0</owl:versionInfo>
+    <owl:imports rdf:resource="https://www.construct-x.org/ontology/construction-schedule/0.5.0"/>
+    <owl:imports rdf:resource="https://www.construct-x.org/ontology/breakdown-structure/0.7.0"/>
+    <dcterms:title xml:lang="en">Construct-X Schedule–Breakdown Link Ontology</dcterms:title>
+    <dcterms:title xml:lang="de">Construct-X-Verknüpfungsontologie für Terminplan und Gliederungsstrukturen</dcterms:title>
+    <dcterms:description xml:lang="en">Links Construction Schedules and Activities to Work, Location, System and Cost Breakdown Structures while keeping the source ontologies independent.</dcterms:description>
+    <dcterms:description xml:lang="de">Verknüpft Bauablaufpläne und Vorgänge mit WBS-, LBS-, SBS- und CBS-Strukturen, während die Fachontologien unabhängig bleiben.</dcterms:description>
+    <dcterms:publisher rdf:resource="https://www.construct-x.org/id/organization/construct-x"/>
+    <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-21</dcterms:modified>
+    <vann:preferredNamespacePrefix>conx-sbl</vann:preferredNamespacePrefix>
+    <vann:preferredNamespaceUri>https://www.construct-x.org/ontology/schedule-breakdown-link#</vann:preferredNamespaceUri>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/schedule-breakdown-link#usesWorkBreakdownStructure">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:subPropertyOf rdf:resource="https://www.construct-x.org/ontology/schedule-breakdown-link#usesBreakdownStructure"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-schedule#ConstructionSchedule"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/breakdown-structure#WorkBreakdownStructure"/>
+    <rdfs:label xml:lang="en">uses Work Breakdown Structure</rdfs:label>
+    <skos:altLabel xml:lang="de">verwendet WBS</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/schedule-breakdown-link"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/schedule-breakdown-link#usesSystemBreakdownStructure">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:subPropertyOf rdf:resource="https://www.construct-x.org/ontology/schedule-breakdown-link#usesBreakdownStructure"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-schedule#ConstructionSchedule"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/breakdown-structure#SystemBreakdownStructure"/>
+    <rdfs:label xml:lang="en">uses System Breakdown Structure</rdfs:label>
+    <skos:altLabel xml:lang="de">verwendet SBS</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/schedule-breakdown-link"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/schedule-breakdown-link#usesLocationBreakdownStructure">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:subPropertyOf rdf:resource="https://www.construct-x.org/ontology/schedule-breakdown-link#usesBreakdownStructure"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-schedule#ConstructionSchedule"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/breakdown-structure#LocationBreakdownStructure"/>
+    <rdfs:label xml:lang="en">uses Location Breakdown Structure</rdfs:label>
+    <skos:altLabel xml:lang="de">verwendet LBS</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/schedule-breakdown-link"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/schedule-breakdown-link#isClassifiedBySBSNode">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-schedule#Activity"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/breakdown-structure#SBSNode"/>
+    <rdfs:label xml:lang="en">is classified by SBS node</rdfs:label>
+    <skos:altLabel xml:lang="de">ist durch SBS-Knoten klassifiziert</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/schedule-breakdown-link"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/schedule-breakdown-link#usesBreakdownStructure">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-schedule#ConstructionSchedule"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/breakdown-structure#BreakdownStructure"/>
+    <rdfs:label xml:lang="en">uses breakdown structure</rdfs:label>
+    <skos:altLabel xml:lang="de">verwendet Gliederungsstruktur</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/schedule-breakdown-link"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/schedule-breakdown-link#isClassifiedByWBSNode">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-schedule#Activity"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/breakdown-structure#WBSNode"/>
+    <rdfs:label xml:lang="en">is classified by WBS node</rdfs:label>
+    <skos:altLabel xml:lang="de">ist durch WBS-Knoten klassifiziert</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/schedule-breakdown-link"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.construct-x.org/ontology/schedule-breakdown-link#isPerformedIn">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="https://www.construct-x.org/ontology/construction-schedule#Activity"/>
+    <rdfs:range rdf:resource="https://www.construct-x.org/ontology/breakdown-structure#LBSNode"/>
+    <rdfs:label xml:lang="en">is performed in</rdfs:label>
+    <skos:altLabel xml:lang="de">wird ausgeführt in</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="https://www.construct-x.org/ontology/schedule-breakdown-link"/>
+  </rdf:Description>
+</rdf:RDF>
