@@ -1,6 +1,22 @@
-# Checkpoint: MS Project Converter + Tabbed Frontend umgesetzt
+# Checkpoint: MS Project Converter + Tabbed Frontend + Ontologie-Refactor umgesetzt
 
-## Status: ALLES UMGESETZT UND VERIFIZIERT
+## Status: ALLES UMGESETZT, GEPUSHT UND VERIFIZIERT (Stand: 2026-11-09)
+
+## Änderungen am 2026-11-09 (Ontologie-Refactor)
+
+### Docker-Images bauen Ontologien aus dem GitHub-Tarball
+- Beide Service-Dockerfiles (`rdf-converter-service`, `msproject-converter-service`) holen bei jedem Build die Ontologien aus dem Ontologie-Repo (`https://github.com/mkoenigRUB/Construct-X-Ontologies`, Branch `main`, **kein Tag** → Builds nicht reproduzierbar; Ontologie-Update = Rebuild):
+  - `rdf-converter-service/Dockerfile`: 8 Module (`construction-order`, `construction-schedule`, `construction-cost`, `construction-legal`, `construction-geoinfo`, `construction-status`, `construction-process`, `construction-type`) + `MANIFEST.json` → `/app/ontologies/`, `ENV CONX_ONTOLOGY_ROOT=/app/ontologies`
+  - `msproject-converter-service/Dockerfile`: nur `construction-schedule` + `MANIFEST.json`
+- Compose: `CONX_ONTOLOGY_ROOT: /app/ontologies` (MS-Project-Service in `converter-compose.yml`, rdf-Service in `rdf-converter-compose.yml`)
+- `CONVERTER_ONTOLOGY_DIR`-Bind-Mounts entfallen → lokale Ontologie-Dirs nicht mehr für Docker nötig
+- 120 lokale Ontologie-Dateien gelöscht (neben dem Repo, außerhalb von Git)
+- Commit `ad7fb05` → gepusht auf `origin/main` (`https://github.com/mkoenigRUB/Construct-X-Converters`)
+
+### Verifikation (echte, ausgeführte Befehle)
+- Drift-Check `GET http://localhost:8082/api/v1/profiles`: 17 Profile, alle Versionen unverändert (boq 0.5.0 / cs 0.5.0 / cc 0.5.0 / cl 0.5.0 / cg 0.5.0)
+- E2E MS Project: 4902 B XML → 6646 B TTL (3 Activities, 2 PrecedenceRelationships, 1 Schedule)
+- E2E GAEB: 10711 B XML → 15108 B TTL (1 OrderBook, 13 Positionen, 538 Tripples)
 
 ## Was in dieser Session gebaut wurde
 
@@ -18,7 +34,7 @@
   - `POST /api/v1/validate/msproject` (SHACL gegen construction-schedule Shapes)
   - `GET /api/v1/converters`, `GET /api/v1/health`, `GET /api/v1/examples/msproject.xml`
 - CORS konfigurierbar via `CONX_CORS_ALLOWED_ORIGINS` (Default http://localhost:8084)
-- Ontology-Root via `CONX_ONTOLOGY_ROOT` (Default `..` = Repo-Root)
+- Ontology-Root-Resolution (SDK `OntologyRegistry`): expliziter Pfad → Env `CONX_ONTOLOGY_ROOT` → sysprop `conx.ontology.root` → Default `../..` (SDK) bzw. `..` (MS-Service `application.yml`). Root = das Verzeichnis mit `MANIFEST.json` + Modul-Unterverzeichnissen; in Docker: `/app/ontologies`. Lokal (ohne Docker): Sibling-Clone `Construct-X-Ontologies` (siehe Start-Anleitung)
 - **16/16 Tests erfolgreich** (9 Converter-Unit-Tests + 7 API-Integrationstests)
 - Beispieldatei: `src/main/resources/examples/msproject-example.xml` (Doppelboden-Plan, 5 Tasks, 1 Meilenstein, 5 Beziehungen inkl. SS mit 1440-Min-Lag)
 - Dockerfile vorhanden (Build-Context = Repo-Root)
@@ -55,7 +71,7 @@ Browser: http://localhost:8084/index.html — beide Tabs grün.
 ### Voraussetzungen
 - Java 25 (hier: `C:\Program Files\Eclipse Adoptium\jdk-25.0.5.8-hotspot`), Maven 3.9+ (hier: `C:\Program Files\apache-maven-3.9.4\bin\mvn.cmd`, in User-PATH)
 - Python 3 (nur für statisches Frontend ohne Docker)
-- Repo-Ordner `Construct-X-Ontologies` mit allen Ontologie-Verzeichnissen (construction-schedule etc.)
+- Nur für lokalen Start ohne Docker: Sibling-Clone `Construct-X-Ontologies` auf gleicher Ebene wie das Converters-Repo (hier: `...\AP 3.4\Construct-X-Ontologies`) — die Docker-Images holen den Ontologie-Tarball selbst beim Build
 
 ### Start ohne Docker (empfohlen, wie in dieser Session)
 ```powershell
@@ -86,9 +102,10 @@ Dann http://localhost:8084/index.html öffnen.
 
 ### Start mit Docker
 ```bash
-docker compose -f converter-compose.yml up --build   # MS Project + Frontend
-docker compose -f rdf-converter-compose.yml up --build  # RDF Service + altes RDF-Frontend (8080)
+docker compose -f converter-compose.yml up --build   # GAEB 8081 + MS Project 8085 + Frontend 8084
+docker compose -f rdf-converter-compose.yml up --build  # RDF 8082 + Frontend 8080
 ```
+Beide brauchen `--build` + Internetzugriff: die Dockerfiles laden den Ontologie-Tarball vom Ontologie-Repo (Branch `main`, kein Tag → nicht reproduzierbar).
 
 ### Tests
 ```powershell
@@ -119,9 +136,9 @@ GAEB: `mvn -o test` in `Converter/core` (34) und `Converter/web` (15).
 - Dienste vollständig unabhängig voneinander
 
 ## Offene Punkte / mögliche nächste Schritte
-- Docker-Images wurden nicht gebaut (Docker-Daemon war down)
 - `rdf-converter-frontend/` (altes RDF-Studio-Frontend, Port 8080 via compose) existiert weiterhin parallel zum neuen `converter-frontend/` — ggf. später konsolidieren
-- Keine Git-Repo-Initialisierung (Ordner ist kein Git-Repo)
+- Lokale Start-Anleitung (ohne Docker) müsste `CONX_ONTOLOGY_ROOT` explizit setzen (die Defaults `..`/`../..` zeigen nicht eindeutig auf den Sibling-Root)
+- Browser-Checks nach dem Refactor mit `Ctrl+F5` nachziehen (Cache-Buster `?v=8` in `converter-frontend/index.html`): Envelope-Checkboxen v2, Bauposten-Auswahl-Baum + Strikt-Checkbox
 
 ## Änderungen am 2026-11-01 (Plain-JSON-Ausgabeformat v1 in allen drei Convertern — durch v2 abgelöst)
 
