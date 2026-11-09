@@ -1,15 +1,24 @@
 # Maven
 **/target/
+*.jar
+!*/src/main/resources/**/*.jar
 
 # Veraltete lokale JARs (vom Maven-Build nicht referenziert)
 Converter/web/lib/
 
-# IDE / OS
+# IDE
 .idea/
 *.iml
 .vscode/
+.settings/
+.classpath
+.project
+.factorypath
+
+# OS
 Thumbs.db
 desktop.ini
+.DS_Store
 
 # Logs
 *.log
@@ -17,3 +26,7 @@ desktop.ini
 # Temporäre Build-Output
 **/surefire-reports/
 **/*.dumpstream
+
+# Sciebo-Sync
+# (Sync-Marker des Anbieters, falls vorhanden)
+*~
