@@ -1,3 +1,4 @@
+name: conx-rdf
 services:
   rdf-converter-service:
     build:

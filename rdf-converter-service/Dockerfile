@@ -11,15 +11,18 @@ RUN mvn -B package -DskipTests
 FROM eclipse-temurin:25-jre
 WORKDIR /app
 COPY --from=build /workspace/rdf-converter-service/target/construct-x-rdf-service.jar app.jar
-COPY construction-schedule /app/ontologies/construction-schedule
-COPY breakdown-structure /app/ontologies/breakdown-structure
-COPY gaeb-boq /app/ontologies/gaeb-boq
-COPY construction-progress-report /app/ontologies/construction-progress-report
-COPY construction-site /app/ontologies/construction-site
-COPY construction-delivery /app/ontologies/construction-delivery
-COPY built-asset /app/ontologies/built-asset
-COPY link-ontologies /app/ontologies/link-ontologies
-COPY MANIFEST.json /app/ontologies/MANIFEST.json
+# Ontologien: Source of truth = GitHub-Repo (kein lokaler COPY aus dem Build-Kontext).
+# Repo hat keine Tags -> floating main; jeder Build holt die aktuellen Dateien.
+ARG ONTOLOGIES_TARBALL=https://github.com/mkoenigRUB/Construct-X-Ontologies/archive/main.tar.gz
+ADD ${ONTOLOGIES_TARBALL} /tmp/ontologies/
+RUN mkdir -p /app/ontologies && \
+    tar xzf /tmp/ontologies/main.tar.gz -C /tmp/ontologies/ && \
+    cd /tmp/ontologies/Construct-X-Ontologies-main && \
+    cp -R construction-schedule breakdown-structure gaeb-boq \
+          construction-progress-report construction-site \
+          construction-delivery built-asset link-ontologies \
+          MANIFEST.json /app/ontologies/ && \
+    rm -rf /tmp/ontologies
 ENV CONX_ONTOLOGY_ROOT=/app/ontologies
 EXPOSE 8082
 ENTRYPOINT ["java", "-jar", "/app/app.jar"]

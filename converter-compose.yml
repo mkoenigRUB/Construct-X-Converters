@@ -1,3 +1,4 @@
+name: conx-converters
 services:
   gaeb-converter-service:
     build:
