@@ -137,8 +137,8 @@ GAEB: `mvn -o test` in `Converter/core` (34) und `Converter/web` (15).
 
 ## Offene Punkte / mögliche nächste Schritte
 - `rdf-converter-frontend/` (altes RDF-Studio-Frontend, Port 8080 via compose) existiert weiterhin parallel zum neuen `converter-frontend/` — ggf. später konsolidieren
-- Lokale Start-Anleitung (ohne Docker) müsste `CONX_ONTOLOGY_ROOT` explizit setzen (die Defaults `..`/`../..` zeigen nicht eindeutig auf den Sibling-Root)
-- Browser-Checks nach dem Refactor mit `Ctrl+F5` nachziehen (Cache-Buster `?v=8` in `converter-frontend/index.html`): Envelope-Checkboxen v2, Bauposten-Auswahl-Baum + Strikt-Checkbox
+- ~~Lokale Start-Anleitung müsste `CONX_ONTOLOGY_ROOT` explizit setzen~~ → erledigt (2026-11-10): `ontologies/`-Submodul (Tag v0.5.0), Defaults laufen out-of-the-box
+- ~~Browser-Checks (Envelope-Checkboxen, Auswahl-Baum)~~ → erledigt (2026-11-09/10): CDP-Checks 320–1440 px, alle Frontends
 
 ## Änderungen am 2026-11-01 (Plain-JSON-Ausgabeformat v1 in allen drei Convertern — durch v2 abgelöst)
 
