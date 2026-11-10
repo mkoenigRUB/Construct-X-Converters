@@ -29,8 +29,10 @@ import java.util.stream.Stream;
  *   <li>explicit path passed to the constructor</li>
  *   <li>environment variable {@code CONX_ONTOLOGY_ROOT}</li>
  *   <li>system property {@code conx.ontology.root}</li>
- *   <li>default: {@code ../..} (legacy layout where the ontology root is
- *       two levels above the converter module directory)</li>
+ *   <li>default: {@code ../ontologies} (the pinned {@code ontologies} git
+ *       submodule at the repository root, resolved relative to this module's
+ *       working directory; in Docker images {@code CONX_ONTOLOGY_ROOT}
+ *       points at the baked-in {@code /app/ontologies} instead)</li>
  * </ol>
  *
  * <p>Provides:
@@ -75,7 +77,7 @@ public final class OntologyRegistry {
     /**
      * Creates a registry using the default resolution order:
      * env var {@code CONX_ONTOLOGY_ROOT} → sysprop {@code conx.ontology.root}
-     * → {@code ../..}.
+     * → {@code ../ontologies} (pinned submodule at the repository root).
      */
     public OntologyRegistry() {
         this(resolveDefaultRoot());
@@ -294,6 +296,6 @@ public final class OntologyRegistry {
         if (prop != null && !prop.isBlank()) {
             return Path.of(prop);
         }
-        return Path.of("..", "..");
+        return Path.of("..", "ontologies");
     }
 }

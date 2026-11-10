@@ -36,7 +36,7 @@ public class MsProjectService {
     private Model ontologyGraph;
     private Model shapesModel;
 
-    public MsProjectService(@Value("${constructx.ontology-root:..}") String ontologyRoot) {
+    public MsProjectService(@Value("${constructx.ontology-root:../ontologies}") String ontologyRoot) {
         this.ontologyRoot = Path.of(ontologyRoot).toAbsolutePath().normalize();
     }
 

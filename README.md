@@ -1,6 +1,6 @@
 # Construct-X Converters
 
-Konverter-Dienste von Domänen-Dateiformaten in **Construct-X** Ontologie-Daten (TTL, JSON-LD, Plain JSON) — Java 25 / Spring Boot 3.5 / Apache Jena 4.10, Betrieb per Docker Compose. Die Ontologien selbst liegen im Repository **`construct-x-ontologies`**.
+Konverter-Dienste von Domänen-Dateiformaten in **Construct-X** Ontologie-Daten (TTL, JSON-LD, Plain JSON) — Java 25 / Spring Boot 3.5 / Apache Jena 4.10, Betrieb per Docker Compose. Die Ontologien selbst liegen im Repository **[`mkoenigRUB/Construct-X-Ontologies`](https://github.com/mkoenigRUB/Construct-X-Ontologies)** — lokal als gepinntes Git-Submodul unter `ontologies/` (Tests), in den Docker-Images aus dem getagten Tarball (`v0.5.0`).
 
 ## Services & Ports
 
@@ -28,7 +28,8 @@ docker logs construct-x-converters-gaeb-converter-service-1
 
 - `converter-compose.yml` — GAEB (8081), MS Project (8085), converter-frontend (8084)
 - `rdf-converter-compose.yml` — rdf-converter-service (8082, auch per Host-Port exponiert), rdf-converter-frontend (8080)
-- Die rdf-converter-ontologien werden in das Image kopiert (`CONX_ONTOLOGY_ROOT=/app/ontologies`); der GAEB-Service benötigt keine Ontologie-Dateien zur Laufzeit (nur eingebettete GAEB-XSDs).
+- Die Ontologien werden beim Build aus dem getagten Ontologie-Tarball in das Image gebacken (`CONX_ONTOLOGY_ROOT=/app/ontologies`); der GAEB-Service benötigt keine Ontologie-Dateien zur Laufzeit (nur eingebettete GAEB-XSDs).
+- Repo klonen: `git clone --recurse-submodules https://github.com/mkoenigRUB/Construct-X-Converters.git` (bzw. bei bestehendem Klon: `git submodule update --init ontologies`) — sonst fehlen `mvn test` die Ontologie-Dateien.
 
 ## REST-Interface (alle drei Konverter)
 

@@ -111,11 +111,12 @@ class RdfApiTest {
     void validatesConformantGaebExampleAgainstOntologyProfile() throws Exception {
         // Ontology root: CONX_ONTOLOGY_ROOT env var / conx.ontology.root system
         // property (matching RdfService's constructx.ontology-root), defaulting
-        // to the legacy embedded layout (../gaeb-boq).
+        // to the pinned 'ontologies' git submodule at the repository root.
         String env = System.getenv("CONX_ONTOLOGY_ROOT");
         String prop = System.getProperty("conx.ontology.root");
         Path root = (env != null && !env.isBlank()) ? Path.of(env)
-                : (prop != null && !prop.isBlank()) ? Path.of(prop) : Path.of("..");
+                : (prop != null && !prop.isBlank()) ? Path.of(prop)
+                : Path.of("..", "ontologies");
         byte[] ttl = Files.readAllBytes(root.resolve("gaeb-boq").resolve("gaeb-boq-example.ttl"));
         MockMultipartFile file = new MockMultipartFile("file", "gaeb-boq-example.ttl",
                 "text/turtle", ttl);

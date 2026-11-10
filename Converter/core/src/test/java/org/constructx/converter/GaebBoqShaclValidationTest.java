@@ -28,12 +28,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class GaebBoqShaclValidationTest {
 
     /**
-     * Ontology root for the GAEB BoQ vocabulary files. Historically the
-     * converter lived inside the Construct-X-Ontologies repo, so the default
-     * relative path (<code>../../gaeb-boq</code>) still works there. After the
-     * repo split the ontologies live in a sibling repo, so the root can be
-     * overridden via the <code>CONX_ONTOLOGY_ROOT</code> env var (matching the
-     * runtime services) or a <code>conx.ontology.root</code> system property.
+     * Ontology root for the GAEB BoQ vocabulary files. Defaults to the
+     * <code>ontologies</code> git submodule at the repository root (pinned
+     * commit, see <code>.gitmodules</code>). Can be overridden via the
+     * <code>CONX_ONTOLOGY_ROOT</code> env var (matching the runtime services)
+     * or a <code>conx.ontology.root</code> system property.
      */
     private static final Path ONTOLOGY_DIR = ontologyDir().resolve("gaeb-boq");
 
@@ -46,7 +45,7 @@ class GaebBoqShaclValidationTest {
         if (prop != null && !prop.isBlank()) {
             return Paths.get(prop);
         }
-        return Paths.get("..", "..");
+        return Paths.get("..", "..", "ontologies");
     }
 
     @Test

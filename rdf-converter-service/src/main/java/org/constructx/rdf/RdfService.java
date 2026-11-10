@@ -46,7 +46,7 @@ public class RdfService {
     private Model ontologyGraph;
 
     public RdfService(ObjectMapper objectMapper,
-                      @Value("${constructx.ontology-root:..}") String ontologyRoot) {
+                      @Value("${constructx.ontology-root:../ontologies}") String ontologyRoot) {
         this.objectMapper = objectMapper;
         this.ontologyRoot = Path.of(ontologyRoot).toAbsolutePath().normalize();
     }

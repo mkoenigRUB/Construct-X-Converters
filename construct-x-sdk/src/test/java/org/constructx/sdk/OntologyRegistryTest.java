@@ -7,12 +7,12 @@ import java.nio.file.Path;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * Tests for {@link OntologyRegistry} against the sibling ontology
- * repository (resolved via {@code CONX_ONTOLOGY_ROOT} or the default
- * {@code ../..} layout).
+ * Tests for {@link OntologyRegistry} against the pinned {@code ontologies}
+ * git submodule at the repository root (resolved via {@code
+ * CONX_ONTOLOGY_ROOT} or the default {@code ../ontologies} layout).
  *
  * <p>These tests are skipped when the ontology root is not available
- * (e.g. running on a machine without the sibling repo).
+ * (e.g. a clone without <code>git submodule update --init</code>).
  */
 class OntologyRegistryTest {
 

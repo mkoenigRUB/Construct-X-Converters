@@ -11,7 +11,7 @@ cd rdf-converter-service
 mvn spring-boot:run
 ```
 
-Der Dienst erwartet standardmäßig die Ontologieverzeichnisse im übergeordneten Repository-Verzeichnis. Für einen anderen Speicherort kann `CONX_ONTOLOGY_ROOT` gesetzt werden. Standardport: `8082`.
+Der Dienst erwartet standardmäßig die Ontologien im gepinnten Git-Submodul `ontologies/` am Repository-Root (`git clone --recurse-submodules`, sonst `git submodule update --init ontologies`). Für einen anderen Speicherort kann `CONX_ONTOLOGY_ROOT` gesetzt werden. Standardport: `8082`.
 Für ein getrennt gehostetes Frontend kann `CONX_CORS_ALLOWED_ORIGINS` auf eine kommaseparierte Liste erlaubter Origins gesetzt werden; standardmäßig ist `http://localhost:8080` freigegeben.
 
 ## API

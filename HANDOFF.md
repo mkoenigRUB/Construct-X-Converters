@@ -34,7 +34,7 @@
   - `POST /api/v1/validate/msproject` (SHACL gegen construction-schedule Shapes)
   - `GET /api/v1/converters`, `GET /api/v1/health`, `GET /api/v1/examples/msproject.xml`
 - CORS konfigurierbar via `CONX_CORS_ALLOWED_ORIGINS` (Default http://localhost:8084)
-- Ontology-Root-Resolution (SDK `OntologyRegistry`): expliziter Pfad → Env `CONX_ONTOLOGY_ROOT` → sysprop `conx.ontology.root` → Default `../..` (SDK) bzw. `..` (MS-Service `application.yml`). Root = das Verzeichnis mit `MANIFEST.json` + Modul-Unterverzeichnissen; in Docker: `/app/ontologies`. Lokal (ohne Docker): Sibling-Clone `Construct-X-Ontologies` (siehe Start-Anleitung)
+- Ontology-Root-Resolution (SDK `OntologyRegistry`): expliziter Pfad → Env `CONX_ONTOLOGY_ROOT` → sysprop `conx.ontology.root` → Default `../ontologies` bzw. `../..`/`../ontologies` je Modul (gepinntes `ontologies/`-Submodul, Tag `v0.5.0`). Root = das Verzeichnis mit `MANIFEST.json` + Modul-Unterverzeichnissen; in Docker: `/app/ontologies` (aus getagtem GitHub-Tarball gebacken)
 - **16/16 Tests erfolgreich** (9 Converter-Unit-Tests + 7 API-Integrationstests)
 - Beispieldatei: `src/main/resources/examples/msproject-example.xml` (Doppelboden-Plan, 5 Tasks, 1 Meilenstein, 5 Beziehungen inkl. SS mit 1440-Min-Lag)
 - Dockerfile vorhanden (Build-Context = Repo-Root)

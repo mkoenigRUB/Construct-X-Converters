@@ -1,0 +1,4 @@
+[submodule "ontologies"]
+	path = ontologies
+	url = https://github.com/mkoenigRUB/Construct-X-Ontologies.git
+	branch = main
