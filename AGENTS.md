@@ -35,6 +35,18 @@
 - JUnit 5 / Spring Boot Test. Verhaltensänderung = Test mitliefern.
 - Konverter-Logik: Negativfälle nicht vergessen (leere BOQ, fehlende Attribute, QtyPcnt-Splits, MLTexts).
 - Vor Abschluss: Tests ausführen und echten Output zeigen.
+- **Ontologie-Root für Tests:** SHACL-/Registry-Tests laden Ontologien aus
+  `CONX_ONTOLOGY_ROOT` (Env) → `conx.ontology.root` (sysprop) → Default `../..`.
+  Nach dem Ontologie-Refactor liegen die Ontologien **nicht** mehr im Repo, sondern
+  im Sibling-Repo `Construct-X-Ontologies` (ebenfalls `mkoenigRUB/`). Default `../..`
+  funktioniert daher **nur**, wenn das Sibling direkt neben dem Repo liegt UND dort
+  selbst der Ontologie-Root ist. Sauberer Lauf (aus `Converter/core`):
+  `CONX_ONTOLOGY_ROOT=<Pfad zu Construct-X-Ontologies>` bzw. Docker:
+  `-e CONX_ONTOLOGY_ROOT=/ontologies` + `-v <sibling>:/ontologies:ro`.
+- **Frische `.m2` / CI:** `Converter/core` hat `byte-buddy-agent` (test-scope) als
+  explizite Dependency — ohne würde der Surefire-Fork (argLine prelaedt das Jar aus
+  `${settings.localRepository}`) in einer leeren `.m2` mit „agent library failed"
+  crashen. Dependency nicht entfernen.
 
 ## Erst nach Freigabe
 - Deployments, Datenlöschung, Port-/Security-Änderungen, Software-Installationen.

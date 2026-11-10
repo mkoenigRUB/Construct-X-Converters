@@ -43,6 +43,17 @@
             <artifactId>junit-jupiter</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <!-- byte-buddy-agent: muss in der lokalen .m2 vorhanden sein, weil der
+             Parent-Pom den Agent im Surefire-argLine preloadet (Windows-Attach-Workaround).
+             Ohne diese Dependency würde das Jar in einer frischen .m2 nie geladen
+             und der Surefire-Fork mit "agent library failed" crashen. -->
+        <dependency>
+            <groupId>net.bytebuddy</groupId>
+            <artifactId>byte-buddy-agent</artifactId>
+            <version>1.17.6</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
