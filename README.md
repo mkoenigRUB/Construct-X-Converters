@@ -100,5 +100,5 @@ Tab-UI (GAEB BoQ + MS Project) ohne Build-Schritt (Vanilla-JS + nginx, Bind-Moun
 - IRIs nur über `IriFactory`, Namespace-Konstanten in `ConxNamespaces`. Versionierte Ontologie-IRIs (`…/0.5.0`) erst nach Absprache bumpen.
 - JSON-Output nur über Jena RIOT + `PlainJsonModelWriter` — **drei identische Kopien** (`Converter/core`, `rdf-converter-service`, `msproject-converter-service`): Änderungen in allen drei spiegeln und diffen.
 - Static-Assets mit Cache-Buster `?v=N` in `index.html` → nach CSS/JS-Änderungen bumpen; `rdf-converter-frontend` ist ein Custom-Image → nach UI-Änderungen `up -d --build rdf-converter-frontend`.
-- `docs/ARCHITECTURE.md` ist veraltet (Next.js/TS/Postgres) — nicht darauf verlassen; `HANDOFF.md` und `AGENTS.md` gelten.
+- Architektur-/Stack-Fragen: `HANDOFF.md` und `AGENTS.md` gelten.
 - Tests offline: `mvn -q -o test` im Modul-Verzeichnis. Konverter-Logik: Negativfälle nicht vergessen (leere BOQ, fehlende Attribute, QtyPcnt-Splits, MLTexts).

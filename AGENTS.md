@@ -12,7 +12,6 @@
   Windows-Pfad ist tief → `core.longpaths=true` gesetzt. Push via `gh`-Token (Windows Credential Manager).
 - Frontends: Vanilla-JS, statisches HTML/CSS, nginx — kein Build-Schritt.
 - Betrieb: Docker Compose (`converter-compose.yml`, `rdf-converter-compose.yml`).
-- `docs/ARCHITECTURE.md` (Next.js/TS/Postgres) ist veraltet — diese Datei gilt.
 
 ## Service-Map
 - `Converter` (GAEB BoQ): 8081 (API nur, keine eigene UI) · `converter-frontend`: 8084
