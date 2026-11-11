@@ -20,7 +20,7 @@ RUN mkdir -p /app/ontologies && \
     cd /tmp/ontologies/Construct-X-Ontologies-0.5.0 && \
     cp -R construction-schedule breakdown-structure gaeb-boq \
           construction-progress-report construction-site \
-          construction-delivery built-asset link-ontologies \
+          construction-delivery built-asset link-ontologies notification-content \
           MANIFEST.json /app/ontologies/ && \
     rm -rf /tmp/ontologies
 ENV CONX_ONTOLOGY_ROOT=/app/ontologies

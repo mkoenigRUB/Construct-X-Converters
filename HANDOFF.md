@@ -5,9 +5,9 @@
 ## Änderungen am 2026-11-09 (Ontologie-Refactor)
 
 ### Docker-Images bauen Ontologien aus dem GitHub-Tarball
-- Beide Service-Dockerfiles (`rdf-converter-service`, `msproject-converter-service`) holen bei jedem Build die Ontologien aus dem Ontologie-Repo (`https://github.com/mkoenigRUB/Construct-X-Ontologies`, Branch `main`, **kein Tag** → Builds nicht reproduzierbar; Ontologie-Update = Rebuild):
-  - `rdf-converter-service/Dockerfile`: 8 Module (`construction-order`, `construction-schedule`, `construction-cost`, `construction-legal`, `construction-geoinfo`, `construction-status`, `construction-process`, `construction-type`) + `MANIFEST.json` → `/app/ontologies/`, `ENV CONX_ONTOLOGY_ROOT=/app/ontologies`
-  - `msproject-converter-service/Dockerfile`: nur `construction-schedule` + `MANIFEST.json`
+- Beide Service-Dockerfiles (`rdf-converter-service`, `msproject-converter-service`) holen bei jedem Build die Ontologien aus dem Ontologie-Repo (`https://github.com/mkoenigRUB/Construct-X-Ontologies`), **gepinnt auf Tag `v0.5.0`** (`ARG ONTOLOGIES_TARBALL=.../archive/refs/tags/v0.5.0.tar.gz`) → reproduzierbare Builds; Tag-Bump = bewusster ARG-Wechsel in beiden Dockerfiles:
+  - `rdf-converter-service/Dockerfile`: 9 Module (`construction-schedule`, `breakdown-structure`, `gaeb-boq`, `construction-progress-report`, `construction-site`, `construction-delivery`, `built-asset`, `link-ontologies`, `notification-content`) + `MANIFEST.json` → `/app/ontologies/`, `ENV CONX_ONTOLOGY_ROOT=/app/ontologies` (2026-11-11: `notification-content` nachgezogen, fehlte bisher → `/api/v1/profiles` ohne diesen Profil)
+  - `msproject-converter-service/Dockerfile`: nur `construction-schedule`
 - Compose: `CONX_ONTOLOGY_ROOT: /app/ontologies` (MS-Project-Service in `converter-compose.yml`, rdf-Service in `rdf-converter-compose.yml`)
 - `CONVERTER_ONTOLOGY_DIR`-Bind-Mounts entfallen → lokale Ontologie-Dirs nicht mehr für Docker nötig
 - 120 lokale Ontologie-Dateien gelöscht (neben dem Repo, außerhalb von Git)
@@ -105,7 +105,7 @@ Dann http://localhost:8084/index.html öffnen.
 docker compose -f converter-compose.yml up --build   # GAEB 8081 + MS Project 8085 + Frontend 8084
 docker compose -f rdf-converter-compose.yml up --build  # RDF 8082 + Frontend 8080
 ```
-Beide brauchen `--build` + Internetzugriff: die Dockerfiles laden den Ontologie-Tarball vom Ontologie-Repo (Branch `main`, kein Tag → nicht reproduzierbar).
+Beide brauchen `--build` + Internetzugriff: die Dockerfiles laden den Ontologie-Tarball vom Ontologie-Repo (gepinnt auf Tag `v0.5.0` → reproduzierbare Builds).
 
 ### Tests
 ```powershell
