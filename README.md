@@ -23,13 +23,14 @@ docker compose -f rdf-converter-compose.yml up -d --build
 
 # Status / Logs
 docker compose -f converter-compose.yml ps
-docker logs construct-x-converters-gaeb-converter-service-1
+docker logs conx-converters-gaeb-converter-service-1
 ```
 
 - `converter-compose.yml` — GAEB (8081), MS Project (8085), converter-frontend (8084)
 - `rdf-converter-compose.yml` — rdf-converter-service (8082, auch per Host-Port exponiert), rdf-converter-frontend (8080)
 - Die Ontologien werden beim Build aus dem getagten Ontologie-Tarball in das Image gebacken (`CONX_ONTOLOGY_ROOT=/app/ontologies`); der GAEB-Service benötigt keine Ontologie-Dateien zur Laufzeit (nur eingebettete GAEB-XSDs).
 - Repo klonen: `git clone --recurse-submodules https://github.com/mkoenigRUB/Construct-X-Converters.git` (bzw. bei bestehendem Klon: `git submodule update --init ontologies`) — sonst fehlen `mvn test` die Ontologie-Dateien.
+- **Dokumentation:** [docs/INSTALLATION.md](docs/INSTALLATION.md) (Setup, Betrieb, Troubleshooting) · [docs/USER_GUIDE.md](docs/USER_GUIDE.md) (Bedienung UI + REST-API)
 
 ## REST-Interface (alle drei Konverter)
 
